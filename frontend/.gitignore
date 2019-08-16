@@ -9,3 +9,5 @@ tmp/
 
 # Compiled files
 dist/
+
+npm-debug.log
