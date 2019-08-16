@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { VelocityTransitionGroup } from 'velocity-react';
+import { VelocityTransitionGroup, VelocityComponent } from 'velocity-react';
 
 import RawHtml from 'Components/RawHtml';
 
@@ -23,16 +23,13 @@ const Accordian = ({title, richtext, open}) => {
             <div className="Accordian__Header" onClick={clickHandler}>
                 {title}
             </div>
-            <VelocityTransitionGroup
-                enter={{animation: "slideDown"}}
-                leave={{animation: "slideUp"}}
+            <VelocityComponent
+                animation={expanded ? 'slideDown' : 'slideUp'}
             >
-                {expanded &&
-                    <div className="Accordian__Content">
-                        <RawHtml html={richtext} />
-                    </div>
-                }
-            </VelocityTransitionGroup>
+                <div className="Accordian__Content">
+                    <RawHtml html={richtext} />
+                </div>
+            </VelocityComponent>
         </div>
     );
 }

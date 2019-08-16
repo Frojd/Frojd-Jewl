@@ -9,6 +9,7 @@
     &__Header {
         position: relative;
         padding: 32px 64px 32px 24px;
+        cursor: pointer;
 
         &::after {
             content: '';
@@ -31,11 +32,6 @@
     }
 
     &__Content {
-        display: none;
         padding: 0 64px 32px 24px;
-
-        #{$root}--Expanded & {
-            display: block;
-        }
     }
 }
