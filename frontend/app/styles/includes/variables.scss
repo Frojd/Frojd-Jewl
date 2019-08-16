@@ -1,8 +1,22 @@
 $basepath: '/static/assets/';
 
+$transition: .3s ease-in-out;
+
 /** Color definintions from styleguide **/
 $purple: #3f0091;
+
+$grey: #ccc;
+$grey-10: #f2f2f2;
 
 
 /** Color definitions custom vars **/
 $primary-color: $purple;
+
+
+/** Text styles variables **/
+$base-fontsize: 1.6rem;
+$base-fontfamily: 'Arial', sans-serif;
+
+$weight-regular: normal;
+$weight-bold: 600;
+$weight-black: 900;

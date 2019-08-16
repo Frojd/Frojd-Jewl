@@ -1,4 +1,40 @@
 @import "Styles/includes.scss";
 
 .Accordian {
+    $root: &;
+
+    background: $grey-10;
+
+    &__Header {
+        position: relative;
+        padding: 32px 64px 32px 24px;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 34px;
+            right: 26px;
+            padding: 3px;
+            border: solid $primary-color;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+            transition: transform $transition;
+        }
+
+        #{$root}--Expanded & {
+            &::after {
+                transform: rotate(225deg);
+            }
+        }
+    }
+
+    &__Content {
+        display: none;
+        padding: 0 64px 32px 24px;
+
+        #{$root}--Expanded & {
+            display: block;
+        }
+    }
 }
