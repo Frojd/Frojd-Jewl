@@ -15,5 +15,17 @@ module.exports = async ({ config, mode }) => {
         }
     };
     customConfig.module.rules[1].use[0] = 'style-loader';
+
+    customConfig.module.rules.push({
+        test: /\.md$/,
+        use: [
+            {
+                loader: "html-loader"
+            },
+            {
+                loader: "markdown-loader"
+            }
+        ],
+    })
     return customConfig;
 };

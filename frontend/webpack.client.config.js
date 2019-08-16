@@ -58,10 +58,6 @@ const config = {
                     },
                 ]
             },
-            {
-                test: /\.md$/,
-                loader: 'ignore-loader'
-            },
         ]
     },
     optimization: {
