@@ -14,12 +14,9 @@ addDecorator(
 );
 addDecorator(withA11y);
 
-const reqComponents = require.context('../app/components', true, /\.stories\.js$/);
-// const reqContainers = require.context('../app/containers', true, /\.stories\.js$/);
-
-function loadStories() {
-    reqComponents.keys().forEach(filename => reqComponents(filename));
-    // reqContainers.keys().forEach(filename => reqContainers(filename));
-}
+const loadStories = () => {
+  const req = require.context('../app/components', true, /\.stories\.js$/);
+  return req.keys().map(fname => req(fname));
+};
 
 configure(loadStories, module);
