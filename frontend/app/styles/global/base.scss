@@ -32,12 +32,12 @@ select {
     font-family: $base-fontfamily;
 }
 
-.js-state-no-scroll {
+.noScroll {
     overflow: hidden;
 }
 
 // Stolen with pride from bootstrap
-.sr-only {
+.srOnly {
     position: absolute;
     width: 1px;
     height: 1px;
