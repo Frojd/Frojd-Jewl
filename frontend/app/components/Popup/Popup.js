@@ -5,27 +5,12 @@ import { VelocityComponent } from 'velocity-react';
 
 import RawHtml from 'Components/RawHtml';
 
-import './Popup.scss';
-
-// title
-// text
-// animation
-// ondismiss
-// local storage
-// get site root for accept link
+import s from './Popup.scss';
 
 const Popup = ({ title, richtext }) => {
     const [visible, setVisible] = useState(false);
-
-    // const mountedRef = useRef(false);
-
-    // useEffect(() => {
-    //     mountedRef.current = true;
-    //     return () => (mountedRef.current = false);
-    // }, []);
-
     useEffect(() => {
-        //if (ls.get('cookiePopupDismissed')) return
+        if (ls.get('cookiePopupDismissed')) return;
         setVisible(true);
     }, []);
 
@@ -36,13 +21,20 @@ const Popup = ({ title, richtext }) => {
         setVisible(false);
     };
 
+    const baseUrl = window.location.origin;
+
     return (
-        <div>
+        <div className={s.Root}>
             <VelocityComponent animation={visible ? 'slideDown' : 'slideUp'}>
-                <div className="Popup">
-                    <h2>{title}</h2>
-                    <div className="Popup__Text">{richtext}</div>
-                    <a href="cookie-accept" onClick={onDismiss}>{`Accept`}</a>
+                <div className={s.Content}>
+                    <h2 className={s.Title}>{title}</h2>
+                    <div className={s.RichText}>
+                        <RawHtml html={richtext} />
+                    </div>
+                    <a
+                        className={s.Button}
+                        href={`${baseUrl}/cookie-accept`}
+                        onClick={onDismiss}>{`Accept`}</a>
                 </div>
             </VelocityComponent>
         </div>
@@ -50,7 +42,7 @@ const Popup = ({ title, richtext }) => {
 };
 
 Popup.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     richtext: PropTypes.string.isRequired,
 };
 

@@ -1,9 +1,10 @@
-@import "Styles/index";
+@import 'Styles/index';
 
 .Root {
     background: $grey-10;
 }
-.RootExpanded {}
+.RootExpanded {
+}
 
 .Header {
     position: relative;
