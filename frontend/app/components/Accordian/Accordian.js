@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { VelocityTransitionGroup, VelocityComponent } from 'velocity-react';
+import { VelocityComponent } from 'velocity-react';
 
 import RawHtml from 'Components/RawHtml';
 
