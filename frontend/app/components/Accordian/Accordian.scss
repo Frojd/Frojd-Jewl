@@ -1,37 +1,35 @@
-@import "Styles/includes.scss";
-@import "Styles/global.scss";
+@import "Styles/index";
 
-.Accordian {
-    $root: &;
-
+.Root {
     background: $grey-10;
+}
+.RootExpanded {}
 
-    &__Header {
-        position: relative;
-        padding: 32px 64px 32px 24px;
-        cursor: pointer;
+.Header {
+    position: relative;
+    padding: 32px 64px 32px 24px;
+    cursor: pointer;
 
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 34px;
+        right: 26px;
+        padding: 3px;
+        border: solid $primary-color;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+        transition: transform $transition;
+    }
+
+    .RootExpanded & {
         &::after {
-            content: '';
-            display: inline-block;
-            position: absolute;
-            top: 34px;
-            right: 26px;
-            padding: 3px;
-            border: solid $primary-color;
-            border-width: 0 3px 3px 0;
-            transform: rotate(45deg);
-            transition: transform $transition;
-        }
-
-        #{$root}--Expanded & {
-            &::after {
-                transform: rotate(225deg);
-            }
+            transform: rotate(225deg);
         }
     }
+}
 
-    &__Content {
-        padding: 0 64px 32px 24px;
-    }
+.RichText {
+    padding: 0 64px 32px 24px;
 }

@@ -5,25 +5,24 @@ import { VelocityTransitionGroup, VelocityComponent } from 'velocity-react';
 
 import RawHtml from 'Components/RawHtml';
 
-import './Accordian.scss';
+import s from './Accordian.scss';
 
 const Accordian = ({title, richtext, open, id}) => {
 
     const [expanded, setExpanded] = useState(open);
 
-    const classes = classNames(
-        'Accordian',
-        { 'Accordian--Expanded' : expanded }
-    );
-
     const clickHandler = () => setExpanded(!expanded);
 
+    const classes = classNames(
+        s.Root,
+        { [s.RootExpanded] : expanded }
+    );
     const headerId = `${id}-header`;
 
     return (
         <div className={classes}>
             <div
-                className="Accordian__Header"
+                className={s.Header}
                 onClick={clickHandler}
                 aria-expanded={expanded}
                 aria-controls={id}
@@ -35,7 +34,7 @@ const Accordian = ({title, richtext, open, id}) => {
                 animation={expanded ? 'slideDown' : 'slideUp'}
             >
                 <div
-                    className="Accordian__Content"
+                    className={s.RichText}
                     aria-hidden={!expanded}
                     aria-labelledby={headerId}
                     id={id}
