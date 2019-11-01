@@ -1,15 +1,14 @@
-/* global module */
-
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { storiesOf } from '@storybook/react';
+import * as React from 'react';
 
 import Accordian from './Accordian';
 import markdown from './Accordian.md';
-import data from './Accordian.data.js';
+import data from './Accordian.data';
 
-storiesOf('Components|Accordian', module)
-    // .add('without data', () => <Accordian />)
-    .add('with data', () => <Accordian {...data} />, {
+export default { title: 'Components|Accordian'}
+
+export const withData = () => <Accordian {...data} />;
+withData.story = {
+    parameters: {
         notes: { markdown: markdown },
-    })
+    },
+};
