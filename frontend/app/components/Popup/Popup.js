@@ -7,7 +7,7 @@ import RawHtml from 'Components/RawHtml';
 
 import s from './Popup.scss';
 
-const Popup = ({ title, richtext }) => {
+const Popup = ({ title, richtext, buttonText }) => {
     const [visible, setVisible] = useState(false);
     useEffect(() => {
         if (ls.get('cookiePopupDismissed')) return;
@@ -34,7 +34,9 @@ const Popup = ({ title, richtext }) => {
                     <a
                         className={s.Button}
                         href={`${baseUrl}/cookie-accept`}
-                        onClick={onDismiss}>{`Accept`}</a>
+                        onClick={onDismiss}>
+                        {buttonText}
+                    </a>
                 </div>
             </VelocityComponent>
         </div>
@@ -49,6 +51,7 @@ Popup.propTypes = {
 Popup.defaultProps = {
     title: '',
     richtext: '',
+    buttonText: '',
 };
 
 export default Popup;
