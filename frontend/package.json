@@ -1,143 +1,144 @@
 {
-  "name": "react-sass-starterkit",
-  "version": "4.2.0",
-  "description": "An opinionated react starterkit",
-  "main": "index.js",
-  "engines": {
-    "node": ">=10"
-  },
-  "scripts": {
-    "build": "webpack --mode=development",
-    "build:prod": "cross-env NODE_ENV=production webpack --mode=production -p",
-    "delete": "node bin/cli.js delete",
-    "eslint": "eslint app",
-    "eslint:fix": "eslint app --fix",
-    "fixcode": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --write",
-    "fixcode:test": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --list-different",
-    "multiwatch": "concurrently \"npm run watch\" \"npm run start\"",
-    "new": "node bin/cli.js new",
-    "scaffold": "node bin/cli.js scaffold",
-    "ssr": "cross-env webpack --mode=development --config ./webpack.ssr.config.js",
-    "ssr:prod": "cross-env NODE_ENV=production webpack --mode=production --config ./webpack.ssr.config.js -p",
-    "ssr:watch": "cross-env NODE_ENV=production webpack --mode=development --config ./webpack.ssr.config.js --watch",
-    "start": "node ./bin/dev-server",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook:out": "build-storybook -c .storybook -o dist/storybook",
-    "test": "jest",
-    "watch": "webpack --mode=development --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com:frojd/react-sass-starterkit.git"
-  },
-  "keywords": [
-    "webpack",
-    "sass",
-    "scss",
-    "hmr",
-    "react",
-    "frontend",
-    "boilerplate",
-    "starterkit",
-    "cli",
-    "scaffold",
-    "storybook"
-  ],
-  "author": "Daniel Karlsson",
-  "license": "MIT",
-  "browserslist": [
-    "last 1 version",
-    "> 1%",
-    "not dead",
-    "ie>=11"
-  ],
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less|scss)$": "identity-obj-proxy"
+    "name": "react-sass-starterkit",
+    "version": "4.2.0",
+    "description": "An opinionated react starterkit",
+    "main": "index.js",
+    "engines": {
+        "node": ">=10"
     },
-    "setupFiles": [
-      "./.setup-test.js"
+    "scripts": {
+        "build": "webpack --mode=development",
+        "build:prod": "cross-env NODE_ENV=production webpack --mode=production -p",
+        "delete": "node bin/cli.js delete",
+        "eslint": "eslint app",
+        "eslint:fix": "eslint app --fix",
+        "fixcode": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --write",
+        "fixcode:test": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --list-different",
+        "multiwatch": "concurrently \"npm run watch\" \"npm run start\"",
+        "new": "node bin/cli.js new",
+        "scaffold": "node bin/cli.js scaffold",
+        "ssr": "cross-env webpack --mode=development --config ./webpack.ssr.config.js",
+        "ssr:prod": "cross-env NODE_ENV=production webpack --mode=production --config ./webpack.ssr.config.js -p",
+        "ssr:watch": "cross-env NODE_ENV=production webpack --mode=development --config ./webpack.ssr.config.js --watch",
+        "start": "node ./bin/dev-server",
+        "storybook": "start-storybook -p 9001 -c .storybook",
+        "storybook:out": "build-storybook -c .storybook -o dist/storybook",
+        "test": "jest",
+        "watch": "webpack --mode=development --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com:frojd/react-sass-starterkit.git"
+    },
+    "keywords": [
+        "webpack",
+        "sass",
+        "scss",
+        "hmr",
+        "react",
+        "frontend",
+        "boilerplate",
+        "starterkit",
+        "cli",
+        "scaffold",
+        "storybook"
     ],
-    "testMatch": [
-      "**/?(*.)(test).js?(x)"
+    "author": "Daniel Karlsson",
+    "license": "MIT",
+    "browserslist": [
+        "last 1 version",
+        "> 1%",
+        "not dead",
+        "ie>=11"
     ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/",
-      "/internals/"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "testURL": "http://localhost"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-export-default-from": "^7.5.2",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
-    "@hot-loader/react-dom": "^16.10.2",
-    "@storybook/addon-a11y": "^5.2.5",
-    "@storybook/addon-actions": "^5.2.5",
-    "@storybook/addon-console": "^1.2.1",
-    "@storybook/addon-info": "^5.2.5",
-    "@storybook/addon-knobs": "^5.2.5",
-    "@storybook/addon-notes": "^5.2.5",
-    "@storybook/addon-storysource": "^5.2.5",
-    "@storybook/react": "^5.2.5",
-    "autoprefixer": "^9.7.1",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-react-docgen": "^3.2.0",
-    "babel-plugin-webpack-alias": "^2.1.2",
-    "commander": "^2.20.3",
-    "concurrently": "^4.1.2",
-    "copy-webpack-plugin": "^5.0.4",
-    "cross-env": "^5.2.1",
-    "css-loader": "^3.2.0",
-    "cssnano": "^4.1.10",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
-    "enzyme-to-json": "^3.4.3",
-    "eslint": "^6.6.0",
-    "eslint-plugin-react": "^7.16.0",
-    "expose-loader": "^0.7.5",
-    "file-loader": "^4.2.0",
-    "fs-extra": "^8.1.0",
-    "html-loader": "^0.5.5",
-    "identity-obj-proxy": "^3.0.0",
-    "ignore-loader": "^0.1.2",
-    "jest": "^24.9.0",
-    "markdown-loader": "^5.1.0",
-    "mini-css-extract-plugin": "^0.7.0",
-    "node-sass": "^4.13.0",
-    "postcss-import": "^12.0.1",
-    "postcss-loader": "^3.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "postcss-scss": "^2.0.0",
-    "precss": "^4.0.0",
-    "prettier": "^1.18.2",
-    "prop-types": "^15.7.2",
-    "react-hot-loader": "^4.12.15",
-    "react-styleguidist": "^9.2.0",
-    "sass-loader": "^7.3.1",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.41.2",
-    "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.4.4",
-    "core-js": "^3.3.6",
-    "i18next": "^17.0.6",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "velocity-react": "^1.4.3"
-  }
+    "jest": {
+        "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+            "\\.(css|less|scss)$": "identity-obj-proxy"
+        },
+        "setupFiles": [
+            "./.setup-test.js"
+        ],
+        "testMatch": [
+            "**/?(*.)(test).js?(x)"
+        ],
+        "testPathIgnorePatterns": [
+            "/node_modules/",
+            "/dist/",
+            "/internals/"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ],
+        "testURL": "http://localhost"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.6.4",
+        "@babel/core": "^7.6.4",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/plugin-proposal-export-default-from": "^7.5.2",
+        "@babel/preset-env": "^7.6.3",
+        "@babel/preset-react": "^7.6.3",
+        "@hot-loader/react-dom": "^16.10.2",
+        "@storybook/addon-a11y": "^5.2.5",
+        "@storybook/addon-actions": "^5.2.5",
+        "@storybook/addon-console": "^1.2.1",
+        "@storybook/addon-info": "^5.2.5",
+        "@storybook/addon-knobs": "^5.2.5",
+        "@storybook/addon-notes": "^5.2.5",
+        "@storybook/addon-storysource": "^5.2.5",
+        "@storybook/react": "^5.2.5",
+        "autoprefixer": "^9.7.1",
+        "babel-core": "^7.0.0-bridge.0",
+        "babel-eslint": "^10.0.3",
+        "babel-jest": "^24.9.0",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-react-docgen": "^3.2.0",
+        "babel-plugin-webpack-alias": "^2.1.2",
+        "commander": "^2.20.3",
+        "concurrently": "^4.1.2",
+        "copy-webpack-plugin": "^5.0.4",
+        "cross-env": "^5.2.1",
+        "css-loader": "^3.2.0",
+        "cssnano": "^4.1.10",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.15.1",
+        "enzyme-to-json": "^3.4.3",
+        "eslint": "^6.6.0",
+        "eslint-plugin-react": "^7.16.0",
+        "expose-loader": "^0.7.5",
+        "file-loader": "^4.2.0",
+        "fs-extra": "^8.1.0",
+        "html-loader": "^0.5.5",
+        "identity-obj-proxy": "^3.0.0",
+        "ignore-loader": "^0.1.2",
+        "jest": "^24.9.0",
+        "markdown-loader": "^5.1.0",
+        "mini-css-extract-plugin": "^0.7.0",
+        "node-sass": "^4.13.0",
+        "postcss-import": "^12.0.1",
+        "postcss-loader": "^3.0.0",
+        "postcss-preset-env": "^6.7.0",
+        "postcss-scss": "^2.0.0",
+        "precss": "^4.0.0",
+        "prettier": "^1.18.2",
+        "prop-types": "^15.7.2",
+        "react-hot-loader": "^4.12.15",
+        "react-styleguidist": "^9.2.0",
+        "sass-loader": "^7.3.1",
+        "style-loader": "^0.23.1",
+        "webpack": "^4.41.2",
+        "webpack-bundle-analyzer": "^3.6.0",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.4.4",
+        "core-js": "^3.3.6",
+        "i18next": "^17.0.6",
+        "local-storage": "^2.0.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "velocity-react": "^1.4.3"
+    }
 }
