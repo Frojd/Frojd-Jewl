@@ -8,11 +8,19 @@ module.exports = async ({ config, mode }) => {
             rules: custom.module.rules,
         },
         resolve: {
+            extensions: [
+                ...config.resolve.extensions,
+                '.ts',
+                '.tsx',
+                '.js',
+                '.jsx',
+                '.scss',
+            ],
             alias: {
                 ...config.resolve.alias,
-                ...custom.resolve.alias
-            }
-        }
+                ...custom.resolve.alias,
+            },
+        },
     };
     customConfig.module.rules[1].use[0] = 'style-loader';
 
@@ -20,12 +28,13 @@ module.exports = async ({ config, mode }) => {
         test: /\.md$/,
         use: [
             {
-                loader: "html-loader"
+                loader: 'html-loader',
             },
             {
-                loader: "markdown-loader"
-            }
+                loader: 'markdown-loader',
+            },
         ],
-    })
+    });
+
     return customConfig;
 };

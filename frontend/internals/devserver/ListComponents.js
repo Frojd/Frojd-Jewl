@@ -3,12 +3,12 @@ import React, { PureComponent } from 'react';
 const componentsContext = require.context(
     '../../app/components',
     true,
-    /index.js$/
+    /index.(js|ts)$/
 );
 const containerContext = require.context(
     '../../app/containers',
     true,
-    /index.js$/
+    /index.(js|ts)$/
 );
 const components = [];
 const containers = [];

@@ -1,12 +1,14 @@
 /* global module process */
 const presets = [
     [
-        '@babel/preset-env', {
+        '@babel/preset-env',
+        {
             useBuiltIns: 'usage',
             corejs: process.env['CORE_JS'] ? process.env['CORE_JS'] : 3,
-        }
+        },
     ],
-    '@babel/preset-react'
+    '@babel/typescript',
+    '@babel/preset-react',
 ];
 const plugins = [
     ['react-docgen', {}, 'docgen'],
@@ -15,11 +17,11 @@ const plugins = [
     ['@babel/plugin-proposal-export-default-from', {}, 'exportdefaultfrom'],
 ];
 
-if(process.env['NODE_ENV'] !== 'production') {
+if (process.env['NODE_ENV'] !== 'production') {
     plugins.push('react-hot-loader/babel');
 }
 
 module.exports = {
     presets,
-    plugins
+    plugins,
 };

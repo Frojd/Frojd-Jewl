@@ -3,7 +3,10 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const BundleAnalyzerPlugin = process.argv.indexOf('--analyze') !== -1 ? require('webpack-bundle-analyzer').BundleAnalyzerPlugin : false;
+const BundleAnalyzerPlugin =
+    process.argv.indexOf('--analyze') !== -1
+        ? require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+        : false;
 
 const configFile = require('./internals/config')();
 
@@ -12,7 +15,7 @@ const config = {
     devtool: 'source-map',
     context: path.join(__dirname, 'app'),
     entry: {
-        index: './main.js',
+        index: './main.ts',
     },
     mode: 'production',
     output: {
@@ -23,13 +26,13 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(ts(x?)|js)$/,
                 exclude: /(node_modules)/,
                 use: [
                     {
                         loader: 'babel-loader',
-                    }
-                ]
+                    },
+                ],
             },
             {
                 test: /\.(css|scss)$/,
@@ -40,11 +43,11 @@ const config = {
                         options: {
                             modules: false,
                             importLoaders: 1,
-                        }
+                        },
                     },
                     'postcss-loader',
                     'sass-loader',
-                ]
+                ],
             },
             {
                 test: /\.*$/,
@@ -54,17 +57,21 @@ const config = {
                         loader: 'file-loader',
                         options: {
                             name: '[path][name].[ext]',
-                        }
+                        },
                     },
-                ]
+                ],
             },
-        ]
+            {
+                test: /\.md$/,
+                loader: 'ignore-loader',
+            },
+        ],
     },
     optimization: {
         splitChunks: {
             chunks: 'all',
-            name: 'vendor'
-        }
+            name: 'vendor',
+        },
     },
     stats: {
         colors: true,
@@ -73,14 +80,15 @@ const config = {
         children: false,
     },
     resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss'],
         alias: {
             Containers: path.resolve(__dirname, 'app/containers/'),
             Components: path.resolve(__dirname, 'app/components/'),
             i18n: path.resolve(__dirname, 'app/i18n'),
             Styles: path.resolve(__dirname, 'app/styles'),
             Utils: path.resolve(__dirname, 'app/utils'),
-            'react-dom': '@hot-loader/react-dom'
-        }
+            'react-dom': '@hot-loader/react-dom',
+        },
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -91,12 +99,12 @@ const config = {
             {
                 from: 'assets/**',
                 to: path.resolve(__dirname, configFile.outputPath),
-            }
+            },
         ]),
-    ]
+    ],
 };
 
-if(BundleAnalyzerPlugin) {
+if (BundleAnalyzerPlugin) {
     config.plugins.push(new BundleAnalyzerPlugin());
 }
 
