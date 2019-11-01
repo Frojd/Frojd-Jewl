@@ -1,4 +1,13 @@
-@import 'Styles/includes.scss';
+@import 'Styles/index';
 
-.RawHtml {
+.Root {
+    i,
+    em {
+        font-style: italic;
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
 }
