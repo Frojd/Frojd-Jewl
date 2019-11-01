@@ -7,6 +7,11 @@ const BundleAnalyzerPlugin = process.argv.indexOf('--analyze') !== -1 ? require(
 
 const configFile = require('./internals/config')();
 
+let cssModules = true;
+if(process.env.NODE_ENV !== 'production' && process.argv.mode !== 'production') {
+    cssModules = { mode: 'local', localIdentName: '[name]__[local]' };
+}
+
 const config = {
     name: 'Client',
     devtool: 'source-map',
@@ -38,7 +43,7 @@ const config = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: false,
+                            modules: cssModules,
                             importLoaders: 1,
                         }
                     },
@@ -87,12 +92,10 @@ const config = {
             filename: '[name].css',
             chunkFilename: '[id].css',
         }),
-        new CopyWebpackPlugin([
-            {
-                from: 'assets/**',
-                to: path.resolve(__dirname, configFile.outputPath),
-            }
-        ]),
+        new CopyWebpackPlugin([{
+            from: 'assets/**',
+            to: path.resolve(__dirname, configFile.outputPath),
+        }]),
     ]
 };
 
