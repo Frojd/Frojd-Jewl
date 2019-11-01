@@ -29,6 +29,11 @@ const Accordian = ({title, richtext, open, id}) => {
                 id={headerId}
             >
                 {title}
+                <button className={s.Button}>
+                    <span className={s.srOnly}>
+                        {expanded ? 'Minimize answer' : 'Expand answer'}
+                    </span>
+                </button>
             </div>
             <VelocityComponent
                 animation={expanded ? 'slideDown' : 'slideUp'}
