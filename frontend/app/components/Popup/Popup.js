@@ -46,6 +46,7 @@ const Popup = ({ title, richtext, buttonText }) => {
 Popup.propTypes = {
     title: PropTypes.string,
     richtext: PropTypes.string.isRequired,
+    buttonText: PropTypes.string.isRequired,
 };
 
 Popup.defaultProps = {
