@@ -2,7 +2,7 @@
 ## Installation
 With npm:
 ```bash
-npm i -g jewl`
+npm i -g jewl
 ```
 ## Scaffolding your project
 To scaffold your project, simply run `jewl create-react-app` and follow the interactive cli interface
