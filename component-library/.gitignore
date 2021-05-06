@@ -10,4 +10,7 @@ tmp/
 # Compiled files
 dist/
 
-npm-debug.log
+# misc
+.DS_Store
+
+*.log
