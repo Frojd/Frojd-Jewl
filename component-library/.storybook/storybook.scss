@@ -1,0 +1,6 @@
+@import 'styles/index';
+@import '_styleguide/styleguide';
+
+#root {
+    @include clearfix;
+}

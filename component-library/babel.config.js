@@ -3,23 +3,14 @@ const presets = [
     [
         '@babel/preset-env', {
             useBuiltIns: 'usage',
-            corejs: process.env['CORE_JS'] ? process.env['CORE_JS'] : 3,
-        }
+            corejs: 3.7,
+        },
     ],
-    '@babel/preset-react'
+    '@babel/preset-react',
 ];
-const plugins = [
-    ['react-docgen', {}, 'docgen'],
-    ['babel-plugin-webpack-alias', {}, 'webpackaliases'],
-    ['@babel/plugin-proposal-class-properties', {}, 'classprops'],
-    ['@babel/plugin-proposal-export-default-from', {}, 'exportdefaultfrom'],
-];
-
-if(process.env['NODE_ENV'] !== 'production') {
-    plugins.push('react-hot-loader/babel');
-}
+const plugins = [];
 
 module.exports = {
     presets,
-    plugins
+    plugins,
 };
