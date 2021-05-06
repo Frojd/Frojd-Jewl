@@ -1,22 +1,80 @@
-$basepath: '/static/assets/';
+$assetsPath: 'assets/';
+
+$gutter: 16px;
+$gutterM: 24px; // Used for media query above M
+
+// Grid and site widths
+$maxwidths: (
+    // S: 320px,
+    SL: 500px - ($gutter * 2),
+    M: 720px,
+    ML: 808px,
+    L: 1140px,
+    XL: 1280px,
+    XXL: 1440px,
+    content: 618px,
+);
+$breakpoints: (
+    S: 375px,
+    SL: 500px, // Landscape
+    M: 768px,
+    ML: 1024px, // Landscape
+    L: 1280px,
+    XL: 1440px,
+    XXL: 1680px,
+);
 
 $transition: .3s ease-in-out;
 
 /** Color definintions from styleguide **/
+$grey: #ccc;
+$grey--10: #f2f2f2;
+$grey--60: #4C4C4C;
+
 $purple: #3f0091;
 
-$grey: #ccc;
-$grey-10: #f2f2f2;
+$red: #d62220;
 
+$green: #30D2A9;
 
 /** Color definitions custom vars **/
+$bg-color: white;
+$base-color: black;
+$heading-color: black;
 $primary-color: $purple;
-
+$accent-color: $grey;
+$success-color: $green;
+$error-color: $red;
 
 /** Text styles variables **/
-$base-fontsize: 1.6rem;
-$base-fontfamily: 'Arial', sans-serif;
+$base-font: #{Arial, sans-serif};
+$heading-font: #{Arial, sans-serif};
 
-$weight-regular: normal;
-$weight-bold: 600;
-$weight-black: 900;
+$base-size: 1.6rem;
+
+$light: 300;
+$book: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$black: 800;
+$heavy: 900;
+
+// No other font sizes are needed
+// Font sizes and line heights as defined by styleguide in pixels
+$textstyles: (
+    h1: (
+        d: (font-size: 34, line-height: 38, font-weight: $black, font-family: $heading-font, color: $heading-color),
+        L: (font-size: 56, line-height: 64),
+    ),
+    h2: (
+        d: (font-size: 30, line-height: 34, font-weight: $black, font-family: $heading-font),
+        L: (font-size: 40, line-height: 48),
+    ),
+    preamble: (
+        d: (font-size: 20, line-height: 29, font-weight: $book, letter-spacing: .2px),
+    ),
+    body: (
+        d: (font-size: 18, line-height: 28, font-weight: $book, letter-spacing: .2px),
+    ),
+);

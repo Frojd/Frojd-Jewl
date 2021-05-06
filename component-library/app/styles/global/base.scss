@@ -9,10 +9,12 @@ html {
 
 body {
     margin: 0;
-    font-size: $base-fontsize;
-    font-family: $base-fontfamily;
+    color: $base-color;
+    font-size: $base-size;
+    font-family: $base-font;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    background: $bg-color;
 }
 
 a {
@@ -29,15 +31,15 @@ button,
 input,
 textarea,
 select {
-    font-family: $base-fontfamily;
+    font-family: $base-font;
 }
 
-.noScroll {
+.no-scroll {
     overflow: hidden;
 }
 
 // Stolen with pride from bootstrap
-.srOnly {
+.sr-only {
     position: absolute;
     width: 1px;
     height: 1px;
