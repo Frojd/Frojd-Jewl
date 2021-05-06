@@ -1,0 +1,78 @@
+/* Styleguide is only available in storybook */
+
+.styleguide {
+    background: white;
+
+    &__wrap {
+        @include wrap;
+
+        padding: 40px 0 80px;
+    }
+
+    h1 {
+        @include textstyle(h1);
+
+        margin: 40px 0;
+        color: black;
+    }
+
+    h2 {
+        @include textstyle(h2);
+
+        padding-bottom: 8px;
+        margin: 60px 0 40px;
+        color: black;
+        border-bottom: 1px solid black;
+    }
+
+    pre {
+        font-family: 'Courier new', monospace;
+        margin: 40px 0 8px;
+    }
+
+    .textstyle {
+        &--h1 {
+            @include textstyle(h1);
+        }
+
+        &--h2 {
+            @include textstyle(h2);
+        }
+
+        &--body {
+            @include textstyle(body);
+        }
+
+        &--preamble {
+            @include textstyle(preamble);
+        }
+    }
+
+    .color {
+        &__box {
+            display: block;
+            padding: 24px;
+            color: black;
+            font-weight: $black;
+
+            &--purple {
+                color: white;
+                background: $purple;
+            }
+
+            &--grey {
+                color: white;
+                background: $grey;
+            }
+
+            &--grey-60 {
+                color: white;
+                background: $grey--60;
+            }
+
+            &--grey-10 {
+                background: $grey--10;
+            }
+        }
+    }
+}
