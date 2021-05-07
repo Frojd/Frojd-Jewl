@@ -4,8 +4,7 @@ import classNames from 'classnames';
 import { VelocityComponent, velocityHelpers } from 'velocity-react';
 import 'velocity-animate';
 import 'velocity-animate/velocity.ui';
-
-import s from './NavigationDrawer.scss';
+import s from './NavigationDrawer.module.scss';
 
 const NavigationDrawer = ({ richtext, open, id }) => {
 
@@ -31,11 +30,11 @@ const NavigationDrawer = ({ richtext, open, id }) => {
             calls: [
                 [{ right: '-300px' }],
             ],
-        })
+        }),
     };
 
     return (
-        <div className={s.Root}>
+        <div className={classes}>
             <button
                 className={s.Button}
                 onClick={clickHandler}
@@ -43,7 +42,7 @@ const NavigationDrawer = ({ richtext, open, id }) => {
                 aria-controls={id}
                 id={buttonId}
             >
-                <span className={s.srOnly}>
+                <span className="sr-only">
                     {expanded ? 'Close menu' : 'Open menu'}
                 </span>
             </button>
@@ -60,7 +59,7 @@ const NavigationDrawer = ({ richtext, open, id }) => {
                 />
             </VelocityComponent>
         </div>
-    )
+    );
 };
 
 NavigationDrawer.propTypes = {

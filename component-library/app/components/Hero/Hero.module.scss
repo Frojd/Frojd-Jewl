@@ -1,0 +1,8 @@
+@import 'Styles/includes';
+
+.Root {
+}
+
+.Title {
+    @include textstyle(h1);
+}

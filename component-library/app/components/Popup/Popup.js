@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ls from 'local-storage';
 import { VelocityComponent } from 'velocity-react';
-
 import RawHtml from 'Components/RawHtml';
-
-import s from './Popup.scss';
+import s from './Popup.module.scss';
 
 const Popup = ({ title, richtext, buttonText }) => {
     const [visible, setVisible] = useState(false);

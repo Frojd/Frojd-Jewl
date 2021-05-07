@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { VelocityComponent } from 'velocity-react';
-
 import RawHtml from 'Components/RawHtml';
-
-import s from './Accordian.scss';
+import s from './Accordian.module.scss';
 
 const Accordian = ({title, richtext, open, id}) => {
 
@@ -15,7 +13,7 @@ const Accordian = ({title, richtext, open, id}) => {
 
     const classes = classNames(
         s.Root,
-        { [s.RootExpanded] : expanded }
+        { [s['Root--Expanded']] : expanded }
     );
     const headerId = `${id}-header`;
 
@@ -30,7 +28,7 @@ const Accordian = ({title, richtext, open, id}) => {
             >
                 {title}
                 <button className={s.Button}>
-                    <span className={s.srOnly}>
+                    <span className="sr-only">
                         {expanded ? 'Minimize answer' : 'Expand answer'}
                     </span>
                 </button>
@@ -49,7 +47,7 @@ const Accordian = ({title, richtext, open, id}) => {
             </VelocityComponent>
         </div>
     );
-}
+};
 
 Accordian.propTypes = {
     title: PropTypes.string.isRequired,

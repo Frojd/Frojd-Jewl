@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './RawHtml.scss';
+import s from './RawHtml.module.scss';
 
 const RawHtml = ({ html }) => (
     <div className={s.Root} dangerouslySetInnerHTML={{ __html: html }} />

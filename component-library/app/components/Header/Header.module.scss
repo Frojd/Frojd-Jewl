@@ -1,0 +1,85 @@
+@import 'Styles/includes';
+
+.Root {
+    border-bottom: 1px solid $grey--10;
+}
+
+.Wrap {
+    @include wrap;
+
+    display: flex;
+    align-items: center;
+}
+
+.LogoLink {
+    flex: 0 0 auto;
+    display: block;
+    margin-right: 20px;
+}
+
+.Logo {
+    margin-top: 4px;
+}
+
+.Menu {
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+
+.Nav {
+    display: flex;
+}
+
+.Item {
+    flex: 0 0 auto;
+    position: relative;
+    display: block;
+    padding: 22px 16px;
+    color: $base-color;
+    font-weight: $bold;
+    text-decoration: none;
+    transition: color $transition;
+
+    &::after {
+        content: '';
+        height: 4px;
+        position: absolute;
+        bottom: 0;
+        left: 16px;
+        right: 16px;
+        background: $grey;
+        opacity: 0;
+        transition: background $transition, opacity $transition;
+    }
+
+    &--Current {
+        &::after {
+            background: black;
+            opacity: 1;
+        }
+    }
+
+    &--Search {
+        margin-right: -16px;
+
+        svg {
+            margin-right: 8px;
+            transition: fill $transition;
+        }
+
+        &:hover {
+            svg {
+                fill: $primary-color;
+            }
+        }
+    }
+
+    &:hover {
+        color: $primary-color;
+
+        &::after {
+            background: $primary-color;
+            opacity: 1;
+        }
+    }
+}

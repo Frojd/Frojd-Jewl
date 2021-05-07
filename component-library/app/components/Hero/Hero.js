@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import s from './Hero.scss';
+import s from './Hero.module.scss';
 
 const Hero = ({ title }) => (
     <div className={s.Root}>

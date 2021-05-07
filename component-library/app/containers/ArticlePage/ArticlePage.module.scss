@@ -1,0 +1,13 @@
+@import 'Styles/includes';
+
+.Root {
+}
+
+.Wrap {
+    @include wrap;
+}
+
+.Content {
+    max-width: map-get($maxwidths, content);
+    margin: 0 auto;
+}

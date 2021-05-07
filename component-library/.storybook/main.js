@@ -80,6 +80,7 @@ module.exports = {
         });
 
         config.resolve.alias = {
+            Layouts: path.resolve(__dirname, '../app/layouts/'),
             Containers: path.resolve(__dirname, '../app/containers/'),
             Components: path.resolve(__dirname, '../app/components/'),
             i18n: path.resolve(__dirname, '../app/i18n'),

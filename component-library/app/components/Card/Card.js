@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './Card.scss';
+import s from './Card.module.scss';
 
 const Card = ({ title, link, image, text }) => {
     return (

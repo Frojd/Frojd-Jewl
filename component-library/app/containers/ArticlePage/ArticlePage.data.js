@@ -1,6 +1,9 @@
-import rawHtml from '../../components/RawHtml/RawHtml.data';
+import base from 'Layouts/Base/Base.data';
+import hero from 'Components/Hero/Hero.data';
+import rawHtml from 'Components/RawHtml/RawHtml.data';
 
 export default {
-    title: 'Article title',
-    richText: rawHtml.html,
+    ...base,
+    hero: hero,
+    content: rawHtml,
 };

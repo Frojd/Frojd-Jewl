@@ -1,0 +1,48 @@
+@import 'Styles/includes';
+
+.Root {
+    @include textstyle(body);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 40px 0 10px;
+
+        + p {
+            margin-top: 10px;
+        }
+    }
+
+    p {
+        margin: 15px 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    h1 {
+        @include textstyle(h1);
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @include textstyle(h2);
+    }
+
+    i,
+    em {
+        font-style: italic;
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
+}
