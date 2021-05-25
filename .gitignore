@@ -1,0 +1,10 @@
+# VS Code
+.vscode
+
+# Temp
+tmp/
+
+# misc
+.DS_Store
+
+*.log
