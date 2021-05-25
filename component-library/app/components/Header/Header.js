@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {useTranslation} from 'react-i18next';
 import s from './Header.module.scss';
-// import Logo from 'assets/img/logo.png';
+import Logo from 'assets/img/logo.png';
 import Search from 'svg/search.svg';
 
 const Header = ({menu, currentId}) => {
@@ -16,13 +16,13 @@ const Header = ({menu, currentId}) => {
         <div className={s.Root}>
             <div className={s.Wrap}>
                 <a className={s.LogoLink} href="/">
-                    {/*<img
+                    <img
                         className={s.Logo}
                         src={Logo}
                         alt="Logo example in img"
                         width="98"
                         height="40"
-                    />*/}
+                    />
                 </a>
 
                 <div className={s.Menu}>
