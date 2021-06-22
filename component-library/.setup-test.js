@@ -1,6 +1,6 @@
 import glob from 'glob';
 import path from 'path';
-import { getData } from './internals/utils';
+// import { getData } from './internals/utils';
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 // React 16 Enzyme adapter
@@ -23,7 +23,7 @@ function getJsonData() {
     
     const data = {};
     for(let key in jsonFiles) {
-        data[key] = getData(key, jsonFiles);
+        // data[key] = getData(key, jsonFiles);
     }
     return data;
 }
