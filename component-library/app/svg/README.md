@@ -9,5 +9,5 @@ Any svg icons that should be included inline should be located in the inline-dir
 ### Inline svgs
 Run in the root of this directory
 ```
-npx svgo ./ --config=.svgo.yml
+npx svgo ./ --config=svgo.config.js
 ```

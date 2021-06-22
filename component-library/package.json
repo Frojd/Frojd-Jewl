@@ -17,7 +17,7 @@
     "fixcode": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --write",
     "fixcode:test": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --list-different",
     "start": "node ./bin/dev-server",
-    "svg": "svgo -f app/svg -q --config=app/svg/.svgo.yml",
+    "svg": "svgo -f app/svg -q --config=app/svg/svgo.config.js",
     "test": "jest"
   },
   "jest": {
