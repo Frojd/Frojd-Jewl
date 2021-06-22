@@ -19,8 +19,6 @@ const Popup = ({ title, richtext, buttonText }) => {
         setVisible(false);
     };
 
-    const baseUrl = window.location.origin;
-
     return (
         <div className={s.Root}>
             <VelocityComponent animation={visible ? 'slideDown' : 'slideUp'}>
@@ -31,7 +29,7 @@ const Popup = ({ title, richtext, buttonText }) => {
                     </div>
                     <a
                         className={s.Button}
-                        href={`${baseUrl}/cookie-accept`}
+                        href="/cookie-accept"
                         onClick={onDismiss}>
                         {buttonText}
                     </a>
