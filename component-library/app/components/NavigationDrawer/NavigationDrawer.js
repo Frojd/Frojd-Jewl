@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { VelocityComponent, velocityHelpers } from 'velocity-react';
-import 'velocity-animate';
-import 'velocity-animate/velocity.ui';
+// These must be imported globally
+// import 'velocity-animate';
+// import 'velocity-animate/velocity.ui';
 import s from './NavigationDrawer.module.scss';
 
 const NavigationDrawer = ({ richtext, open, id }) => {
