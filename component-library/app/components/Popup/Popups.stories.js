@@ -1,8 +1,19 @@
-import * as React from 'react';
+import React from 'react';
+import {Description} from '@storybook/addon-docs/blocks';
 import Popup from './Popup';
-import data from './Popup.data.js';
+import data from './Popup.data';
+import readme from './Popup.md';
 
-export default { title: 'Components/Popup' };
+const Doc = () => <Description markdown={readme} />;
+
+export default {
+    title: 'Components/Popup',
+    parameters: {
+        docs: {
+            page: Doc
+        }
+    },
+};
 
 export const PopupDefault = () => (
     <Popup {...data} />

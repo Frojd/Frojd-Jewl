@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RawHtml from './RawHtml';
 import data from './RawHtml.data';
 
