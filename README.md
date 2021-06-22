@@ -25,6 +25,11 @@ Our template project is based on [Create react app](https://github.com/facebook/
 ### CLI
 @todo, We provide a interactive cli for scaffolding projects aswell as containers and components based on Commander, Inquirer
 
+Commands:
+`jewl init` -- Initialize jewl project, adds a jewlconfig.js file in current folder
+`jewl new [Component]` -- Create a new component including its dependencies
+`jewl help` -- Display available commands 
+
 ### Component library
 
 @todo, Hosted on github, Short description, link to live styleguide
