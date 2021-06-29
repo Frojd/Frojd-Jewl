@@ -36,7 +36,7 @@ export default class Init extends Command {
     try {
       const repo: Repository = await Repository.open(REPO_PATH)
       this.log(`Local repository exists, getting latest changes...`)
-      repo.fetch("origin")
+      repo.mergeBranches(config.repositoryBranch, "origin/" + config.repositoryBranch)
       this.log(`Local repository updated!`)
     } catch (e) {
       try {
