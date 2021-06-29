@@ -1,3 +1,6 @@
+cli/bin/jewlconfig.json
+cli/bin/.jewl-repo
+
 # VS Code
 .vscode
 
