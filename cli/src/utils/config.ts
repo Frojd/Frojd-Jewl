@@ -57,6 +57,10 @@ export function getRepositoryComponentPath(): string {
   return path.join(getBasePath(), REPO_PATH, getConfig().repositoryComponentPath)
 }
 
+export function getLocalComponentPath(): string {
+  return path.join(getBasePath(), getConfig().componentPath)
+}
+
 export function storeConfig(options: object): JewlConfig {
   fs.writeFileSync(CONFIG_FILE_NAME, JSON.stringify(options))
   return getConfig()

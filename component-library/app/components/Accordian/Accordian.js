@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { VelocityComponent } from 'velocity-react';
-import RawHtml from 'Components/RawHtml';
+import RawHtml from '../RawHtml';
 import s from './Accordian.module.scss';
 
 const Accordian = ({title, richtext, open, id}) => {

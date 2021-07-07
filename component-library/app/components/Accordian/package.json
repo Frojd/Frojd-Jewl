@@ -1,0 +1,11 @@
+{
+  "name": "Accordian",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "*",
+    "classnames": "*",
+    "velocity-react": "*",
+    "prop-types": "*",
+    "RawHtml": "../RawHtml/"
+  }
+}
