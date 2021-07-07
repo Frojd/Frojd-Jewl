@@ -16,22 +16,25 @@ export interface JewlConfig {
 
 class LocalConfigMissing extends Error {}
 
-function _findAndGetLocalConfig(basePath?: string): JewlLocalConfig {
-  if (!basePath) {
-    basePath = process.cwd()
+export function getBasePath(_path?:string): string {
+  if (!_path) {
+    _path = process.cwd()
   }
 
-  const absPath = path.join(basePath, CONFIG_FILE_NAME)
-
-  if (fs.existsSync(absPath)) {
-    return JSON.parse(fs.readFileSync(absPath, {encoding: 'utf-8'}))
-  }
-
-  if (basePath === path.sep) {
+  if (_path === path.sep) {
     throw new LocalConfigMissing('No local config found')
   }
 
-  return _findAndGetLocalConfig(path.dirname(basePath))
+  if (fs.existsSync(path.join(_path, CONFIG_FILE_NAME))) {
+    return _path
+  }
+
+  return getBasePath(path.dirname(_path))
+}
+
+function _getLocalConfig(): JewlLocalConfig {
+  const _path = path.join(getBasePath(), CONFIG_FILE_NAME)
+  return JSON.parse(fs.readFileSync(_path, {encoding: 'utf-8'}))
 }
 
 export function getConfig(): JewlConfig {
@@ -41,7 +44,7 @@ export function getConfig(): JewlConfig {
     repositoryComponentPath: 'component-library/app/components',
   }
 
-  const localConfig = _findAndGetLocalConfig()
+  const localConfig = _getLocalConfig()
 
   if (!localConfig) {
     throw new LocalConfigMissing('No local config found')
