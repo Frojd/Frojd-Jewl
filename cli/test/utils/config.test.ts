@@ -3,12 +3,12 @@ import {getConfig} from '../../src/utils/config'
 import * as fs from 'fs'
 import {CONFIG_FILE_NAME} from '../../src/constants'
 
-describe('config', () => {
+describe('Config module', () => {
   test.it('Raise no local override config found when uninitialized', () => {
     expect(getConfig).to.throw('No local config found')
   })
 
-  describe('with config', () => {
+  describe('With config existant', () => {
     before(() => {
       fs.writeFileSync(CONFIG_FILE_NAME, JSON.stringify({componentPath: 'component/path'}))
     })

@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 
-import {CONFIG_FILE_NAME} from '../constants'
+import {CONFIG_FILE_NAME, REPO_PATH} from '../constants'
 
 interface JewlLocalConfig {
   componentPath: string;
@@ -14,9 +14,9 @@ export interface JewlConfig {
   repositoryComponentPath: string;
 }
 
-class LocalConfigMissing extends Error {}
+export class LocalConfigMissing extends Error {}
 
-export function getBasePath(_path?:string): string {
+export function getBasePath(_path?: string): string {
   if (!_path) {
     _path = process.cwd()
   }
@@ -51,6 +51,10 @@ export function getConfig(): JewlConfig {
   }
 
   return {...defaultConfig, ...localConfig}
+}
+
+export function getRepositoryComponentPath(): string {
+  return path.join(getBasePath(), REPO_PATH, getConfig().repositoryComponentPath)
 }
 
 export function storeConfig(options: object): JewlConfig {
