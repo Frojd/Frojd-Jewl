@@ -40,7 +40,7 @@ export default class Init extends Command {
         })
 
         this.log(`Jewl initialized: "${CONFIG_FILE_NAME}" has been created/updated in current working directory and local repository updated.`)
-        this.log(`${CONFIG_FILE_NAME} should be check in to you repository and ${REPO_PATH} should be in your .gitignore`)
+        this.log(`${CONFIG_FILE_NAME} should be checked in to you repository and ${REPO_PATH} should be in your .gitignore`)
       } catch (error) {
         this.error('Failed to clone repository: ' + error.message)
       }
