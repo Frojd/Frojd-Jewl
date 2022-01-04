@@ -22,6 +22,8 @@ export interface JewlConfig {
 
 export class LocalConfigMissing extends Error {
 }
+export class LocalRepositoryMissing extends Error {
+}
 
 export function getBasePath(_path?: string): string {
   if (!_path) {
@@ -78,6 +80,15 @@ export function getComponentLocalNames(remoteName: string): Array<string> {
   })
 
   return _return
+}
+
+export function getAvailableComponents(): Array<string> {
+  const componentPath = getRepositoryComponentPath()
+  if (!fs.existsSync(componentPath)) {
+    throw new LocalRepositoryMissing(`The path ${componentPath} does not exist. Check your jewlconfig or reinitialize project`)
+  }
+
+  return fs.readdirSync(componentPath)
 }
 
 export function storeConfig(options: object): JewlConfig {

@@ -9,9 +9,10 @@ import {
   getLocalComponentPath,
   addComponentMapping,
   getComponentLocalNames,
+  getAvailableComponents,
 } from '../utils/config'
 
-export default class List extends Command {
+export default class Clone extends Command {
   static description = 'Clone components'
 
   static args = [
@@ -25,7 +26,7 @@ export default class List extends Command {
   ]
 
   async run() {
-    const {args} = this.parse(List)
+    const {args} = this.parse(Clone)
     const {componentName, newName} = args
 
     try {
@@ -42,6 +43,10 @@ export default class List extends Command {
   private async clone(componentName: string, newName: string) {
     const componentAbsPath = path.join(getRepositoryComponentPath(), componentName)
     const componentDestinationAbsPath = path.join(getLocalComponentPath(), newName)
+
+    if (getAvailableComponents().filter((name: string) => name === componentName).length === 0) {
+      this.error(`No component named ${componentName} found in local repository. Try "jewl list" to see available components`)
+    }
 
     if (fse.existsSync(componentDestinationAbsPath)) {
       this.error(`The path ${componentDestinationAbsPath} does already exist. Aborting...`)
