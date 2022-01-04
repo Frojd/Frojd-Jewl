@@ -81,7 +81,7 @@ export function getComponentLocalNames(remoteName: string): Array<string> {
 }
 
 export function storeConfig(options: object): JewlConfig {
-  fs.writeFileSync(CONFIG_FILE_NAME, JSON.stringify(options))
+  fs.writeFileSync(CONFIG_FILE_NAME, JSON.stringify(options, null, 2))
   return getConfig()
 }
 
