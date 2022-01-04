@@ -3,6 +3,7 @@ cli/bin/.jewl-repo
 
 # VS Code
 .vscode
+.idea
 
 # Temp
 tmp/
