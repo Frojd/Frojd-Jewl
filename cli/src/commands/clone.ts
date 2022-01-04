@@ -1,13 +1,14 @@
 import {Command} from '@oclif/command'
 import * as fse from 'fs-extra'
 import * as path from 'path'
-import * as lmify from "lmify";
+import * as lmify from 'lmify'
 
 import {
   LocalConfigMissing,
   getRepositoryComponentPath,
   getLocalComponentPath,
-  addComponentMapping, getComponentLocalNames
+  addComponentMapping,
+  getComponentLocalNames,
 } from '../utils/config'
 
 export default class List extends Command {
@@ -68,8 +69,8 @@ export default class List extends Command {
       const localNames = getComponentLocalNames(dep)
       if (localNames.length > 0) {
         this.warn(`Jewl dependencie "${dep}" is required for this component: ${currentLocalName}.` +
-        ' It is already installed under the following name/names: ' + localNames.join(', ') +
-        '. After the installation is complete, make sure to update this components imports and usages if needed')
+          ' It is already installed under the following name/names: ' + localNames.join(', ') +
+          '. After the installation is complete, make sure to update this components imports and usages if needed')
       } else {
         this.log(`Installing dependency "${dep}"...`)
         await this.clone(dep, dep)
