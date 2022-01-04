@@ -4,5 +4,7 @@
 /dist
 /lib
 /tmp
+.idea
 /yarn.lock
 node_modules
+output

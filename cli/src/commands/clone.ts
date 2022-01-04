@@ -1,14 +1,21 @@
 import {Command} from '@oclif/command'
-import * as fs from 'fs'
 import * as fse from 'fs-extra'
 import * as path from 'path'
-import {LocalConfigMissing, getRepositoryComponentPath, getLocalComponentPath} from '../utils/config'
+import * as lmify from "lmify";
+
+import {
+  LocalConfigMissing,
+  getRepositoryComponentPath,
+  getLocalComponentPath,
+  addComponentMapping, getComponentLocalNames
+} from '../utils/config'
 
 export default class List extends Command {
   static description = 'Clone components'
+
   static args = [
     {name: 'componentName', required: true},
-    {name: 'newName', required: false}
+    {name: 'newName', required: false},
   ]
 
   static examples = [
@@ -26,6 +33,7 @@ export default class List extends Command {
       if (error instanceof LocalConfigMissing) {
         this.error('Jewl not initialized. Try `jewl init`')
       }
+
       this.error('Unexpected Error: ' + error)
     }
   }
@@ -34,14 +42,52 @@ export default class List extends Command {
     const componentAbsPath = path.join(getRepositoryComponentPath(), componentName)
     const componentDestinationAbsPath = path.join(getLocalComponentPath(), newName)
 
-    const _package = await fse.readJson(path.join(componentAbsPath, 'package.json')).catch( error => {
-      this.error(`Component "${componentName}" has no package.json file. This is required`)
+    if (fse.existsSync(componentDestinationAbsPath)) {
+      this.error(`The path ${componentDestinationAbsPath} does already exist. Aborting...`)
+    }
+
+    const _package = await fse.readJson(path.join(componentAbsPath, 'package.json')).catch(error => {
+      this.error(`Component "${componentName}" package.json file unreadable or non existing: ` + error)
     })
 
-    this.log(`Cloning ${componentName}...`)
-    //fse.copySync(componentAbsPath, componentDestinationAbsPath)
-    console.log(_package)
+    if (_package.dependencies) {
+      await this.installDependencies(_package.dependencies)
+    }
 
-    console.log(componentAbsPath, componentDestinationAbsPath)
+    if (_package.jewlDependencies) {
+      await this.installJewlDependencies(_package.jewlDependencies, newName)
+    }
+
+    this.log(`Installing ${componentName}...`)
+    addComponentMapping(componentName, newName)
+    fse.copySync(componentAbsPath, componentDestinationAbsPath)
+  }
+
+  private async installJewlDependencies(dependencies: Array<string>, currentLocalName: string) {
+    dependencies.map(async (dep: string) => {
+      const localNames = getComponentLocalNames(dep)
+      if (localNames.length > 0) {
+        this.warn(`Jewl dependencie "${dep}" is required for this component: ${currentLocalName}.` +
+        ' It is already installed under the following name/names: ' + localNames.join(', ') +
+        '. After the installation is complete, make sure to update this components imports and usages if needed')
+      } else {
+        this.log(`Installing dependency "${dep}"...`)
+        await this.clone(dep, dep)
+      }
+    })
+  }
+
+  private async installDependencies(dependencies: Array<string>) {
+    const install = []
+    for (const dep in dependencies) {
+      if (Object.prototype.hasOwnProperty.call(dependencies, dep)) {
+        install.push(dep + '@' + dependencies[dep])
+      }
+    }
+
+    this.log('Installing npm dependencies...')
+
+    lmify.setPackageManager('npm')
+    lmify.install(install)
   }
 }

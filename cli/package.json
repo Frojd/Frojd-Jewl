@@ -12,8 +12,8 @@
     "@oclif/config": "^1.17.0",
     "@oclif/plugin-help": "^3.2.2",
     "fs-extra": "^10.0.0",
-    "nodegit": "^0.27.0",
-    "tslib": "^1.14.1"
+    "lmify": "^0.3.0",
+    "nodegit": "^0.27.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.26.0",
