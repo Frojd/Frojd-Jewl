@@ -5,7 +5,9 @@
     "react": "*",
     "classnames": "*",
     "velocity-react": "*",
-    "prop-types": "*",
-    "RawHtml": "../RawHtml/"
-  }
+    "prop-types": "*"
+  },
+  "jewlDependencies": [
+    "RawHtml"
+  ]
 }
