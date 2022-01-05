@@ -2,7 +2,7 @@
 *-error.log
 /.nyc_output
 /dist
-/lib
+/dist
 /tmp
 .idea
 /yarn.lock

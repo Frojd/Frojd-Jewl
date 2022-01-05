@@ -53,11 +53,11 @@
   },
   "files": [
     "/bin",
-    "/lib",
+    "/dist",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "oclif": {
     "commands": "./lib/commands",
     "bin": "jewl-cli",
@@ -86,7 +86,7 @@
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "directories": {
     "test": "test"
   },
