@@ -1,7 +1,7 @@
 {
   "name": "@frojdagency/jewl-cli",
   "description": "CLI tool for Jewl. Import your components with ease",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Mikael Engström <mikael.engstrom@frojd.se>",
   "homepage": "https://github.com/Frojd/Frojd-Jewl/",
   "bugs": {
@@ -14,7 +14,6 @@
   "dependencies": {
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^2.0.1",
     "classnames": "^2.3.1",
     "cli-ux": "^6.0.6",
     "fs-extra": "^10.0.0",
@@ -62,8 +61,7 @@
     "commands": "./dist/commands",
     "bin": "jewl-cli",
     "plugins": [
-      "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
+      "@oclif/plugin-help"
     ],
     "topicSeparator": " ",
     "topics": {

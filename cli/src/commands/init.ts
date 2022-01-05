@@ -5,7 +5,9 @@ import {Clone, Repository} from 'nodegit'
 import {getConfig, storeConfig, JewlConfig} from '../utils/config'
 
 export default class Init extends Command {
-  static description = 'Initialize or update settings for your jewl project. Creates/updates config file in your current working directory'
+  static description = 'Initialize or update settings for your Jewl project. ' +
+    'Creates a config file in your current working directory. If file already exists, this command ' +
+    'overwrites the properties changed in the interactive cli interface'
 
   static examples = [
     '$ jewl-cli init',

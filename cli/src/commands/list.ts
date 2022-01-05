@@ -2,7 +2,7 @@ import {Command} from '@oclif/core'
 import {LocalConfigMissing, getAvailableComponents} from '../utils/config'
 
 export default class List extends Command {
-  static description = 'Lists available components'
+  static description = 'Lists available components in the Jewl component library'
 
   static examples = [
     '$ jewl list',
