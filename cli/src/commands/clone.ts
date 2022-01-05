@@ -13,13 +13,13 @@ import {
 } from '../utils/config'
 
 export default class Clone extends Command {
-  static description = 'Clone components from the Jewl component library to your local project'
+  static description = 'Clone components from the Jewl Component Library to your local project'
 
   static args = [
     {
       name: 'componentName',
       required: true,
-      description: '(required) The name of the component in the Jewl component library',
+      description: '(required) The name of the component in the Jewl Component Library',
     },
     {
       name: 'newName',

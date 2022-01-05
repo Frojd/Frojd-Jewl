@@ -4,7 +4,7 @@ import {Repository} from 'nodegit'
 import {getConfig, JewlConfig} from '../utils/config'
 
 export default class Update extends Command {
-  static description = 'Sync the latest changes from the Jewl component library'
+  static description = 'Sync the latest changes from the Jewl Component Library'
 
   static examples = [
     '$ jewl-cli update',

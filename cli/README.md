@@ -12,7 +12,6 @@ The CLI tool for [Jewl](https://github.com/Frojd/Frojd-Jewl). For overview on th
 * [Overview](#overview)
 * [Project setup](#project-setup)
 * [Settings: jewlconfig.json](#settings-jewlconfigjson)
-* [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
 
@@ -27,7 +26,7 @@ is used as source for the `clone` command. To update the local library with remo
 
 <!-- overviewstop -->
 
-# Project setup
+# Project setup / Usage
 <!-- projectsetup -->
 Jewl is intended to be used on a project basis and not as a global install. To set it up in your project:
 1) Run `npm i --save-dev @frojdagency/jewl-cli`
@@ -63,21 +62,6 @@ existing frontend project, manual mappings could be added to resolve name-collis
 
 <!-- settingsstop -->
 
-# Usage
-<!-- usage -->
-```sh-session
-$ npm install -g @frojdagency/jewl-cli
-$ jewl-cli COMMAND
-running command...
-$ jewl-cli (--version)
-@frojdagency/jewl-cli/0.0.3 darwin-arm64 node-v14.18.2
-$ jewl-cli --help [COMMAND]
-USAGE
-  $ jewl-cli COMMAND
-...
-```
-<!-- usagestop -->
-
 # Commands
 <!-- commands -->
 * [`jewl-cli clone COMPONENTNAME [NEWNAME]`](#jewl-cli-clone-componentname-newname)
@@ -88,18 +72,18 @@ USAGE
 
 ## `jewl-cli clone COMPONENTNAME [NEWNAME]`
 
-Clone components from the Jewl component library to your local project
+Clone components from the Jewl Component Library to your local project
 
 ```
 USAGE
   $ jewl-cli clone [COMPONENTNAME] [NEWNAME]
 
 ARGUMENTS
-  COMPONENTNAME  (required) The name of the component in the Jewl component library
+  COMPONENTNAME  (required) The name of the component in the Jewl Component Library
   NEWNAME        The name of the newly created component. Defaults to COMPONENTNAME
 
 DESCRIPTION
-  Clone components from the Jewl component library to your local project
+  Clone components from the Jewl Component Library to your local project
 
 EXAMPLES
   $ jewl clone Header
@@ -149,14 +133,14 @@ _See code: [dist/commands/init.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0
 
 ## `jewl-cli list`
 
-Lists available components in the Jewl component library
+Lists available components in the Jewl Component Library
 
 ```
 USAGE
   $ jewl-cli list
 
 DESCRIPTION
-  Lists available components in the Jewl component library
+  Lists available components in the Jewl Component Library
 
 EXAMPLES
   $ jewl list
@@ -166,14 +150,14 @@ _See code: [dist/commands/list.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0
 
 ## `jewl-cli update`
 
-Sync the latest changes from the Jewl component library
+Sync the latest changes from the Jewl Component Library
 
 ```
 USAGE
   $ jewl-cli update
 
 DESCRIPTION
-  Sync the latest changes from the Jewl component library
+  Sync the latest changes from the Jewl Component Library
 
 EXAMPLES
   $ jewl-cli update
