@@ -1,6 +1,6 @@
 import {expect, test} from '@oclif/test'
 import {getConfig} from '../../src/utils/config'
-import * as fs from 'fs'
+import * as fs from 'node:fs'
 import {CONFIG_FILE_NAME} from '../../src/constants'
 
 describe('Config module', () => {

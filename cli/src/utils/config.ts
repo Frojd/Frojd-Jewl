@@ -1,5 +1,5 @@
-import * as fs from 'fs'
-import * as path from 'path'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
 
 import {CONFIG_FILE_NAME, REPO_PATH} from '../constants'
 
@@ -20,10 +20,8 @@ export interface JewlConfig {
   componentMapping: Array<JewlComponentMapping>;
 }
 
-export class LocalConfigMissing extends Error {
-}
-export class LocalRepositoryMissing extends Error {
-}
+export class LocalConfigMissing extends Error {}
+export class LocalRepositoryMissing extends Error {}
 
 export function getBasePath(_path?: string): string {
   if (!_path) {
@@ -42,8 +40,8 @@ export function getBasePath(_path?: string): string {
 }
 
 function _getLocalConfig(): JewlLocalConfig {
-  const _path = path.join(getBasePath(), CONFIG_FILE_NAME)
-  return JSON.parse(fs.readFileSync(_path, {encoding: 'utf-8'}))
+  const _path: string = path.join(getBasePath(), CONFIG_FILE_NAME)
+  return JSON.parse(fs.readFileSync(_path).toString('utf8'))
 }
 
 export function getConfig(): JewlConfig {
@@ -73,11 +71,11 @@ export function getLocalComponentPath(): string {
 
 export function getComponentLocalNames(remoteName: string): Array<string> {
   const _return: Array<string> = []
-  getConfig().componentMapping.forEach((mapping: JewlComponentMapping) => {
+  for (const mapping of getConfig().componentMapping) {
     if (mapping.remoteName === remoteName) {
       _return.push(mapping.localName)
     }
-  })
+  }
 
   return _return
 }

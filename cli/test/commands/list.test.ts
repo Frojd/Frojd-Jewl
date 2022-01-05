@@ -1,6 +1,6 @@
 import {expect, test} from '@oclif/test'
-import * as fs from 'fs'
-import * as path from 'path'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
 import {CONFIG_FILE_NAME, REPO_PATH} from '../../src/constants'
 
 describe('List with config and repo', () => {

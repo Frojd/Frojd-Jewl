@@ -1,4 +1,4 @@
-import {Command} from '@oclif/command'
+import {Command} from '@oclif/core'
 import {REPO_PATH} from '../constants'
 import {Repository} from 'nodegit'
 import {getConfig, JewlConfig} from '../utils/config'
@@ -15,7 +15,7 @@ export default class Update extends Command {
 
     try {
       config = getConfig()
-    } catch (error) {
+    } catch {
       this.error('No local configuration file found. Try "jewl-cli init"')
     }
 

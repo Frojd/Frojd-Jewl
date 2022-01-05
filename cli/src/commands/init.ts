@@ -1,4 +1,4 @@
-import {Command} from '@oclif/command'
+import {Command} from '@oclif/core'
 import cli from 'cli-ux'
 import {CONFIG_FILE_NAME, REPO_PATH} from '../constants'
 import {Clone, Repository} from 'nodegit'
@@ -17,7 +17,7 @@ export default class Init extends Command {
     try {
       _config = getConfig()
       this.log('Found config in project, using as default values...')
-    } catch (error) {
+    } catch {
       this.log('Initializing Jewl...')
     }
 
@@ -31,7 +31,7 @@ export default class Init extends Command {
       await repo.mergeBranches(config.repositoryBranch, 'origin/' + config.repositoryBranch)
 
       this.log('Local repository updated!')
-    } catch (error) {
+    } catch {
       try {
         this.log('No local repository found. Cloning from remote repository...')
 
@@ -41,8 +41,8 @@ export default class Init extends Command {
 
         this.log(`Jewl initialized: "${CONFIG_FILE_NAME}" has been created/updated in current working directory and local repository updated.`)
         this.log(`${CONFIG_FILE_NAME} should be checked in to you repository and ${REPO_PATH} should be in your .gitignore`)
-      } catch (error) {
-        this.error('Failed to clone repository: ' + error.message)
+      } catch {
+        this.error('Failed to clone repository')
       }
     }
   }

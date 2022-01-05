@@ -1,4 +1,4 @@
-import {Command} from '@oclif/command'
+import {Command} from '@oclif/core'
 import {LocalConfigMissing, getAvailableComponents} from '../utils/config'
 
 export default class List extends Command {
@@ -18,6 +18,7 @@ export default class List extends Command {
       if (error instanceof LocalConfigMissing) {
         this.error('Jewl not initialized. Try `jewl init`')
       }
+
       this.error('Unexpected Error: ' + error)
     }
   }

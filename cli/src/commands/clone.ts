@@ -1,6 +1,6 @@
-import {Command} from '@oclif/command'
+import {Command} from '@oclif/core'
 import * as fse from 'fs-extra'
-import * as path from 'path'
+import * as path from 'node:path'
 import * as lmify from 'lmify'
 
 import {
@@ -26,7 +26,7 @@ export default class Clone extends Command {
   ]
 
   async run() {
-    const {args} = this.parse(Clone)
+    const {args} = await this.parse(Clone)
     const {componentName, newName} = args
 
     try {
