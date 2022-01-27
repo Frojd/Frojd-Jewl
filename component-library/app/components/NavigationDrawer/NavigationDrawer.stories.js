@@ -1,20 +1,16 @@
 import React from 'react';
-import {Description} from '@storybook/addon-docs/blocks';
 import NavigationDrawer from './NavigationDrawer';
 import data from './NavigationDrawer.data';
 import readme from './NavigationDrawer.md';
 
-const Doc = () => <Description markdown={readme} />;
-
 export default {
     title: 'Components/NavigationDrawer',
+    component: NavigationDrawer,
     parameters: {
-        docs: {
-            page: Doc
-        }
+        docs: {description: {component: readme}}
     },
 };
 
-export const NavigationDrawerDefault = () => (
-    <NavigationDrawer {...data} />
-);
+const Template = (args) => <NavigationDrawer {...data} {...args} />;
+
+export const Default = Template.bind({});

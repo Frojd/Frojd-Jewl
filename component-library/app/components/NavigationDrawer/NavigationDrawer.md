@@ -1,5 +1,3 @@
-# NavigationDrawer
-
 A drawer that slides in from the right, used for hamburger menus.
 
 ## Props

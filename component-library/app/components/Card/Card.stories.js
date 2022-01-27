@@ -1,20 +1,16 @@
 import React from 'react';
-import {Description} from '@storybook/addon-docs/blocks';
 import Card from './Card';
 import data from './Card.data';
 import readme from './Card.md';
 
-const Doc = () => <Description markdown={readme} />;
-
 export default {
     title: 'Components/Card',
+    component: Card,
     parameters: {
-        docs: {
-            page: Doc
-        }
+        docs: {description: {component: readme}}
     },
 };
 
-export const CardDefault = () => (
-    <Card {...data} />
-);
+const Template = (args) => <Card {...data} {...args} />;
+
+export const Default = Template.bind({});

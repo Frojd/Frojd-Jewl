@@ -1,20 +1,16 @@
 import React from 'react';
-import {Description} from '@storybook/addon-docs/blocks';
 import Accordion from './Accordion';
 import data from './Accordion.data';
 import readme from './Accordion.md';
 
-const Doc = () => <Description markdown={readme} />;
-
 export default {
     title: 'Components/Accordion',
+    component: Accordion,
     parameters: {
-        docs: {
-            page: Doc
-        }
+        docs: {description: {component: readme}}
     },
 };
 
-export const AccordionDefault = () => (
-    <Accordion {...data} />
-);
+const Template = (args) => <Accordion {...data} {...args} />;
+
+export const Default = Template.bind({});

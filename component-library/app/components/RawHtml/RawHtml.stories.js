@@ -1,9 +1,16 @@
 import React from 'react';
 import RawHtml from './RawHtml';
 import data from './RawHtml.data';
+import readme from './RawHtml.md';
 
-export default { title: 'Components/RawHtml' };
+export default {
+    title: 'Components/RawHtml',
+    component: RawHtml,
+    parameters: {
+        docs: {description: {component: readme}}
+    },
+};
 
-export const RawHtmlDefault = () => (
-    <RawHtml {...data} />
-);
+const Template = (args) => <RawHtml {...data} {...args} />;
+
+export const Default = Template.bind({});

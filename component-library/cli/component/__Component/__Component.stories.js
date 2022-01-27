@@ -1,20 +1,16 @@
 import React from 'react';
-import {Description} from '@storybook/addon-docs/blocks';
 import __Component from './__Component';
 import data from './__Component.data';
 import readme from './__Component.md';
 
-const Doc = () => <Description markdown={readme} />;
-
 export default {
-    title: '__StoryTitle',
+    title: 'Components/__Component',
+    component: __Component,
     parameters: {
-        docs: {
-            page: Doc
-        }
+        docs: {description: {component: readme}}
     },
 };
 
-export const __ComponentDefault = () => (
-    <__Component {...data} />
-);
+const Template = (args) => <__Component {...data} {...args} />;
+
+export const Default = Template.bind({});

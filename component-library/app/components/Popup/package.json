@@ -1,0 +1,14 @@
+{
+  "name": "Popup",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "*",
+    "prop-types": "*",
+    "classnames": "*",
+    "velocity-react": "*",
+    "local-storage": "*"
+  },
+  "jewlDependencies": [
+    "RawHtml"
+  ]
+}

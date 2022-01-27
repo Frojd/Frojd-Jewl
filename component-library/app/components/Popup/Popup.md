@@ -1,5 +1,3 @@
-# Popup
-
 Used for showing a bar which can be toogled to expand or expand, can be used for e.g. FAQ
 
 ## Props

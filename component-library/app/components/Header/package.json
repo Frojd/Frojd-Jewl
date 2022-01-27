@@ -1,0 +1,12 @@
+{
+  "name": "Header",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "*",
+    "prop-types": "*",
+    "classnames": "*",
+    "react-i18next": "*"
+  },
+  "jewlDependencies": [
+  ]
+}
