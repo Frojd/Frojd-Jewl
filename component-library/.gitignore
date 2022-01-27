@@ -9,6 +9,7 @@ tmp/
 
 # Compiled files
 dist/
+storybook-static
 
 # misc
 .DS_Store
