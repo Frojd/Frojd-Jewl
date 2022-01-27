@@ -4,7 +4,7 @@ import s from './Card.module.scss';
 
 const Card = ({ title, link, image, text }) => {
     return (
-        <div className={s.Root}>
+        <article className={s.Root}>
             <a className={s.Link} href={link.href}>
                 <span className={`sr-only`}>{link.title}</span>
             </a>
@@ -18,7 +18,7 @@ const Card = ({ title, link, image, text }) => {
                 <h2 className={s.Title}>{title}</h2>
                 <p className={s.Text}>{text}</p>
             </div>
-        </div>
+        </article>
     );
 };
 
