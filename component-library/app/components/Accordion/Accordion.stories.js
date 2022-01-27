@@ -1,13 +1,13 @@
 import React from 'react';
 import {Description} from '@storybook/addon-docs/blocks';
-import Accordian from './Accordian';
-import data from './Accordian.data';
-import readme from './Accordian.md';
+import Accordion from './Accordion';
+import data from './Accordion.data';
+import readme from './Accordion.md';
 
 const Doc = () => <Description markdown={readme} />;
 
 export default {
-    title: 'Components/Accordian',
+    title: 'Components/Accordion',
     parameters: {
         docs: {
             page: Doc
@@ -15,6 +15,6 @@ export default {
     },
 };
 
-export const AccordianDefault = () => (
-    <Accordian {...data} />
+export const AccordionDefault = () => (
+    <Accordion {...data} />
 );

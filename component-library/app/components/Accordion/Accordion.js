@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { VelocityComponent } from 'velocity-react';
 import RawHtml from '../RawHtml';
-import s from './Accordian.module.scss';
+import s from './Accordion.module.scss';
 
-const Accordian = ({title, richtext, open, id}) => {
+const Accordion = ({title, richtext, open, id}) => {
 
     const [expanded, setExpanded] = useState(open);
 
@@ -49,18 +49,18 @@ const Accordian = ({title, richtext, open, id}) => {
     );
 };
 
-Accordian.propTypes = {
+Accordion.propTypes = {
     title: PropTypes.string.isRequired,
     richtext: PropTypes.string.isRequired,
     open: PropTypes.bool,
     id: PropTypes.string,
 };
 
-Accordian.defaultProps = {
+Accordion.defaultProps = {
     title: '',
     richtext: '',
     open: false,
     id: 'accordian',
 };
 
-export default Accordian;
+export default Accordion;

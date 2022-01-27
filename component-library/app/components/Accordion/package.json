@@ -1,5 +1,5 @@
 {
-  "name": "Accordian",
+  "name": "Accordion",
   "version": "1.0.0",
   "dependencies": {
     "react": "*",
