@@ -31,18 +31,33 @@
     }
 
     .textstyle {
-        &--h1 {
-            @include textstyle(h1);
+        &--title {
+            @include textstyle(title);
         }
-
-        &--h2 {
-            @include textstyle(h2);
+        &--module-title {
+            @include textstyle(module-title);
         }
-
+        &--card-title {
+            @include textstyle(card-title);
+        }
+        &--html-h2 {
+            @include textstyle(html-h2);
+        }
+        &--html-h3 {
+            @include textstyle(html-h3);
+        }
+        &--html-h4 {
+            @include textstyle(html-h4);
+        }
+        &--html-h5 {
+            @include textstyle(html-h5);
+        }
+        &--html-h6 {
+            @include textstyle(html-h6);
+        }
         &--body {
             @include textstyle(body);
         }
-
         &--preamble {
             @include textstyle(preamble);
         }

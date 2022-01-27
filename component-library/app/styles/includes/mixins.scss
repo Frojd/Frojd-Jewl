@@ -37,6 +37,27 @@
     }
 }
 
+@mixin href-external() {
+    &:not([href^="mailto:"]):not([href^="tel:"]):not([href=""]):not([href^="#"]):not([href^="/"]):not([href^="http://example.se"]):not([href^="https://example.se"]):not([href*="localhost"]):not([href*="stage.example.se"]):not([href*="www.example.se"]):not([href*="beta.example.se"]) {
+        @content;
+    }
+}
+
+@mixin href-download() {
+    &[href$=".pdf"],
+    &[href$=".doc"],
+    &[href$=".docx"],
+    &[href$=".ppt"],
+    &[href$=".pptx"],
+    &[href$=".xls"],
+    &[href$=".xlsx"],
+    &[href$=".odt"],
+    &[href$=".eps"],
+    &[href$=".zip"] {
+        @content;
+    }
+}
+
 // For wrapping elements in the main grid
 // Usage: @include wrap;
 @mixin wrap($exclude: ()) {
