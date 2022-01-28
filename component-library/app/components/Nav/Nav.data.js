@@ -6,7 +6,6 @@ export default {
         {id: 'horizontal-2', title: 'Länktext &#038; Länktext', url: '#', isActive: true},
         {id: 'horizontal-3', title: 'Extern länk', url: 'https://test.se'},
     ],
-    orientation: 'Horizontal',
 };
 
 export const withChildren = {

@@ -45,7 +45,7 @@ Nav.defaultProps = {
     id: 'nav',
     label: null,
     items: [],
-    orientation: 'Vertical',
+    orientation: 'Horizontal',
     modifier: '',
 };
 

@@ -8,6 +8,18 @@ export default {
     parameters: {
         docs: {description: {component: readme}}
     },
+    argTypes: {
+        orientation: {
+            defaultValue: 'Horizontal',
+            options: ['Horizontal', 'Vertical'],
+            control: {type: 'select'},
+        },
+        modifier: {
+            options: ['', 'Main', 'Mobile'],
+            control: {type: 'select'},
+        },
+        items: {control: {type: null}},
+    },
 };
 
 const Template = (args) => <Nav {...args} />;

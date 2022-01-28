@@ -8,6 +8,9 @@ export default {
     parameters: {
         docs: {description: {component: readme}}
     },
+    argTypes: {
+        children: {control: {type: null}},
+    },
 };
 
 const Template = (args) => <NavigationDrawer {...args} />;
