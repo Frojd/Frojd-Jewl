@@ -10,6 +10,7 @@ export default {
     },
 };
 
-const Template = (args) => <Card {...data} {...args} />;
+const Template = (args) => <Card {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {...data};

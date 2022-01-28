@@ -10,6 +10,7 @@ export default {
     },
 };
 
-const Template = (args) => <RawHtml {...data} {...args} />;
+const Template = (args) => <RawHtml {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {...data};

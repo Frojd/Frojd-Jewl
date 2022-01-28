@@ -10,6 +10,7 @@ export default {
     },
 };
 
-const Template = (args) => <Hero {...data} {...args} />;
+const Template = (args) => <Hero {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {...data};

@@ -10,6 +10,7 @@ export default {
     },
 };
 
-const Template = (args) => <Popup {...data} {...args} />;
+const Template = (args) => <Popup {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {...data};

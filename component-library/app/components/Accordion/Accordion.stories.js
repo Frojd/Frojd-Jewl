@@ -10,6 +10,7 @@ export default {
     },
 };
 
-const Template = (args) => <Accordion {...data} {...args} />;
+const Template = (args) => <Accordion {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {...data};
