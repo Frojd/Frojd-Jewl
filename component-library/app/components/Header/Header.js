@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {useTranslation} from 'react-i18next';
 import _ from 'lodash';
-import Logo from 'assets/img/logo.png';
-import Search from 'svg/search.svg';
+import Logo from 'Assets/img/logo.png';
+import Search from 'SVG/search.svg';
 import Nav from 'Components/Nav';
 import NavigationDrawer from 'Components/NavigationDrawer';
 import s from './Header.module.scss';
@@ -20,10 +20,10 @@ const Header = ({main, currentId}) => {
             ...mainMenuItems,
             {
                 title: (
-                    <>
+                    <Fragment>
                         <Search />
                         <span className="sr-only">{t('header.search')}</span>
-                    </>
+                    </Fragment>
                 ),
                 id: 'main-search',
                 url: '/search',

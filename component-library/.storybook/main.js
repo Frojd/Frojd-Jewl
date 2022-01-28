@@ -96,6 +96,8 @@ module.exports = {
             i18n: path.resolve(__dirname, '../app/i18n'),
             Styles: path.resolve(__dirname, '../app/styles'),
             Utils: path.resolve(__dirname, '../app/utils'),
+            Assets: path.resolve(__dirname, '../app/assets'),
+            SVG: path.resolve(__dirname, '../app/svg'),
         };
 
         return config;

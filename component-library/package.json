@@ -23,21 +23,6 @@
     "svg": "svgo -f app/svg -q --config=app/svg/svgo.config.js",
     "test": "jest"
   },
-  "jest": {
-    "testMatch": [
-      "**/?(*.)(test).js?(x)"
-    ],
-    "modulePaths": [
-      "app"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less|scss)$": "identity-obj-proxy"
-    },
-    "setupFiles": [
-      "./.setup-test.js"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:frojd/frojd-jewl.git"
@@ -58,14 +43,17 @@
     "ie>=11"
   ],
   "devDependencies": {
-    "@babel/core": "^7.14.3",
+    "@babel/core": "^7.16.12",
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@storybook/addon-a11y": "^6.4.14",
     "@storybook/addon-actions": "^6.4.14",
     "@storybook/addon-essentials": "^6.4.14",
     "@storybook/addon-links": "^6.4.14",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.4.14",
-    "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "enzyme": "^3.11.0",
@@ -77,11 +65,13 @@
     "file-loader": "^6.2.0",
     "gh-pages": "^3.2.3",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.0.1",
+    "jest": "^27.4.7",
+    "jest-fetch-mock": "^3.0.3",
     "node-sass": "^6.0.0",
     "prettier": "^2.3.0",
     "prop-types": "^15.7.2",
     "react-svg-loader": "^3.0.3",
+    "react-test-renderer": "^17.0.2",
     "sass-loader": "^10.2.0",
     "style-loader": "^2.0.0",
     "svgo": "^2.3.0"

@@ -4,8 +4,8 @@ import 'i18n';
 import renderer from 'react-test-renderer';
 
 import TestComponent from './';
-import data from './Hero.data';
-const testName = 'Hero';
+import data from './__Container.data';
+const testName = '__Container';
 
 describe(`<${testName} />`, () => {
     it(`Renders an empty ${testName}`, () => {

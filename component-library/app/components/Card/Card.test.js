@@ -1,20 +1,34 @@
 import React from 'react';
-import {
-    shallow,
-    // mount
-} from 'enzyme';
+import { mount } from 'enzyme';
+import 'i18n';
+import renderer from 'react-test-renderer';
 
-import Card from './';
-// import data from './Card.data';
+import TestComponent from './';
+import data from './Card.data';
+const testName = 'Card';
 
-describe('<Card />', () => {
-    it('Renders an empty Card', () => {
-        const component = shallow(<Card />);
-        expect(component).toBeTruthy();
+describe(`<${testName} />`, () => {
+    it(`Renders an empty ${testName}`, () => {
+        const wrapper = mount(<TestComponent />);
+        expect(wrapper.find(TestComponent)).toHaveLength(1);
     });
 
-    // it('Renders Card with data', () => {
-    //     const component = mount(<Card {...data} />);
-    //     expect(component).toMatchSnapshot();
+    it(`Renders ${testName} with data`, () => {
+        const wrapper = mount(<TestComponent {...data} />);
+        expect(wrapper.find(TestComponent)).toHaveLength(1);
+    });
+
+    // it(`Renders an empty ${testName}`, () => {
+    //     const componentJson = renderer
+    //         .create(<TestComponent />)
+    //         .toJSON();
+    //     expect(componentJson).toBeTruthy();
+    // });
+
+    // it(`Renders ${testName} snapshot with data`, () => {
+    //     const componentJson = renderer
+    //         .create(<TestComponent {...data} />)
+    //         .toJSON();
+    //     expect(componentJson).toMatchSnapshot();
     // });
 });

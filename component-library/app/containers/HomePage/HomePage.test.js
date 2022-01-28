@@ -1,20 +1,34 @@
 import React from 'react';
-import {
-    shallow,
-    // mount
-} from 'enzyme';
+import { mount } from 'enzyme';
+import 'i18n';
+import renderer from 'react-test-renderer';
 
-import HomePage from './';
-// import data from './HomePage.data';
+import TestComponent from './';
+import data from './HomePage.data';
+const testName = 'HomePage';
 
-describe('<HomePage />', () => {
-    it('Renders an empty HomePage', () => {
-        const component = shallow(<HomePage />);
-        expect(component).toBeTruthy();
+describe(`<${testName} />`, () => {
+    it(`Renders an empty ${testName}`, () => {
+        const wrapper = mount(<TestComponent />);
+        expect(wrapper.find(TestComponent)).toHaveLength(1);
     });
 
-    // it('Renders HomePage with data', () => {
-    //     const component = mount(<HomePage {...data} />);
-    //     expect(component).toMatchSnapshot();
+    it(`Renders ${testName} with data`, () => {
+        const wrapper = mount(<TestComponent {...data} />);
+        expect(wrapper.find(TestComponent)).toHaveLength(1);
+    });
+
+    // it(`Renders an empty ${testName}`, () => {
+    //     const componentJson = renderer
+    //         .create(<TestComponent />)
+    //         .toJSON();
+    //     expect(componentJson).toBeTruthy();
+    // });
+
+    // it(`Renders ${testName} snapshot with data`, () => {
+    //     const componentJson = renderer
+    //         .create(<TestComponent {...data} />)
+    //         .toJSON();
+    //     expect(componentJson).toMatchSnapshot();
     // });
 });
