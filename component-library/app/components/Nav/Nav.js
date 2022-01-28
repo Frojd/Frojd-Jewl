@@ -180,13 +180,18 @@ const Link = ({
             target={target}
             rel={rel}
             title={attrTitle}
-            dangerouslySetInnerHTML={{__html: title}}
-        />
+        >
+            {typeof(title) === 'string' ? (
+                <span dangerouslySetInnerHTML={{__html: title}} />
+            ) : (
+                <>{title}</>
+            )}
+        </a>
     );
 };
 
 Link.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.node.isRequired,
     url: PropTypes.string.isRequired,
     target: PropTypes.string,
     rel: PropTypes.string,

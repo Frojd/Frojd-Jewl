@@ -5,8 +5,10 @@
     "react": "*",
     "prop-types": "*",
     "classnames": "*",
+    "lodash": "*",
     "react-i18next": "*"
   },
   "jewlDependencies": [
+    "Nav"
   ]
 }

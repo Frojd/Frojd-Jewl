@@ -18,6 +18,8 @@
 }
 
 .Child {
+    position: relative;
+
     &--Expanded {
     }
     &--HasChildren {
@@ -26,6 +28,7 @@
 
 .Item {
     flex: 0 0 auto;
+    position: relative;
 
     .Root--Horizontal & {
         margin-left: 8px;
@@ -81,6 +84,7 @@
 
 .Link {
     display: inline-block;
+    position: relative;
     padding: 8px;
     color: $link-color;
     text-decoration: underline;
@@ -93,5 +97,56 @@
     .Item--Active & {
         color: $base-color;
         text-decoration: none;
+
+        .Root--Main & {
+            &::after {
+                background: black;
+                opacity: 1;
+            }
+        }
+    }
+
+    .Root--Main & {
+        padding: 22px 16px;
+        color: $base-color;
+        font-weight: $bold;
+        text-decoration: none;
+        transition: color $transition;
+
+        &::after {
+            content: '';
+            height: 4px;
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            right: 16px;
+            background: $grey;
+            opacity: 0;
+            transition: background $transition, opacity $transition;
+        }
+
+        &--Search {
+            margin-right: -16px;
+
+            svg {
+                margin-right: 8px;
+                transition: fill $transition;
+            }
+
+            &:hover {
+                svg {
+                    fill: $primary-color;
+                }
+            }
+        }
+
+        &:hover {
+            color: $primary-color;
+
+            &::after {
+                background: $primary-color;
+                opacity: 1;
+            }
+        }
     }
 }
