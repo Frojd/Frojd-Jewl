@@ -11,8 +11,10 @@ export default {
     },
 };
 
-const Template = (args) => <Image {...data} {...args} />;
+const Template = (args) => <Image {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {...data};
 
 export const Portrait = Template.bind({});
+Portrait.args = {...portrait};

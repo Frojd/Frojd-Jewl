@@ -11,6 +11,7 @@ export default {
     },
 };
 
-const Template = (args) => <__Container {...data} {...args} />;
+const Template = (args) => <__Container {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {...data};

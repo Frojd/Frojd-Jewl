@@ -11,6 +11,7 @@ export default {
     },
 };
 
-const Template = (args) => <__Component {...data} {...args} />;
+const Template = (args) => <__Component {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {...data};
