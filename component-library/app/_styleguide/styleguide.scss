@@ -77,6 +77,19 @@
                 background: $purple;
             }
 
+            &--purple-5 {
+                background: $purple-5;
+            }
+
+            &--purple-90 {
+                color: white;
+                background: $purple-90;
+            }
+
+            &--yellow {
+                background: $yellow;
+            }
+
             &--grey {
                 color: white;
                 background: $grey;
@@ -84,11 +97,11 @@
 
             &--grey-60 {
                 color: white;
-                background: $grey--60;
+                background: $grey-60;
             }
 
             &--grey-10 {
-                background: $grey--10;
+                background: $grey-10;
             }
         }
     }

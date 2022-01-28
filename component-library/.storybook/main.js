@@ -4,6 +4,10 @@ module.exports = {
     features: {
         storyStoreV7: true,
     },
+    staticDirs: [
+        '../app/assets',
+        './assets',
+    ],
     stories: [
         {
             directory: '../app/_styleguide',

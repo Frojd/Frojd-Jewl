@@ -23,7 +23,7 @@ export default {
             <figcaption>Image caption...</figcaption>
         </figure>
         <figure>
-            <img src="https://via.placeholder.com/1000x400" width="1000" height="400" alt="Lorem alt image" title="Dolor title">
+            <img src="dummy/test-1600.jpg" width="1600" height="1067" alt="Lorem alt image" title="Dolor title">
             <figcaption>Image caption...</figcaption>
         </figure>
         <p>Paragraph Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>

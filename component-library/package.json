@@ -7,8 +7,8 @@
   },
   "homepage": "https://frojd.github.io/Frojd-Jewl",
   "scripts": {
-    "storybook": "start-storybook -p 6006 -s ./app/assets",
-    "storybook:build": "build-storybook -s ./app/assets",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
     "deploy": "npm run storybook:build -- --quiet && npm run deploy-storybook",
     "new": "node cli/component/cli.js new",
