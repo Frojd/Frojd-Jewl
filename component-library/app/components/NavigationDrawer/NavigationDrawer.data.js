@@ -1,3 +1,18 @@
+import Nav from 'Components/Nav';
+import menu from 'Components/Nav/Nav.data';
+
+const children = (
+    <Nav
+        {...menu}
+        label="Mobile menu"
+        orientation="Vertical"
+        modifier="Mobile"
+    />
+);
+
 export default {
-    richtext: '<nav><a href="https://frojd.se">Lorem ipsum</a><a href="https://frojd.se">Hello World</a></nav>',
+};
+
+export const withNav = {
+    children: children,
 };

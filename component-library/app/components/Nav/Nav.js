@@ -120,7 +120,7 @@ Child.defaultProps = {
 };
 
 const Item = (item) => {
-    const {id, showToggle, isExpanded, toggleExpanded, isActive} = item;
+    const {id, modifier, showToggle, isExpanded, toggleExpanded, isActive} = item;
 
     const listId = `${id}-list`;
 
@@ -129,6 +129,7 @@ const Item = (item) => {
     const classes = classNames(
         s.Item,
         {[s['Item--Active']]: isActive},
+        {[s[`Item--${modifier}`]]: modifier},
     );
 
     return (
@@ -152,6 +153,7 @@ const Item = (item) => {
 
 Item.propTypes = {
     id: PropTypes.string.isRequired,
+    modifier: PropTypes.string,
     showToggle: PropTypes.bool,
     isExpanded: PropTypes.bool,
     toggleExpanded: PropTypes.func,
@@ -160,6 +162,7 @@ Item.propTypes = {
 
 Item.defaultProps = {
     id: '',
+    modifier: '',
     showToggle: false,
     isExpanded: false,
     toggleExpanded: () => {},

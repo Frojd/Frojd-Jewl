@@ -1,6 +1,6 @@
 import React from 'react';
 import NavigationDrawer from './NavigationDrawer';
-import data from './NavigationDrawer.data';
+import data, {withNav} from './NavigationDrawer.data';
 import readme from './NavigationDrawer.md';
 
 export default {
@@ -10,6 +10,10 @@ export default {
     },
 };
 
-const Template = (args) => <NavigationDrawer {...data} {...args} />;
+const Template = (args) => <NavigationDrawer {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {...data};
+
+export const WithNav = Template.bind({});
+WithNav.args = {...withNav};

@@ -9,6 +9,7 @@
     "react-i18next": "*"
   },
   "jewlDependencies": [
-    "Nav"
+    "Nav",
+    "NavigationDrawer"
   ]
 }

@@ -24,4 +24,18 @@
 .Menu {
     flex: 0 0 auto;
     margin-left: auto;
+    display: none;
+
+    @include media(M) {
+        display: block;
+    }
+}
+
+.NavigationDrawer {
+    flex: 0 0 auto;
+    margin-left: auto;
+
+    @include media(M) {
+        display: none;
+    }
 }
