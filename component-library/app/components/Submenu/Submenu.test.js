@@ -6,8 +6,8 @@ import renderer from 'react-test-renderer';
 /* eslint-enable no-unused-vars */
 
 import TestComponent from './';
-import data from './__Container.data';
-const testName = '__Container';
+import data from './Submenu.data';
+const testName = 'Submenu';
 
 describe(`<${testName} />`, () => {
     it(`Renders an empty ${testName}`, () => {
