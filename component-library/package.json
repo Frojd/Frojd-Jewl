@@ -21,7 +21,8 @@
     "fixcode:test": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --list-different",
     "start": "node ./bin/dev-server",
     "svg": "svgo -f app/svg -q --config=app/svg/svgo.config.js",
-    "test": "jest"
+    "jest": "jest",
+    "test": "concurrently \"npm run jest -- --silent --noStackTrace\" \"npm run eslint -- --quiet\""
   },
   "repository": {
     "type": "git",
@@ -53,8 +54,10 @@
     "@storybook/addon-links": "^6.4.14",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.4.14",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.2",
+    "concurrently": "^7.0.0",
     "css-loader": "^5.2.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",

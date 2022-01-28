@@ -1,7 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { mount } from 'enzyme';
 import 'i18n';
 import renderer from 'react-test-renderer';
+/* eslint-enable no-unused-vars */
+/* eslint-enable no-unused-vars */
 
 import TestComponent from './';
 import data from './NotFoundPage.data';

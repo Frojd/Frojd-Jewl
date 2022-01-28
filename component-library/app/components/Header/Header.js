@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import {useTranslation} from 'react-i18next';
 import _ from 'lodash';
 import Logo from 'Assets/img/logo.png';
@@ -9,7 +8,7 @@ import Nav from 'Components/Nav';
 import NavigationDrawer from 'Components/NavigationDrawer';
 import s from './Header.module.scss';
 
-const Header = ({main, currentId}) => {
+const Header = ({main}) => {
     const {t} = useTranslation();
 
     const mainMenuItems = _.get({...main}, 'items', []);
@@ -31,11 +30,6 @@ const Header = ({main, currentId}) => {
             },
         ],
     };
-
-    const searchClasses = classNames(
-        s.Item,
-        [s['Item--Search']],
-    );
 
     return (
         <header className={s.Root}>

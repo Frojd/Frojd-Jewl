@@ -4,7 +4,6 @@
   "dependencies": {
     "react": "*",
     "prop-types": "*",
-    "classnames": "*",
     "lodash": "*",
     "react-i18next": "*"
   },
