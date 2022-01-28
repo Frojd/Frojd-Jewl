@@ -34,6 +34,39 @@ Commands:
 
 @todo, Hosted on github, Short description, link to live styleguide
 
+## Git hooks
+
+We use git-hooks to streamline and automate certain functions, such as version bumping and pre hooks for code validation and tests. If you want to bypass any of them append the `--no-verify` flag (example: `git push --no-verify`)
+
+### Hook: Run tests pre push
+
+This hook will run the test suite before every push.
+
+```bash
+chmod +x $PWD/git-hooks/pre-push.sh
+ln -nfs $PWD/git-hooks/pre-push.sh .git/hooks/pre-push
+```
+
+Windows
+```bash
+ln -nfs %cd%/.githooks/pre-push.sh .git/hooks/pre-push
+```
+Note: This requires npm
+
+### Hook: Frontend tests
+
+Macintosh
+```bash
+chmod +x $PWD/git-hooks/pre-commit.sh
+ln -nfs $PWD/git-hooks/pre-commit.sh .git/hooks/pre-commit
+```
+
+Windows
+```bash
+ln -nfs %cd%/.githooks/pre-commit.sh .git/hooks/pre-commit
+```
+Note: This requires npm
+
 ### Where to go from here
 - [Gettings Started](./docs/getting-started.md])
 
