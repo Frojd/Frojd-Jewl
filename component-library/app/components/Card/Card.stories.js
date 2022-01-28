@@ -4,7 +4,6 @@ import data from './Card.data';
 import readme from './Card.md';
 
 export default {
-    title: 'Components/Card',
     component: Card,
     parameters: {
         docs: {description: {component: readme}}

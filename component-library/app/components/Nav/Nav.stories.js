@@ -4,7 +4,6 @@ import data, {withChildren} from './Nav.data';
 import readme from './Nav.md';
 
 export default {
-    title: 'Components/Nav',
     component: Nav,
     parameters: {
         docs: {description: {component: readme}}

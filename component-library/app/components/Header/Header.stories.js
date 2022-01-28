@@ -4,7 +4,6 @@ import data from './Header.data';
 import readme from './Header.md';
 
 export default {
-    title: 'Components/Header',
     component: Header,
     parameters: {
         docs: {description: {component: readme}}

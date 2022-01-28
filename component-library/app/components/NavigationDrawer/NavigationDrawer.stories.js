@@ -4,7 +4,6 @@ import data from './NavigationDrawer.data';
 import readme from './NavigationDrawer.md';
 
 export default {
-    title: 'Components/NavigationDrawer',
     component: NavigationDrawer,
     parameters: {
         docs: {description: {component: readme}}

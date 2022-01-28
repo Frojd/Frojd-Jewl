@@ -4,7 +4,6 @@ import data from './Accordion.data';
 import readme from './Accordion.md';
 
 export default {
-    title: 'Components/Accordion',
     component: Accordion,
     parameters: {
         docs: {description: {component: readme}}

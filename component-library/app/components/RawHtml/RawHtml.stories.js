@@ -4,7 +4,6 @@ import data from './RawHtml.data';
 import readme from './RawHtml.md';
 
 export default {
-    title: 'Components/RawHtml',
     component: RawHtml,
     parameters: {
         docs: {description: {component: readme}}

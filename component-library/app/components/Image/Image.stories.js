@@ -4,7 +4,6 @@ import data, {portrait} from './Image.data';
 import readme from './Image.md';
 
 export default {
-    title: 'Components/Image',
     component: Image,
     parameters: {
         docs: {description: {component: readme}}

@@ -4,7 +4,6 @@ import data from './Popup.data';
 import readme from './Popup.md';
 
 export default {
-    title: 'Components/Popup',
     component: Popup,
     parameters: {
         docs: {description: {component: readme}}

@@ -1,17 +1,26 @@
 const path = require('path');
 
 module.exports = {
+    features: {
+        storyStoreV7: true,
+    },
     stories: [
-        '../app/_styleguide/**/*.stories.js',
-        '../app/components/**/*.stories.js',
-        '../app/containers/**/*.stories.js',
+        {
+            directory: '../app/_styleguide',
+            titlePrefix: 'Styleguide',
+        },
+        {
+            directory: '../app/components',
+            titlePrefix: 'Components',
+        },
+        {
+            directory: '../app/containers',
+            titlePrefix: 'Containers',
+        },
     ],
     addons: [
         '@storybook/addon-essentials',
-        '@storybook/addon-actions',
-        '@storybook/addon-links',
         '@storybook/addon-a11y',
-        '@storybook/addon-postcss',
     ],
 
     webpackFinal: async (config, { configType }) => {
@@ -20,7 +29,7 @@ module.exports = {
             ...config.resolve.modules,
             path.resolve(__dirname, '../app'),
         ];
-        
+
         config.module.rules = config.module.rules.map(data => {
             if (/svg\|/.test( String( data.test ) )) {
                 data.test = /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/;

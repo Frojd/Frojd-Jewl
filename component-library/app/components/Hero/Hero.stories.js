@@ -4,7 +4,6 @@ import data from './Hero.data';
 import readme from './Hero.md';
 
 export default {
-    title: 'Components/Hero',
     component: Hero,
     parameters: {
         docs: {description: {component: readme}}
