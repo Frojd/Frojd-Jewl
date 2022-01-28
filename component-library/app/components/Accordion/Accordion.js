@@ -1,44 +1,49 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import {useTranslation} from 'react-i18next';
 import classNames from 'classnames';
 import { VelocityComponent } from 'velocity-react';
 import RawHtml from '../RawHtml';
 import s from './Accordion.module.scss';
 
 const Accordion = ({title, richtext, open, id}) => {
+    const {t} = useTranslation();
 
-    const [expanded, setExpanded] = useState(open);
+    const [isExpanded, setIsExpanded] = useState(open);
 
-    const clickHandler = () => setExpanded(!expanded);
+    const clickHandler = () => setIsExpanded(!isExpanded);
+
+    const headerId = `${id}-header`;
+
+    const buttonText = isExpanded ? t('accordion.minimize') : t('accordion.expand');
 
     const classes = classNames(
         s.Root,
-        { [s['Root--Expanded']] : expanded }
+        { [s['Root--Expanded']] : isExpanded }
     );
-    const headerId = `${id}-header`;
 
     return (
         <div className={classes}>
             <div
                 className={s.Header}
                 onClick={clickHandler}
-                aria-expanded={expanded}
+                aria-expanded={isExpanded}
                 aria-controls={id}
                 id={headerId}
             >
                 {title}
                 <button className={s.Button}>
                     <span className="sr-only">
-                        {expanded ? 'Minimize answer' : 'Expand answer'}
+                        {buttonText}
                     </span>
                 </button>
             </div>
             <VelocityComponent
-                animation={expanded ? 'slideDown' : 'slideUp'}
+                animation={isExpanded ? 'slideDown' : 'slideUp'}
             >
                 <div
                     className={s.RichText}
-                    aria-hidden={!expanded}
+                    aria-hidden={!isExpanded}
                     aria-labelledby={headerId}
                     id={id}
                 >
@@ -60,7 +65,7 @@ Accordion.defaultProps = {
     title: '',
     richtext: '',
     open: false,
-    id: 'accordian',
+    id: 'accordion',
 };
 
 export default Accordion;
