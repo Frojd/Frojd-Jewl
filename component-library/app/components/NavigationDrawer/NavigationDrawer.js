@@ -7,7 +7,7 @@ import { VelocityComponent, velocityHelpers } from 'velocity-react';
 // import 'velocity-animate/velocity.ui';
 import s from './NavigationDrawer.module.scss';
 
-const NavigationDrawer = ({ richtext, open, id }) => {
+const NavigationDrawer = ({ children, open, id }) => {
 
     const [expanded, setExpanded] = useState(open);
 
@@ -56,21 +56,20 @@ const NavigationDrawer = ({ richtext, open, id }) => {
                     aria-hidden={!expanded}
                     aria-labelledby={buttonId}
                     id={id}
-                    dangerouslySetInnerHTML={{ __html: richtext }}
-                />
+                >{children}</div>
             </VelocityComponent>
         </div>
     );
 };
 
 NavigationDrawer.propTypes = {
-    richtext: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     open: PropTypes.bool,
     id: PropTypes.string,
 };
 
 NavigationDrawer.defaultProps = {
-    richtext: '',
+    children: '',
     open: false,
     id: 'navigation-drawer',
 };
