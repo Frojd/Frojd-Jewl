@@ -42,14 +42,13 @@ program
         const replace = options.container ? '__Container' : '__Component';
 
         const componentName = dirs[dirs.length - 1];
-        const storyRoot = folder.charAt(0).toUpperCase() + folder.slice(1);
-        const storyTitle = [storyRoot, ...dirs].join('/');
+        const isSub = subComponents.length > 0;
 
         if (fs.existsSync(componentPath)) {
             throw new Error(`Component already exists at: ${componentPath}`);
         }
 
-        createComponent(componentPath, replace, componentName, storyTitle);
+        createComponent(componentPath, replace, componentName, isSub);
         console.log(`Created new component at ${componentPath}`);
     });
 

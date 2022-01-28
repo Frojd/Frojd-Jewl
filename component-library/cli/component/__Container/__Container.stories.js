@@ -4,7 +4,6 @@ import data from './__Container.data';
 import readme from './__Container.md';
 
 export default {
-    title: 'Components/__Container',
     component: __Container,
     parameters: {
         docs: {description: {component: readme}}
