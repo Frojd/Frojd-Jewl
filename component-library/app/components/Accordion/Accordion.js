@@ -31,8 +31,9 @@ const Accordion = ({title, richtext, open, id}) => {
                 aria-controls={id}
                 id={headerId}
             >
-                {title}
+                <h3 className={s.Title}>{title}</h3>
                 <button className={s.Button}>
+                    <span className={s.Icon} />
                     <span className="sr-only">
                         {buttonText}
                     </span>
