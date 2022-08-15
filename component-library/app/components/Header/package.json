@@ -4,7 +4,6 @@
   "dependencies": {
     "react": "*",
     "prop-types": "*",
-    "lodash": "*",
     "react-i18next": "*"
   },
   "jewlDependencies": [

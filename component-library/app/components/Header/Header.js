@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
-import _ from 'lodash';
 import Logo from 'Assets/img/logo.png';
 import Search from 'SVG/search.svg';
 import Nav from 'Components/Nav';
@@ -11,12 +10,12 @@ import s from './Header.module.scss';
 const Header = ({main}) => {
     const {t} = useTranslation();
 
-    const mainMenuItems = _.get({...main}, 'items', []);
+    const mainItems = main?.items || [];
 
     const mainMenu = {
         ...main,
         items: [
-            ...mainMenuItems,
+            ...mainItems,
             {
                 title: (
                     <Fragment>
