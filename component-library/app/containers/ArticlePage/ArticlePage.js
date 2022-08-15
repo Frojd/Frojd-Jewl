@@ -8,7 +8,7 @@ import s from './ArticlePage.module.scss';
 
 const ArticlePage = ({hero, content, submenu}) => {
     return (
-        <div className={s.Root}>
+        <article className={s.Root}>
 
             <Hero {...hero} />
 
@@ -23,7 +23,7 @@ const ArticlePage = ({hero, content, submenu}) => {
                     </aside>
                 </div>
             </div>
-        </div>
+        </article>
     );
 };
 
