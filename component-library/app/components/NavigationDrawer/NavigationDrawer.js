@@ -38,6 +38,7 @@ const NavigationDrawer = ({ children, open, id }) => {
         <div className={classes}>
             <button
                 className={s.Button}
+                type="button"
                 onClick={clickHandler}
                 aria-expanded={expanded}
                 aria-controls={id}

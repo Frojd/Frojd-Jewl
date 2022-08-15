@@ -34,6 +34,7 @@
         height: 12px;
         background: url('#{$assetsPath}img/chevron--grey-70.svg') no-repeat center center;
         background-size: contain;
+        transform: rotate(-90deg);
 
         @include media(M) {
             right: 0;

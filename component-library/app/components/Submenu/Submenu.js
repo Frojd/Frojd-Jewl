@@ -6,7 +6,7 @@ import { VelocityComponent } from 'velocity-react';
 import Nav from 'Components/Nav';
 import s from './Submenu.module.scss';
 
-const Submenu = ({id, nav}) => {
+const Submenu = ({id, title, nav}) => {
     const {t} = useTranslation();
 
     const [isExpanded, setIsExpanded] = useState(false);
@@ -20,12 +20,12 @@ const Submenu = ({id, nav}) => {
         <div className={classes}>
             <button
                 className={s.Button}
+                type="button"
                 onClick={() => setIsExpanded(!isExpanded)}
                 aria-expanded={isExpanded}
                 aria-controls={id}
             >
-                <span className={s.Hamburger} />
-                {t('submenu.show')}
+                {title}
                 <span className={s.Arrow} />
             </button>
             <VelocityComponent
@@ -51,11 +51,13 @@ const Submenu = ({id, nav}) => {
 
 Submenu.propTypes = {
     id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     nav: PropTypes.object.isRequired,
 };
 
 Submenu.defaultProps = {
     id: 'submenu',
+    title: '',
     nav: {},
 };
 

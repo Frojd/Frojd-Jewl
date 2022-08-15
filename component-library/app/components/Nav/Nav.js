@@ -158,8 +158,8 @@ const Item = (item) => {
 
             {showToggle &&
                 <button
-                    type="button"
                     className={s.Toggle}
+                    type="button"
                     onClick={() => toggleExpanded()}
                     aria-expanded={isExpanded}
                     aria-controls={listId}

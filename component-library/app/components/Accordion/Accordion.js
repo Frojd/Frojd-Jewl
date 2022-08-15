@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import classNames from 'classnames';
 import { VelocityComponent } from 'velocity-react';
-import Richtext from '../Richtext';
+import Richtext from 'Components/Richtext';
 import s from './Accordion.module.scss';
 
 const Accordion = ({title, text, open, id}) => {
@@ -32,7 +32,7 @@ const Accordion = ({title, text, open, id}) => {
                 id={headerId}
             >
                 <h3 className={s.Title}>{title}</h3>
-                <button className={s.Button}>
+                <button className={s.Button} type="button">
                     <span className={s.Icon} />
                     <span className="sr-only">
                         {buttonText}
