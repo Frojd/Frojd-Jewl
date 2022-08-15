@@ -158,7 +158,7 @@ $textstyles: (
         d: (font-size: 14, line-height: 23.5),
     ),
     submenu: (
-        d: (font-size: 16, line-height: 19.7),  // Add medium to active and first level instead of new text style
+        d: (font-size: 16, line-height: 19.7, font-weight: $bold),  // Add medium to active and first level instead of new text style
     ),
     breadcrumb: (
         d: (font-size: 10, line-height: 12.2),

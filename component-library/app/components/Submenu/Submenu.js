@@ -25,19 +25,20 @@ const Submenu = ({id, nav}) => {
                 aria-controls={id}
             >
                 <span className={s.Hamburger} />
-                {t('submenu.showMenu')}
+                {t('submenu.show')}
                 <span className={s.Arrow} />
             </button>
             <VelocityComponent
                 animation={isExpanded ? 'slideDown' : 'slideUp'}
             >
                 <div
-                    className={s.Nav}
+                    className={s.List}
                     aria-hidden={!isExpanded}
                     id={id}
                 >
                     <Nav
                         {...nav}
+                        id={`${id}-nav`}
                         label={t('submenu.label')}
                         orientation="Vertical"
                         modifier="Submenu"
@@ -54,7 +55,7 @@ Submenu.propTypes = {
 };
 
 Submenu.defaultProps = {
-    id: '',
+    id: 'submenu',
     nav: {},
 };
 

@@ -9,4 +9,8 @@ export default {
     header: {
         search: 'Sök',
     },
+    submenu: {
+        label: 'Undermeny',
+        show: 'Visa undermeny',
+    },
 };

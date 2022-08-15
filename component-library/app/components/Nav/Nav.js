@@ -21,11 +21,15 @@ const Nav = ({id, label, items, orientation, modifier}) => {
     return (
         <nav className={classes} aria-label={label} id={id}>
             {hasChildren ? (
-                <List items={items} />
+                <List items={items} navId={id} />
             ) : (
                 <div className={s.List}>
                     {items.map((item, index) => (
-                        <Item {...item} key={index} />
+                        <Item
+                            {...item}
+                            navId={id}
+                            key={index}
+                        />
                     ))}
                 </div>
             )}
@@ -49,12 +53,12 @@ Nav.defaultProps = {
     modifier: '',
 };
 
-const List = ({items, id, isHidden}) => {
-    const listId = id === null ? null : `${id}-list`;
+const List = ({items, navId, id, isHidden}) => {
+    const listId = id === null ? null : `${navId}-${id}-list`;
     return (
         <ul className={s.List} aria-hidden={isHidden} id={listId}>
             {items.map((item, index) => (
-                <Child {...item} key={index} />
+                <Child {...item} navId={navId} key={index} />
             ))}
         </ul>
     );
@@ -62,20 +66,22 @@ const List = ({items, id, isHidden}) => {
 
 List.propTypes = {
     items: PropTypes.array.isRequired,
+    navId: PropTypes.string.isRequired,
     id: PropTypes.string,
     isHidden: PropTypes.bool,
 };
 
 List.defaultProps = {
     items: [],
+    navId: 'nav',
     id: null,
     isHidden: null,
 };
 
 const Child = (item) => {
-    const {id, children, isActive} = item;
+    const {navId, id, children, isParentActive} = item;
 
-    const [isExpanded, setIsExpanded] = useState(isActive);
+    const [isExpanded, setIsExpanded] = useState(isParentActive);
 
     const hasChildren = !_.isEmpty(children);
 
@@ -83,10 +89,11 @@ const Child = (item) => {
         s.Child,
         {[s['Child--Expanded']]: isExpanded},
         {[s['Child--HasChildren']]: hasChildren},
+        {[s['Child--ParentActive']]: isParentActive},
     );
 
     return (
-        <li className={classes} id={id}>
+        <li className={classes} id={`${navId}-${id}`}>
             <Item
                 {...item}
                 isExpanded={isExpanded}
@@ -101,6 +108,7 @@ const Child = (item) => {
                     <List
                         items={children}
                         isHidden={!isExpanded}
+                        navId={navId}
                         id={id}
                     />
                 </VelocityComponent>
@@ -110,19 +118,31 @@ const Child = (item) => {
 };
 
 Child.propTypes = {
+    navId: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     children: PropTypes.array,
+    isParentActive: PropTypes.bool,
 };
 
 Child.defaultProps = {
+    navId: '',
     id: '',
     children: [],
+    isParentActive: false,
 };
 
 const Item = (item) => {
-    const {id, modifier, showToggle, isExpanded, toggleExpanded, isActive} = item;
+    const {
+        navId,
+        id,
+        modifier,
+        showToggle,
+        isExpanded,
+        toggleExpanded,
+        isActive,
+    } = item;
 
-    const listId = `${id}-list`;
+    const listId = `${navId}-${id}-list`;
 
     const {t} = useTranslation();
 
@@ -152,21 +172,25 @@ const Item = (item) => {
 };
 
 Item.propTypes = {
+    navId: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     modifier: PropTypes.string,
     showToggle: PropTypes.bool,
     isExpanded: PropTypes.bool,
     toggleExpanded: PropTypes.func,
     isActive: PropTypes.bool,
+    isParentActive: PropTypes.bool,
 };
 
 Item.defaultProps = {
+    navId: '',
     id: '',
     modifier: '',
     showToggle: false,
     isExpanded: false,
     toggleExpanded: () => {},
     isActive: false,
+    isParentActive: false,
 };
 
 const Link = ({
@@ -185,9 +209,12 @@ const Link = ({
             title={attrTitle}
         >
             {typeof(title) === 'string' ? (
-                <span dangerouslySetInnerHTML={{__html: title}} />
+                <span
+                    className={s.LinkText}
+                    dangerouslySetInnerHTML={{__html: title}}
+                />
             ) : (
-                <>{title}</>
+                <span className={s.LinkText}>{title}</span>
             )}
         </a>
     );

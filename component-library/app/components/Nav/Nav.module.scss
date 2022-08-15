@@ -19,6 +19,14 @@
     .Root--Main & {
         align-items: flex-end;
     }
+
+    .Root--Submenu & {
+        margin-left: 0;
+
+        .List {
+            margin-left: 16px;
+        }
+    }
 }
 
 .Child {
@@ -27,6 +35,10 @@
     &--Expanded {
     }
     &--HasChildren {
+    }
+
+    &--ParentActive {
+        background: $purple-20;
     }
 }
 
@@ -73,15 +85,31 @@
     }
 
     &:hover {
-        &::before,
-        &::after {
-            background: $link-hover-color;
-        }
     }
 
     .Child--Expanded > .Item > & {
         &::after {
             opacity: 0;
+        }
+    }
+
+    .Root--Submenu & {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: transparent;
+        transition: background-color $transition;
+
+        &::before,
+        &::after {
+            width: 16px;
+        }
+
+        &:hover {
+            background: $purple-20;
         }
     }
 }
@@ -111,6 +139,10 @@
 
         .Root--Mobile & {
             color: white;
+        }
+
+        .Root--Submenu & {
+            color: $purple;
         }
     }
 
@@ -168,7 +200,7 @@
         display: inline-block;
         padding: 16px;
         color: white;
-        font-weight: bold;
+        font-weight: $bold;
         font-size: 2.4rem;
         line-height: 1.2;
         text-decoration: none;
@@ -197,6 +229,21 @@
                 left: 16px;
                 opacity: 1;
             }
+        }
+    }
+
+    .Root--Submenu & {
+        @include textstyle(submenu);
+
+        display: block;
+        padding: 16px;
+        margin-right: 56px;
+        color: $base-color;
+        text-decoration: none;
+        transition: color $transition;
+
+        &:hover {
+            color: $purple;
         }
     }
 }

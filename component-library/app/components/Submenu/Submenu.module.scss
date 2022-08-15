@@ -92,15 +92,11 @@
     }
 }
 
-.Nav {
+.List {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    background: white;
-    box-shadow: 0 3px 4px 0 rgba(black, .1);
 
     @include media(ML) {
         display: block !important;
