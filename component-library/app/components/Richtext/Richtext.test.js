@@ -6,8 +6,8 @@ import renderer from 'react-test-renderer';
 /* eslint-enable no-unused-vars */
 
 import TestComponent from './';
-import data from './RawHtml.data';
-const testName = 'RawHtml';
+import data from './Richtext.data';
+const testName = 'Richtext';
 
 describe(`<${testName} />`, () => {
     it(`Renders an empty ${testName}`, () => {

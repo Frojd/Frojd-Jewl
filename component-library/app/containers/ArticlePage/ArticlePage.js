@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
 import Hero from 'Components/Hero';
-import RawHtml from 'Components/RawHtml';
+import Richtext from 'Components/Richtext';
 import Submenu from 'Components/Submenu';
 import s from './ArticlePage.module.scss';
 
@@ -15,7 +15,7 @@ const ArticlePage = ({hero, content, submenu}) => {
             <div className={s.Wrap}>
                 <div className={s.Layout}>
                     <div className={s.Content}>
-                        <RawHtml {...content} />
+                        <Richtext {...content} />
                     </div>
 
                     <aside className={s.Sidebar}>

@@ -9,6 +9,6 @@
     "velocity-react": "*"
   },
   "jewlDependencies": [
-    "RawHtml"
+    "Richtext"
   ]
 }

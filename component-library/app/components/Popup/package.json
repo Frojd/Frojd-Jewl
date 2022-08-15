@@ -9,6 +9,6 @@
     "local-storage": "*"
   },
   "jewlDependencies": [
-    "RawHtml"
+    "Richtext"
   ]
 }

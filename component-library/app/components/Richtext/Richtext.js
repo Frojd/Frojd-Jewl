@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './RawHtml.module.scss';
+import s from './Richtext.module.scss';
 
-const RawHtml = ({ html }) => (
+const Richtext = ({ html }) => (
     <div className={s.Root} dangerouslySetInnerHTML={{ __html: html }} />
 );
 
-RawHtml.propTypes = {
+Richtext.propTypes = {
     html: PropTypes.string,
 };
 
-RawHtml.defaultProps = {
+Richtext.defaultProps = {
     html: '',
 };
 
-export default RawHtml;
+export default Richtext;

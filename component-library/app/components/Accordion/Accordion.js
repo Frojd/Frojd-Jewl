@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import classNames from 'classnames';
 import { VelocityComponent } from 'velocity-react';
-import RawHtml from '../RawHtml';
+import Richtext from '../Richtext';
 import s from './Accordion.module.scss';
 
 const Accordion = ({title, richtext, open, id}) => {
@@ -47,7 +47,7 @@ const Accordion = ({title, richtext, open, id}) => {
                     aria-labelledby={headerId}
                     id={id}
                 >
-                    <RawHtml html={richtext} />
+                    <Richtext html={richtext} />
                 </div>
             </VelocityComponent>
         </div>

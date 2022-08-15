@@ -1,16 +1,16 @@
 import React from 'react';
-import RawHtml from './RawHtml';
-import data from './RawHtml.data';
-import readme from './RawHtml.md';
+import Richtext from './Richtext';
+import data from './Richtext.data';
+import readme from './Richtext.md';
 
 export default {
-    component: RawHtml,
+    component: Richtext,
     parameters: {
         docs: {description: {component: readme}}
     },
 };
 
-const Template = (args) => <RawHtml {...args} />;
+const Template = (args) => <Richtext {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {...data};

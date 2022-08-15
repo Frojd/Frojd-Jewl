@@ -3,7 +3,7 @@ Used for showing a bar which can be toogled to expand or expand, can be used for
 ## Props
 
 -   **Title**
--   **Richtext\*** - The content of the accordian which can be expanded. Can be a string or HTML-code, uses the RawHtml component so it can render html code in the same way
+-   **Richtext\*** - The content of the accordian which can be expanded. Can be a string or HTML-code, uses the Richtext component so it can render html code in the same way
 -   **Button text\*** - Text for dismiss button
 -
 

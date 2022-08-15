@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ls from 'local-storage';
 import { VelocityComponent } from 'velocity-react';
-import RawHtml from 'Components/RawHtml';
+import Richtext from 'Components/Richtext';
 import s from './Popup.module.scss';
 
 const Popup = ({ title, richtext, buttonText }) => {
@@ -25,7 +25,7 @@ const Popup = ({ title, richtext, buttonText }) => {
                 <div className={s.Content}>
                     <h2 className={s.Title}>{title}</h2>
                     <div className={s.RichText}>
-                        <RawHtml html={richtext} />
+                        <Richtext html={richtext} />
                     </div>
                     <a
                         className={s.Button}

@@ -2,7 +2,7 @@ Used for showing a bar which can be toogled to expand or expand, can be used for
 
 ## Props
 - __Title*__ - The heading of the accordian which will always be shown
-- __Richtext*__ - The content of the accordian which can be expanded. Can be a string or HTML-code, uses the RawHtml component so it can render html code in the same way
+- __Richtext*__ - The content of the accordian which can be expanded. Can be a string or HTML-code, uses the Richtext component so it can render html code in the same way
 - **Open** - A boolean where the default state of accordian should be expanded from start or not
 - **Id** - Add id attribute to accordian for accessibility, should be unique
 
