@@ -1,8 +1,19 @@
 @import 'Styles/includes';
 
 .Root {
+    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
+    background: $purple-20;
+}
+
+.Link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
 }
 
 .Image {
@@ -24,25 +35,40 @@
 }
 
 .Content {
-    background: $grey-10;
-    padding: 32px 64px 32px 24px;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+}
+
+.Label {
+    @include textstyle(label-card);
+
+    flex: 0 0 auto;
+    margin-bottom: 8px;
+    color: $purple;
 }
 
 .Title {
     @include textstyle(card-title);
 
-    margin-bottom: 16px;
+    flex: 0 0 auto;
 }
 
 .Text {
     @include textstyle(body);
+
+    flex: 0 0 auto;
+    margin-top: 12px;
 }
 
-.Link {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    cursor: pointer;
+.Meta {
+    flex: 0 0 auto;
+    margin-top: auto;
+    padding-top: 26px;
+    color: $grey-80;
+}
+
+.Date {
+    @include textstyle(date);
 }

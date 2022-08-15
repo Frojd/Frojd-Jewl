@@ -56,8 +56,7 @@ $system-success: #1DAC2C;
 
 /** Color definitions custom vars **/
 $bg-color: white;
-$base-color: black;
-$heading-color: black;
+$base-color: $grey-90;
 $primary-color: $purple;
 $accent-color: $yellow;
 
@@ -165,10 +164,10 @@ $textstyles: (
         d: (font-size: 10, line-height: 12.2),
     ),
     label: (
-        d: (font-size: 14, line-height: 1.2, font-weight: $bold, text-transform: uppercase),
+        d: (font-size: 14, line-height: 16.5, font-weight: $bold, text-transform: uppercase),
     ),
     label-card: (
-        d: (font-size: 12, line-height: 1.2, font-weight: $bold, text-transform: uppercase),
+        d: (font-size: 12, line-height: 14, font-weight: $bold, text-transform: uppercase),
     ),
     date: (
         d: (font-size: 14, line-height: 23.5),
