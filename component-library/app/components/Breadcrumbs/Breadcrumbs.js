@@ -42,7 +42,7 @@ const Link = ({title, url, isStart, isCurrent}) => {
         <a
             className={s.Link}
             href={url}
-            aria-current="page"
+            aria-current={isCurrent ? 'page' : null}
         >{displayTitle}</a>
     );
 };
