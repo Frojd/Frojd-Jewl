@@ -13,6 +13,7 @@ const Image = ({
     srcset,
     sizes,
     useCover,
+    useLazyLoad,
     className,
 }) => {
     const [useObjectFit, setUseObjectFit] = useState(true);
@@ -63,6 +64,7 @@ const Image = ({
             style={{
                 objectPosition: position,
             }}
+            loading={useLazyLoad ? 'lazy' : null}
         />
     );
 };
@@ -77,6 +79,7 @@ Image.propTypes = {
     srcset: PropTypes.array,
     sizes: PropTypes.array,
     useCover: PropTypes.bool,
+    useLazyLoad: PropTypes.bool,
     className: PropTypes.string,
 };
 
@@ -90,6 +93,7 @@ Image.defaultProps = {
     srcset: [],
     sizes: [],
     useCover: true,
+    useLazyLoad: true,
     className: '',
 };
 
