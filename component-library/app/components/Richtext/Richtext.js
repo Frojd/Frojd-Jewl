@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Richtext.module.scss';
 
-const Richtext = ({ html }) => (
-    <div className={s.Root} dangerouslySetInnerHTML={{ __html: html }} />
+const Richtext = ({ text }) => (
+    <div className={s.Root} dangerouslySetInnerHTML={{ __html: text }} />
 );
 
 Richtext.propTypes = {
-    html: PropTypes.string,
+    text: PropTypes.string,
 };
 
 Richtext.defaultProps = {
-    html: '',
+    text: '',
 };
 
 export default Richtext;
