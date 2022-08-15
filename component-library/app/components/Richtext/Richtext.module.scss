@@ -1,8 +1,6 @@
 @import 'Styles/includes';
 
 .Root {
-    @include textstyle(body);
-
     ol,
     ul,
     figure,
@@ -65,6 +63,12 @@
 
     h6 {
         @include textstyle(richtext-h6);
+    }
+
+    p,
+    ul,
+    ol {
+        @include textstyle(paragraph);
     }
 
     i,
@@ -159,7 +163,7 @@
     }
 
     blockquote {
-        @include textstyle(blockquote);
+        @include textstyle(quote);
 
         position: relative;
         padding-left: 26px;
@@ -176,7 +180,7 @@
         }
 
         cite {
-            @include textstyle(caption);
+            @include textstyle(cite);
         }
     }
 
