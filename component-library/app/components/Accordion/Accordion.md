@@ -8,7 +8,7 @@ Used for showing a bar which can be toogled to expand or expand, can be used for
 
 ## Requirements
 ### Components
-- **RawHTML** - Used in content of accordian since it is richtext
+- **Richtext** - Used in content of accordian since it is richtext
 
 ### Packages
 - **velocity-react** - This example uses velocity react to transition the expandable area with an animation
