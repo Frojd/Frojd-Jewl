@@ -1,4 +1,8 @@
 export default {
+    breadcrumbs: {
+        start: 'Hem',
+        label: 'Breadcrumbs',
+    },
     card: {
         date: 'Publicerad',
     },

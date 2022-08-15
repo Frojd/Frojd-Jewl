@@ -3,5 +3,6 @@ import hero from 'Components/Hero/Hero.data';
 
 export default {
     ...base,
+    breadcrumbs: null,
     hero: hero,
 };

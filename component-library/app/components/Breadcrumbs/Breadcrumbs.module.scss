@@ -1,0 +1,82 @@
+@import 'Styles/includes.scss';
+
+.Root {
+    border-bottom: 1px solid $grey-10;
+    background: $grey-5;
+}
+
+.Nav {
+    @include wrap;
+}
+
+.List {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-right: -8px;
+    padding-top: 4px;
+    padding-bottom: 3px;
+}
+
+.Item {
+    flex: 0 0 auto;
+    position: relative;
+
+    &::after {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        width: 12px;
+        height: 12px;
+        background: url('#{$assetsPath}img/chevron--grey-70.svg') no-repeat center center;
+        background-size: contain;
+
+        @include media(M) {
+            right: 0;
+        }
+    }
+
+    &:not(:last-child) {
+        padding-right: 12px;
+
+        &::after {
+            display: block;
+        }
+    }
+}
+
+.Link {
+    @include textstyle(breadcrumb);
+
+    display: inline-block;
+    position: relative;
+    padding: 4px;
+    color: $grey-70;
+    text-decoration: none;
+    transition: color $transition;
+
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        bottom: 4px;
+        left: 8px;
+        right: 8px;
+        height: 1px;
+        background: $grey-70;
+        opacity: 0;
+        transition: opacity $transition;
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+
+    @include media(M) {
+        font-size: 1.4rem;
+    }
+}

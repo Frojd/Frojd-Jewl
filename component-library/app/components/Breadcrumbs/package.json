@@ -1,0 +1,11 @@
+{
+  "name": "Breadcrumbs",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "*",
+    "prop-types": "*",
+    "react-i18next": "*"
+  },
+  "jewlDependencies": [
+  ]
+}
