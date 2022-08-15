@@ -48,23 +48,23 @@
 
     h1,
     h2 {
-        @include textstyle(html-h2);
+        @include textstyle(richtext-h2);
     }
 
     h3 {
-        @include textstyle(html-h3);
+        @include textstyle(richtext-h3);
     }
 
     h4 {
-        @include textstyle(html-h4);
+        @include textstyle(richtext-h4);
     }
 
     h5 {
-        @include textstyle(html-h5);
+        @include textstyle(richtext-h5);
     }
 
     h6 {
-        @include textstyle(html-h6);
+        @include textstyle(richtext-h6);
     }
 
     i,

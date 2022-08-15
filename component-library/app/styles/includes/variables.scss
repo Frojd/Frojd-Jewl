@@ -1,4 +1,4 @@
-$assetsPath: 'assets/';
+$assetsPath: 'Assets/';
 
 $gutter: 16px;
 $gutterM: 24px; // Used for media query above M
@@ -28,14 +28,27 @@ $transition: .3s ease-in-out;
 
 /** Color definintions from styleguide **/
 $grey: #9E9E9E;
+$grey-5: #FAFAFA;
 $grey-10: #F5F5F5;
+$grey-20: #EEE;
+$grey-30: #E0E0E0;
+$grey-40: #BDBDBD;
 $grey-60: #757575;
+$grey-70: #616161;
+$grey-80: #424242;
+$grey-90: #212121;
 
 $purple: #673AB7;
-$purple-5: #EDE7F6;
-$purple-90: #311B92;
+$purple-20: #EDE7F6;
+$purple-60: #B39DDB;
+$purple-90: #4527a0;
 
 $yellow: #FFEE58;
+$yellow-20: #FFFDE7;
+$yellow-40: #FFF59d;
+$yellow-60: #FDD835;
+
+$pink: #E91E63;
 
 $system-error: #D32F2F;
 $system-error-10: #FBEBEB;
@@ -56,68 +69,108 @@ $error-bg: $system-error-10;
 $success-color: $system-success;
 
 /** Text styles variables **/
-$base-font: #{Arial, sans-serif};
-$heading-font: #{Arial, sans-serif};
+$base-font: #{Roboto, Arial, sans-serif};
+$heading-font: #{Roboto, Arial, sans-serif};
 
 $base-size: 1.6rem;
 
+// Match names of weights here with the weights of the fonts in fonts.scss
 $light: 300;
-$book: 400;
+$regular: 400;
 $medium: 500;
-$semibold: 600;
 $bold: 700;
-$black: 800;
-$heavy: 900;
 
 // No other font sizes are needed
 // Font sizes and line heights as defined by styleguide in pixels
 $textstyles: (
-    title: (
-        d: (font-size: 40, line-height: 48, font-weight: $black, font-family: $heading-font, color: $heading-color),
-        M: (font-size: 56, line-height: 64),
+    page-title: (
+        d: (font-size: 44, line-height: 59.8, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 64, line-height: 84.5),
     ),
     module-title: (
-        d: (font-size: 36, line-height: 40, font-weight: $black, font-family: $heading-font),
-        M: (font-size: 40, line-height: 48),
+        d: (font-size: 34, line-height: 47.6, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 44, line-height: 60.3),
     ),
     card-title: (
-        d: (font-size: 30, line-height: 34, font-weight: $black, font-family: $heading-font),
-        M: (font-size: 32, line-height: 40),
+        d: (font-size: 34, line-height: 36.5, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 26, line-height: 39.5),
     ),
-    html-h2: (
-        d: (font-size: 32, line-height: 40, font-weight: $black, font-family: $heading-font),
-        M: (font-size: 34, line-height: 40),
+    accordion-title: (
+        d: (font-size: 16, line-height: 23.8, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 22, line-height: 28.4),
     ),
-    html-h3: (
-        d: (font-size: 24, line-height: 40, font-weight: $black, font-family: $heading-font),
-        M: (font-size: 28, line-height: 40),
+    footer-title: (
+        d: (font-size: 14, line-height: 1.5, font-weight: $medium, font-family: $heading-font),
     ),
-    html-h4: (
-        d: (font-size: 22, line-height: 36, font-weight: $black, font-family: $heading-font),
-        M: (font-size: 24, line-height: 40),
+    richtext-h2: (
+        d: (font-size: 36, line-height: 48.2, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 40, line-height: 55.6),
     ),
-    html-h5: (
-        d: (font-size: 18, line-height: 28, font-weight: $black, font-family: $heading-font),
-        M: (font-size: 20, line-height: 32),
+    richtext-h3: (
+        d: (font-size: 28, line-height: 39.8, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 32, line-height: 45.1),
     ),
-    html-h6: (
-        d: (font-size: 16, line-height: 24, font-weight: $black, font-family: $heading-font),
-        M: (font-size: 18, line-height: 28),
+    richtext-h4: (
+        d: (font-size: 24, line-height: 36.5, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 26, line-height: 39.5),
     ),
-    preamble: (
-        d: (font-size: 18, line-height: 28, font-weight: $book, letter-spacing: .2px),
-        M: (font-size: 20, line-height: 29),
+    richtext-h5: (
+        d: (font-size: 20, line-height: 28.4, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 22, line-height: 32.6),
+    ),
+    richtext-h6: (
+        d: (font-size: 16, line-height: 23.7, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 18, line-height: 26.6),
     ),
     body: (
-        d: (font-size: 16, line-height: 24, font-weight: $book, letter-spacing: .2px),
-        M: (font-size: 18, line-height: 28),
+        d: (font-size: 16, line-height: 23.5),  // Also card-text
     ),
-    blockquote: (
-        d: (font-size: 20, line-height: 32, font-weight: $bold, letter-spacing: .2px),
-        M: (font-size: 24, line-height: 32),
+    preamble: (
+        d: (font-size: 18, line-height: 27.4, font-weight: $light),
+        M: (font-size: 22, line-height: 32.6),
+    ),
+    paragraph: (
+        d: (font-size: 16, line-height: 23.5),
+        M: (font-size: 18, line-height: 27.7),
+    ),
+    quote: (
+        d: (font-size: 20, line-height: 39.4, font-weight: $bold, font-family: $heading-font),
+        M: (font-size: 26, line-height: 39.5),
+    ),
+    cite: (
+        d: (font-size: 14, line-height: 23.5),  // Quote name
+        M: (font-size: 18, line-height: 26.5),
     ),
     caption: (
-        d: (font-size: 11, line-height: 14, color: $grey-60),
-        M: (font-size: 12, line-height: 16),
+        d: (font-size: 12, line-height: 16.3),
+    ),
+    button: (
+        d: (font-size: 16, line-height: 19.8, font-weight: $medium),
+        M: (font-size: 18, line-height: 24.5),
+    ),
+    link: (
+        d: (font-size: 16, line-height: 23.5),  // Footer link, textlink - s
+        M: (font-size: 18, line-height: 27.7),  // Footer link
+    ),
+    mainmenu: (
+        d: (font-size: 16, line-height: 23.7),
+    ),
+    servicemenu: (
+        d: (font-size: 14, line-height: 23.5),
+    ),
+    submenu: (
+        d: (font-size: 16, line-height: 19.7),  // Add medium to active and first level instead of new text style
+    ),
+    breadcrumb: (
+        d: (font-size: 10, line-height: 12.2),
+    ),
+    label: (
+        d: (font-size: 14, line-height: 1.2, font-weight: $bold, text-transform: uppercase),
+    ),
+    label-card: (
+        d: (font-size: 12, line-height: 1.2, font-weight: $bold, text-transform: uppercase),
+    ),
+    date: (
+        d: (font-size: 14, line-height: 23.5),
     ),
 );

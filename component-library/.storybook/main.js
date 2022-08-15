@@ -1,11 +1,22 @@
 const path = require('path');
 
+const aliases = {
+    App: path.resolve(__dirname, '../app/'),
+    Components: path.resolve(__dirname, '../app/components/'),
+    Containers: path.resolve(__dirname, '../app/containers/'),
+    Layouts: path.resolve(__dirname, '../app/layouts/'),
+    Utils: path.resolve(__dirname, '../app/utils/'),
+    Styles: path.resolve(__dirname, '../app/styles/'),
+    Assets: path.resolve(__dirname, '../app/assets/'),
+    SVG: path.resolve(__dirname, '../app/svg/'),
+    i18n: path.resolve(__dirname, '../app/i18n/'),
+};
+
 module.exports = {
     features: {
         storyStoreV7: true,
     },
     staticDirs: [
-        '../app/assets',
         './assets',
     ],
     stories: [
@@ -29,10 +40,7 @@ module.exports = {
 
     webpackFinal: async (config, { configType }) => {
 
-        config.resolve.modules = [
-            ...config.resolve.modules,
-            path.resolve(__dirname, '../app'),
-        ];
+        config.resolve.alias = {...config.resolve.alias, ...aliases};
 
         config.module.rules = config.module.rules.map(data => {
             if (/svg\|/.test( String( data.test ) )) {
@@ -92,17 +100,6 @@ module.exports = {
                 { loader: 'sass-loader' },
             ]
         });
-
-        config.resolve.alias = {
-            Layouts: path.resolve(__dirname, '../app/layouts/'),
-            Containers: path.resolve(__dirname, '../app/containers/'),
-            Components: path.resolve(__dirname, '../app/components/'),
-            i18n: path.resolve(__dirname, '../app/i18n'),
-            Styles: path.resolve(__dirname, '../app/styles'),
-            Utils: path.resolve(__dirname, '../app/utils'),
-            Assets: path.resolve(__dirname, '../app/assets'),
-            SVG: path.resolve(__dirname, '../app/svg'),
-        };
 
         return config;
     },

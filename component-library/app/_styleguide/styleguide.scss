@@ -1,6 +1,8 @@
 /* Styleguide is only available in storybook */
 
 .styleguide {
+    @include textstyle(body);
+
     background: white;
 
     &__wrap {
@@ -11,7 +13,7 @@
 
     h1 {
         margin: 40px 0;
-        color: #666;
+        color: rgba(black, .7);
         font-size: 4rem;
         font-weight: bold;
     }
@@ -19,12 +21,12 @@
     h2 {
         padding-bottom: 8px;
         margin: 60px 0 40px;
-        color: #666;
+        color: rgba(black, .5);
         font-size: 1.2rem;
         font-weight: bold;
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid #666;
+        border-bottom: 1px solid rgba(black, .5);
     }
 
     pre {
@@ -34,7 +36,7 @@
 
     .textstyle {
         &--title {
-            @include textstyle(title);
+            @include textstyle(page-title);
         }
         &--module-title {
             @include textstyle(module-title);
@@ -42,26 +44,71 @@
         &--card-title {
             @include textstyle(card-title);
         }
-        &--html-h2 {
-            @include textstyle(html-h2);
+        &--accordion-title {
+            @include textstyle(accordion-title);
         }
-        &--html-h3 {
-            @include textstyle(html-h3);
+        &--footer-title {
+            @include textstyle(footer-title);
         }
-        &--html-h4 {
-            @include textstyle(html-h4);
+        &--richtext-h2 {
+            @include textstyle(richtext-h2);
         }
-        &--html-h5 {
-            @include textstyle(html-h5);
+        &--richtext-h3 {
+            @include textstyle(richtext-h3);
         }
-        &--html-h6 {
-            @include textstyle(html-h6);
+        &--richtext-h4 {
+            @include textstyle(richtext-h4);
+        }
+        &--richtext-h5 {
+            @include textstyle(richtext-h5);
+        }
+        &--richtext-h6 {
+            @include textstyle(richtext-h6);
         }
         &--body {
             @include textstyle(body);
         }
         &--preamble {
             @include textstyle(preamble);
+        }
+        &--paragraph {
+            @include textstyle(paragraph);
+        }
+        &--quote {
+            @include textstyle(quote);
+        }
+        &--cite {
+            @include textstyle(cite);
+        }
+        &--caption {
+            @include textstyle(caption);
+        }
+        &--button {
+            @include textstyle(button);
+        }
+        &--link {
+            @include textstyle(link);
+        }
+        &--mainmenu {
+            @include textstyle(mainmenu);
+        }
+        &--servicemenu {
+            @include textstyle(servicemenu);
+        }
+        &--submenu {
+            @include textstyle(submenu);
+        }
+        &--breadcrumb {
+            @include textstyle(breadcrumb);
+        }
+        &--label {
+            @include textstyle(label);
+        }
+        &--label-card {
+            @include textstyle(label-card);
+        }
+        &--date {
+            @include textstyle(date);
         }
     }
 
@@ -70,15 +117,19 @@
             display: block;
             padding: 24px;
             color: black;
-            font-weight: $black;
+            font-weight: bold;
 
             &--purple {
                 color: white;
                 background: $purple;
             }
 
-            &--purple-5 {
-                background: $purple-5;
+            &--purple-20 {
+                background: $purple-20;
+            }
+
+            &--purple-60 {
+                background: $purple-60;
             }
 
             &--purple-90 {
@@ -90,9 +141,45 @@
                 background: $yellow;
             }
 
+            &--yellow-20 {
+                background: $yellow-20;
+            }
+
+            &--yellow-40 {
+                background: $yellow-40;
+            }
+
+            &--yellow-60 {
+                background: $yellow-60;
+            }
+
+            &--pink {
+                background: $pink;
+            }
+
             &--grey {
                 color: white;
                 background: $grey;
+            }
+
+            &--grey-5 {
+                background: $grey-5;
+            }
+
+            &--grey-10 {
+                background: $grey-10;
+            }
+
+            &--grey-20 {
+                background: $grey-20;
+            }
+
+            &--grey-30 {
+                background: $grey-30;
+            }
+
+            &--grey-40 {
+                background: $grey-40;
             }
 
             &--grey-60 {
@@ -100,8 +187,31 @@
                 background: $grey-60;
             }
 
-            &--grey-10 {
-                background: $grey-10;
+            &--grey-70 {
+                color: white;
+                background: $grey-70;
+            }
+
+            &--grey-80 {
+                color: white;
+                background: $grey-80;
+            }
+
+            &--grey-90 {
+                color: white;
+                background: $grey-90;
+            }
+
+            &--system-success {
+                background: $system-success;
+            }
+
+            &--system-error {
+                background: $system-error;
+            }
+
+            &--system-error-10 {
+                background: $system-error-10;
             }
         }
     }
