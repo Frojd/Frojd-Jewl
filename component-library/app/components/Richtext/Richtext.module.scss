@@ -1,11 +1,20 @@
 @import 'Styles/includes';
 
 .Root {
+
+    :global .preamble {
+        margin: 24px 0;
+    }
+
+    :global .embed {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
     ol,
     ul,
     figure,
-    blockquote,
-    .embed {
+    blockquote {
         margin-top: 40px;
         margin-bottom: 40px;
     }
@@ -16,7 +25,7 @@
     h4,
     h5,
     h6 {
-        margin-top: 40px;
+        margin-top: 24px;
         margin-bottom: 8px;
 
         + p,
@@ -32,8 +41,8 @@
     }
 
     p {
-        margin-top: 16px;
-        margin-bottom: 16px;
+        margin-top: 12px;
+        margin-bottom: 12px;
     }
 
     > :first-child {
@@ -82,38 +91,64 @@
     }
 
     a {
-        color: $link-color;
-        text-decoration: underline;
+        position: relative;
+        color: $base-color;
+        display: inline-block;
+        text-decoration: none;
+        transition: color $transition;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: $base-color;
+            transition: background-color $transition;
+        }
+
+        &::after {
+            content: '';
+            display: none;
+            position: relative;
+            top: 6px;
+            width: 24px;
+            height: 24px;
+            margin-left: 6px;
+            line-height: 1;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+        }
 
         &:hover {
-            color: $link-hover-color;
+            color: $link-color;
+
+            &::before {
+                background: $link-color;
+            }
         }
 
         @include href-external {
             &::after {
-                content: '⇱';
                 display: inline-block;
-                position: relative;
-                top: 3px;
-                width: 15px;
-                height: 15px;
-                margin-left: 5px;
-                line-height: 1;
-                transform: rotate(90deg);
+                background-image: url('#{$assetsPath}img/external--grey-90.svg');
+            }
+
+            &:hover::after {
+                background-image: url('#{$assetsPath}img/external--purple.svg');
             }
         }
 
         @include href-download {
             &::after {
-                content: '⇤' !important;
                 display: inline-block;
-                position: relative;
-                top: 3px;
-                width: 15px;
-                height: 15px;
-                margin-left: 5px;
-                line-height: 1;
-                transform: rotate(-90deg) !important;
+                background-image: url('#{$assetsPath}img/download--grey-90.svg') !important;
+            }
+
+            &:hover::after {
+                background-image: url('#{$assetsPath}img/download--purple.svg') !important;
             }
         }
 
@@ -133,25 +168,12 @@
         }
     }
 
-    ul {
-        list-style-type: square;
-        padding-left: 19px;
-
-        li {
-            margin-bottom: 12px;
-            padding-left: 10px;
-
-            &::marker {
-                color: $primary-color;
-            }
-        }
-    }
-
+    ul,
     ol {
-        list-style-type: decimal;
-        padding-left: 20px;
+        padding-left: 32px;
 
         li {
+            position: relative;
             margin-bottom: 12px;
             padding-left: 11px;
 
@@ -162,25 +184,55 @@
         }
     }
 
+    ul {
+        list-style-type: none;
+
+        li {
+            &::before {
+                content: '';
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: -24px;
+                background: url('#{$assetsPath}img/bullet--purple.svg') no-repeat center center;
+                background-size: contain;
+            }
+        }
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
     blockquote {
         @include textstyle(quote);
 
         position: relative;
-        padding-left: 26px;
-        padding-top: 32px;
+        padding-top: 56px;
+        text-align: center;
 
         &::before {
             content: '“';
             position: absolute;
             top: 0;
-            left: -5px;
+            left: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            margin: auto;
             color: $primary-color;
-            font-size: 96px;
-            line-height: 73px;
+            font-size: 120px;
+            line-height: 110px;
         }
 
         cite {
             @include textstyle(cite);
+
+            margin-top: 24px;
+            display: block;
+            font-weight: $regular;
         }
     }
 
@@ -203,7 +255,16 @@
         margin-top: 8px;
     }
 
-    .embed {
+    iframe {
+        max-width: 100%;
+        height: auto;
+    }
+
+    :global .preamble {
+        @include textstyle(preamble);
+    }
+
+    :global .embed {
         position: relative;
 
         &::before {
@@ -224,11 +285,6 @@
         }
     }
 
-    iframe {
-        max-width: 100%;
-        height: auto;
-    }
-
     @media print {
         p,
         h2,
@@ -239,8 +295,16 @@
         img,
         iframe,
         figure,
-        .embed,
         blockquote {
+            page-break-before: auto;
+            page-break-after: auto;
+            page-break-inside: avoid;
+            display: block;
+            position: relative;
+        }
+
+        :global .preamble,
+        :global .embed {
             page-break-before: auto;
             page-break-after: auto;
             page-break-inside: avoid;
