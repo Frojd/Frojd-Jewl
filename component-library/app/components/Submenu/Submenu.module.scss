@@ -97,6 +97,7 @@
     top: 100%;
     left: 0;
     right: 0;
+    background: white;
 
     @include media(ML) {
         display: block !important;

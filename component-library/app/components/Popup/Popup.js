@@ -5,7 +5,7 @@ import { VelocityComponent } from 'velocity-react';
 import Richtext from 'Components/Richtext';
 import s from './Popup.module.scss';
 
-const Popup = ({ title, richtext, buttonText }) => {
+const Popup = ({ title, text, buttonText }) => {
     const [visible, setVisible] = useState(false);
     useEffect(() => {
         if (ls.get('cookiePopupDismissed')) return;
@@ -25,7 +25,7 @@ const Popup = ({ title, richtext, buttonText }) => {
                 <div className={s.Content}>
                     <h2 className={s.Title}>{title}</h2>
                     <div className={s.RichText}>
-                        <Richtext html={richtext} />
+                        <Richtext text={text} />
                     </div>
                     <a
                         className={s.Button}
@@ -41,13 +41,13 @@ const Popup = ({ title, richtext, buttonText }) => {
 
 Popup.propTypes = {
     title: PropTypes.string,
-    richtext: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
     buttonText: PropTypes.string.isRequired,
 };
 
 Popup.defaultProps = {
     title: '',
-    richtext: '',
+    text: '',
     buttonText: '',
 };
 

@@ -6,7 +6,7 @@ import { VelocityComponent } from 'velocity-react';
 import Richtext from '../Richtext';
 import s from './Accordion.module.scss';
 
-const Accordion = ({title, richtext, open, id}) => {
+const Accordion = ({title, text, open, id}) => {
     const {t} = useTranslation();
 
     const [isExpanded, setIsExpanded] = useState(open);
@@ -48,7 +48,7 @@ const Accordion = ({title, richtext, open, id}) => {
                     aria-labelledby={headerId}
                     id={id}
                 >
-                    <Richtext html={richtext} />
+                    <Richtext text={text} />
                 </div>
             </VelocityComponent>
         </div>
@@ -57,14 +57,14 @@ const Accordion = ({title, richtext, open, id}) => {
 
 Accordion.propTypes = {
     title: PropTypes.string.isRequired,
-    richtext: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
     open: PropTypes.bool,
     id: PropTypes.string,
 };
 
 Accordion.defaultProps = {
     title: '',
-    richtext: '',
+    text: '',
     open: false,
     id: 'accordion',
 };
