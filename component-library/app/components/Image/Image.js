@@ -1,10 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import _ from 'lodash';
 import s from './Image.module.scss';
 
-const Image = ({src, alt, width, height, caption, focal, srcset, sizes, useCover, className}) => {
+const Image = ({
+    src,
+    alt,
+    width,
+    height,
+    caption,
+    focal,
+    srcset,
+    sizes,
+    useCover,
+    className,
+}) => {
     const [useObjectFit, setUseObjectFit] = useState(true);
 
     useEffect(() => {
@@ -15,7 +25,8 @@ const Image = ({src, alt, width, height, caption, focal, srcset, sizes, useCover
         }
     }, []);
 
-    const position = !_.isEmpty(focal) ? `${focal.x} ${focal.y}` : 'center center';
+    const hasFocal = !!focal?.x && !!focal?.y;
+    const position = hasFocal ? `${focal.x} ${focal.y}` : 'center center';
 
     const classes = classNames(
         s.Root,

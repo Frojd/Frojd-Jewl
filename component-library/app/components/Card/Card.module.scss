@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 
-.Image {
+.ImageContainer {
     position: relative;
 
     &::before {
@@ -28,7 +28,7 @@
     }
 }
 
-.Img {
+.Image {
     position: absolute;
     top: 0;
     left: 0;

@@ -141,7 +141,7 @@ $textstyles: (
         M: (font-size: 18, line-height: 26.5),
     ),
     caption: (
-        d: (font-size: 12, line-height: 16.3),
+        d: (font-size: 12, line-height: 16.3, letter-spacing: .2px),
     ),
     button: (
         d: (font-size: 16, line-height: 19.8, font-weight: $medium),

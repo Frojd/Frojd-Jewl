@@ -16,8 +16,11 @@ const Card = ({ title, url, image, label, text, dateString, dateFormatted}) => {
             </a>
 
             {hasImage &&
-                <div className={s.Image}>
-                    <Image {...image} className={s.Img} />
+                <div className={s.ImageContainer}>
+                    <Image
+                        {...image}
+                        className={s.Image}
+                    />
                 </div>
             }
 
@@ -37,7 +40,7 @@ const Card = ({ title, url, image, label, text, dateString, dateFormatted}) => {
                         <span className="sr-only">{t('card.date')}: </span>
                         <time
                             className={s.Date}
-                            datetime={dateString}
+                            dateTime={dateString}
                         >{dateFormatted}</time>
                     </aside>
                 }
