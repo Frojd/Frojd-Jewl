@@ -6,33 +6,28 @@ It includes a small scaffolder for react components and is exporting a bundle wi
 ## Installation ##
 
 1. npm install
-2. npm scaffold
-3. npm start
+2. npm run storybook
 
 This will create a base set of containers and components in the app folder that you can work with and start the devserver at [http://localhost:7000](http://localhost:7000).
-
-Alternativly you can use storybook instead for developing by running:
-
-`npm run storybook`
 
 
 ## CLI commands ##
 
-### Devserver ###
+### Development ###
 
-Start the devserver:
+Start storybook:
 ```
-npm start
-```
-
-Start the devserver with a different port:
-```
-npm start -- --port 7777
+npm run storybook
 ```
 
-Start the devserver as a hot proxy:
+Build storybook
 ```
-npm start -- --proxy http://proxydomain.com
+npm run storybook:build
+```
+
+Build and deploy storybook to https://frojd.github.io/Frojd-Jewl/
+```
+npm run deploy
 ```
 
 ### Creation commands ###
@@ -54,7 +49,7 @@ npm run delete ComponentName
 
 Delete a container component:
 ```
-npm run delete ComponentName -- c
+npm run delete ComponentName -- -c
 ```
 
 Run tests:
