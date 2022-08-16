@@ -19,10 +19,10 @@
         content: '';
         display: block;
         position: absolute;
-        top: -1px;
-        bottom: -1px;
-        left: -1px;
-        right: -1px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         border-radius: inherit;
         opacity: 0;
         transition: opacity $transition;
@@ -54,7 +54,7 @@
     }
 
     &--Large:not(.Root--TextLink):not(.Root--TextLinkWhite) {
-        padding: 13px 27px;
+        padding: 14px 28px;
 
         svg {
             width: 20px;
@@ -62,7 +62,7 @@
         }
 
         @include media(M) {
-            padding: 15px 31px;
+            padding: 16px 32px;
 
             svg {
                 width: 24px;
@@ -79,12 +79,10 @@
         @include textstyle(button);
 
         color: white;
-        border: 1px solid $purple;
         border-radius: 29px;
         background: $purple;
 
         &::before {
-            border: 1px solid $purple-90;
             background: $purple-90;
         }
 
@@ -95,7 +93,6 @@
         &[disabled],
         &.Root--Disabled {
             color: $grey-70;
-            border-color: $grey-20;
             background: $grey-20;
 
             svg * {
@@ -114,12 +111,13 @@
         @include textstyle(button);
 
         color: $purple;
-        border: 1px solid $purple;
         border-radius: 29px;
         background: white;
+        box-shadow: 0 0 0 1px $purple inset; // For using same size of buttons
 
         &::before {
             background: $purple-20;
+            box-shadow: 0 0 0 1px $purple-20; // Make sure the inner boxshadow is covered
         }
 
         svg * {
@@ -129,7 +127,7 @@
         &[disabled],
         &.Root--Disabled {
             color: $grey-70;
-            border-color: $grey-70;
+            box-shadow: 0 0 0 1px $grey-70 inset;
 
             svg * {
                 fill: $grey-70;
@@ -147,7 +145,6 @@
         @include textstyle(button);
 
         color: $purple;
-        border: 1px solid white;
         border-radius: 29px;
         background: white;
 
@@ -194,6 +191,7 @@
 
         svg * {
             fill: $grey-90;
+            transition: fill $transition;
         }
 
         &[disabled],
@@ -210,6 +208,10 @@
 
             &::before {
                 background: $purple;
+            }
+
+            svg * {
+                fill: $purple;
             }
         }
     }
