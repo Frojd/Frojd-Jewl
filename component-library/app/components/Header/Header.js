@@ -1,13 +1,13 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import Logo from 'Assets/img/logo.png';
-import Search from 'SVG/search.svg';
+// import Search from 'SVG/search.svg';
 import Nav from 'Components/Nav';
 import NavigationDrawer from 'Components/NavigationDrawer';
 import s from './Header.module.scss';
 
-const Header = ({main}) => {
+const Header = ({main, service}) => {
     const {t} = useTranslation();
 
     const mainItems = main?.items || [];
@@ -16,22 +16,35 @@ const Header = ({main}) => {
         ...main,
         items: [
             ...mainItems,
-            {
-                title: (
-                    <Fragment>
-                        <Search />
-                        <span className="sr-only">{t('header.search')}</span>
-                    </Fragment>
-                ),
-                id: 'main-search',
-                url: '/search',
-                modifier: 'Search',
-            },
+            // {
+            //     title: (
+            //         <Fragment>
+            //             <Search />
+            //             <span className="sr-only">{t('header.search')}</span>
+            //         </Fragment>
+            //     ),
+            //     id: 'main-search',
+            //     url: '/search',
+            //     modifier: 'Search',
+            // },
         ],
     };
 
     return (
         <header className={s.Root}>
+            <div className={s.ServiceBg}>
+                <div className={s.Wrap}>
+                    <div className={s.Service}>
+                        <Nav
+                            {...service}
+                            label={t('header.serviceMenu')}
+                            orientation="Horizontal"
+                            modifier="Service"
+                        />
+                    </div>
+                </div>
+            </div>
+
             <div className={s.Wrap}>
                 <a className={s.LogoLink} href="/">
                     <img
@@ -69,10 +82,12 @@ const Header = ({main}) => {
 
 Header.propTypes = {
     main: PropTypes.object,
+    service: PropTypes.object,
 };
 
 Header.defaultProps = {
     main: {},
+    service: {},
 };
 
 export default Header;

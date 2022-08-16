@@ -15,7 +15,7 @@ export default {
             control: {type: 'select'},
         },
         modifier: {
-            options: ['', 'Main', 'Mobile'],
+            options: ['', 'Main', 'Mobile', 'Submenu'],
             control: {type: 'select'},
         },
         items: {control: {type: null}},

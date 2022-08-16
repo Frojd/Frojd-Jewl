@@ -11,6 +11,19 @@
     align-items: center;
 }
 
+.ServiceBg {
+    background: $purple-20;
+}
+
+.Service {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    margin-left: -8px;
+}
+
 .LogoLink {
     flex: 0 0 auto;
     display: block;
@@ -23,7 +36,7 @@
 
 .Menu {
     flex: 0 0 auto;
-    margin-left: auto;
+    margin: 20px 0 0 auto;
     display: none;
 
     @include media(M) {
