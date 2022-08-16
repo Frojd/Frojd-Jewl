@@ -147,9 +147,9 @@ $textstyles: (
         d: (font-size: 16, line-height: 19.8, font-weight: $medium),
         M: (font-size: 18, line-height: 24.5),
     ),
-    link: (
-        d: (font-size: 16, line-height: 23.5),  // Footer link, textlink - s
-        M: (font-size: 18, line-height: 27.7),  // Footer link
+    textlink: (
+        d: (font-size: 16, line-height: 23.5),  // Footer link
+        M: (font-size: 18, line-height: 27.7),
     ),
     mainmenu: (
         d: (font-size: 16, line-height: 23.7),
@@ -158,10 +158,11 @@ $textstyles: (
         d: (font-size: 14, line-height: 23.5),
     ),
     submenu: (
-        d: (font-size: 16, line-height: 19.7, font-weight: $bold),  // Add medium to active and first level instead of new text style
+        d: (font-size: 16, line-height: 19.7, font-weight: $bold),  // Add bold to active and first level instead of new text style
     ),
     breadcrumb: (
         d: (font-size: 10, line-height: 12.2),
+        M: (font-size: 12, line-height: 16.3),
     ),
     label: (
         d: (font-size: 14, line-height: 16.5, font-weight: $bold, text-transform: uppercase),

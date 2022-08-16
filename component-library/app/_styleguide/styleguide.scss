@@ -86,8 +86,8 @@
         &--button {
             @include textstyle(button);
         }
-        &--link {
-            @include textstyle(link);
+        &--textlink {
+            @include textstyle(textlink);
         }
         &--mainmenu {
             @include textstyle(mainmenu);

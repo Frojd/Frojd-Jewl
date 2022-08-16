@@ -63,8 +63,8 @@ const Typography = () => {
                 <pre>@include textstyle(button);</pre>
                 <div className="textstyle textstyle--button">Button</div>
 
-                <pre>@include textstyle(link);</pre>
-                <div className="textstyle textstyle--link">Link</div>
+                <pre>@include textstyle(textlink);</pre>
+                <div className="textstyle textstyle--textlink">Textlink</div>
 
                 <pre>@include textstyle(mainmenu);</pre>
                 <div className="textstyle textstyle--mainmenu">Mainmenu</div>
