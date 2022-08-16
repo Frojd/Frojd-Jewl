@@ -1,0 +1,256 @@
+@import 'Styles/includes';
+
+.Root {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    font-family: $base-font;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+
+    span {
+        position: relative;
+    }
+
+    // Before is for background or line
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity $transition;
+    }
+
+    // After is for icons
+    &::after {
+        content: '';
+        display: none;
+        width: 24px;
+        height: 24px;
+        margin-left: 8px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+    }
+
+    svg {
+        display: inline-block;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        margin-left: 8px;
+        margin-bottom: -6px;
+    }
+
+    &:not(.Root--Disabled):not([disabled]) {
+        cursor: pointer;
+    }
+
+    &--Large:not(.Root--TextLink):not(.Root--TextLinkWhite) {
+        padding: 13px 27px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @include media(M) {
+            padding: 15px 31px;
+
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    // &--Small {
+    //     padding: 28px 14px;
+    // }
+
+    &--Primary {
+        @include textstyle(button);
+
+        color: white;
+        border: 1px solid $purple;
+        border-radius: 29px;
+        background: $purple;
+
+        &::before {
+            border: 1px solid $purple-90;
+            background: $purple-90;
+        }
+
+        svg * {
+            fill: white;
+        }
+
+        &[disabled],
+        &.Root--Disabled {
+            color: $grey-70;
+            border-color: $grey-20;
+            background: $grey-20;
+
+            svg * {
+                fill: $grey-70;
+            }
+        }
+
+        &:not(.Root--Disabled):not([disabled]):hover {
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &--Secondary {
+        @include textstyle(button);
+
+        color: $purple;
+        border: 1px solid $purple;
+        border-radius: 29px;
+        background: white;
+
+        &::before {
+            background: $purple-20;
+        }
+
+        svg * {
+            fill: $purple;
+        }
+
+        &[disabled],
+        &.Root--Disabled {
+            color: $grey-70;
+            border-color: $grey-70;
+
+            svg * {
+                fill: $grey-70;
+            }
+        }
+
+        &:not(.Root--Disabled):not([disabled]):hover {
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &--Tertiary {
+        @include textstyle(button);
+
+        color: $purple;
+        border: 1px solid white;
+        border-radius: 29px;
+        background: white;
+
+        &::before {
+            background: $purple-20;
+        }
+
+        svg * {
+            fill: $purple;
+        }
+
+        &[disabled],
+        &.Root--Disabled {
+            color: $grey-70;
+
+            svg * {
+                fill: $grey-70;
+            }
+        }
+
+        &:not(.Root--Disabled):not([disabled]):hover {
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &--TextLink {
+        @include textstyle(textlink);
+
+        color: $grey-90;
+        transition: color $transition;
+
+        &::before {
+            top: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: $base-color;
+            opacity: 1;
+            transition: background-color $transition;
+        }
+
+        svg * {
+            fill: $grey-90;
+        }
+
+        &[disabled],
+        &.Root--Disabled {
+            color: $grey-70;
+
+            svg * {
+                fill: $grey-70;
+            }
+        }
+
+        &:not(.Root--Disabled):not([disabled]):hover {
+            color: $purple;
+
+            &::before {
+                background: $purple;
+            }
+        }
+    }
+
+    &--TextLinkWhite {
+        @include textstyle(textlink);
+
+        color: white;
+
+        &::before {
+            top: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: white;
+            opacity: 1;
+            transition: opacity $transition;
+        }
+
+        svg * {
+            fill: white;
+        }
+
+        &[disabled],
+        &.Root--Disabled {
+            color: $grey-30;
+
+            svg * {
+                fill: $grey-30;
+            }
+
+            &::before {
+                background: $grey-30;
+            }
+        }
+
+        &:not(.Root--Disabled):not([disabled]):hover {
+            &::before {
+                opacity: 0;
+            }
+        }
+    }
+}

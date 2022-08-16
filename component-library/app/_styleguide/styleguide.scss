@@ -32,6 +32,23 @@
     pre {
         font-family: 'Courier new', monospace;
         margin: 40px 0 8px;
+        white-space: pre-wrap;
+    }
+
+    &__bg {
+        padding: 16px;
+
+        pre {
+            color: rgba(white, .8);
+        }
+
+        &--dark {
+            background: $grey-90;
+        }
+
+        &--purple {
+            background: $purple;
+        }
     }
 
     .textstyle {
