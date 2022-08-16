@@ -26,7 +26,11 @@ module.exports = {
     directory: '../app/containers',
     titlePrefix: 'Containers'
   }],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
+    '@whitespace/storybook-addon-html',
+  ],
   webpackFinal: async (config, {
     configType
   }) => {
@@ -66,7 +70,7 @@ module.exports = {
         options: {
           importLoaders: true,
           modules: {
-            localIdentName: '[name]__[local]-[hash:base64:5]'
+            localIdentName: '[folder]__[local]' // This should be changed when used for production
           }
         }
       }, {
