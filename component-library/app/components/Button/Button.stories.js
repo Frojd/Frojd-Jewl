@@ -9,11 +9,16 @@ export default {
         docs: {description: {component: readme}},
     },
     args: {
+        url: null,
         modifier: 'Primary',
         size: 'Large',
         icon: '',
     },
     argTypes: {
+        url: {
+            description: 'If url is empty, a-tag will be used, otherwise button',
+            control: {type: 'text'},
+        },
         modifier: {
             options: ['Primary', 'Secondary', 'Tertiary', 'TextLink', 'TextLinkWhite'],
             control: {type: 'select'},

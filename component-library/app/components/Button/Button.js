@@ -22,14 +22,9 @@ const Button = ({
     onClick,
     atts,
 }) => {
-    /*
-        Possible modifiers:
-        Primary, Seconday,
-    */
-    const isButton = url === null || url === '';
-
+    const isButton = !url;
     const Tag = isButton ? 'button' : 'a';
-    const defaultType = isButton && type ? type : 'button';
+    const defaultType = isButton ? (type ? type : 'button') : null;
 
     const classes = classNames(
         className,
@@ -39,6 +34,8 @@ const Button = ({
         {[s[`Root--${icon}`]]: icon},
         {[s['Root--Disabled']]: disabled},
     );
+
+    console.log(url, isButton, Tag);
 
     return (
         <Tag
@@ -56,7 +53,7 @@ const Button = ({
                 <span>{title}</span>
             }
             {children &&
-                <>{children}</>
+                <span>{children}</span>
             }
             {icon &&
                 <Icon icon={icon} />
@@ -78,9 +75,15 @@ Button.propTypes = {
     rel: PropTypes.string,
     attrTitle: PropTypes.string,
     type: PropTypes.string,
-    modifier: PropTypes.string,
-    size: PropTypes.string,
-    icon: PropTypes.string,
+    modifier: PropTypes.oneOf([
+        'Primary', 'Secondary', 'Tertiary', 'TextLink', 'TextLinkWhite',
+    ]),
+    size: PropTypes.oneOf([
+        null, '', 'Large',
+    ]),
+    icon: PropTypes.oneOf([
+        'External', 'Arrow', 'Download',
+    ]),
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
     atts: PropTypes.object,
