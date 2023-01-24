@@ -29,7 +29,7 @@ const Card = ({ title, url, image, label, text, dateString, dateFormatted}) => {
                     <div className={s.Label}>{label}</div>
                 }
 
-                <h2 className={s.Title}>{title}</h2>
+                <h3 className={s.Title}>{title}</h3>
 
                 {text &&
                     <p className={s.Text}>{text}</p>
