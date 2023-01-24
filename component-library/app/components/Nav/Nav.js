@@ -11,6 +11,8 @@ const Nav = ({id, label, items, orientation, modifier}) => {
     // Check for children, the structure of nav should change when nesting
     const find = _.findKey(items, (i) => i.children && !_.isEmpty(i.children));
     const hasChildren = find !== undefined;
+    const menuId = id+=modifier; 
+
 
     const classes = classNames(
         s.Root,
@@ -19,15 +21,16 @@ const Nav = ({id, label, items, orientation, modifier}) => {
     );
 
     return (
-        <nav className={classes} aria-label={label} id={id}>
+        <nav className={classes} aria-label={label} id={menuId}>
+        
             {hasChildren ? (
-                <List items={items} navId={id} />
+                <List items={items} navId={menuId} />
             ) : (
                 <div className={s.List}>
                     {items.map((item, index) => (
                         <Item
                             {...item}
-                            navId={id}
+                            navId={menuId}
                             key={index}
                         />
                     ))}
