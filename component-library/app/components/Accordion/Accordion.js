@@ -30,6 +30,7 @@ const Accordion = ({title, text, open, id}) => {
                 aria-expanded={isExpanded}
                 aria-controls={id}
                 id={headerId}
+                role="region"
             >
                 <h3 className={s.Title}>{title}</h3>
                 <button className={s.Button} type="button">
