@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { VelocityComponent, velocityHelpers } from 'velocity-react';
+import {useTranslation} from 'react-i18next';
+
 // These must be imported globally
 // import 'velocity-animate';
 // import 'velocity-animate/velocity.ui';
 import s from './NavigationDrawer.module.scss';
 
 const NavigationDrawer = ({ children, open, id }) => {
+    const {t} = useTranslation();
 
     const [expanded, setExpanded] = useState(open);
 
@@ -18,6 +21,8 @@ const NavigationDrawer = ({ children, open, id }) => {
         { [s.RootExpanded] : expanded }
     );
     const buttonId = `${id}-button`;
+    const buttonText =  t('menu.button');
+
 
     const animation = {
         slideIn: velocityHelpers.registerEffect('slideIn', {
@@ -44,9 +49,7 @@ const NavigationDrawer = ({ children, open, id }) => {
                 aria-controls={id}
                 id={buttonId}
             >
-                <span className="sr-only">
-                    {expanded ? 'Close menu' : 'Open menu'}
-                </span>
+                <span className="sr-only">{buttonText}</span>
             </button>
             <VelocityComponent
                 className={s.Navigation}
@@ -55,7 +58,7 @@ const NavigationDrawer = ({ children, open, id }) => {
                 <div
                     className={s.Content}
                     aria-hidden={!expanded}
-                    aria-labelledby={buttonId}
+                    aria-describedby={buttonId}
                     id={id}
                 >{children}</div>
             </VelocityComponent>
