@@ -175,7 +175,7 @@
 
     &--TextLink {
         @include textstyle(textlink);
-
+ 
         color: $grey-90;
         transition: color $transition;
 
@@ -187,7 +187,7 @@
             height: 1px;
             background: $base-color;
             opacity: 1;
-            transition: background-color $transition;
+            transition: opacity $transition;
         }
 
         svg * {
@@ -208,7 +208,7 @@
             color: $purple;
 
             &::before {
-                background: $purple;
+                opacity: 0;
             }
 
             svg * {
