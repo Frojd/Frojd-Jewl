@@ -45,6 +45,7 @@ const Button = ({
             rel={rel}
             title={attrTitle}
             type={defaultType}
+            aria-disabled={disabled}
             disabled={disabled}
             onClick={onClick}
             {...atts}
@@ -126,3 +127,4 @@ Icon.defaultProps = {
 };
 
 export default Button;
+
