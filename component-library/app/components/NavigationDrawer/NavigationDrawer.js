@@ -20,9 +20,12 @@ const NavigationDrawer = ({ children, open, id }) => {
         s.Root,
         { [s.RootExpanded] : expanded }
     );
+
+    console.log(classes);
+
     const buttonId = `${id}-button`;
     const buttonText =  t('menu.button');
-
+    const buttonTextClose =  t('menu.closeButton');
 
     const animation = {
         slideIn: velocityHelpers.registerEffect('slideIn', {
@@ -60,7 +63,18 @@ const NavigationDrawer = ({ children, open, id }) => {
                     aria-hidden={!expanded}
                     aria-describedby={buttonId}
                     id={id}
-                >{children}</div>
+                >
+                    <button
+                        className={s.ButtonClose}
+                        type="button"
+                        onClick={clickHandler}
+                        aria-controls={id}
+                    >
+                        <span className="sr-only">{buttonTextClose}</span>
+                    </button>
+                    
+                    {children}
+                </div>
             </VelocityComponent>
         </div>
     );
