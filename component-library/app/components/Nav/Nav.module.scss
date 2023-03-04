@@ -48,6 +48,7 @@
 
     .Root--Horizontal & {
         margin-left: 8px;
+        align-self: center;
     }
 }
 
@@ -147,23 +148,21 @@
     }
 
     .Item--Search & {
-        svg {
-            transition: fill $transition;
+
+        width: 120px; 
+
+        &:after {
+            background-color: transparent !important; 
         }
 
-        .Root--Main & {
-            margin-right: -16px;
-
-            svg {
-                margin-right: 8px;
-            }
-
-            &:hover {
-                svg {
-                    fill: $primary-color;
-                }
-            }
+        .Root & {
+            transition: width $transition;
         }
+
+        .Root:hover & {
+            width: calc(160px + 38px);
+        }
+
     }
 
     .Root--Main & {

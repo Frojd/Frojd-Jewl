@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import Logo from 'Assets/img/logo.png';
-// import Search from 'SVG/search.svg';
 import Nav from 'Components/Nav';
+import SearchBar from 'Components/SearchBar';
 import NavigationDrawer from 'Components/NavigationDrawer';
 import s from './Header.module.scss';
 
@@ -11,24 +11,32 @@ const Header = ({main, service}) => {
     const {t} = useTranslation();
 
     const mainItems = main?.items || [];
+    const serviceItems = service?.items || [];
+
 
     const mainMenu = {
         ...main,
         items: [
             ...mainItems,
-            // {
-            //     title: (
-            //         <Fragment>
-            //             <Search />
-            //             <span className="sr-only">{t('header.search')}</span>
-            //         </Fragment>
-            //     ),
-            //     id: 'main-search',
-            //     url: '/search',
-            //     modifier: 'Search',
-            // },
         ],
     };
+
+    const serviceMenu = {
+        ...service,
+        items: [
+            {
+                title: (
+                    <Fragment>
+                        <SearchBar />
+                    </Fragment>
+                ),
+                id: 'main-search',
+                url: '#',
+                modifier: 'Search',
+            },
+            ...serviceItems, 
+        ] 
+    }; 
 
     return (
         <header className={s.Root}>
@@ -36,7 +44,7 @@ const Header = ({main, service}) => {
                 <div className={s.Wrap}>
                     <div className={s.Service}>
                         <Nav
-                            {...service}
+                            {...serviceMenu}
                             label={t('header.serviceMenu')}
                             orientation="Horizontal"
                             modifier="Service"
