@@ -21,8 +21,6 @@ const NavigationDrawer = ({ children, open, id }) => {
         { [s.RootExpanded] : expanded }
     );
 
-    console.log(classes);
-
     const buttonId = `${id}-button`;
     const buttonText =  t('menu.button');
     const buttonTextClose =  t('menu.closeButton');
