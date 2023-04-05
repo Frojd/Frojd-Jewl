@@ -10,7 +10,7 @@
     border: none;
     background-color: transparent;
     width: auto;
-    width: calc(100% - 38px);
+    width: calc(100% - 32px);
     height: calc(22px + 16px);
     padding: 4px 12px; 
     transition: border $transition;
@@ -39,15 +39,16 @@
 
 .Submit {
     overflow: hidden; //prevent hidden submit text to overflow 
-    width: 22px;
-    height: 22px;
-    border: none; 
+    width: 32px;
+    height: 32px;
+    border: 2px solid transparent; 
     background-image: url('#{$assetsPath}img/search.svg');
     background-size: 22px 22px;
     background-repeat: no-repeat;
     background-position: center;
     background-color: transparent;
     cursor: pointer;
+    border-radius: 50%;
 
     color: transparent;
     vertical-align: middle;
@@ -55,6 +56,11 @@
     position: absolute;
     top: 50%;
     bottom: 0; 
-    right: 12px; 
+    right: -1px; 
     transform: translateY(-50%);
+    transition: background-color $transition; 
+
+    &:hover {
+        background-color: $purple-60; 
+    }
 }
