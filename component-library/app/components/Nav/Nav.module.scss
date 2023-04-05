@@ -159,7 +159,7 @@
             transition: width $transition;
         }
 
-        .Root:hover & {
+        &:hover {
             width: calc(160px + 38px);
         }
 
