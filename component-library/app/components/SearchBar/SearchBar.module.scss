@@ -38,6 +38,7 @@
 }
 
 .Submit {
+    overflow: hidden; //prevent hidden submit text to overflow 
     width: 22px;
     height: 22px;
     border: none; 
