@@ -7,9 +7,39 @@
     @include wrap;
 }
 
+.Hero {
+    background-color: $purple-20; 
+    padding-top: 80px; 
+    padding-bottom: 50px; 
+    margin-bottom: 48px; 
+}
+
+.Searchbar {
+    @include wrap;
+
+    border: 1px solid white; 
+    border-radius: 100px; 
+}
+
 
 .Title {
     @include textstyle(richtext-h2);
+
+    @include wrap;
+}
+
+.ListInfo {
+    margin-bottom: 16px; 
+}
+
+.ResultList {
+    width: 100%;
+    display: grid;
+    gap: 16px; 
+
+    @include media(M) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .Layout {
@@ -29,21 +59,8 @@
 
     @include media(ML) {
         order: 0;
-        width: calc(100% - 370px);
-        max-width: map-get($maxwidths, content);
         margin-top: 0;
         margin-right: 40px;
     }
 }
 
-.Sidebar {
-    flex: 0 0 auto;
-    width: 100%;
-    margin-top: 24px;
-
-    @include media(ML) {
-        width: 320px;
-        margin-top: 0;
-        margin-left: auto;
-    }
-}
