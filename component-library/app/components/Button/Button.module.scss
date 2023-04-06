@@ -72,9 +72,9 @@
         }
     }
 
-    // &--Small {
-    //     padding: 28px 14px;
-    // }
+    &--Small {
+        padding: 8px 16px;
+    }
 
     &--Primary {
         @include textstyle(button);
