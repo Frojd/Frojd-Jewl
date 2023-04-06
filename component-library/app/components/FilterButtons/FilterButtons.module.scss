@@ -1,0 +1,18 @@
+@import 'Styles/includes';
+
+.Root {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    margin-bottom: 16px; 
+}
+
+.Filter {
+    // border: 1px solid $purple;
+    // border-radius: 100px; 
+    // padding: 8px 16px;
+
+    // color: $purple; 
+    @include textstyle(button)
+}
