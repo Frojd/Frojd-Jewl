@@ -35,8 +35,6 @@ const Button = ({
         {[s['Root--Disabled']]: disabled},
     );
 
-    console.log(url, isButton, Tag);
-
     return (
         <Tag
             className={classes}
