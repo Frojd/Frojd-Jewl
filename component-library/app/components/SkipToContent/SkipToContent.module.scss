@@ -1,0 +1,29 @@
+@import 'Styles/includes';
+
+.Root {
+    @include textstyle(submenu);
+
+    display: block;
+    position: absolute;
+    transform: translateY(-62px);
+    width: 100%;
+    opacity: 0;
+    background: $purple-20;
+    border-radius: 100px;
+    color: $purple-90;
+    text-align: center;
+    text-decoration: none;
+
+    &:focus {
+        position: relative;
+        transform: translateY(0);
+        width: fit-content;
+        padding: 16px 32px;
+        left: 0;
+        right: 0;
+        opacity: 1;
+        z-index: 9999;
+        margin: 16px auto;
+        outline: auto;
+    }
+}
