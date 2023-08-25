@@ -25,10 +25,7 @@ const Base = (Container) => {
                 <Header {...header} />
 
                 <div className={s.Document} role="document">
-                    <main className={s.Main}>
-                        {breadcrumbs &&
-                            <Breadcrumbs {...breadcrumbs} />
-                        }
+                    <main className={s.Main} id="mainContent">
 
                         <Container {...props} />
                     </main>

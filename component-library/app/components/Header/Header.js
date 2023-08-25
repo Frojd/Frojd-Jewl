@@ -6,6 +6,7 @@ import Nav from 'Components/Nav';
 import SearchBar from 'Components/SearchBar';
 import NavigationDrawer from 'Components/NavigationDrawer';
 import s from './Header.module.scss';
+import SkipToContent from '../SkipToContent/SkipToContent';
 
 const Header = ({main, service}) => {
     const {t} = useTranslation();
@@ -40,6 +41,12 @@ const Header = ({main, service}) => {
 
     return (
         <header className={s.Root}>
+            <div className={s.SkipToContent}>
+                <SkipToContent
+                    mainId={'mainContent'}
+                    title={t('Skip to main content')}
+                />
+            </div>
             <div className={s.ServiceBg}>
                 <div className={s.Wrap}>
                     <div className={s.Service}>
