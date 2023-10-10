@@ -10,17 +10,19 @@ const SearchPage = ({resultlist, filters, searchterm}) => {
     return (
         <div className={s.Root}>
             <div className={s.Hero}>
-                <h1 className={s.Title}> Sök på hemsidan </h1>
+                <h1 className={s.Title}>{title}</h1>
                 <div className={s.Searchbar}>
-                    {/* <SearchBar /> */}
+                    <SearchBar placeholder={placeholder} />
                 </div>
             </div>
             <div className={s.Wrap}>
                 <div className={s.Content}>
                     {/* TODO: Fix so that filterbuttons can be displayed with correct values */}
                     <FilterButtons filters={filters} />
-                    <p className={s.ListInfo}>Visa sökresultat för: {searchterm}</p>
-
+                    <p className={s.ListInfo}>
+                        {searchResultLabel}
+                        {searchterm}
+                    </p>
                     <ul className={s.ResultList}>
                         {resultlist.map((result, i) => (
                             <li key={i}>

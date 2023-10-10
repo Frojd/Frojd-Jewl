@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Header from 'Components/Header';
-import Breadcrumbs from 'Components/Breadcrumbs';
 import s from './Base.module.scss';
 
 const Base = (Container) => {
@@ -12,7 +11,6 @@ const Base = (Container) => {
         const {
             containerName,
             header,
-            breadcrumbs,
         } = props;
         const name = containerName ? containerName : displayName;
         const classes = classNames(

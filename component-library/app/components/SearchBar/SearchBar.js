@@ -5,7 +5,7 @@ import s from './SearchBar.module.scss';
 
 //TODO: activate search on Enter and on Click 
 
-const SearchBar = ({ title }) => {
+const SearchBar = ({placeholder}) => {
     const {t} = useTranslation();
 
     const [searchInputValue, setSearchInputValue] = useState('');
@@ -25,7 +25,7 @@ const SearchBar = ({ title }) => {
                     setFocus(false);
                 }
             }
-        }
+    };
 
         window.addEventListener('click', handleClick);
 
@@ -47,7 +47,7 @@ const SearchBar = ({ title }) => {
     return (
         <div role="search">
             <form className={s.Root}>
-                <label className="sr-only">{t('searchBar.Label')}</label>
+                <label className="sr-only">{t('searchBar.label')}</label>
                 <input
                     className={s.Input}
                     type="text"
@@ -61,7 +61,7 @@ const SearchBar = ({ title }) => {
                 <button
                     type="submit"
                     className={s.Submit}
-                    onClick={handleInput}>{t('searchBar.Submit')}</button>
+                    onClick={handleClick}>{t('searchBar.submit')}</button>
             </form>
         </div>
     );

@@ -17,4 +17,8 @@ export default {
         label: 'Undermeny',
         show: 'Visa undermeny',
     },
+    serachBar: {
+        label: 'Sök på sidan', 
+        submit: 'Sök'
+    }
 };

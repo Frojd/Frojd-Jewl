@@ -1,8 +1,11 @@
 import base from 'Layouts/Base/Base.data';
 
 export default {
-    ...base, //TODO: remove breadcrumbs
-    searchterm: 'Ord Att Söka Efter', 
+    ...base, 
+    title: 'Sök på hemsidan', 
+    searchterm: 'Sökterm', 
+    searchResultLabel: 'Visa sökresultat för: ', 
+    placeholder: 'Vad letar du efter?', 
     filters: [
         {
             label: 'Label 1',
