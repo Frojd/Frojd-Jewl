@@ -2,11 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
 import FilterButtons from 'Components/FilterButtons';
-import s from './SearchPage.module.scss';
-// import SearchBar from '../../components/SearchBar/SearchBar';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import Card from '../../components/Card/Card';
+import s from './SearchPage.module.scss';
 
-const SearchPage = ({resultlist, filters, searchterm}) => {
+const SearchPage = ({
+    title,
+    resultlist,
+    filters,
+    searchResultLabel,
+    searchterm,
+    placeholder,
+}) => {
     return (
         <div className={s.Root}>
             <div className={s.Hero}>
@@ -26,18 +33,16 @@ const SearchPage = ({resultlist, filters, searchterm}) => {
                     <ul className={s.ResultList}>
                         {resultlist.map((result, i) => (
                             <li key={i}>
-                                <Card 
+                                <Card
                                     title={result.title}
                                     url={result.url}
                                     label={result.label}
                                     text={result.text}
                                     dateString={result.dateString}
-                                    dateFormatted={result.dateFormatted}
-                                ></Card>
-                            </li> 
+                                    dateFormatted={result.dateFormatted}></Card>
+                            </li>
                         ))}
                     </ul>
-
                 </div>
             </div>
         </div>
@@ -46,18 +51,24 @@ const SearchPage = ({resultlist, filters, searchterm}) => {
 
 SearchPage.propTypes = {
     hero: PropTypes.object,
+    title: PropTypes.string,
     content: PropTypes.object,
-    searchterm: PropTypes.string, 
-    resultlist: PropTypes.array, 
-    filters: PropTypes.array, 
+    filters: PropTypes.array,
+    searchterm: PropTypes.string,
+    searchResultLabel: PropTypes.string,
+    placeholder: PropTypes.string,
+    resultlist: PropTypes.array,
 };
 
 SearchPage.defaultProps = {
     hero: {},
     content: {},
-    searchterm: '', 
-    resultlist: [], 
-    filters: [],  
+    searchterm: '',
+    searchResultLabel: '',
+    placeholder: '',
+    resultlist: [],
+    filters: [],
+    title: '',
 };
 
 export default Base(SearchPage);

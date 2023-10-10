@@ -3,7 +3,6 @@ import {useTranslation} from 'react-i18next';
 import PropTypes from 'prop-types';
 import s from './SearchBar.module.scss';
 
-//TODO: activate search on Enter and on Click 
 
 const SearchBar = ({placeholder}) => {
     const {t} = useTranslation();
@@ -15,23 +14,34 @@ const SearchBar = ({placeholder}) => {
 
     useEffect(() => {
         if (!isFocused) return;
-
-        function handleClick(e) {
-            if (
-                searchInputField.current &&
-                !searchInputField.current.contains(e.target)
-            ) {
-                if (searchInputField.current.value === '') {
-                    setFocus(false);
-                }
-            }
-    };
-
         window.addEventListener('click', handleClick);
+        window.addEventListener('keypress', handleKeyPress);
 
-        return () => window.removeEventListener('click', handleClick);
+        return () => {
+            window.removeEventListener('click', handleClick);
+            window.removeEventListener('keypress', handleClick);
+        }; 
 
     }, [isFocused]);
+
+    const handleClick = (e) => {
+        e.preventDefault(); 
+        console.log('Submit pressed', e); 
+        if (
+            searchInputField.current &&
+            !searchInputField.current.contains(e.target)
+        ) {
+            if (searchInputField.current.value === '') {
+                setFocus(false);
+            }
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter' || e.keyCode == 13) {
+            console.log('Enter key pressed!', e);
+        }
+    };
 
     const handleInput = (e) => {
         e.preventDefault();
@@ -45,14 +55,14 @@ const SearchBar = ({placeholder}) => {
     };
 
     return (
-        <div role="search">
-            <form className={s.Root}>
+        <div>
+            <form className={s.Root} role="search">
                 <label className="sr-only">{t('searchBar.label')}</label>
                 <input
                     className={s.Input}
                     type="text"
                     value={searchInputValue}
-                    placeholder={isFocused ? '' : title}
+                    placeholder={placeholder}
                     ref={searchInputField}
                     onChange={handleInput}
                     onBlur={handleOnBlur}
@@ -68,15 +78,18 @@ const SearchBar = ({placeholder}) => {
 };
 
 SearchBar.propTypes = {
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    title: PropTypes.string,
+    submitUrl: PropTypes.string,
+    value: PropTypes.string,
+    placeholder: PropTypes.string, 
 };
 
+
 SearchBar.defaultProps = {
-    title: 'Search',
+    title: '',
     value: '',
+    placeholder: '', 
 };
 
 export default SearchBar;

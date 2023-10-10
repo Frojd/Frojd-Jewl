@@ -13,12 +13,30 @@
     padding-bottom: 50px; 
     margin-bottom: 48px; 
 }
-
 .Searchbar {
     @include wrap;
 
-    border: 1px solid white; 
-    border-radius: 100px; 
+    form {
+        width: auto; 
+        background-color: white;
+        height: 56px;
+
+        @include media(M) {
+            width: 511px; 
+        }
+    }
+
+    input {
+        padding: 6px 64px 6px 24px; 
+        border: 1px solid $purple-60;
+        border-radius: 100px;
+    }
+
+    button[type='submit'] {
+        background-color: $purple-20; 
+        height: 38px; 
+        width: 38px; 
+    }
 }
 
 
@@ -26,6 +44,8 @@
     @include textstyle(richtext-h2);
 
     @include wrap;
+
+    margin-bottom: 24px;
 }
 
 .ListInfo {
