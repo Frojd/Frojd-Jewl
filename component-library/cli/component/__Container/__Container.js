@@ -14,7 +14,4 @@ const __Container = () => {
 __Container.propTypes = {
 };
 
-__Container.defaultProps = {
-};
-
 export default Base(__Container);

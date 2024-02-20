@@ -13,7 +13,4 @@ const __Component = () => {
 __Component.propTypes = {
 };
 
-__Component.defaultProps = {
-};
-
 export default __Component;
