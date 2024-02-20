@@ -6,9 +6,10 @@
     "prop-types": "*",
     "react-i18next": "*",
     "classnames": "*",
-    "velocity-react": "*"
+    "framer-motion": "*"
   },
   "jewlDependencies": [
+    "Animate",
     "Richtext"
   ]
 }

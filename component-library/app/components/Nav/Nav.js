@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import classNames from 'classnames';
-import { VelocityComponent } from 'velocity-react';
+import { AnimateUpDown } from 'Components/Animate';
 import _ from 'lodash';
 import s from './Nav.module.scss';
 
@@ -22,7 +22,6 @@ const Nav = ({id, label, items, orientation, modifier}) => {
 
     return (
         <nav className={classes} aria-label={label} id={menuId}>
-        
             {hasChildren ? (
                 <List items={items} navId={menuId} />
             ) : (
@@ -105,16 +104,14 @@ const Child = (item) => {
             />
 
             {hasChildren &&
-                <VelocityComponent
-                    animation={isExpanded ? 'slideDown' : 'slideUp'}
-                >
+                <AnimateUpDown isVisible={isExpanded}>
                     <List
                         items={children}
                         isHidden={!isExpanded}
                         navId={navId}
                         id={id}
                     />
-                </VelocityComponent>
+                </AnimateUpDown>
             }
         </li>
     );
@@ -166,9 +163,8 @@ const Item = (item) => {
                     onClick={() => toggleExpanded()}
                     aria-expanded={isExpanded}
                     aria-controls={listId}
-                >
-                    <span className="sr-only">{t('nav.showChildren')}</span>
-                </button>
+                    aria-label={t('nav.showChildren')}
+                />
             }
         </div>
     );

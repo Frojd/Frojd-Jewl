@@ -1,0 +1,15 @@
+@import 'Styles/includes';
+
+.Root {
+    $root: &;
+
+    &--UpDown {
+        overflow: hidden;
+        transform: none !important;
+        transform-origin: 50% 50% 0px !important;
+    }
+
+    &--LeftRight {
+        background: red;
+    }
+}

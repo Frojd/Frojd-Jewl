@@ -1,79 +1,55 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { VelocityComponent, velocityHelpers } from 'velocity-react';
+import { AnimateLeftRight } from 'Components/Animate';
 import {useTranslation} from 'react-i18next';
-
-// These must be imported globally
-// import 'velocity-animate';
-// import 'velocity-animate/velocity.ui';
 import s from './NavigationDrawer.module.scss';
 
 const NavigationDrawer = ({ children, open, id }) => {
     const {t} = useTranslation();
 
-    const [expanded, setExpanded] = useState(open);
+    const [isExpanded, setIsExpanded] = useState(open);
 
-    const clickHandler = () => setExpanded(!expanded);
+    const clickHandler = () => setIsExpanded(!isExpanded);
 
     const classes = classNames(
         s.Root,
-        { [s.RootExpanded] : expanded }
+        { [s.RootExpanded] : isExpanded },
     );
 
     const buttonId = `${id}-button`;
-    const buttonText =  t('menu.button');
-    const buttonTextClose =  t('menu.closeButton');
-
-    const animation = {
-        slideIn: velocityHelpers.registerEffect('slideIn', {
-            defaultDuration: 500,
-            calls: [
-                [{ right: '0px' }],
-            ],
-        }),
-        slideOut: velocityHelpers.registerEffect('slideOut', {
-            defaultDuration: 500,
-            calls: [
-                [{ right: '-300px' }],
-            ],
-        }),
-    };
 
     return (
         <div className={classes}>
             <button
                 className={s.Button}
                 type="button"
-                onClick={clickHandler}
-                aria-expanded={expanded}
+                onClick={() => clickHandler()}
+                aria-expanded={isExpanded}
                 aria-controls={id}
                 id={buttonId}
-            >
-                <span className="sr-only">{buttonText}</span>
-            </button>
-            <VelocityComponent
+                aria-label={t('menu.button')}
+            />
+            <AnimateLeftRight
                 className={s.Navigation}
-                animation={expanded ? animation.slideIn : animation.slideOut}
+                isVisible={isExpanded}
             >
                 <div
                     className={s.Content}
-                    aria-hidden={!expanded}
+                    aria-hidden={!isExpanded}
                     aria-describedby={buttonId}
                     id={id}
                 >
                     <button
                         className={s.ButtonClose}
                         type="button"
-                        onClick={clickHandler}
+                        onClick={() => clickHandler()}
                         aria-controls={id}
-                    >
-                        <span className="sr-only">{buttonTextClose}</span>
-                    </button>
-                    
+                        aria-label={t('menu.closeButton')}
+                    />
                     {children}
                 </div>
-            </VelocityComponent>
+            </AnimateLeftRight>
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import classNames from 'classnames';
-import { VelocityComponent } from 'velocity-react';
+import { AnimateUpDown } from 'Components/Animate';
 import Nav from 'Components/Nav';
 import s from './Submenu.module.scss';
 
@@ -28,9 +28,7 @@ const Submenu = ({id, title, nav}) => {
                 {title}
                 <span className={s.Arrow} />
             </button>
-            <VelocityComponent
-                animation={isExpanded ? 'slideDown' : 'slideUp'}
-            >
+            <AnimateUpDown isExpanded={isExpanded}>
                 <div
                     className={s.List}
                     aria-hidden={!isExpanded}
@@ -44,7 +42,7 @@ const Submenu = ({id, title, nav}) => {
                         modifier="Submenu"
                     />
                 </div>
-            </VelocityComponent>
+            </AnimateUpDown>
         </div>
     );
 };

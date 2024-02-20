@@ -5,8 +5,9 @@
     "react": "*",
     "prop-types": "*",
     "classnames": "*",
-    "velocity-react": "*"
+    "framer-motion": "*"
   },
   "jewlDependencies": [
+    "Animate"
   ]
 }

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ls from 'local-storage';
-import { VelocityComponent } from 'velocity-react';
+import { AnimateUpDown } from 'Components/Animate';
 import Richtext from 'Components/Richtext';
 import s from './Popup.module.scss';
 
 const Popup = ({ title, text, buttonText }) => {
-    const [visible, setVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+
     useEffect(() => {
         if (ls.get('cookiePopupDismissed')) return;
         setVisible(true);
@@ -16,12 +17,12 @@ const Popup = ({ title, text, buttonText }) => {
         e.preventDefault();
 
         ls.set('cookiePopupDismissed', true);
-        setVisible(false);
+        setIsVisible(false);
     };
 
     return (
         <div className={s.Root}>
-            <VelocityComponent animation={visible ? 'slideDown' : 'slideUp'}>
+            <AnimateUpDown isVisible={isVisible}>
                 <div className={s.Content}>
                     <h2 className={s.Title}>{title}</h2>
                     <div className={s.RichText}>
@@ -34,7 +35,7 @@ const Popup = ({ title, text, buttonText }) => {
                         {buttonText}
                     </a>
                 </div>
-            </VelocityComponent>
+            </AnimateUpDown>
         </div>
     );
 };

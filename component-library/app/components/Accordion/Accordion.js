@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import classNames from 'classnames';
-import { VelocityComponent } from 'velocity-react';
+import { AnimateUpDown } from 'Components/Animate';
 import Richtext from 'Components/Richtext';
 import s from './Accordion.module.scss';
 
@@ -33,16 +33,15 @@ const Accordion = ({title, text, open, id}) => {
                 role="region"
             >
                 <h3 className={s.Title}>{title}</h3>
-                <button className={s.Button} type="button">
+                <button
+                    className={s.Button}
+                    type="button"
+                    aria-label={buttonText}
+                >
                     <span className={s.Icon} />
-                    <span className="sr-only">
-                        {buttonText}
-                    </span>
                 </button>
             </div>
-            <VelocityComponent
-                animation={isExpanded ? 'slideDown' : 'slideUp'}
-            >
+            <AnimateUpDown isVisible={isExpanded}>
                 <div
                     className={s.RichText}
                     aria-hidden={!isExpanded}
@@ -51,7 +50,7 @@ const Accordion = ({title, text, open, id}) => {
                 >
                     <Richtext text={text} />
                 </div>
-            </VelocityComponent>
+            </AnimateUpDown>
         </div>
     );
 };

@@ -5,10 +5,11 @@
     "react": "*",
     "prop-types": "*",
     "classnames": "*",
-    "velocity-react": "*",
+    "framer-motion": "*",
     "local-storage": "*"
   },
   "jewlDependencies": [
+    "Animate",
     "Richtext"
   ]
 }
