@@ -3,12 +3,13 @@ import __Container from './__Container';
 import data from './__Container.data';
 import readme from './__Container.md';
 
-export default {
+const Story = {
     component: __Container,
     parameters: {
         docs: {description: {component: readme}}
     },
 };
+export default Story;
 
 const Template = (args) => <__Container {...args} />;
 
