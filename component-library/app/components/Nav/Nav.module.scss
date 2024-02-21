@@ -165,6 +165,13 @@
         }
     }
 
+    @include href-download() {
+        &::after {
+            display: inline-block;
+            background-image: url('#{$assetsPath}img/download--purple.svg') !important;
+        }
+    }
+
     .Item--Active & {
         color: $base-color;
         text-decoration: none;
