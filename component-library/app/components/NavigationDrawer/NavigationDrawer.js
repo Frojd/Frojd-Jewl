@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { AnimateLeftRight } from 'Components/Animate';
 import {useTranslation} from 'react-i18next';
+import Hamburger from 'SVG/hamburger.svg';
+import Close from 'SVG/close.svg';
 import s from './NavigationDrawer.module.scss';
 
 const NavigationDrawer = ({ children, open, id }) => {
@@ -12,12 +14,14 @@ const NavigationDrawer = ({ children, open, id }) => {
 
     const clickHandler = () => setIsExpanded(!isExpanded);
 
+    const buttonId = `${id}-button`;
+    const buttonLabel = isExpanded ? t('menu.button') : t('menu.closeButton');
+
     const classes = classNames(
         s.Root,
-        { [s.RootExpanded] : isExpanded },
+        { [s['Root--Closed']] : !isExpanded },
+        { [s['Root--Open']] : isExpanded },
     );
-
-    const buttonId = `${id}-button`;
 
     return (
         <div className={classes}>
@@ -28,8 +32,11 @@ const NavigationDrawer = ({ children, open, id }) => {
                 aria-expanded={isExpanded}
                 aria-controls={id}
                 id={buttonId}
-                aria-label={t('menu.button')}
-            />
+                aria-label={buttonLabel}
+            >
+                <Hamburger className={s.Hamburger} />
+                <Close className={s.Close} />
+            </button>
             <AnimateLeftRight
                 className={s.Navigation}
                 isVisible={isExpanded}
@@ -40,14 +47,9 @@ const NavigationDrawer = ({ children, open, id }) => {
                     aria-describedby={buttonId}
                     id={id}
                 >
-                    <button
-                        className={s.ButtonClose}
-                        type="button"
-                        onClick={() => clickHandler()}
-                        aria-controls={id}
-                        aria-label={t('menu.closeButton')}
-                    />
-                    {children}
+                    <div className={s.Wrap}>
+                        {children}
+                    </div>
                 </div>
             </AnimateLeftRight>
         </div>

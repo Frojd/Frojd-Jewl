@@ -151,11 +151,13 @@ $textstyles: (
         d: (font-size: 16, line-height: 23.5),  // Footer link
         M: (font-size: 18, line-height: 27.7),
     ),
-    mainmenu: (
-        d: (font-size: 16, line-height: 23.7),
+    main-menu: (
+        d: (font-size: 20, line-height: 29.6),
+        M: (font-size: 16, line-height: 23.68),
     ),
-    servicemenu: (
-        d: (font-size: 14, line-height: 23.5),
+    service-menu: (
+        d: (font-size: 12, line-height: 16.44),
+        M: (font-size: 14, line-height: 23.52),
     ),
     submenu: (
         d: (font-size: 16, line-height: 19.7, font-weight: $bold),  // Add bold to active and first level instead of new text style

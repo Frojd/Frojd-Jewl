@@ -11,8 +11,6 @@ const Nav = ({id, label, items, orientation, modifier}) => {
     // Check for children, the structure of nav should change when nesting
     const find = _.findKey(items, (i) => i.children && !_.isEmpty(i.children));
     const hasChildren = find !== undefined;
-    const menuId = id+=modifier; 
-
 
     const classes = classNames(
         s.Root,
@@ -21,15 +19,15 @@ const Nav = ({id, label, items, orientation, modifier}) => {
     );
 
     return (
-        <nav className={classes} aria-label={label} id={menuId}>
+        <nav className={classes} aria-label={label} id={id}>
             {hasChildren ? (
-                <List items={items} navId={menuId} />
+                <List items={items} navId={id} />
             ) : (
                 <div className={s.List}>
                     {items.map((item, index) => (
                         <Item
                             {...item}
-                            navId={menuId}
+                            navId={id}
                             key={index}
                         />
                     ))}
@@ -56,11 +54,11 @@ Nav.defaultProps = {
 };
 
 const List = ({items, navId, id, isHidden}) => {
-    const listId = id === null ? null : `${navId}-${id}-list`;
+    const listId = id === null ? `${navId}-list` : `${navId}-${id}-list`;
     return (
         <ul className={s.List} aria-hidden={isHidden} id={listId}>
             {items.map((item, index) => (
-                <Child {...item} navId={navId} key={index} />
+                <Child {...item} navId={listId} key={index} />
             ))}
         </ul>
     );
@@ -87,6 +85,8 @@ const Child = (item) => {
 
     const hasChildren = !_.isEmpty(children);
 
+    const childId = `${navId}-${id}`;
+
     const classes = classNames(
         s.Child,
         {[s['Child--Expanded']]: isExpanded},
@@ -95,9 +95,10 @@ const Child = (item) => {
     );
 
     return (
-        <li className={classes} id={`${navId}-${id}`}>
+        <li className={classes} id={childId}>
             <Item
                 {...item}
+                navId={childId}
                 isExpanded={isExpanded}
                 showToggle={hasChildren}
                 toggleExpanded={() => setIsExpanded(!isExpanded)}
@@ -108,8 +109,7 @@ const Child = (item) => {
                     <List
                         items={children}
                         isHidden={!isExpanded}
-                        navId={navId}
-                        id={id}
+                        navId={childId}
                     />
                 </AnimateUpDown>
             }
@@ -142,7 +142,7 @@ const Item = (item) => {
         isActive,
     } = item;
 
-    const listId = `${navId}-${id}-list`;
+    const listId = `${navId}-list`;
 
     const {t} = useTranslation();
 

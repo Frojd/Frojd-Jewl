@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
-import Logo from 'Assets/img/logo.png';
+import Logo from 'Assets/img/logo.svg';
 import Nav from 'Components/Nav';
 import SearchBar from 'Components/SearchBar';
 import NavigationDrawer from 'Components/NavigationDrawer';
@@ -14,15 +14,19 @@ const Header = ({main, service}) => {
     const mainItems = main?.items || [];
     const serviceItems = service?.items || [];
 
-
     const mainMenu = {
         ...main,
         items: [
             ...mainItems,
         ],
     };
-
     const serviceMenu = {
+        ...service,
+        items: [
+            ...serviceItems,
+        ]
+    };
+    const serviceMenuWithSearch = {
         ...service,
         items: [
             {
@@ -35,60 +39,73 @@ const Header = ({main, service}) => {
                 url: '#',
                 modifier: 'Search',
             },
-            ...serviceItems, 
-        ] 
-    }; 
+            ...serviceItems,
+        ]
+    };
 
     return (
         <header className={s.Root}>
             <div className={s.SkipToContent}>
                 <SkipToContent
-                    mainId={'mainContent'}
-                    title={t('Skip to main content')}
+                    skipTo="main-content"
+                    title={t('header.skipToContent')}
                 />
             </div>
-            <div className={s.ServiceBg}>
+            <div className={s.Service}>
                 <div className={s.Wrap}>
-                    <div className={s.Service}>
+                    <div className={s.ServiceMenu}>
+                        <SearchBar />
                         <Nav
                             {...serviceMenu}
                             label={t('header.serviceMenu')}
                             orientation="Horizontal"
                             modifier="Service"
+                            id="service-menu-desktop"
                         />
                     </div>
                 </div>
             </div>
 
-            <div className={s.Wrap}>
-                <a className={s.LogoLink} href="/">
-                    <img
-                        className={s.Logo}
-                        src={Logo}
-                        alt={t('header.toStartPage')}
-                        width="98"
-                        height="40"
-                    />
-                </a>
+            <div className={s.Main}>
+                <div className={s.Wrap}>
+                    <a className={s.LogoLink} href="/">
+                        <img
+                            className={s.Logo}
+                            src={Logo.src}
+                            alt={t('header.toStartPage')}
+                            width={Logo.width}
+                            height={Logo.height}
+                        />
+                    </a>
 
-                <div className={s.Menu}>
-                    <Nav
-                        {...mainMenu}
-                        label={t('header.mainMenu')}
-                        orientation="Horizontal"
-                        modifier="Main"
-                    />
-                </div>
-
-                <div className={s.NavigationDrawer}>
-                    <NavigationDrawer>
+                    <div className={s.MainMenu}>
                         <Nav
                             {...mainMenu}
-                            label={t('header.mobileMenu')}
-                            orientation="Vertical"
-                            modifier="Mobile"
+                            label={t('header.mainMenu')}
+                            orientation="Horizontal"
+                            modifier="Main"
+                            id="main-menu-desktop"
                         />
-                    </NavigationDrawer>
+                    </div>
+
+                    <div className={s.NavigationDrawer}>
+                        <NavigationDrawer>
+                            <Nav
+                                {...mainMenu}
+                                label={t('header.mobileMenu')}
+                                orientation="Vertical"
+                                modifier="MobileMain"
+                                id="main-menu-mobile"
+                            />
+                            <Nav
+                                {...serviceMenu}
+                                label={t('header.serviceMenu')}
+                                orientation="Vertical"
+                                modifier="MobileService"
+                                id="service-menu-mobile"
+                            />
+                        </NavigationDrawer>
+                    </div>
                 </div>
             </div>
         </header>

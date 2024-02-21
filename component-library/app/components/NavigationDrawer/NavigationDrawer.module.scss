@@ -6,75 +6,69 @@
 
 .Navigation {
     position: fixed;
-    top: 0;
+    top: (40px + 72px);
     right: 0;
-    width: 300px;
-    height: 100vh;
-    background: $primary-color;
+    width: 100vw;
+    height: calc(100vh - (40px + 72px));
     overflow: auto;
     z-index: 1;
 }
 
 .Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    width: 42px;
-    height: 42px;
-    border: 10px solid $purple-20;
-    background: $primary-color;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+    background: $purple-20;
     box-shadow: none;
+    -webkit-appearance: none;
     cursor: pointer;
+}
 
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        top: 4px;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: $purple-20;
+.Hamburger,
+.Close {
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: $primary-color;
+    transition: opacity $transition;
+}
+
+.Hamburger {
+    .Root--Closed & {
+        opacity: 1;
     }
 
-    &::after {
-        top: 13px;
+    .Root--Open & {
+        opacity: 0;
     }
 }
 
-.ButtonClose {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    border: 10px solid $primary-color;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    cursor: pointer;
-    margin-right: 8px; 
-
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: white;
-        top: 4px;
+.Close {
+    .Root--Closed & {
+        opacity: 0;
     }
 
-    &:before {
-        transform: rotate(-45deg);
-    }
-
-    &::after {
-        transform: rotate(45deg);
+    .Root--Open & {
+        opacity: 1;
     }
 }
 
 .Content {
+    height: 100%;
     padding: 32px 0;
-    color: white;
-    text-align: right;
-    background: $primary-color;
+    margin-bottom: 32px;
+    color: $base-color;
+    background: white;
 }
 
+.Wrap {
+    @include wrap;
+}

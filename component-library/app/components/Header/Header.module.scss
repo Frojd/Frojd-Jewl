@@ -7,26 +7,23 @@
 .Wrap {
     @include wrap;
 
+    flex: 1 1 auto;
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
-
-    @include media(M) {
-        margin-bottom: 0;
-    }
-}
-
-.ServiceBg {
-    background: $purple-20;
 }
 
 .Service {
+    position: relative;
+    background: $purple-20;
+}
+
+.ServiceMenu {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    height: 48px;
-    margin-left: -8px;
+    height: 40px;
+    margin-right: -8px;
 }
 
 .LogoLink {
@@ -36,10 +33,28 @@
 }
 
 .Logo {
+    width: 93px;
+    height: 21px;
     margin-top: 4px;
+
+    @include media(M) {
+        width: 143px;
+        height: 32px;
+    }
 }
 
-.Menu {
+.Main {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 72px;
+
+    @include media(M) {
+        height: 88px;
+    }
+}
+
+.MainMenu {
     flex: 0 0 auto;
     margin: 20px 0 0 auto;
     display: none;
