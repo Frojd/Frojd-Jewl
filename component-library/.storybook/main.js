@@ -58,26 +58,17 @@ module.exports = {
       ...aliases
     };
     config.module.rules = config.module.rules.map(data => {
-      if (/svg\|/.test(String(data.test))) {
+      if (/svg/.test(String(data.test))) {
         data.test = /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/;
-        data.exclude = path.resolve(__dirname, '../app/inline-svg');
+        data.exclude = path.resolve(__dirname, '../app/inline-svg/');
       }
-
       return data;
     });
     config.module.rules.push({
       test: /\.svg$/,
-      include: path.resolve(__dirname, '../app/inline-svg'),
-      use: [{
-        loader: 'react-svg-loader',
-        options: {
-          svgo: {
-            plugins: [{
-              removeViewBox: false
-            }]
-          }
-        }
-      }]
+      include: path.resolve(__dirname, '../app/inline-svg/'),
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
     });
 
     return config;

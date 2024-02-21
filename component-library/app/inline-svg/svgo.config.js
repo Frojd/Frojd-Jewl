@@ -1,14 +1,16 @@
-const { extendDefaultPlugins } = require('svgo');
-
 module.exports = {
-    plugins: extendDefaultPlugins([
+    plugins: [
         {
-            name: 'removeViewBox',
-            active: false
+            name: 'preset-default',
+            params: {
+                overrides: {
+                    removeViewBox: false,
+                    // {
+                    //     name: 'removeAttrs',
+                    //     params: { attrs: '(fill|fill-rule|stroke|opacity|style)' },
+                    // },
+                },
+            }
         },
-        {
-            name: 'removeAttrs',
-            params: { attrs: '(fill|fill-rule|stroke|opacity|style)' },
-        },
-    ]),
+    ],
 };
