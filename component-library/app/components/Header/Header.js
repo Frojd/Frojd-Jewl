@@ -1,15 +1,18 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import Logo from 'Assets/img/logo.svg';
+import {AnimateInOut} from 'Components/Animate';
 import Nav from 'Components/Nav';
 import SearchBar from 'Components/SearchBar';
 import NavigationDrawer from 'Components/NavigationDrawer';
+import SkipToContent from 'Components/SkipToContent';
 import s from './Header.module.scss';
-import SkipToContent from '../SkipToContent/SkipToContent';
 
 const Header = ({main, service}) => {
     const {t} = useTranslation();
+
+    const [isSearchVisible, setIsSearchVisible] = useState(false);
 
     const mainItems = main?.items || [];
     const serviceItems = service?.items || [];
@@ -54,7 +57,27 @@ const Header = ({main, service}) => {
             <div className={s.Service}>
                 <div className={s.Wrap}>
                     <div className={s.ServiceMenu}>
-                        <SearchBar />
+                        <div className={s.Search}>
+                            <button
+                                className={s.SearchButton}
+                                type="button"
+                                aria-controls="header-search"
+                                aria-expanded={isSearchVisible}
+                                onClick={() => setIsSearchVisible(!isSearchVisible)}
+                            >{t('header.search')}</button>
+                            <AnimateInOut
+                                className={s.SearchBar}
+                                isVisible={isSearchVisible}
+                                id="header-search"
+                                aria-hidden={!isSearchVisible}
+                            >
+                                <SearchBar
+                                    id="header-search-input"
+                                    modifier="Header"
+                                    triggerFocus={isSearchVisible}
+                                />
+                            </AnimateInOut>
+                        </div>
                         <Nav
                             {...serviceMenu}
                             label={t('header.serviceMenu')}

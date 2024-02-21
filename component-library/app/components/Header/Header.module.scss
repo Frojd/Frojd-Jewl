@@ -26,6 +26,70 @@
     margin-right: -8px;
 }
 
+.Search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    height: 32px;
+    // width: 200px;
+    margin-right: 8px;
+}
+
+.SearchButton {
+    @include textstyle(service-menu);
+
+    padding: 4px 8px;
+    color: $base-color;
+    text-decoration: none;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: color $transition;
+
+    &::before {
+        content: '';
+        height: 1px;
+        position: absolute;
+        bottom: 6px;
+        left: 8px;
+        right: 8px;
+        background: $purple;
+        opacity: 0;
+        transition: opacity $transition;
+    }
+
+    &::after {
+        content: '';
+        display: inline-block;
+        position: relative;
+        top: 2px;
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
+        background: url('#{$assetsPath}img/search.svg') no-repeat center center;
+        background-size: contain;
+    }
+
+    &:hover {
+        color: $purple;
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.SearchBar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200px;
+}
+
 .LogoLink {
     flex: 0 0 auto;
     display: block;

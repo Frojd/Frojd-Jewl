@@ -34,6 +34,7 @@ const AnimateInOut = ({
     duration = 500,
     delay = 0,
     displayVisible = 'block',
+    ...restProps
 }) => {
     const classes = classNames(
         s.Root,
@@ -59,6 +60,7 @@ const AnimateInOut = ({
                     display: isVisible ? displayVisible : 'none',
                 },
             }}
+            {...restProps}
         >
             {children}
         </motion.div>
@@ -83,6 +85,7 @@ const AnimateUpDown = ({
     duration = 500,
     delay = 0,
     displayVisible = 'block',
+    ...restProps
 }) => {
     const classes = classNames(
         s.Root,
@@ -108,6 +111,7 @@ const AnimateUpDown = ({
                     display: isVisible ? displayVisible : 'none',
                 },
             }}
+            {...restProps}
         >
             {children}
         </motion.div>
@@ -132,6 +136,7 @@ const AnimateLeftRight = ({
     duration = 500,
     delay = 0,
     displayVisible = 'block',
+    ...restProps
 }) => {
     const classes = classNames(
         s.Root,
@@ -157,6 +162,7 @@ const AnimateLeftRight = ({
                     display: isVisible ? displayVisible : 'none',
                 },
             }}
+            {...restProps}
         >
             {children}
         </motion.div>

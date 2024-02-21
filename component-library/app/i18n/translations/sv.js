@@ -17,8 +17,9 @@ export default {
         label: 'Undermeny',
         show: 'Visa undermeny',
     },
-    serachBar: {
-        label: 'Sök på sidan', 
-        submit: 'Sök'
-    }
+    searchBar: {
+        label: 'Sök på sidan',
+        placeholder: 'Vad letar du efter?',
+        submit: 'Sök',
+    },
 };

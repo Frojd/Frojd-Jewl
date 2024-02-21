@@ -4,10 +4,13 @@
   "dependencies": {
     "react": "*",
     "prop-types": "*",
-    "react-i18next": "*"
+    "react-i18next": "*",
+    "framer-motion": "*"
   },
   "jewlDependencies": [
     "Nav",
-    "NavigationDrawer"
+    "NavigationDrawer",
+    "SearchBar",
+    "SkipToContent"
   ]
 }

@@ -1,4 +1,3 @@
 export default {
-    submitUrl: '?path=/story/containers-searchpage--default',
-    title: 'Search',
+    action: '?path=/story/containers-searchpage--default',
 };

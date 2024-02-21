@@ -12,14 +12,18 @@ const SearchPage = ({
     filters,
     searchResultLabel,
     searchterm,
-    placeholder,
+    searchBar,
 }) => {
     return (
         <div className={s.Root}>
             <div className={s.Hero}>
                 <h1 className={s.Title}>{title}</h1>
                 <div className={s.Searchbar}>
-                    <SearchBar placeholder={placeholder} />
+                    <SearchBar
+                        {...searchBar}
+                        id="search-input"
+                        modifier="SearchPage"
+                    />
                 </div>
             </div>
             <div className={s.Wrap}>
@@ -56,7 +60,7 @@ SearchPage.propTypes = {
     filters: PropTypes.array,
     searchterm: PropTypes.string,
     searchResultLabel: PropTypes.string,
-    placeholder: PropTypes.string,
+    searchBar: PropTypes.object,
     resultlist: PropTypes.array,
 };
 
@@ -65,7 +69,7 @@ SearchPage.defaultProps = {
     content: {},
     searchterm: '',
     searchResultLabel: '',
-    placeholder: '',
+    searchBar: {},
     resultlist: [],
     filters: [],
     title: '',

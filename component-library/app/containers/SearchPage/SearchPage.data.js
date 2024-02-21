@@ -1,11 +1,12 @@
 import base from 'Layouts/Base/Base.data';
+import searchBar from 'Components/SearchBar/SearchBar.data';
 
 export default {
     ...base, 
     title: 'Sök på hemsidan', 
     searchterm: 'Sökterm', 
-    searchResultLabel: 'Visa sökresultat för: ', 
-    placeholder: 'Vad letar du efter?', 
+    searchResultLabel: 'Visa sökresultat för: ',
+    searchBar: searchBar,
     filters: [
         {
             label: 'Label 1',
