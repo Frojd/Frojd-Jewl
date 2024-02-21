@@ -37,8 +37,8 @@
     }
 }
 
-@mixin href-external() {
-    &:not([href^="mailto:"]):not([href^="tel:"]):not([href=""]):not([href^="#"]):not([href^="/"]):not([href^="http://example.se"]):not([href^="https://example.se"]):not([href*="localhost"]):not([href*="stage.example.se"]):not([href*="www.example.se"]):not([href*="beta.example.se"]) {
+@mixin href-external($domain: 'example.se') {
+    &:not([href^="mailto:"]):not([href^="tel:"]):not([href=""]):not([href^="#"]):not([href^="/"]):not([href^="http://#{$domain}"]):not([href^="https://#{$domain}"]):not([href*="localhost"]):not([href*="stage.#{$domain}"]):not([href*="www.#{$domain}"]):not([href*="beta.#{$domain}"]) {
         @content;
     }
 }
