@@ -56,28 +56,28 @@ const Header = ({main, service}) => {
             </div>
             <div className={s.Service}>
                 <div className={s.Wrap}>
+                    <div className={s.Search}>
+                        <button
+                            className={s.SearchButton}
+                            type="button"
+                            aria-controls="header-search"
+                            aria-expanded={isSearchVisible}
+                            onClick={() => setIsSearchVisible(!isSearchVisible)}
+                        >{t('header.search')}</button>
+                        <AnimateInOut
+                            className={s.SearchBar}
+                            isVisible={isSearchVisible}
+                            id="header-search"
+                            aria-hidden={!isSearchVisible}
+                        >
+                            <SearchBar
+                                id="header-search-input"
+                                modifier="Header"
+                                triggerFocus={isSearchVisible}
+                            />
+                        </AnimateInOut>
+                    </div>
                     <div className={s.ServiceMenu}>
-                        <div className={s.Search}>
-                            <button
-                                className={s.SearchButton}
-                                type="button"
-                                aria-controls="header-search"
-                                aria-expanded={isSearchVisible}
-                                onClick={() => setIsSearchVisible(!isSearchVisible)}
-                            >{t('header.search')}</button>
-                            <AnimateInOut
-                                className={s.SearchBar}
-                                isVisible={isSearchVisible}
-                                id="header-search"
-                                aria-hidden={!isSearchVisible}
-                            >
-                                <SearchBar
-                                    id="header-search-input"
-                                    modifier="Header"
-                                    triggerFocus={isSearchVisible}
-                                />
-                            </AnimateInOut>
-                        </div>
                         <Nav
                             {...serviceMenu}
                             label={t('header.serviceMenu')}

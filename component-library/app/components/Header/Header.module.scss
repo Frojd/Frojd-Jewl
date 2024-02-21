@@ -1,7 +1,7 @@
 @import 'Styles/includes';
 
 .Root {
-    border-bottom: 1px solid $grey-10;
+    border-bottom: 1px solid $purple-20;
 }
 
 .Wrap {
@@ -13,17 +13,21 @@
 }
 
 .Service {
+    display: flex;
     position: relative;
+    height: 40px;
     background: $purple-20;
 }
 
 .ServiceMenu {
-    display: flex;
+    display: none;
     justify-content: flex-end;
     align-items: center;
-    width: 100%;
-    height: 40px;
-    margin-right: -8px;
+    margin-right: 0;
+
+    @include media(M) {
+        display: flex;
+    }
 }
 
 .Search {
@@ -32,8 +36,12 @@
     align-items: center;
     position: relative;
     height: 32px;
-    // width: 200px;
-    margin-right: 8px;
+    margin-right: -8px;
+    margin-left: auto;
+
+    @include media(M) {
+        margin-right: 8px;
+    }
 }
 
 .SearchButton {
@@ -85,9 +93,19 @@
 
 .SearchBar {
     position: absolute;
-    right: 0;
+    right: 8px;
     top: 0;
     width: 200px;
+}
+
+.Main {
+    display: flex;
+    width: 100%;
+    height: 72px;
+
+    @include media(M) {
+        height: 88px;
+    }
 }
 
 .LogoLink {
@@ -107,21 +125,12 @@
     }
 }
 
-.Main {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 72px;
-
-    @include media(M) {
-        height: 88px;
-    }
-}
-
 .MainMenu {
-    flex: 0 0 auto;
-    margin: 20px 0 0 auto;
     display: none;
+    flex: 0 0 auto;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: -16px;
 
     @include media(M) {
         display: block;
