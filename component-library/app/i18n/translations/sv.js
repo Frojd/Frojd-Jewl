@@ -13,13 +13,16 @@ export default {
         serviceMenu: 'Servicemeny',
         toStartpage: 'Till startsidan',
     },
-    submenu: {
-        label: 'Undermeny',
-        show: 'Visa undermeny',
-    },
     searchBar: {
         label: 'Sök på sidan',
         placeholder: 'Vad letar du efter?',
         submit: 'Sök',
+    },
+    skipToContent: {
+        buttonText: 'Hoppa till innehåll',
+    },
+    submenu: {
+        label: 'Undermeny',
+        show: 'Visa undermeny',
     },
 };

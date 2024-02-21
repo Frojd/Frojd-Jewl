@@ -1,26 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {useTranslation} from 'react-i18next';
+import Button from 'Components/Button'
 import s from './SkipToContent.module.scss';
 
-const SkipToContent = ({ mainId, title }) => {
-    const classes = classNames(s.Root, 'skip-to-content');
-
+const SkipToContent = ({
+    skipTo = '#main-content'
+}) => {
+    const {t} = useTranslation();
     return (
-        <a href={`#${mainId}`} className={classes} tabIndex="0">
-            {title}
-        </a>
+        <Button
+            className={s.Root}
+            modifier="Secondary"
+            tabIndex="0"
+            href={skipTo}
+        >{t('skipToContent.buttonText')}</Button>
     );
 };
 
 SkipToContent.propTypes = {
-    mainId: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-};
-
-SkipToContent.defaultProps = {
-    mainId: 'main',
-    title: 'Skip to content',
+    skipTo: PropTypes.string.isRequired,
 };
 
 export default SkipToContent;

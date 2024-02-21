@@ -50,7 +50,7 @@ const Header = ({main, service}) => {
         <header className={s.Root}>
             <div className={s.SkipToContent}>
                 <SkipToContent
-                    skipTo="main-content"
+                    skipTo="#main-content"
                     title={t('header.skipToContent')}
                 />
             </div>

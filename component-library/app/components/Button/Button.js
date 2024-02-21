@@ -20,7 +20,7 @@ const Button = ({
     type,
     disabled,
     onClick,
-    atts,
+    ...restProps
 }) => {
     const isButton = !url;
     const Tag = isButton ? 'button' : 'a';
@@ -46,7 +46,7 @@ const Button = ({
             aria-disabled={disabled}
             disabled={disabled}
             onClick={onClick}
-            {...atts}
+            {...restProps}
         >
             {title &&
                 <span>{title}</span>
@@ -85,7 +85,6 @@ Button.propTypes = {
     ]),
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
-    atts: PropTypes.object,
 };
 
 Button.defaultProps = {
@@ -101,7 +100,6 @@ Button.defaultProps = {
     icon: null,
     disabled: null,
     onClick: null,
-    atts: {},
 };
 
 const Icon = ({icon}) => {
