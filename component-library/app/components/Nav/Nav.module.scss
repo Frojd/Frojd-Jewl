@@ -235,6 +235,12 @@
         }
     }
 
+    .Item--HasIcon & {
+        &::after {
+            display: none !important;
+        }
+    }
+
     .Root--Main & {
         @include textstyle(main-menu);
 

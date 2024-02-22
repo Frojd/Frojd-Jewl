@@ -1,3 +1,5 @@
+import Mail from 'SVG/mail.svg';
+
 const data = {
     follow: {
         title: 'Follow us',

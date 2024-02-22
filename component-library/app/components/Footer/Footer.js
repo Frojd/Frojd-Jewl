@@ -8,6 +8,9 @@ import Logo from 'Assets/img/logo--white.svg';
 import Facebook from 'SVG/facebook.svg';
 import Instagram from 'SVG/instagram.svg';
 import LinkedIn from 'SVG/linkedin.svg';
+import Pin from 'SVG/pin.svg';
+import Mail from 'SVG/mail.svg';
+import Phone from 'SVG/phone.svg';
 import s from './Footer.module.scss';
 
 const Footer = ({
@@ -82,6 +85,26 @@ Footer.propTypes = {
 };
 
 const NavColumn = ({ title = '', items = [], id = '', label = '' }) => {
+    const icons = {
+        Address: Pin,
+        Phone: Phone,
+        Email: Mail,
+    };
+
+    const navItems = items.map(({ icon, title, ...item }) => {
+        const Icon = icons[icon];
+        return {
+            ...item,
+            modifier: Icon ? 'HasIcon' : null,
+            title: (
+                <>
+                    {Icon && <Icon className={s.NavIcon} />}
+                    <span dangerouslySetInnerHTML={{ __html: title }} />
+                </>
+            ),
+        };
+    });
+
     return (
         <div className={s.Column}>
             <h2 className={s.Title}>{title}</h2>
@@ -89,7 +112,7 @@ const NavColumn = ({ title = '', items = [], id = '', label = '' }) => {
                 className={s.Nav}
                 id={id}
                 label={label}
-                items={items}
+                items={navItems}
                 orientation="Vertical"
                 modifier="Footer"
             />
