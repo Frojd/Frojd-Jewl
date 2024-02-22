@@ -1,4 +1,4 @@
-export default {
+const sv = {
     breadcrumbs: {
         start: 'Hem',
         label: 'Breadcrumbs',
@@ -11,7 +11,11 @@ export default {
         mobileMenu: 'Mobilmeny',
         search: 'Sök',
         serviceMenu: 'Servicemeny',
-        toStartpage: 'Till startsidan',
+        toStartPage: 'Till startsidan',
+    },
+    navigationDrawer: {
+        close: 'Stäng meny',
+        open: 'Öppna meny',
     },
     searchBar: {
         label: 'Sök på sidan',
@@ -26,3 +30,5 @@ export default {
         show: 'Visa undermeny',
     },
 };
+
+export default sv;

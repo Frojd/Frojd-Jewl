@@ -8,6 +8,7 @@
     "framer-motion": "*"
   },
   "jewlDependencies": [
+    "Image",
     "Nav",
     "NavigationDrawer",
     "SearchBar",

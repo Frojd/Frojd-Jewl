@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import Logo from 'Assets/img/logo.svg';
 import { AnimateInOut } from 'Components/Animate';
+import Image from 'Components/Image';
 import Nav from 'Components/Nav';
 import SearchBar from 'Components/SearchBar';
 import NavigationDrawer from 'Components/NavigationDrawer';
@@ -25,30 +26,11 @@ const Header = ({ main = {}, service = {} }) => {
         ...service,
         items: [...serviceItems],
     };
-    const serviceMenuWithSearch = {
-        ...service,
-        items: [
-            {
-                title: (
-                    <Fragment>
-                        <SearchBar />
-                    </Fragment>
-                ),
-                id: 'main-search',
-                url: '#',
-                modifier: 'Search',
-            },
-            ...serviceItems,
-        ],
-    };
 
     return (
         <header className={s.Root}>
             <div className={s.SkipToContent}>
-                <SkipToContent
-                    skipTo="#main-content"
-                    title={t('header.skipToContent')}
-                />
+                <SkipToContent skipTo="#main-content" />
             </div>
             <div className={s.Service}>
                 <div className={s.Wrap}>
@@ -90,12 +72,11 @@ const Header = ({ main = {}, service = {} }) => {
             <div className={s.Main}>
                 <div className={s.Wrap}>
                     <a className={s.LogoLink} href="/">
-                        <img
-                            className={s.Logo}
-                            src={Logo.src}
+                        <Image
+                            {...Logo}
+                            useCover={false}
+                            useLazyLoad={false}
                             alt={t('header.toStartPage')}
-                            width={Logo.width}
-                            height={Logo.height}
                         />
                     </a>
 

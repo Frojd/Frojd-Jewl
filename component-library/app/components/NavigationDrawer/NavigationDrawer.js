@@ -19,7 +19,9 @@ const NavigationDrawer = ({
     const clickHandler = () => setIsExpanded(!isExpanded);
 
     const buttonId = `${id}-button`;
-    const buttonLabel = isExpanded ? t('menu.button') : t('menu.closeButton');
+    const buttonLabel = isExpanded
+        ? t('navigationDrawer.open')
+        : t('navigationDrawer.close');
 
     const classes = classNames(
         s.Root,

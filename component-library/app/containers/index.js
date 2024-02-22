@@ -2,8 +2,10 @@ import ArticlePage from './ArticlePage';
 import HomePage from './HomePage';
 import NotFoundPage from './NotFoundPage';
 
-export default {
+const Containers = {
     ArticlePage,
     HomePage,
     NotFoundPage,
 };
+
+export default Containers;

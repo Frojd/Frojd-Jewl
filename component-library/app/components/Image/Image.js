@@ -9,7 +9,7 @@ const Image = ({
     alt = '',
     width = 0,
     height = 0,
-    caption = '',
+    title = '',
     focal = {},
     srcset = [],
     sizes = [],
@@ -28,6 +28,7 @@ const Image = ({
         className
     );
 
+    /* eslint-disable @next/next/no-img-element */
     if (!useNextImage) {
         <img
             className={classes}
@@ -35,7 +36,7 @@ const Image = ({
             alt={alt}
             width={width}
             height={height}
-            title={caption}
+            title={title}
             srcSet={srcset.join(', ')}
             sizes={sizes.join(', ')}
             style={{
@@ -44,6 +45,7 @@ const Image = ({
             loading={useLazyLoad ? 'lazy' : null}
         />;
     }
+    /* eslint-enable @next/next/no-img-element */
 
     return (
         <NextImage
@@ -52,7 +54,7 @@ const Image = ({
             width={useCover ? undefined : width}
             height={useCover ? undefined : height}
             alt={alt}
-            title={caption}
+            title={title}
             fill={useCover}
             sizes={sizes.join(', ')}
             loading={useLazyLoad ? 'lazy' : 'eager'}
@@ -68,7 +70,7 @@ Image.propTypes = {
     alt: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
-    caption: PropTypes.string,
+    title: PropTypes.string,
     focal: PropTypes.object,
     srcset: PropTypes.array,
     sizes: PropTypes.array,

@@ -111,13 +111,12 @@
 .LogoLink {
     flex: 0 0 auto;
     display: block;
-    margin-right: 20px;
-}
-
-.Logo {
+    position: relative;
     width: 93px;
     height: 21px;
     margin-top: 4px;
+    margin-right: 20px;
+    overflow: hidden;
 
     @include media(M) {
         width: 143px;
