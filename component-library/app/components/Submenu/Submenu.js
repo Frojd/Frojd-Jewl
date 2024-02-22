@@ -25,16 +25,19 @@ const Submenu = ({ id = 'submenu', title = '', nav = {} }) => {
                 {title}
                 <span className={s.Arrow} />
             </button>
-            <AnimateUpDown isExpanded={isExpanded}>
-                <div className={s.List} aria-hidden={!isExpanded} id={id}>
-                    <Nav
-                        {...nav}
-                        id={`${id}-nav`}
-                        label={t('submenu.label')}
-                        orientation="Vertical"
-                        modifier="Submenu"
-                    />
-                </div>
+            <AnimateUpDown
+                isVisible={isExpanded}
+                className={s.List}
+                aria-hidden={!isExpanded}
+                id={id}
+            >
+                <Nav
+                    {...nav}
+                    id={`${id}-nav`}
+                    label={t('submenu.label')}
+                    orientation="Vertical"
+                    modifier="Submenu"
+                />
             </AnimateUpDown>
         </div>
     );
