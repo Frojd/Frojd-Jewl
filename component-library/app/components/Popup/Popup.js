@@ -21,7 +21,7 @@ const Popup = ({
     useEffect(() => {
         if (ls.get(sessionName)) return;
         setIsVisible(true);
-    }, []);
+    }, [sessionName]);
 
     const onDismiss = (e) => {
         e.preventDefault();
