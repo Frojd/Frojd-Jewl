@@ -28,7 +28,7 @@
     "jest": "jest",
     "jest:watch": "jest --watch",
     "jest:ci": "npx jest --ci --runInBand --reporters=default --reporters=jest-junit",
-    "test": "concurrently \"npm run jest -- --silent --noStackTrace\" \"npm run eslint -- --quiet\""
+    "test": "concurrently \"npm run jest -- --silent --noStackTrace\" \"npm run lint -- --quiet\" \"npm run lint:style -- --quiet\""
   },
   "repository": {
     "type": "git",
