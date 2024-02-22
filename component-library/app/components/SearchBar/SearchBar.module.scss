@@ -61,7 +61,7 @@
     transition: background-color $transition;
     cursor: pointer;
     z-index: 1;
-    overflow: hidden; //prevent hidden submit text to overflow
+    overflow: hidden; // Prevent hidden submit text to overflow
 
     &:hover {
         background-color: $purple-60;

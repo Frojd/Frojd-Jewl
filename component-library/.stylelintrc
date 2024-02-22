@@ -1,0 +1,41 @@
+{
+    "extends": "stylelint-config-standard-scss",
+    "ignoreFiles": ["**/*.js", "**/*.snap"],
+    "rules": {
+        "selector-class-pattern": "^[a-zA-Z0-9_-]+$",
+        "selector-id-pattern": "^[a-zA-Z0-9_-]+$",
+        "at-rule-empty-line-before": ["always", {
+            "except": ["first-nested"],
+            "ignore": ["after-comment"],
+            "ignoreAtRules": ["extend"]
+        }],
+        "rule-empty-line-before": ["always", {
+            "except": ["first-nested"],
+            "ignore": ["after-comment"]
+        }],
+        "comment-empty-line-before": ["always", {
+            "except": ["first-nested"],
+            "ignore": ["after-comment"]
+        }],
+        "color-named": "always-where-possible",
+        "block-no-empty": null,
+        "value-keyword-case": ["lower", {
+            "ignoreKeywords": ["S", "SL", "M", "ML", "L", "XL", "XXL"]
+        }],
+        "selector-pseudo-class-no-unknown": [true, {
+            "ignorePseudoClasses": ["global", "local"]
+        }],
+        "declaration-block-no-redundant-longhand-properties": null,
+        "keyframes-name-pattern": null,
+        "scss/no-global-function-names": null,
+        "color-function-notation": null,
+        "property-no-vendor-prefix": null,
+        "font-family-name-quotes": null,
+        "scss/at-mixin-pattern": null,
+        "scss/dollar-variable-pattern": null,
+        "scss/percent-placeholder-pattern": null,
+        "no-descending-specificity": null,
+        "scss/at-if-closing-brace-newline-after": null,
+        "scss/at-if-closing-brace-space-after": null
+    }
+}

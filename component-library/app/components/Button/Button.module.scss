@@ -50,11 +50,11 @@
         margin-bottom: -6px;
     }
 
-    &:not(.Root--Disabled):not([disabled]) {
+    &:not(.Root--Disabled, [disabled]) {
         cursor: pointer;
     }
 
-    &--Large:not(.Root--TextLink):not(.Root--TextLinkWhite) {
+    &--Large:not(.Root--TextLink, .Root--TextLinkWhite) {
         padding: 14px 28px;
 
         svg {
@@ -101,7 +101,7 @@
             }
         }
 
-        &:not(.Root--Disabled):not([disabled]):hover {
+        &:not(.Root--Disabled, [disabled]):hover {
             &::before {
                 opacity: 1;
             }
@@ -135,7 +135,7 @@
             }
         }
 
-        &:not(.Root--Disabled):not([disabled]):hover {
+        &:not(.Root--Disabled, [disabled]):hover {
             &::before {
                 opacity: 1;
             }
@@ -166,7 +166,7 @@
             }
         }
 
-        &:not(.Root--Disabled):not([disabled]):hover {
+        &:not(.Root--Disabled, [disabled]):hover {
             &::before {
                 opacity: 1;
             }
@@ -204,7 +204,7 @@
             }
         }
 
-        &:not(.Root--Disabled):not([disabled]):hover {
+        &:not(.Root--Disabled, [disabled]):hover {
             color: $purple;
 
             &::before {
@@ -250,7 +250,7 @@
             }
         }
 
-        &:not(.Root--Disabled):not([disabled]):hover {
+        &:not(.Root--Disabled, [disabled]):hover {
             &::before {
                 opacity: 0;
             }

@@ -6,7 +6,6 @@
     flex-direction: column;
     background: $purple-20;
     position: relative;
-
     height: 100%;
 }
 
@@ -34,7 +33,7 @@
         display: block;
         width: 100%;
         height: 0;
-        padding-bottom: percentage(9/16);
+        padding-bottom: percentage(9 / 16);
     }
 }
 

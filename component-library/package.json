@@ -7,6 +7,10 @@
   },
   "homepage": "https://frojd.github.io/Frojd-Jewl",
   "scripts": {
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "lint:style": "stylelint **/*.scss",
+    "lint:style:fix": "stylelint **/*.scss --fix",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "deploy-storybook": "gh-pages -d storybook-static",
@@ -17,11 +21,13 @@
     "delete:container": "node cli/component/cli.js delete --container",
     "eslint": "eslint app",
     "eslint:fix": "eslint app --fix",
-    "fixcode": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --write",
+    "fixcode": "npx prettier \"**/*(*.css|*.js|*.json|*.md|*.scss)\" --write",
     "fixcode:test": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --list-different",
     "start": "node ./bin/dev-server",
     "svg": "svgo -f app/inline-svg -q --config=app/inline-svg/svgo.config.js",
     "jest": "jest",
+    "jest:watch": "jest --watch",
+    "jest:ci": "npx jest --ci --runInBand --reporters=default --reporters=jest-junit",
     "test": "concurrently \"npm run jest -- --silent --noStackTrace\" \"npm run eslint -- --quiet\""
   },
   "repository": {
@@ -74,6 +80,8 @@
     "react-test-renderer": "^18.2.0",
     "storybook": "^7.6.17",
     "style-loader": "^3.3.4",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard-scss": "^13.0.0",
     "svgo": "^3.2.0"
   },
   "dependencies": {

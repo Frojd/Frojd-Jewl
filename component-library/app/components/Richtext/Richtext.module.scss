@@ -1,16 +1,6 @@
 @import 'Styles/includes';
 
 .Root {
-
-    :global .preamble {
-        margin: 24px 0;
-    }
-
-    :global .embed {
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-
     ol,
     ul,
     figure,
@@ -263,17 +253,21 @@
 
     :global .preamble {
         @include textstyle(preamble);
+
+        margin: 24px 0;
     }
 
     :global .embed {
         position: relative;
+        margin-top: 40px;
+        margin-bottom: 40px;
 
         &::before {
             content: '';
             display: block;
             width: 100%;
             height: 0;
-            padding-bottom: percentage(9/16);
+            padding-bottom: percentage(9 / 16);
         }
 
         iframe {

@@ -1,5 +1,4 @@
 $assetsPath: '../../assets/';
-
 $gutter: 16px;
 $gutterM: 24px; // Used for media query above M
 
@@ -23,13 +22,12 @@ $breakpoints: (
     XL: 1440px,
     XXL: 1680px,
 );
-
 $transition: .3s ease-in-out;
 
 /** Color definintions from styleguide **/
 $grey: #9E9E9E;
 $grey-5: #FAFAFA;
-$grey-10: #F5F5F5;
+$grey-10: whitesmoke; // #F5F5F5
 $grey-20: #EEE;
 $grey-30: #E0E0E0;
 $grey-40: #BDBDBD;
@@ -37,19 +35,15 @@ $grey-60: #757575;
 $grey-70: #616161;
 $grey-80: #424242;
 $grey-90: #212121;
-
 $purple: #673AB7;
 $purple-20: #EDE7F6;
 $purple-60: #B39DDB;
 $purple-90: #4527a0;
-
 $yellow: #FFEE58;
 $yellow-20: #FFFDE7;
 $yellow-40: #FFF59d;
 $yellow-60: #FDD835;
-
 $pink: #E91E63;
-
 $system-error: #D32F2F;
 $system-error-10: #FBEBEB;
 $system-success: #1DAC2C;
@@ -59,10 +53,8 @@ $bg-color: white;
 $base-color: $grey-90;
 $primary-color: $purple;
 $accent-color: $yellow;
-
 $link-color: $primary-color;
 $link-hover-color: darken($purple, 20%);
-
 $error-color: $system-error;
 $error-bg: $system-error-10;
 $success-color: $system-success;
@@ -70,7 +62,6 @@ $success-color: $system-success;
 /** Text styles variables **/
 $base-font: #{Roboto, Arial, sans-serif};
 $heading-font: #{Roboto, Arial, sans-serif};
-
 $base-size: 1.6rem;
 
 // Match names of weights here with the weights of the fonts in fonts.scss

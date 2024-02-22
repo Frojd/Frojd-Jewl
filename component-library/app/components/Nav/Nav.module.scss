@@ -47,6 +47,7 @@
 
     &--Expanded {
     }
+
     &--HasChildren {
     }
 
@@ -158,14 +159,14 @@
         text-decoration: none;
     }
 
-    @include href-external() {
+    @include href-external {
         &::after {
             display: inline-block;
             background-image: url('#{$assetsPath}img/external--purple.svg');
         }
     }
 
-    @include href-download() {
+    @include href-download {
         &::after {
             display: inline-block;
             background-image: url('#{$assetsPath}img/download--purple.svg') !important;

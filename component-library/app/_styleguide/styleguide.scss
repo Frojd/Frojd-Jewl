@@ -55,75 +55,99 @@
         &--title {
             @include textstyle(page-title);
         }
+
         &--module-title {
             @include textstyle(module-title);
         }
+
         &--card-title {
             @include textstyle(card-title);
         }
+
         &--accordion-title {
             @include textstyle(accordion-title);
         }
+
         &--footer-title {
             @include textstyle(footer-title);
         }
+
         &--richtext-h2 {
             @include textstyle(richtext-h2);
         }
+
         &--richtext-h3 {
             @include textstyle(richtext-h3);
         }
+
         &--richtext-h4 {
             @include textstyle(richtext-h4);
         }
+
         &--richtext-h5 {
             @include textstyle(richtext-h5);
         }
+
         &--richtext-h6 {
             @include textstyle(richtext-h6);
         }
+
         &--body {
             @include textstyle(body);
         }
+
         &--preamble {
             @include textstyle(preamble);
         }
+
         &--paragraph {
             @include textstyle(paragraph);
         }
+
         &--quote {
             @include textstyle(quote);
         }
+
         &--cite {
             @include textstyle(cite);
         }
+
         &--caption {
             @include textstyle(caption);
         }
+
         &--button {
             @include textstyle(button);
         }
+
         &--textlink {
             @include textstyle(textlink);
         }
+
         &--mainmenu {
             @include textstyle(mainmenu);
         }
+
         &--servicemenu {
             @include textstyle(servicemenu);
         }
+
         &--submenu {
             @include textstyle(submenu);
         }
+
         &--breadcrumb {
             @include textstyle(breadcrumb);
         }
+
         &--label {
             @include textstyle(label);
         }
+
         &--label-card {
             @include textstyle(label-card);
         }
+
         &--date {
             @include textstyle(date);
         }
