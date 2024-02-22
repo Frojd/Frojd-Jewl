@@ -1,6 +1,8 @@
 import base from 'Layouts/Base/Base.data';
 
-export default {
+const data = {
     ...base,
     breadcrumbs: null,
 };
+
+export default data;

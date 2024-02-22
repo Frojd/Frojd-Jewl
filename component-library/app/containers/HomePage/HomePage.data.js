@@ -1,8 +1,10 @@
 import base from 'Layouts/Base/Base.data';
 import hero from 'Components/Hero/Hero.data';
 
-export default {
+const data = {
     ...base,
     breadcrumbs: null,
     hero: hero,
 };
+
+export default data;

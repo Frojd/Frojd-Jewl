@@ -3,9 +3,11 @@ import hero from 'Components/Hero/Hero.data';
 import richtext from 'Components/Richtext/Richtext.data';
 import submenu from 'Components/Submenu/Submenu.data';
 
-export default {
+const data = {
     ...base,
     hero: hero,
     content: richtext,
     submenu: submenu,
 };
+
+export default data;

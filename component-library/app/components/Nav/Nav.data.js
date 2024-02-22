@@ -1,4 +1,4 @@
-export default {
+const data = {
     id: 'horizontal',
     label: 'Horizontal menu',
     items: [
@@ -8,6 +8,8 @@ export default {
         { id: '3', title: 'Download PDF', url: 'test.pdf' },
     ],
 };
+
+export default data;
 
 export const withChildren = {
     id: 'vertical',

@@ -1,7 +1,7 @@
 import base from 'Layouts/Base/Base.data';
 import searchBar from 'Components/SearchBar/SearchBar.data';
 
-export default {
+const data = {
     ...base,
     title: 'Sök på hemsidan',
     searchterm: 'Sökterm',
@@ -66,3 +66,5 @@ export default {
         },
     ],
 };
+
+export default data;

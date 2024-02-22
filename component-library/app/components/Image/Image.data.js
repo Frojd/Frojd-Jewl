@@ -1,4 +1,4 @@
-export default {
+const data = {
     src: 'dummy/test-original.jpg',
     alt: 'Test',
     width: 1600,
@@ -14,6 +14,8 @@ export default {
         'dummy/test-1600.jpg 1600w',
     ],
 };
+
+export default data;
 
 export const landscape = {
     src: 'https://via.placeholder.com/1600x900',

@@ -1,5 +1,5 @@
 // prettier-ignore
-export default {
+const data = {
     text: `
         <p class="preamble">Preamble Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <h1>H1/H2 Title</h1>
@@ -47,3 +47,5 @@ export default {
         <p>Paragraph Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     `,
 };
+
+export default data;

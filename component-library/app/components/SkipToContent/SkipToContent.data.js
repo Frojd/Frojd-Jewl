@@ -1,1 +1,3 @@
-export default {};
+const data = {};
+
+export default data;

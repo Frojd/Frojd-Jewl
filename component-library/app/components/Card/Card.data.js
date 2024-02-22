@@ -1,6 +1,6 @@
 import image from 'Components/Image/Image.data';
 
-export default {
+const data = {
     title: 'Card title',
     url: 'www.google.se',
     label: 'Label',
@@ -9,3 +9,5 @@ export default {
     dateString: '2022-02-03',
     dateFormatted: '3 februari 2022',
 };
+
+export default data;

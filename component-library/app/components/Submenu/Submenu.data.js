@@ -1,7 +1,9 @@
 import { withChildren } from 'Components/Nav/Nav.data';
 
-export default {
+const data = {
     id: 'submenu',
     title: 'Submenu item',
     nav: withChildren,
 };
+
+export default data;

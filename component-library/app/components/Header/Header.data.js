@@ -1,4 +1,4 @@
-export default {
+const data = {
     main: {
         items: [
             { id: '1', title: 'Aktuellt', url: '#', isActive: true },
@@ -15,3 +15,5 @@ export default {
         ],
     },
 };
+
+export default data;
