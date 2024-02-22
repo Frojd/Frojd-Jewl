@@ -20,7 +20,9 @@ const children = (
     </>
 );
 
-const data = {};
+const data = {
+    children: '-- Navigation drawer --',
+};
 
 export default data;
 

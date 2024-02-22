@@ -30,7 +30,7 @@ const ArticlePage = ({ title = '', content = {}, submenu = {} }) => {
 };
 
 ArticlePage.propTypes = {
-    title: PropTypes.object,
+    title: PropTypes.string,
     content: PropTypes.object,
     submenu: PropTypes.object,
 };

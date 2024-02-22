@@ -75,8 +75,8 @@ Button.propTypes = {
         'TextLink',
         'TextLinkWhite',
     ]),
-    size: PropTypes.oneOf([null, '', 'Large']),
-    icon: PropTypes.oneOf(['External', 'Arrow', 'Download']),
+    size: PropTypes.oneOf([null, '', 'Small', 'Large']),
+    icon: PropTypes.oneOf([null, '', 'External', 'Arrow', 'Download']),
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
 };

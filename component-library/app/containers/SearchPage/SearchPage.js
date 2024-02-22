@@ -55,7 +55,7 @@ const SearchPage = ({
 
 SearchPage.propTypes = {
     title: PropTypes.string,
-    filterButtons: PropTypes.array,
+    filterButtons: PropTypes.object,
     searchterm: PropTypes.string,
     searchResultLabel: PropTypes.string,
     searchBar: PropTypes.object,

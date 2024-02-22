@@ -1,4 +1,8 @@
 const sv = {
+    accordion: {
+        expand: 'Expandera',
+        minimize: 'Minimera',
+    },
     breadcrumbs: {
         start: 'Hem',
         label: 'Breadcrumbs',
@@ -13,9 +17,18 @@ const sv = {
         serviceMenu: 'Servicemeny',
         toStartPage: 'Till startsidan',
     },
+    nav: {
+        showChildren: 'Visa underordnade',
+    },
     navigationDrawer: {
         close: 'Stäng meny',
         open: 'Öppna meny',
+    },
+    pagination: {
+        label: 'Paginering',
+        goTo: 'Gå till',
+        next: 'Nästa',
+        previous: 'Föregående',
     },
     popup: {
         close: 'Stäng',
