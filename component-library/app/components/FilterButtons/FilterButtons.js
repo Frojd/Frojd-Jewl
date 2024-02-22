@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import Button from 'Components/Button';
 import s from './FilterButtons.module.scss';
 
-const FilterButtons = ({ filters = [] }) => {
+const FilterButtons = ({ items = [] }) => {
     return (
         <ul className={s.Root}>
-            {filters.map((filter, i) => (
+            {items.map((filter, i) => (
                 <li className={s.Filter} key={i}>
+                    {/* TODO: Should be checkbox or radio button instead */}
                     <Button
                         title={filter.label}
                         modifier={'Secondary'}
@@ -20,7 +21,7 @@ const FilterButtons = ({ filters = [] }) => {
 };
 
 FilterButtons.propTypes = {
-    filters: PropTypes.array,
+    items: PropTypes.array,
 };
 
 export default FilterButtons;

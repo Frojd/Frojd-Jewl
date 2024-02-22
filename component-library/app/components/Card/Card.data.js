@@ -1,7 +1,7 @@
 import image from 'Components/Image/Image.data';
 
 const data = {
-    title: 'Card title',
+    title: 'Card longer&shy;title',
     url: 'www.google.se',
     label: 'Label',
     text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam adipiscing. Duis vel nibh at velit scelerisque suscipit.',
@@ -11,3 +11,8 @@ const data = {
 };
 
 export default data;
+
+export const noImage = {
+    ...data,
+    image: null,
+};

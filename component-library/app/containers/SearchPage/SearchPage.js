@@ -9,42 +9,41 @@ import s from './SearchPage.module.scss';
 const SearchPage = ({
     title = '',
     resultlist = [],
-    filters = [],
+    filterButtons = {},
     searchResultLabel = '',
     searchterm = '',
     searchBar = {},
 }) => {
     return (
         <div className={s.Root}>
-            <div className={s.Hero}>
-                <h1 className={s.Title}>{title}</h1>
-                <div className={s.Searchbar}>
-                    <SearchBar
-                        {...searchBar}
-                        id="search-input"
-                        modifier="SearchPage"
+            <div className={s.Header}>
+                <div className={s.Wrap}>
+                    <h1
+                        className={s.Title}
+                        dangerouslySetInnerHTML={{ __html: title }}
                     />
+                    <div className={s.Searchbar}>
+                        <SearchBar
+                            {...searchBar}
+                            id="search-input"
+                            modifier="SearchPage"
+                        />
+                    </div>
                 </div>
             </div>
             <div className={s.Wrap}>
-                <div className={s.Content}>
-                    {/* TODO: Fix so that filterbuttons can be displayed with correct values */}
-                    <FilterButtons filters={filters} />
-                    <p className={s.ListInfo}>
+                <div className={s.Result}>
+                    <FilterButtons {...filterButtons} />
+
+                    <p className={s.Info}>
                         {searchResultLabel}
                         {searchterm}
                     </p>
-                    <ul className={s.ResultList}>
-                        {resultlist.map((result, i) => (
-                            <li key={i}>
-                                <Card
-                                    title={result.title}
-                                    url={result.url}
-                                    label={result.label}
-                                    text={result.text}
-                                    dateString={result.dateString}
-                                    dateFormatted={result.dateFormatted}
-                                ></Card>
+
+                    <ul className={s.List}>
+                        {resultlist.map((item, index) => (
+                            <li className={s.Item} key={index}>
+                                <Card {...item} />
                             </li>
                         ))}
                     </ul>
@@ -56,7 +55,7 @@ const SearchPage = ({
 
 SearchPage.propTypes = {
     title: PropTypes.string,
-    filters: PropTypes.array,
+    filterButtons: PropTypes.array,
     searchterm: PropTypes.string,
     searchResultLabel: PropTypes.string,
     searchBar: PropTypes.object,

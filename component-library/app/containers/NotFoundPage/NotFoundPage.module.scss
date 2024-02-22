@@ -4,5 +4,5 @@
 }
 
 .Title {
-    color: red;
+    @include textstyle(page-title);
 }

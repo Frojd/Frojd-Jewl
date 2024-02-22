@@ -6,14 +6,17 @@ import Richtext from 'Components/Richtext';
 import Submenu from 'Components/Submenu';
 import s from './ArticlePage.module.scss';
 
-const ArticlePage = ({ hero = {}, content = {}, submenu = {} }) => {
+const ArticlePage = ({ title = '', content = {}, submenu = {} }) => {
     return (
         <article className={s.Root}>
-            <Hero {...hero} />
-
             <div className={s.Wrap}>
                 <div className={s.Layout}>
                     <div className={s.Content}>
+                        <h1
+                            className={s.Title}
+                            dangerouslySetInnerHTML={{ __html: title }}
+                        />
+
                         <Richtext {...content} />
                     </div>
 
@@ -27,7 +30,7 @@ const ArticlePage = ({ hero = {}, content = {}, submenu = {} }) => {
 };
 
 ArticlePage.propTypes = {
-    hero: PropTypes.object,
+    title: PropTypes.object,
     content: PropTypes.object,
     submenu: PropTypes.object,
 };

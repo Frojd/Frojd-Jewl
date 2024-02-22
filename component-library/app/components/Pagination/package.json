@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "react": "*",
-    "prop-types": "*"
+    "prop-types": "*",
+    "react-i18next": "*"
   },
   "jewlDependencies": [
   ]

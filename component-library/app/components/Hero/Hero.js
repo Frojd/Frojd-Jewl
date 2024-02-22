@@ -4,7 +4,7 @@ import s from './Hero.module.scss';
 
 const Hero = ({ title = '' }) => (
     <div className={s.Root}>
-        <h1 className={s.Title}>{title}</h1>
+        <h1 className={s.Title} dangerouslySetInnerHTML={{ __html: title }} />
     </div>
 );
 

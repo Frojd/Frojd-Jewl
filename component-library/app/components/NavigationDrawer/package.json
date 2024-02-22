@@ -4,6 +4,7 @@
   "dependencies": {
     "react": "*",
     "prop-types": "*",
+    "react-i18next": "*",
     "classnames": "*",
     "framer-motion": "*"
   },

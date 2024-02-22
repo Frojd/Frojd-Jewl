@@ -20,7 +20,10 @@ const Card = ({
     return (
         <article className={s.Root}>
             <a className={s.Link} href={url}>
-                <span className="sr-only">{title}</span>
+                <span
+                    className="sr-only"
+                    dangerouslySetInnerHTML={{ __html: title }}
+                />
             </a>
 
             {hasImage && (
@@ -30,11 +33,24 @@ const Card = ({
             )}
 
             <div className={s.Content}>
-                {label && <div className={s.Label}>{label}</div>}
+                {label && (
+                    <div
+                        className={s.Label}
+                        dangerouslySetInnerHTML={{ __html: label }}
+                    />
+                )}
 
-                <h3 className={s.Title}>{title}</h3>
+                <h3
+                    className={s.Title}
+                    dangerouslySetInnerHTML={{ __html: title }}
+                />
 
-                {text && <p className={s.Text}>{text}</p>}
+                {text && (
+                    <p
+                        className={s.Text}
+                        dangerouslySetInnerHTML={{ __html: text }}
+                    />
+                )}
 
                 {dateString && dateFormatted && (
                     <aside className={s.Meta}>

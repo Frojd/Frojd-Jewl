@@ -39,9 +39,8 @@ const Link = ({ title = '', url = '', isStart = false, isCurrent = false }) => {
             className={s.Link}
             href={url}
             aria-current={isCurrent ? 'page' : null}
-        >
-            {displayTitle}
-        </a>
+            dangerouslySetInnerHTML={{ __html: displayTitle }}
+        />
     );
 };
 
