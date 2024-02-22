@@ -7,12 +7,12 @@ import Card from '../../components/Card/Card';
 import s from './SearchPage.module.scss';
 
 const SearchPage = ({
-    title,
-    resultlist,
-    filters,
-    searchResultLabel,
-    searchterm,
-    searchBar,
+    title = '',
+    resultlist = [],
+    filters = [],
+    searchResultLabel = '',
+    searchterm = '',
+    searchBar = {},
 }) => {
     return (
         <div className={s.Root}>
@@ -55,25 +55,12 @@ const SearchPage = ({
 };
 
 SearchPage.propTypes = {
-    hero: PropTypes.object,
     title: PropTypes.string,
-    content: PropTypes.object,
     filters: PropTypes.array,
     searchterm: PropTypes.string,
     searchResultLabel: PropTypes.string,
     searchBar: PropTypes.object,
     resultlist: PropTypes.array,
-};
-
-SearchPage.defaultProps = {
-    hero: {},
-    content: {},
-    searchterm: '',
-    searchResultLabel: '',
-    searchBar: {},
-    resultlist: [],
-    filters: [],
-    title: '',
 };
 
 export default Base(SearchPage);

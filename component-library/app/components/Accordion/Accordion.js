@@ -6,7 +6,12 @@ import { AnimateUpDown } from 'Components/Animate';
 import Richtext from 'Components/Richtext';
 import s from './Accordion.module.scss';
 
-const Accordion = ({ title, text, open, id }) => {
+const Accordion = ({
+    title = '',
+    text = '',
+    open = false,
+    id = 'accordion',
+}) => {
     const { t } = useTranslation();
 
     const [isExpanded, setIsExpanded] = useState(open);
@@ -29,7 +34,6 @@ const Accordion = ({ title, text, open, id }) => {
                 aria-expanded={isExpanded}
                 aria-controls={id}
                 id={headerId}
-                role="region"
             >
                 <h3 className={s.Title}>{title}</h3>
                 <button
@@ -59,13 +63,6 @@ Accordion.propTypes = {
     text: PropTypes.string.isRequired,
     open: PropTypes.bool,
     id: PropTypes.string,
-};
-
-Accordion.defaultProps = {
-    title: '',
-    text: '',
-    open: false,
-    id: 'accordion',
 };
 
 export default Accordion;

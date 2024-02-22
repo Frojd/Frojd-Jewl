@@ -5,18 +5,18 @@ import classNames from 'classnames';
 import s from './Image.module.scss';
 
 const Image = ({
-    src,
-    alt,
-    width,
-    height,
-    caption,
-    focal,
-    srcset,
-    sizes,
-    useCover,
-    useLazyLoad,
-    useNextImage,
-    className,
+    src = '',
+    alt = '',
+    width = 0,
+    height = 0,
+    caption = '',
+    focal = {},
+    srcset = [],
+    sizes = [],
+    useCover = true,
+    useLazyLoad = true,
+    useNextImage = true,
+    className = '',
 }) => {
     const hasFocal = !!focal?.x && !!focal?.y;
     const position = hasFocal ? `${focal.x} ${focal.y}` : 'center center';
@@ -42,7 +42,7 @@ const Image = ({
                 objectPosition: position,
             }}
             loading={useLazyLoad ? 'lazy' : null}
-        />
+        />;
     }
 
     return (
@@ -76,21 +76,6 @@ Image.propTypes = {
     useLazyLoad: PropTypes.bool,
     useNextImage: PropTypes.bool,
     className: PropTypes.string,
-};
-
-Image.defaultProps = {
-    src: '',
-    alt: '',
-    width: 0,
-    height: 0,
-    caption: '',
-    focal: {},
-    srcset: [],
-    sizes: [],
-    useCover: true,
-    useLazyLoad: true,
-    useNextImage: true,
-    className: '',
 };
 
 export default Image;

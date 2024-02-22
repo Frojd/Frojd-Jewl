@@ -5,7 +5,7 @@ import { AnimateUpDown } from 'Components/Animate';
 import Richtext from 'Components/Richtext';
 import s from './Popup.module.scss';
 
-const Popup = ({ title, text, buttonText }) => {
+const Popup = ({ title = '', text = '', buttonText = '' }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -45,12 +45,6 @@ Popup.propTypes = {
     title: PropTypes.string,
     text: PropTypes.string.isRequired,
     buttonText: PropTypes.string.isRequired,
-};
-
-Popup.defaultProps = {
-    title: '',
-    text: '',
-    buttonText: '',
 };
 
 export default Popup;

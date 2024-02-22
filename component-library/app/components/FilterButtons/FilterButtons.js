@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'Components/Button';
 import s from './FilterButtons.module.scss';
 
-const FilterButtons = ({ filters }) => {
+const FilterButtons = ({ filters = [] }) => {
     return (
         <ul className={s.Root}>
             {filters.map((filter, i) => (
@@ -21,10 +21,6 @@ const FilterButtons = ({ filters }) => {
 
 FilterButtons.propTypes = {
     filters: PropTypes.array,
-};
-
-FilterButtons.defaultProps = {
-    filters: [],
 };
 
 export default FilterButtons;

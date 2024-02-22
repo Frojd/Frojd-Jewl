@@ -6,7 +6,13 @@ import { AnimateUpDown } from 'Components/Animate';
 import _ from 'lodash';
 import s from './Nav.module.scss';
 
-const Nav = ({ id, label, items, orientation, modifier }) => {
+const Nav = ({
+    id = 'nav',
+    label = null,
+    items = [],
+    orientation = 'Horizontal',
+    modifier = '',
+}) => {
     // Check for children, the structure of nav should change when nesting
     const find = _.findKey(items, (i) => i.children && !_.isEmpty(i.children));
     const hasChildren = find !== undefined;
@@ -38,15 +44,7 @@ Nav.propTypes = {
     modifier: PropTypes.string,
 };
 
-Nav.defaultProps = {
-    id: 'nav',
-    label: null,
-    items: [],
-    orientation: 'Horizontal',
-    modifier: '',
-};
-
-const List = ({ items, navId, id, isHidden }) => {
+const List = ({ items = [], navId = 'nav', id = null, isHidden = null }) => {
     const listId = id === null ? `${navId}-list` : `${navId}-${id}-list`;
     return (
         <ul className={s.List} aria-hidden={isHidden} id={listId}>
@@ -64,15 +62,8 @@ List.propTypes = {
     isHidden: PropTypes.bool,
 };
 
-List.defaultProps = {
-    items: [],
-    navId: 'nav',
-    id: null,
-    isHidden: null,
-};
-
 const Child = (item) => {
-    const { navId, id, children, isParentActive } = item;
+    const { navId = '', id = '', children = [], isParentActive = false } = item;
 
     const [isExpanded, setIsExpanded] = useState(isParentActive);
 
@@ -117,22 +108,16 @@ Child.propTypes = {
     isParentActive: PropTypes.bool,
 };
 
-Child.defaultProps = {
-    navId: '',
-    id: '',
-    children: [],
-    isParentActive: false,
-};
-
 const Item = (item) => {
     const {
-        navId,
-        id,
-        modifier,
-        showToggle,
-        isExpanded,
-        toggleExpanded,
-        isActive,
+        navId = '',
+        id = '',
+        modifier = '',
+        showToggle = false,
+        isExpanded = false,
+        toggleExpanded = () => {},
+        isActive = false,
+        isParentActive = false,
     } = item;
 
     const listId = `${navId}-list`;
@@ -174,18 +159,13 @@ Item.propTypes = {
     isParentActive: PropTypes.bool,
 };
 
-Item.defaultProps = {
-    navId: '',
-    id: '',
-    modifier: '',
-    showToggle: false,
-    isExpanded: false,
-    toggleExpanded: () => {},
-    isActive: false,
-    isParentActive: false,
-};
-
-const Link = ({ title, url, target, rel, attrTitle }) => {
+const Link = ({
+    title = '',
+    url = '',
+    target = null,
+    rel = null,
+    attrTitle = null,
+}) => {
     return (
         <a
             className={s.Link}
@@ -214,11 +194,4 @@ Link.propTypes = {
     attrTitle: PropTypes.string,
 };
 
-Link.defaultProps = {
-    title: '',
-    url: '',
-    target: null,
-    rel: null,
-    attrTitle: null,
-};
 export default Nav;

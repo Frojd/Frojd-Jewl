@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
 import s from './NotFoundPage.module.scss';
 
-const NotFoundPage = ({ title }) => {
+const NotFoundPage = ({ title = '' }) => {
     return (
         <div className={s.Root}>
             <h1 className={s.Title}>{title}</h1>
@@ -13,10 +13,6 @@ const NotFoundPage = ({ title }) => {
 
 NotFoundPage.propTypes = {
     title: PropTypes.string,
-};
-
-NotFoundPage.defaultProps = {
-    title: '',
 };
 
 export default Base(NotFoundPage);

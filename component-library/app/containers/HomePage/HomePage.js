@@ -4,7 +4,7 @@ import Base from 'Layouts/Base';
 import Hero from 'Components/Hero';
 import s from './HomePage.module.scss';
 
-const HomePage = ({ hero }) => {
+const HomePage = ({ hero = {} }) => {
     return (
         <div className={s.Root}>
             <Hero {...hero} />
@@ -14,10 +14,6 @@ const HomePage = ({ hero }) => {
 
 HomePage.propTypes = {
     hero: PropTypes.object,
-};
-
-HomePage.defaultProps = {
-    hero: {},
 };
 
 export default Base(HomePage);

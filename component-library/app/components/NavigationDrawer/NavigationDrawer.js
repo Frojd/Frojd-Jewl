@@ -7,7 +7,11 @@ import Hamburger from 'SVG/hamburger.svg';
 import Close from 'SVG/close.svg';
 import s from './NavigationDrawer.module.scss';
 
-const NavigationDrawer = ({ children, open, id }) => {
+const NavigationDrawer = ({
+    children = '',
+    open = false,
+    id = 'navigation-drawer',
+}) => {
     const { t } = useTranslation();
 
     const [isExpanded, setIsExpanded] = useState(open);
@@ -55,12 +59,6 @@ NavigationDrawer.propTypes = {
     children: PropTypes.node.isRequired,
     open: PropTypes.bool,
     id: PropTypes.string,
-};
-
-NavigationDrawer.defaultProps = {
-    children: '',
-    open: false,
-    id: 'navigation-drawer',
 };
 
 export default NavigationDrawer;

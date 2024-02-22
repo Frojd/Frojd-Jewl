@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import s from './Breadcrumbs.module.scss';
 
-const Breadcrumbs = ({ items }) => {
+const Breadcrumbs = ({ items = [] }) => {
     const { t } = useTranslation();
 
     return (
@@ -29,11 +29,7 @@ Breadcrumbs.propTypes = {
     items: PropTypes.array,
 };
 
-Breadcrumbs.defaultProps = {
-    items: [],
-};
-
-const Link = ({ title, url, isStart, isCurrent }) => {
+const Link = ({ title = '', url = '', isStart = false, isCurrent = false }) => {
     const { t } = useTranslation();
 
     const displayTitle = isStart ? t('breadcrumbs.start') : title;
@@ -54,13 +50,6 @@ Link.propTypes = {
     url: PropTypes.string,
     isStart: PropTypes.bool,
     isCurrent: PropTypes.bool,
-};
-
-Link.defaultProps = {
-    title: '',
-    url: '',
-    isStart: false,
-    isCurrent: false,
 };
 
 export default Breadcrumbs;

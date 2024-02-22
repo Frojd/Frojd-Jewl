@@ -9,7 +9,7 @@ import NavigationDrawer from 'Components/NavigationDrawer';
 import SkipToContent from 'Components/SkipToContent';
 import s from './Header.module.scss';
 
-const Header = ({ main, service }) => {
+const Header = ({ main = {}, service = {} }) => {
     const { t } = useTranslation();
 
     const [isSearchVisible, setIsSearchVisible] = useState(false);
@@ -136,11 +136,6 @@ const Header = ({ main, service }) => {
 Header.propTypes = {
     main: PropTypes.object,
     service: PropTypes.object,
-};
-
-Header.defaultProps = {
-    main: {},
-    service: {},
 };
 
 export default Header;

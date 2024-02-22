@@ -6,7 +6,7 @@ import Richtext from 'Components/Richtext';
 import Submenu from 'Components/Submenu';
 import s from './ArticlePage.module.scss';
 
-const ArticlePage = ({ hero, content, submenu }) => {
+const ArticlePage = ({ hero = {}, content = {}, submenu = {} }) => {
     return (
         <article className={s.Root}>
             <Hero {...hero} />
@@ -30,12 +30,6 @@ ArticlePage.propTypes = {
     hero: PropTypes.object,
     content: PropTypes.object,
     submenu: PropTypes.object,
-};
-
-ArticlePage.defaultProps = {
-    hero: {},
-    content: {},
-    submenu: {},
 };
 
 export default Base(ArticlePage);

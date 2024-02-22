@@ -6,7 +6,7 @@ import { AnimateUpDown } from 'Components/Animate';
 import Nav from 'Components/Nav';
 import s from './Submenu.module.scss';
 
-const Submenu = ({ id, title, nav }) => {
+const Submenu = ({ id = 'submenu', title = '', nav = {} }) => {
     const { t } = useTranslation();
 
     const [isExpanded, setIsExpanded] = useState(false);
@@ -44,12 +44,6 @@ Submenu.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     nav: PropTypes.object.isRequired,
-};
-
-Submenu.defaultProps = {
-    id: 'submenu',
-    title: '',
-    nav: {},
 };
 
 export default Submenu;

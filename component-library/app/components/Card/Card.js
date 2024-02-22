@@ -5,13 +5,13 @@ import Image from 'Components/Image';
 import s from './Card.module.scss';
 
 const Card = ({
-    title,
-    url,
-    image,
-    label,
-    text,
-    dateString,
-    dateFormatted,
+    title = '',
+    url = '',
+    label = '',
+    text = '',
+    image = {},
+    dateString = '',
+    dateFormatted = '',
 }) => {
     const { t } = useTranslation();
 
@@ -57,16 +57,6 @@ Card.propTypes = {
     image: PropTypes.object,
     dateString: PropTypes.string,
     dateFormatted: PropTypes.string,
-};
-
-Card.defaultProps = {
-    title: '',
-    url: '',
-    label: '',
-    text: '',
-    image: {},
-    dateString: '',
-    dateFormatted: '',
 };
 
 export default Card;

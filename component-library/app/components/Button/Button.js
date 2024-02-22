@@ -7,19 +7,19 @@ import Download from 'SVG/download.svg';
 import s from './Button.module.scss';
 
 const Button = ({
-    children,
-    title,
-    className,
-    modifier,
-    size,
-    icon,
-    url,
-    target,
-    rel,
-    attrTitle,
-    type,
-    disabled,
-    onClick,
+    children = '',
+    title = '',
+    className = null,
+    modifier = 'Primary',
+    size = 'Large',
+    icon = null,
+    url = null,
+    target = null,
+    rel = null,
+    attrTitle = null,
+    type = null,
+    disabled = null,
+    onClick = null,
     ...restProps
 }) => {
     const isButton = !url;
@@ -81,22 +81,7 @@ Button.propTypes = {
     onClick: PropTypes.func,
 };
 
-Button.defaultProps = {
-    children: '',
-    title: '',
-    url: null,
-    target: null,
-    rel: null,
-    attrTitle: null,
-    type: null,
-    modifier: 'Primary',
-    size: 'Large',
-    icon: null,
-    disabled: null,
-    onClick: null,
-};
-
-const Icon = ({ icon }) => {
+const Icon = ({ icon = '' }) => {
     if (icon === 'External') {
         return <External />;
     } else if (icon === 'Arrow') {
@@ -110,10 +95,6 @@ const Icon = ({ icon }) => {
 
 Icon.propTypes = {
     icon: PropTypes.string.isRequired,
-};
-
-Icon.defaultProps = {
-    icon: '',
 };
 
 export default Button;

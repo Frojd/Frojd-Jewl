@@ -5,12 +5,12 @@ import classNames from 'classnames';
 import s from './Pagination.module.scss';
 
 const Pagination = ({
-    current,
-    total,
-    nrOfMiddle,
-    nrOfBeginEnd,
-    setPageUrl,
-    onClick,
+    current = 1,
+    total = 1,
+    nrOfMiddle = 3,
+    nrOfBeginEnd = 1,
+    setPageUrl = null,
+    onClick = null,
 }) => {
     const { t } = useTranslation();
 
@@ -100,16 +100,12 @@ Pagination.propTypes = {
     onClick: PropTypes.func,
 };
 
-Pagination.defaultProps = {
-    current: 1,
-    total: 1,
-    nrOfMiddle: 3,
-    nrOfBeginEnd: 1,
-    setPageUrl: null,
-    onClick: null,
-};
-
-const Link = ({ p, isCurrent, setUrl, onClickHandler }) => {
+const Link = ({
+    p = 1,
+    isCurrent = false,
+    setUrl = null,
+    onClickHandler = null,
+}) => {
     const { t } = useTranslation();
 
     const isEllipse = p === null;
@@ -139,13 +135,6 @@ Link.propTypes = {
     isCurrent: PropTypes.bool,
     setUrl: PropTypes.func,
     onClickHandler: PropTypes.func,
-};
-
-Link.defaultProps = {
-    p: 1,
-    isCurrent: false,
-    setPageUrl: null,
-    onClick: null,
 };
 
 export default Pagination;
