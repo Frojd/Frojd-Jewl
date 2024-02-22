@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Animate from './Animate';
-import data from './Animate.data';
+import data, { component } from './Animate.data';
 import readme from './Animate.md';
 
 const Story = {
@@ -12,7 +12,6 @@ const Story = {
 export default Story;
 
 const Template = (args) => {
-    const childRef = useRef();
     const [animate, setAnimate] = useState(false);
 
     const Component = component;
@@ -21,8 +20,8 @@ const Template = (args) => {
             <button type="button" onClick={() => setAnimate(!animate)}>
                 Toggle
             </button>
-            <Animate {...args} isVisible={animate} childRef={childRef}>
-                <div ref={childRef}>
+            <Animate {...args} isVisible={animate}>
+                <div>
                     <Component />
                 </div>
             </Animate>
@@ -37,4 +36,4 @@ export const AnimateUpDown = Template.bind({});
 AnimateUpDown.args = { ...data, type: 'expand' };
 
 export const AnimateLeftRight = Template.bind({});
-AnimateUpDown.args = { ...data, type: 'slide' };
+AnimateLeftRight.args = { ...data, type: 'slide' };
