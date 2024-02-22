@@ -35,10 +35,10 @@ const SearchPage = ({
                 <div className={s.Result}>
                     <FilterButtons {...filterButtons} />
 
-                    <p className={s.Info}>
+                    <h2 className={s.Info}>
                         {searchResultLabel}
                         {searchterm}
-                    </p>
+                    </h2>
 
                     <ul className={s.List}>
                         {resultlist.map((item, index) => (
