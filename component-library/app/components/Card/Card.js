@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Image from 'Components/Image';
 import s from './Card.module.scss';
 
-const Card = ({ title, url, image, label, text, dateString, dateFormatted}) => {
-    const {t} = useTranslation();
+const Card = ({
+    title,
+    url,
+    image,
+    label,
+    text,
+    dateString,
+    dateFormatted,
+}) => {
+    const { t } = useTranslation();
 
     const hasImage = !!image?.src;
 
@@ -15,35 +23,27 @@ const Card = ({ title, url, image, label, text, dateString, dateFormatted}) => {
                 <span className="sr-only">{title}</span>
             </a>
 
-            {hasImage &&
+            {hasImage && (
                 <div className={s.ImageContainer}>
-                    <Image
-                        {...image}
-                        className={s.Image}
-                    />
+                    <Image {...image} className={s.Image} />
                 </div>
-            }
+            )}
 
             <div className={s.Content}>
-                {label &&
-                    <div className={s.Label}>{label}</div>
-                }
+                {label && <div className={s.Label}>{label}</div>}
 
                 <h3 className={s.Title}>{title}</h3>
 
-                {text &&
-                    <p className={s.Text}>{text}</p>
-                }
+                {text && <p className={s.Text}>{text}</p>}
 
-                {dateString && dateFormatted &&
+                {dateString && dateFormatted && (
                     <aside className={s.Meta}>
                         <span className="sr-only">{t('card.date')}: </span>
-                        <time
-                            className={s.Date}
-                            dateTime={dateString}
-                        >{dateFormatted}</time>
+                        <time className={s.Date} dateTime={dateString}>
+                            {dateFormatted}
+                        </time>
                     </aside>
-                }
+                )}
             </div>
         </article>
     );

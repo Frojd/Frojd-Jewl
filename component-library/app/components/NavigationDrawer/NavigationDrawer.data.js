@@ -20,8 +20,7 @@ const children = (
     </>
 );
 
-export default {
-};
+export default {};
 
 export const withNav = {
     children: children,

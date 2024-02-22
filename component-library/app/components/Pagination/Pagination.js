@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import s from './Pagination.module.scss';
 
@@ -12,14 +12,16 @@ const Pagination = ({
     setPageUrl,
     onClick,
 }) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const beforeAfterCurrent = (nrOfMiddle - 1) / 2;
     const range = [...Array(total).keys()].map((i) => {
         const p = i + 1;
         const isFirstOrLast = p <= nrOfBeginEnd || p > total - nrOfBeginEnd;
-        const isBeforeOrAfter = p >= current - beforeAfterCurrent && p <= current + beforeAfterCurrent;
-        if(isFirstOrLast || isBeforeOrAfter) {
+        const isBeforeOrAfter =
+            p >= current - beforeAfterCurrent &&
+            p <= current + beforeAfterCurrent;
+        if (isFirstOrLast || isBeforeOrAfter) {
             return p;
         } else {
             return null;
@@ -30,14 +32,14 @@ const Pagination = ({
     });
 
     const onClickHandler = (e, p) => {
-        if(onClick) {
+        if (onClick) {
             e.preventDefault();
             onClick(p, e);
         }
     };
 
     const setUrl = (p) => {
-        if(setPageUrl) {
+        if (setPageUrl) {
             return setPageUrl(p);
         } else {
             return `?p=${p}`;
@@ -64,10 +66,7 @@ const Pagination = ({
                 </li>
 
                 {items.map((p, index) => (
-                    <li
-                        className={s.Item}
-                        key={index}
-                    >
+                    <li className={s.Item} key={index}>
                         <Link
                             p={p}
                             isCurrent={current === p}
@@ -110,29 +109,28 @@ Pagination.defaultProps = {
     onClick: null,
 };
 
-const Link = ({p, isCurrent, setUrl, onClickHandler}) => {
-    const {t} = useTranslation();
+const Link = ({ p, isCurrent, setUrl, onClickHandler }) => {
+    const { t } = useTranslation();
 
     const isEllipse = p === null;
 
-    if(isEllipse) {
-        return (
-            <span className={s.Ellipse}>...</span>
-        );
+    if (isEllipse) {
+        return <span className={s.Ellipse}>...</span>;
     }
 
-    const classes = classNames(
-        s.Link,
-        {[s['Root__Link--Current']]: isCurrent},
-    );
+    const classes = classNames(s.Link, {
+        [s['Root__Link--Current']]: isCurrent,
+    });
 
     return (
         <a
             className={classes}
             href={setUrl(p)}
-            aria-label={t('pagination.goTo', {p: p})}
+            aria-label={t('pagination.goTo', { p: p })}
             onClick={(e) => onClickHandler(e, p)}
-        >{p}</a>
+        >
+            {p}
+        </a>
     );
 };
 

@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import Button from 'Components/Button';
 import s from './FilterButtons.module.scss';
 
-const FilterButtons = ({filters}) => {
+const FilterButtons = ({ filters }) => {
     return (
         <ul className={s.Root}>
             {filters.map((filter, i) => (
                 <li className={s.Filter} key={i}>
-                    <Button 
-                        title={filter.label} 
+                    <Button
+                        title={filter.label}
                         modifier={'Secondary'}
-                        size={'Small'}  
-                    /> 
+                        size={'Small'}
+                    />
                 </li>
             ))}
         </ul>
@@ -20,11 +20,11 @@ const FilterButtons = ({filters}) => {
 };
 
 FilterButtons.propTypes = {
-    filters: PropTypes.array, 
+    filters: PropTypes.array,
 };
 
 FilterButtons.defaultProps = {
-    filters: [], 
+    filters: [],
 };
 
 export default FilterButtons;

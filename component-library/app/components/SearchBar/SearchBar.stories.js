@@ -6,11 +6,11 @@ import readme from './SearchBar.md';
 export default {
     component: SearchBar,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
 };
 
 const Template = (args) => <SearchBar {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };

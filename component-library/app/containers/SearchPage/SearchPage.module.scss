@@ -8,16 +8,15 @@
 }
 
 .Hero {
-    background-color: $purple-20; 
-    padding-top: 80px; 
-    padding-bottom: 50px; 
-    margin-bottom: 48px; 
+    background-color: $purple-20;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    margin-bottom: 48px;
 }
 
 .Searchbar {
     @include wrap;
 }
-
 
 .Title {
     @include textstyle(richtext-h2);
@@ -28,13 +27,13 @@
 }
 
 .ListInfo {
-    margin-bottom: 16px; 
+    margin-bottom: 16px;
 }
 
 .ResultList {
     width: 100%;
     display: grid;
-    gap: 16px; 
+    gap: 16px;
 
     @include media(M) {
         grid-template-columns: repeat(3, 1fr);
@@ -62,4 +61,3 @@
         margin-right: 40px;
     }
 }
-

@@ -10,7 +10,7 @@ module.exports = {
                     //     params: { attrs: '(fill|fill-rule|stroke|opacity|style)' },
                     // },
                 },
-            }
+            },
         },
     ],
 };

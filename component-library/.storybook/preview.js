@@ -7,9 +7,7 @@ const withProvider = (Story, context) => {
     return (
         <div>
             <I18nextProvider i18n={i18n}>
-                <Story
-                    {...context}
-                />
+                <Story {...context} />
             </I18nextProvider>
         </div>
     );
@@ -26,7 +24,5 @@ export default {
             },
         },
     },
-    decorators: [
-        withProvider,
-    ],
+    decorators: [withProvider],
 };

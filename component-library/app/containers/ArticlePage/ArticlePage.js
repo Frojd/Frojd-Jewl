@@ -6,10 +6,9 @@ import Richtext from 'Components/Richtext';
 import Submenu from 'Components/Submenu';
 import s from './ArticlePage.module.scss';
 
-const ArticlePage = ({hero, content, submenu}) => {
+const ArticlePage = ({ hero, content, submenu }) => {
     return (
         <article className={s.Root}>
-
             <Hero {...hero} />
 
             <div className={s.Wrap}>

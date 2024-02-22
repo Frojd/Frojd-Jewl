@@ -36,13 +36,10 @@ const content = `
 `;
 
 const Component = () => {
-    return (
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-    );
+    return <div dangerouslySetInnerHTML={{ __html: content }} />;
 };
 
-const data = {
-};
+const data = {};
 
 export const component = Component;
 

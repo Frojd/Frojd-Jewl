@@ -4,22 +4,17 @@ import classNames from 'classnames';
 import s from './Animate.module.scss';
 import { motion } from 'framer-motion';
 
-const Animate = ({
-    type = '',
-    ...restProps
-}) => {
+const Animate = ({ type = '', ...restProps }) => {
     const types = {
         fade: AnimateInOut,
         expand: AnimateUpDown,
         slide: AnimateLeftRight,
     };
     const Component = types[type];
-    if(!Component) {
+    if (!Component) {
         return null;
     }
-    return (
-        <Component {...restProps} />
-    );
+    return <Component {...restProps} />;
 };
 
 Animate.propTypes = {
@@ -41,7 +36,7 @@ const AnimateInOut = ({
         s['Root--InOut'],
         { [s['Root--Visible']]: isVisible },
         { [s['Root--Hidden']]: !isVisible },
-        className,
+        className
     );
 
     return (
@@ -92,7 +87,7 @@ const AnimateUpDown = ({
         s['Root--UpDown'],
         { [s['Root--Visible']]: isVisible },
         { [s['Root--Hidden']]: !isVisible },
-        className,
+        className
     );
 
     return (
@@ -143,7 +138,7 @@ const AnimateLeftRight = ({
         s['Root--LeftRight'],
         { [s['Root--Visible']]: isVisible },
         { [s['Root--Hidden']]: !isVisible },
-        className,
+        className
     );
 
     return (
@@ -181,8 +176,4 @@ AnimateLeftRight.propTypes = {
 
 export default Animate;
 
-export {
-    AnimateInOut,
-    AnimateUpDown,
-    AnimateLeftRight,
-};
+export { AnimateInOut, AnimateUpDown, AnimateLeftRight };

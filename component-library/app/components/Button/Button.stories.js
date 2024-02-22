@@ -6,7 +6,7 @@ import readme from './Button.md';
 export default {
     component: Button,
     parameters: {
-        docs: {description: {component: readme}},
+        docs: { description: { component: readme } },
     },
     args: {
         url: null,
@@ -16,20 +16,27 @@ export default {
     },
     argTypes: {
         url: {
-            description: 'If url is empty, a-tag will be used, otherwise button',
-            control: {type: 'text'},
+            description:
+                'If url is empty, a-tag will be used, otherwise button',
+            control: { type: 'text' },
         },
         modifier: {
-            options: ['Primary', 'Secondary', 'Tertiary', 'TextLink', 'TextLinkWhite'],
-            control: {type: 'select'},
+            options: [
+                'Primary',
+                'Secondary',
+                'Tertiary',
+                'TextLink',
+                'TextLinkWhite',
+            ],
+            control: { type: 'select' },
         },
         size: {
             options: ['Large'],
-            control: {type: 'select'},
+            control: { type: 'select' },
         },
         icon: {
             options: ['Arrow', 'External', 'Download'],
-            control: {type: 'select'},
+            control: { type: 'select' },
         },
     },
 };
@@ -37,19 +44,19 @@ export default {
 const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {...data, modifier: 'Primary'};
+Primary.args = { ...data, modifier: 'Primary' };
 
 export const Secondary = Template.bind({});
-Secondary.args = {...data, modifier: 'Secondary'};
+Secondary.args = { ...data, modifier: 'Secondary' };
 
 export const Tertiary = Template.bind({});
-Tertiary.args = {...data, modifier: 'Tertiary'};
+Tertiary.args = { ...data, modifier: 'Tertiary' };
 
 export const TextLink = Template.bind({});
-TextLink.args = {...data, modifier: 'TextLink'};
+TextLink.args = { ...data, modifier: 'TextLink' };
 
 export const TextLinkWhite = Template.bind({});
-TextLinkWhite.args = {...data, modifier: 'TextLinkWhite'};
+TextLinkWhite.args = { ...data, modifier: 'TextLinkWhite' };
 TextLinkWhite.decorators = [
     (Story) => (
         <div style={{ backgroundColor: 'rgba(0,0,0,.8)' }}>

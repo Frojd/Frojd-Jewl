@@ -5,30 +5,21 @@ import Header from 'Components/Header';
 import s from './Base.module.scss';
 
 const Base = (Container) => {
-    const {displayName} = Container;
+    const { displayName } = Container;
 
     const Wrapper = (props) => {
-        const {
-            containerName,
-            header,
-        } = props;
+        const { containerName, header } = props;
         const name = containerName ? containerName : displayName;
-        const classes = classNames(
-            s.Root,
-            [s[`Root--${name}`]],
-        );
+        const classes = classNames(s.Root, [s[`Root--${name}`]]);
         return (
             <div className={classes}>
-
                 <Header {...header} />
 
                 <div className={s.Document} role="document">
                     <main className={s.Main} id="mainContent">
-
                         <Container {...props} />
                     </main>
                 </div>
-
             </div>
         );
     };

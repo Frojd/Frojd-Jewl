@@ -203,7 +203,6 @@
         &:hover {
             width: calc(160px + 38px);
         }
-
     }
 
     .Root--Main & {
@@ -292,7 +291,8 @@
             height: 3px;
             background: $base-color;
             opacity: 0;
-            transition: opacity $transition, left .3s .1s, background-color $transition;
+            transition: opacity $transition, left 0.3s 0.1s,
+                background-color $transition;
         }
 
         &::after {

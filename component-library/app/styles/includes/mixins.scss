@@ -36,22 +36,23 @@
 }
 
 @mixin href-external($domain: 'example.se') {
-    &:not([href^="mailto:"]):not([href^="tel:"]):not([href=""]):not([href^="#"]):not([href^="/"]):not([href^="http://#{$domain}"]):not([href^="https://#{$domain}"]):not([href*="localhost"]):not([href*="stage.#{$domain}"]):not([href*="www.#{$domain}"]):not([href*="beta.#{$domain}"]) {
+    &:not([href^="mailto:"]):not([href^="tel:"]):not([href=""]):not([href^="#"]):not([href^="/"]):not([href^="http://#{$domain}"]):not([href^="https://#{$domain}"]):not([href*="localhost"]):not([href*="stage.#{$domain}"]):not([href*="www.#{$domain}"]):not([href*="beta.#{$domain}"])
+    {
         @content;
     }
 }
 
 @mixin href-download() {
-    &[href$=".pdf"],
-    &[href$=".doc"],
-    &[href$=".docx"],
-    &[href$=".ppt"],
-    &[href$=".pptx"],
-    &[href$=".xls"],
-    &[href$=".xlsx"],
-    &[href$=".odt"],
-    &[href$=".eps"],
-    &[href$=".zip"] {
+    &[href$='.pdf'],
+    &[href$='.doc'],
+    &[href$='.docx'],
+    &[href$='.ppt'],
+    &[href$='.pptx'],
+    &[href$='.xls'],
+    &[href$='.xlsx'],
+    &[href$='.odt'],
+    &[href$='.eps'],
+    &[href$='.zip'] {
         @content;
     }
 }
@@ -122,12 +123,15 @@
 
         @each $media, $style in $map {
             @include media($media) {
-                @if map-has-key($style, font-size) and map-has-key($style, line-height) {
+                @if map-has-key($style, font-size) and
+                    map-has-key($style, line-height)
+                {
                     $font-size: map-get($style, font-size);
                     $line-height: map-get($style, line-height);
 
                     font-size: #{$font-size / 10}rem;
-                    line-height: #{round($line-height / $font-size * 100) / 100};
+                    line-height: #{round($line-height / $font-size * 100) /
+                        100};
                 }
 
                 @each $param, $value in $style {

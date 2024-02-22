@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useTranslation} from 'react-i18next';
-import Button from 'Components/Button'
+import { useTranslation } from 'react-i18next';
+import Button from 'Components/Button';
 import s from './SkipToContent.module.scss';
 
-const SkipToContent = ({
-    skipTo = '#main-content'
-}) => {
-    const {t} = useTranslation();
+const SkipToContent = ({ skipTo = '#main-content' }) => {
+    const { t } = useTranslation();
     return (
         <Button
             className={s.Root}
             modifier="Secondary"
             tabIndex="0"
             href={skipTo}
-        >{t('skipToContent.buttonText')}</Button>
+        >
+            {t('skipToContent.buttonText')}
+        </Button>
     );
 };
 

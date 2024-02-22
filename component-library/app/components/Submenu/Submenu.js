@@ -1,20 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { AnimateUpDown } from 'Components/Animate';
 import Nav from 'Components/Nav';
 import s from './Submenu.module.scss';
 
-const Submenu = ({id, title, nav}) => {
-    const {t} = useTranslation();
+const Submenu = ({ id, title, nav }) => {
+    const { t } = useTranslation();
 
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const classes = classNames(
-        s.Root,
-        {[s['Root--Expanded']]: isExpanded},
-    );
+    const classes = classNames(s.Root, { [s['Root--Expanded']]: isExpanded });
 
     return (
         <div className={classes}>
@@ -29,11 +26,7 @@ const Submenu = ({id, title, nav}) => {
                 <span className={s.Arrow} />
             </button>
             <AnimateUpDown isExpanded={isExpanded}>
-                <div
-                    className={s.List}
-                    aria-hidden={!isExpanded}
-                    id={id}
-                >
+                <div className={s.List} aria-hidden={!isExpanded} id={id}>
                     <Nav
                         {...nav}
                         id={`${id}-nav`}

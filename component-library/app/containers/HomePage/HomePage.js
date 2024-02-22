@@ -4,12 +4,10 @@ import Base from 'Layouts/Base';
 import Hero from 'Components/Hero';
 import s from './HomePage.module.scss';
 
-const HomePage = ({hero}) => {
+const HomePage = ({ hero }) => {
     return (
         <div className={s.Root}>
-
             <Hero {...hero} />
-
         </div>
     );
 };

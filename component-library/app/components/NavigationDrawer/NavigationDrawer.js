@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { AnimateLeftRight } from 'Components/Animate';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Hamburger from 'SVG/hamburger.svg';
 import Close from 'SVG/close.svg';
 import s from './NavigationDrawer.module.scss';
 
 const NavigationDrawer = ({ children, open, id }) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const [isExpanded, setIsExpanded] = useState(open);
 
@@ -19,8 +19,8 @@ const NavigationDrawer = ({ children, open, id }) => {
 
     const classes = classNames(
         s.Root,
-        { [s['Root--Closed']] : !isExpanded },
-        { [s['Root--Open']] : isExpanded },
+        { [s['Root--Closed']]: !isExpanded },
+        { [s['Root--Open']]: isExpanded }
     );
 
     return (
@@ -37,19 +37,14 @@ const NavigationDrawer = ({ children, open, id }) => {
                 <Hamburger className={s.Hamburger} />
                 <Close className={s.Close} />
             </button>
-            <AnimateLeftRight
-                className={s.Navigation}
-                isVisible={isExpanded}
-            >
+            <AnimateLeftRight className={s.Navigation} isVisible={isExpanded}>
                 <div
                     className={s.Content}
                     aria-hidden={!isExpanded}
                     aria-describedby={buttonId}
                     id={id}
                 >
-                    <div className={s.Wrap}>
-                        {children}
-                    </div>
+                    <div className={s.Wrap}>{children}</div>
                 </div>
             </AnimateLeftRight>
         </div>

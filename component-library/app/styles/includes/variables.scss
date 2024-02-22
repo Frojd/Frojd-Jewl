@@ -11,42 +11,44 @@ $maxwidths: (
     L: 1140px,
     XL: 1280px,
     XXL: 1440px,
-    content: 618px,
+    content: 618px
 );
 $breakpoints: (
     S: 375px,
-    SL: 500px, // Landscape
+    SL: 500px,
+    // Landscape
     M: 768px,
-    ML: 1024px, // Landscape
+    ML: 1024px,
+    // Landscape
     L: 1280px,
     XL: 1440px,
     XXL: 1680px,
 );
-$transition: .3s ease-in-out;
+$transition: 0.3s ease-in-out;
 
 /** Color definintions from styleguide **/
-$grey: #9E9E9E;
-$grey-5: #FAFAFA;
+$grey: #9e9e9e;
+$grey-5: #fafafa;
 $grey-10: whitesmoke; // #F5F5F5
-$grey-20: #EEE;
-$grey-30: #E0E0E0;
-$grey-40: #BDBDBD;
+$grey-20: #eee;
+$grey-30: #e0e0e0;
+$grey-40: #bdbdbd;
 $grey-60: #757575;
 $grey-70: #616161;
 $grey-80: #424242;
 $grey-90: #212121;
-$purple: #673AB7;
-$purple-20: #EDE7F6;
-$purple-60: #B39DDB;
+$purple: #673ab7;
+$purple-20: #ede7f6;
+$purple-60: #b39ddb;
 $purple-90: #4527a0;
-$yellow: #FFEE58;
-$yellow-20: #FFFDE7;
-$yellow-40: #FFF59d;
-$yellow-60: #FDD835;
-$pink: #E91E63;
-$system-error: #D32F2F;
-$system-error-10: #FBEBEB;
-$system-success: #1DAC2C;
+$yellow: #ffee58;
+$yellow-20: #fffde7;
+$yellow-40: #fff59d;
+$yellow-60: #fdd835;
+$pink: #e91e63;
+$system-error: #d32f2f;
+$system-error-10: #fbebeb;
+$system-success: #1dac2c;
 
 /** Color definitions custom vars **/
 $bg-color: white;
@@ -74,96 +76,261 @@ $bold: 700;
 // Font sizes and line heights as defined by styleguide in pixels
 $textstyles: (
     page-title: (
-        d: (font-size: 44, line-height: 59.8, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 64, line-height: 84.5),
+        d: (
+            font-size: 44,
+            line-height: 59.8,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 64,
+            line-height: 84.5,
+        ),
     ),
     module-title: (
-        d: (font-size: 34, line-height: 47.6, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 44, line-height: 60.3),
+        d: (
+            font-size: 34,
+            line-height: 47.6,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 44,
+            line-height: 60.3,
+        ),
     ),
     card-title: (
-        d: (font-size: 34, line-height: 40, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 26, line-height: 26),
+        d: (
+            font-size: 34,
+            line-height: 40,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 26,
+            line-height: 26,
+        ),
     ),
     accordion-title: (
-        d: (font-size: 16, line-height: 23.8, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 22, line-height: 28.4),
+        d: (
+            font-size: 16,
+            line-height: 23.8,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 22,
+            line-height: 28.4,
+        ),
     ),
     footer-title: (
-        d: (font-size: 14, line-height: 1.5, font-weight: $medium, font-family: $heading-font),
+        d: (
+            font-size: 14,
+            line-height: 1.5,
+            font-weight: $medium,
+            font-family: $heading-font,
+        ),
     ),
     richtext-h2: (
-        d: (font-size: 36, line-height: 48.2, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 40, line-height: 55.6),
+        d: (
+            font-size: 36,
+            line-height: 48.2,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 40,
+            line-height: 55.6,
+        ),
     ),
     richtext-h3: (
-        d: (font-size: 28, line-height: 39.8, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 32, line-height: 45.1),
+        d: (
+            font-size: 28,
+            line-height: 39.8,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 32,
+            line-height: 45.1,
+        ),
     ),
     richtext-h4: (
-        d: (font-size: 24, line-height: 36.5, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 26, line-height: 39.5),
+        d: (
+            font-size: 24,
+            line-height: 36.5,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 26,
+            line-height: 39.5,
+        ),
     ),
     richtext-h5: (
-        d: (font-size: 20, line-height: 28.4, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 22, line-height: 32.6),
+        d: (
+            font-size: 20,
+            line-height: 28.4,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 22,
+            line-height: 32.6,
+        ),
     ),
     richtext-h6: (
-        d: (font-size: 16, line-height: 23.7, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 18, line-height: 26.6),
+        d: (
+            font-size: 16,
+            line-height: 23.7,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 18,
+            line-height: 26.6,
+        ),
     ),
     body: (
-        d: (font-size: 16, line-height: 23.5),  // Also card-text
+        d: (
+            font-size: 16,
+            line-height: 23.5,
+        ),
+        // Also card-text
     ),
     preamble: (
-        d: (font-size: 18, line-height: 27.4, font-weight: $light),
-        M: (font-size: 22, line-height: 32.6),
+        d: (
+            font-size: 18,
+            line-height: 27.4,
+            font-weight: $light,
+        ),
+        M: (
+            font-size: 22,
+            line-height: 32.6,
+        ),
     ),
     paragraph: (
-        d: (font-size: 16, line-height: 23.5),
-        M: (font-size: 18, line-height: 27.7),
+        d: (
+            font-size: 16,
+            line-height: 23.5,
+        ),
+        M: (
+            font-size: 18,
+            line-height: 27.7,
+        ),
     ),
     quote: (
-        d: (font-size: 20, line-height: 39.4, font-weight: $bold, font-family: $heading-font),
-        M: (font-size: 26, line-height: 39.5),
+        d: (
+            font-size: 20,
+            line-height: 39.4,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 26,
+            line-height: 39.5,
+        ),
     ),
     cite: (
-        d: (font-size: 14, line-height: 23.5),  // Quote name
-        M: (font-size: 18, line-height: 26.5),
+        d: (
+            font-size: 14,
+            line-height: 23.5,
+        ),
+        // Quote name
+        M:
+            (
+                font-size: 18,
+                line-height: 26.5,
+            ),
     ),
     caption: (
-        d: (font-size: 12, line-height: 16.3, letter-spacing: .2px),
+        d: (
+            font-size: 12,
+            line-height: 16.3,
+            letter-spacing: 0.2px,
+        ),
     ),
     button: (
-        d: (font-size: 16, line-height: 19.8, font-weight: $medium),
-        M: (font-size: 18, line-height: 24.5),
+        d: (
+            font-size: 16,
+            line-height: 19.8,
+            font-weight: $medium,
+        ),
+        M: (
+            font-size: 18,
+            line-height: 24.5,
+        ),
     ),
     textlink: (
-        d: (font-size: 16, line-height: 23.5),  // Footer link
-        M: (font-size: 18, line-height: 27.7),
+        d: (
+            font-size: 16,
+            line-height: 23.5,
+        ),
+        // Footer link
+        M:
+            (
+                font-size: 18,
+                line-height: 27.7,
+            ),
     ),
     main-menu: (
-        d: (font-size: 20, line-height: 29.6),
-        M: (font-size: 16, line-height: 23.68),
+        d: (
+            font-size: 20,
+            line-height: 29.6,
+        ),
+        M: (
+            font-size: 16,
+            line-height: 23.68,
+        ),
     ),
     service-menu: (
-        d: (font-size: 12, line-height: 16.44),
-        M: (font-size: 14, line-height: 23.52),
+        d: (
+            font-size: 12,
+            line-height: 16.44,
+        ),
+        M: (
+            font-size: 14,
+            line-height: 23.52,
+        ),
     ),
     submenu: (
-        d: (font-size: 16, line-height: 19.7, font-weight: $bold),  // Add bold to active and first level instead of new text style
+        d: (
+            font-size: 16,
+            line-height: 19.7,
+            font-weight: $bold,
+        ),
+        // Add bold to active and first level instead of new text style
     ),
     breadcrumb: (
-        d: (font-size: 10, line-height: 12.2),
-        M: (font-size: 12, line-height: 16.3),
+        d: (
+            font-size: 10,
+            line-height: 12.2,
+        ),
+        M: (
+            font-size: 12,
+            line-height: 16.3,
+        ),
     ),
     label: (
-        d: (font-size: 14, line-height: 16.5, font-weight: $bold, text-transform: uppercase),
+        d: (
+            font-size: 14,
+            line-height: 16.5,
+            font-weight: $bold,
+            text-transform: uppercase,
+        ),
     ),
     label-card: (
-        d: (font-size: 12, line-height: 14, font-weight: $bold, text-transform: uppercase),
+        d: (
+            font-size: 12,
+            line-height: 14,
+            font-weight: $bold,
+            text-transform: uppercase,
+        ),
     ),
     date: (
-        d: (font-size: 14, line-height: 23.5),
+        d: (
+            font-size: 14,
+            line-height: 23.5,
+        ),
     ),
 );

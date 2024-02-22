@@ -9,36 +9,56 @@ const Typography = () => {
                 <h2>Titles</h2>
 
                 <pre>@include textstyle(page-title);</pre>
-                <div className="textstyle textstyle--page-title">Page title</div>
+                <div className="textstyle textstyle--page-title">
+                    Page title
+                </div>
 
                 <pre>@include textstyle(module-title);</pre>
-                <div className="textstyle textstyle--module-title">Module title</div>
+                <div className="textstyle textstyle--module-title">
+                    Module title
+                </div>
 
                 <pre>@include textstyle(card-title);</pre>
-                <div className="textstyle textstyle--card-title">Card title</div>
+                <div className="textstyle textstyle--card-title">
+                    Card title
+                </div>
 
                 <pre>@include textstyle(accordion-title);</pre>
-                <div className="textstyle textstyle--accordion-title">Accordion title</div>
+                <div className="textstyle textstyle--accordion-title">
+                    Accordion title
+                </div>
 
                 <pre>@include textstyle(footer-title);</pre>
-                <div className="textstyle textstyle--footer-title">Footer title</div>
+                <div className="textstyle textstyle--footer-title">
+                    Footer title
+                </div>
 
                 <h2>Richtext headings</h2>
 
                 <pre>@include textstyle(richtext-h2);</pre>
-                <div className="textstyle textstyle--richtext-h2">Heading h2</div>
+                <div className="textstyle textstyle--richtext-h2">
+                    Heading h2
+                </div>
 
                 <pre>@include textstyle(richtext-h3);</pre>
-                <div className="textstyle textstyle--richtext-h3">Heading h3</div>
+                <div className="textstyle textstyle--richtext-h3">
+                    Heading h3
+                </div>
 
                 <pre>@include textstyle(richtext-h4);</pre>
-                <div className="textstyle textstyle--richtext-h4">Heading h4</div>
+                <div className="textstyle textstyle--richtext-h4">
+                    Heading h4
+                </div>
 
                 <pre>@include textstyle(richtext-h5);</pre>
-                <div className="textstyle textstyle--richtext-h5">Heading h5</div>
+                <div className="textstyle textstyle--richtext-h5">
+                    Heading h5
+                </div>
 
                 <pre>@include textstyle(richtext-h6);</pre>
-                <div className="textstyle textstyle--richtext-h6">Heading h6</div>
+                <div className="textstyle textstyle--richtext-h6">
+                    Heading h6
+                </div>
 
                 <h2>Body</h2>
 
@@ -70,19 +90,25 @@ const Typography = () => {
                 <div className="textstyle textstyle--mainmenu">Mainmenu</div>
 
                 <pre>@include textstyle(servicemenu);</pre>
-                <div className="textstyle textstyle--servicemenu">Servicemenu</div>
+                <div className="textstyle textstyle--servicemenu">
+                    Servicemenu
+                </div>
 
                 <pre>@include textstyle(initSubmenu);</pre>
                 <div className="textstyle textstyle--submenu">Submenu</div>
 
                 <pre>@include textstyle(breadcrumb);</pre>
-                <div className="textstyle textstyle--breadcrumb">Breadcrumb</div>
+                <div className="textstyle textstyle--breadcrumb">
+                    Breadcrumb
+                </div>
 
                 <pre>@include textstyle(label);</pre>
                 <div className="textstyle textstyle--label">Label</div>
 
                 <pre>@include textstyle(label-card);</pre>
-                <div className="textstyle textstyle--label-card">Label card</div>
+                <div className="textstyle textstyle--label-card">
+                    Label card
+                </div>
 
                 <pre>@include textstyle(date);</pre>
                 <div className="textstyle textstyle--date">Date</div>
@@ -91,10 +117,8 @@ const Typography = () => {
     );
 };
 
-Typography.propTypes = {
-};
+Typography.propTypes = {};
 
-Typography.defaultProps = {
-};
+Typography.defaultProps = {};
 
 export default Typography;

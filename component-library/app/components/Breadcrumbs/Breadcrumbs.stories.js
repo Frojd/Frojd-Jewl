@@ -6,11 +6,11 @@ import readme from './Breadcrumbs.md';
 export default {
     component: Breadcrumbs,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
 };
 
 const Template = (args) => <Breadcrumbs {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };

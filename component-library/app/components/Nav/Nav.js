@@ -1,22 +1,19 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { AnimateUpDown } from 'Components/Animate';
 import _ from 'lodash';
 import s from './Nav.module.scss';
 
-const Nav = ({id, label, items, orientation, modifier}) => {
-
+const Nav = ({ id, label, items, orientation, modifier }) => {
     // Check for children, the structure of nav should change when nesting
     const find = _.findKey(items, (i) => i.children && !_.isEmpty(i.children));
     const hasChildren = find !== undefined;
 
-    const classes = classNames(
-        s.Root,
-        s[`Root--${orientation}`],
-        {[s[`Root--${modifier}`]]: modifier},
-    );
+    const classes = classNames(s.Root, s[`Root--${orientation}`], {
+        [s[`Root--${modifier}`]]: modifier,
+    });
 
     return (
         <nav className={classes} aria-label={label} id={id}>
@@ -25,11 +22,7 @@ const Nav = ({id, label, items, orientation, modifier}) => {
             ) : (
                 <div className={s.List}>
                     {items.map((item, index) => (
-                        <Item
-                            {...item}
-                            navId={id}
-                            key={index}
-                        />
+                        <Item {...item} navId={id} key={index} />
                     ))}
                 </div>
             )}
@@ -53,7 +46,7 @@ Nav.defaultProps = {
     modifier: '',
 };
 
-const List = ({items, navId, id, isHidden}) => {
+const List = ({ items, navId, id, isHidden }) => {
     const listId = id === null ? `${navId}-list` : `${navId}-${id}-list`;
     return (
         <ul className={s.List} aria-hidden={isHidden} id={listId}>
@@ -79,7 +72,7 @@ List.defaultProps = {
 };
 
 const Child = (item) => {
-    const {navId, id, children, isParentActive} = item;
+    const { navId, id, children, isParentActive } = item;
 
     const [isExpanded, setIsExpanded] = useState(isParentActive);
 
@@ -89,9 +82,9 @@ const Child = (item) => {
 
     const classes = classNames(
         s.Child,
-        {[s['Child--Expanded']]: isExpanded},
-        {[s['Child--HasChildren']]: hasChildren},
-        {[s['Child--ParentActive']]: isParentActive},
+        { [s['Child--Expanded']]: isExpanded },
+        { [s['Child--HasChildren']]: hasChildren },
+        { [s['Child--ParentActive']]: isParentActive }
     );
 
     return (
@@ -104,7 +97,7 @@ const Child = (item) => {
                 toggleExpanded={() => setIsExpanded(!isExpanded)}
             />
 
-            {hasChildren &&
+            {hasChildren && (
                 <AnimateUpDown isVisible={isExpanded}>
                     <List
                         items={children}
@@ -112,7 +105,7 @@ const Child = (item) => {
                         navId={childId}
                     />
                 </AnimateUpDown>
-            }
+            )}
         </li>
     );
 };
@@ -144,19 +137,19 @@ const Item = (item) => {
 
     const listId = `${navId}-list`;
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const classes = classNames(
         s.Item,
-        {[s['Item--Active']]: isActive},
-        {[s[`Item--${modifier}`]]: modifier},
+        { [s['Item--Active']]: isActive },
+        { [s[`Item--${modifier}`]]: modifier }
     );
 
     return (
         <div className={classes}>
             <Link {...item} />
 
-            {showToggle &&
+            {showToggle && (
                 <button
                     className={s.Toggle}
                     type="button"
@@ -165,7 +158,7 @@ const Item = (item) => {
                     aria-controls={listId}
                     aria-label={t('nav.showChildren')}
                 />
-            }
+            )}
         </div>
     );
 };
@@ -192,13 +185,7 @@ Item.defaultProps = {
     isParentActive: false,
 };
 
-const Link = ({
-    title,
-    url,
-    target,
-    rel,
-    attrTitle,
-}) => {
+const Link = ({ title, url, target, rel, attrTitle }) => {
     return (
         <a
             className={s.Link}
@@ -207,10 +194,10 @@ const Link = ({
             rel={rel}
             title={attrTitle}
         >
-            {typeof(title) === 'string' ? (
+            {typeof title === 'string' ? (
                 <span
                     className={s.LinkText}
-                    dangerouslySetInnerHTML={{__html: title}}
+                    dangerouslySetInnerHTML={{ __html: title }}
                 />
             ) : (
                 <span className={s.LinkText}>{title}</span>

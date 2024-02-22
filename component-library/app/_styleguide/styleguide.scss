@@ -13,7 +13,7 @@
 
     h1 {
         margin: 40px 0;
-        color: rgba(black, .7);
+        color: rgba(black, 0.7);
         font-size: 4rem;
         font-weight: bold;
     }
@@ -21,12 +21,12 @@
     h2 {
         padding-bottom: 8px;
         margin: 60px 0 40px;
-        color: rgba(black, .5);
+        color: rgba(black, 0.5);
         font-size: 1.2rem;
         font-weight: bold;
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid rgba(black, .5);
+        border-bottom: 1px solid rgba(black, 0.5);
     }
 
     pre {
@@ -39,7 +39,7 @@
         padding: 16px;
 
         pre {
-            color: rgba(white, .8);
+            color: rgba(white, 0.8);
         }
 
         &--dark {

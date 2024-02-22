@@ -6,14 +6,14 @@ import readme from './Accordion.md';
 export default {
     component: Accordion,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
 };
 
 const Template = (args) => <Accordion {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };
 
 export const List = (args) => (
     <div>
@@ -22,4 +22,4 @@ export const List = (args) => (
         <Accordion {...args} />
     </div>
 );
-List.args = {...data};
+List.args = { ...data };

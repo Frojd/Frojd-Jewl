@@ -6,11 +6,11 @@ import readme from './SearchPage.md';
 export default {
     component: SearchPage,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
 };
 
 const Template = (args) => <SearchPage {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };

@@ -6,11 +6,11 @@ import readme from './Submenu.md';
 export default {
     component: Submenu,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
 };
 
 const Template = (args) => <Submenu {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };

@@ -4,23 +4,21 @@ import sv from './translations/sv';
 
 const isDebug = process.env?.NODE_ENV === 'development';
 
-i18n
-    .use(initReactI18next)
-    .init({
-        lng: 'sv',
-        fallbackLng: 'sv',
-        debug: isDebug,
+i18n.use(initReactI18next).init({
+    lng: 'sv',
+    fallbackLng: 'sv',
+    debug: isDebug,
 
-        interpolation: {
-            escapeValue: false, // not needed for react as it escapes by default
+    interpolation: {
+        escapeValue: false, // not needed for react as it escapes by default
+    },
+
+    resources: {
+        sv: {
+            translation: sv,
         },
-
-        resources: {
-            sv: {
-                translation: sv,
-            }
-        }
-    });
+    },
+});
 i18n.addResourceBundle('sv', 'translation', sv, true, true);
 
 export default i18n;

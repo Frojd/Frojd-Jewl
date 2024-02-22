@@ -43,7 +43,8 @@ const SearchPage = ({
                                     label={result.label}
                                     text={result.text}
                                     dateString={result.dateString}
-                                    dateFormatted={result.dateFormatted}></Card>
+                                    dateFormatted={result.dateFormatted}
+                                ></Card>
                             </li>
                         ))}
                     </ul>

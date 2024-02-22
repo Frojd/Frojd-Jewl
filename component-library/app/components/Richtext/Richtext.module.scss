@@ -145,7 +145,7 @@
 
         @media print {
             &::after {
-                content: " [" attr(href) "] " !important;
+                content: ' [' attr(href) '] ' !important;
                 position: relative !important;
                 display: inline !important;
                 top: auto !important;
@@ -187,7 +187,8 @@
                 position: absolute;
                 top: 0;
                 left: -24px;
-                background: url('#{$assetsPath}img/bullet--purple.svg') no-repeat center center;
+                background: url('#{$assetsPath}img/bullet--purple.svg')
+                    no-repeat center center;
                 background-size: contain;
             }
         }

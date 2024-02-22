@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import s from './Image.module.scss';
@@ -21,7 +21,7 @@ const Image = ({
     useEffect(() => {
         // Fallback for object fit, e.g. ie11
         const styles = document.documentElement.style;
-        if('objectFit' in styles === false) {
+        if ('objectFit' in styles === false) {
             setUseObjectFit(false);
         }
     }, []);
@@ -31,14 +31,14 @@ const Image = ({
 
     const classes = classNames(
         s.Root,
-        {[s['Root--Fallback']]: !useObjectFit},
-        {[s['Root--ObjectFit']]: useObjectFit},
-        {[s['Root--Cover']]: useCover},
-        {[s['Root--Contain']]: !useCover},
-        className,
+        { [s['Root--Fallback']]: !useObjectFit },
+        { [s['Root--ObjectFit']]: useObjectFit },
+        { [s['Root--Cover']]: useCover },
+        { [s['Root--Contain']]: !useCover },
+        className
     );
 
-    if(!useObjectFit) {
+    if (!useObjectFit) {
         return (
             <div
                 className={classes}

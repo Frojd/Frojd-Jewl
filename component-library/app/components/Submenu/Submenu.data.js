@@ -1,4 +1,4 @@
-import {withChildren} from 'Components/Nav/Nav.data';
+import { withChildren } from 'Components/Nav/Nav.data';
 
 export default {
     id: 'submenu',

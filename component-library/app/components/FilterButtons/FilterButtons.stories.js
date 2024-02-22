@@ -6,11 +6,11 @@ import readme from './FilterButtons.md';
 export default {
     component: FilterButtons,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
 };
 
 const Template = (args) => <FilterButtons {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };

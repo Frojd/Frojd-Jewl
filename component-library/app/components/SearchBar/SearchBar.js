@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import s from './SearchBar.module.scss';
-
 
 const SearchBar = ({
     id = '',
@@ -13,14 +12,14 @@ const SearchBar = ({
     triggerFocus = null,
     onSubmit = null,
 }) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const inputRef = useRef(null);
 
     const [currentValue, setCurrentValue] = useState(value);
 
     useEffect(() => {
-        if(inputRef && inputRef.current && triggerFocus) {
+        if (inputRef && inputRef.current && triggerFocus) {
             setTimeout(() => {
                 inputRef.current.focus();
             }, 1);
@@ -37,16 +36,13 @@ const SearchBar = ({
     };
 
     const handleSubmit = (e) => {
-        if(onSubmit) {
+        if (onSubmit) {
             e.preventDefault();
             onSubmit(e);
         }
     };
 
-    const classes = classNames(
-        s.Root,
-        {[s[`Root--${modifier}`]]: modifier},
-    );
+    const classes = classNames(s.Root, { [s[`Root--${modifier}`]]: modifier });
 
     return (
         <div className={classes}>
@@ -56,10 +52,9 @@ const SearchBar = ({
                 role="search"
                 onSubmit={(e) => handleSubmit(e)}
             >
-                <label
-                    className="sr-only"
-                    htmlFor={id}
-                >{t('searchBar.label')}</label>
+                <label className="sr-only" htmlFor={id}>
+                    {t('searchBar.label')}
+                </label>
                 <input
                     id={id}
                     className={s.Input}

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import s from './Breadcrumbs.module.scss';
 
-const Breadcrumbs = ({items}) => {
-    const {t} = useTranslation();
+const Breadcrumbs = ({ items }) => {
+    const { t } = useTranslation();
 
     return (
         <div className={s.Root}>
@@ -15,7 +15,7 @@ const Breadcrumbs = ({items}) => {
                             <Link
                                 {...item}
                                 isStart={index === 0}
-                                isCurrent={(index + 1 === items.length)}
+                                isCurrent={index + 1 === items.length}
                             />
                         </li>
                     ))}
@@ -33,8 +33,8 @@ Breadcrumbs.defaultProps = {
     items: [],
 };
 
-const Link = ({title, url, isStart, isCurrent}) => {
-    const {t} = useTranslation();
+const Link = ({ title, url, isStart, isCurrent }) => {
+    const { t } = useTranslation();
 
     const displayTitle = isStart ? t('breadcrumbs.start') : title;
 
@@ -43,7 +43,9 @@ const Link = ({title, url, isStart, isCurrent}) => {
             className={s.Link}
             href={url}
             aria-current={isCurrent ? 'page' : null}
-        >{displayTitle}</a>
+        >
+            {displayTitle}
+        </a>
     );
 };
 

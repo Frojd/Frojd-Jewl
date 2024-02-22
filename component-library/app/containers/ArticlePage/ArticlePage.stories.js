@@ -13,4 +13,4 @@ export default {
 const Template = (args) => <ArticlePage {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };

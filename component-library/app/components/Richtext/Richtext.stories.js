@@ -6,11 +6,11 @@ import readme from './Richtext.md';
 export default {
     component: Richtext,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
 };
 
 const Template = (args) => <Richtext {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };

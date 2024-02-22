@@ -6,6 +6,4 @@ export default {
     component: NotFoundPage,
 };
 
-export const NotFoundPageDefault = () => (
-    <NotFoundPage {...data} />
-);
+export const NotFoundPageDefault = () => <NotFoundPage {...data} />;

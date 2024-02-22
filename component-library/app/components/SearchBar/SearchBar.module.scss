@@ -54,7 +54,8 @@
     padding: 6px;
     border: none;
     border-radius: 50%;
-    background: $purple-20 url('#{$assetsPath}img/search.svg') no-repeat center center;
+    background: $purple-20 url('#{$assetsPath}img/search.svg') no-repeat center
+        center;
     background-size: 16px 16px;
     box-shadow: none;
     -webkit-appearance: none;

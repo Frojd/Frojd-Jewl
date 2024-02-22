@@ -12,13 +12,19 @@ const Colors = () => {
                 <div className="color__box color__box--purple">Purple</div>
 
                 <pre>$purple-20</pre>
-                <div className="color__box color__box--purple-20">Purple 20</div>
+                <div className="color__box color__box--purple-20">
+                    Purple 20
+                </div>
 
                 <pre>$purple-60</pre>
-                <div className="color__box color__box--purple-60">Purple 60</div>
+                <div className="color__box color__box--purple-60">
+                    Purple 60
+                </div>
 
                 <pre>$purple-90</pre>
-                <div className="color__box color__box--purple-90">Purple 90</div>
+                <div className="color__box color__box--purple-90">
+                    Purple 90
+                </div>
 
                 <h2>Secondary</h2>
 
@@ -26,13 +32,19 @@ const Colors = () => {
                 <div className="color__box color__box--yellow">Yellow</div>
 
                 <pre>$yellow-20</pre>
-                <div className="color__box color__box--yellow-20">Yellow 20</div>
+                <div className="color__box color__box--yellow-20">
+                    Yellow 20
+                </div>
 
                 <pre>$yellow-40</pre>
-                <div className="color__box color__box--yellow-40">Yellow 40</div>
+                <div className="color__box color__box--yellow-40">
+                    Yellow 40
+                </div>
 
                 <pre>$yellow-60</pre>
-                <div className="color__box color__box--yellow-60">Yellow 60</div>
+                <div className="color__box color__box--yellow-60">
+                    Yellow 60
+                </div>
 
                 <h2>Pink</h2>
 
@@ -74,22 +86,26 @@ const Colors = () => {
                 <h2>System</h2>
 
                 <pre>$system-success</pre>
-                <div className="color__box color__box--system-success">System success</div>
+                <div className="color__box color__box--system-success">
+                    System success
+                </div>
 
                 <pre>$system-error</pre>
-                <div className="color__box color__box--system-error">System error</div>
+                <div className="color__box color__box--system-error">
+                    System error
+                </div>
 
                 <pre>$system-error-10</pre>
-                <div className="color__box color__box--system-error-10">System error 10</div>
+                <div className="color__box color__box--system-error-10">
+                    System error 10
+                </div>
             </div>
         </div>
     );
 };
 
-Colors.propTypes = {
-};
+Colors.propTypes = {};
 
-Colors.defaultProps = {
-};
+Colors.defaultProps = {};
 
 export default Colors;

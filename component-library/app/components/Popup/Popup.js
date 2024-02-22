@@ -31,7 +31,8 @@ const Popup = ({ title, text, buttonText }) => {
                     <a
                         className={s.Button}
                         href="/cookie-accept"
-                        onClick={onDismiss}>
+                        onClick={onDismiss}
+                    >
                         {buttonText}
                     </a>
                 </div>

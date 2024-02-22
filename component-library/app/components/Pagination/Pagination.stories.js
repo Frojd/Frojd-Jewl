@@ -6,7 +6,7 @@ import readme from './Pagination.md';
 export default {
     component: Pagination,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
     args: {
         current: 1,
@@ -16,16 +16,16 @@ export default {
     },
     argTypes: {
         current: {
-            control: {type: 'number'},
+            control: { type: 'number' },
         },
         total: {
-            control: {type: 'number'},
+            control: { type: 'number' },
         },
         nrOfMiddle: {
-            control: {type: 'number'},
+            control: { type: 'number' },
         },
         nrOfBeginEnd: {
-            control: {type: 'number'},
+            control: { type: 'number' },
         },
     },
 };
@@ -33,4 +33,4 @@ export default {
 const Template = (args) => <Pagination {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };

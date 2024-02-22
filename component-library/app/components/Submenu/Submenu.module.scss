@@ -40,7 +40,7 @@
     svg:last-child {
         margin-left: auto;
         transform: rotate(90deg);
-        transition: transform .3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
 
         .Root--Expanded & {
             transform: rotate(-90deg);
@@ -58,7 +58,8 @@
     width: 24px;
     height: 24px;
     margin-left: auto;
-    background: url('#{$assetsPath}img/chevron--purple.svg') no-repeat center center;
+    background: url('#{$assetsPath}img/chevron--purple.svg') no-repeat center
+        center;
     background-size: contain;
     transform: rotate(0deg);
     transition: transform $transition;

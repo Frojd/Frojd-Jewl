@@ -1,16 +1,16 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Logo from 'Assets/img/logo.svg';
-import {AnimateInOut} from 'Components/Animate';
+import { AnimateInOut } from 'Components/Animate';
 import Nav from 'Components/Nav';
 import SearchBar from 'Components/SearchBar';
 import NavigationDrawer from 'Components/NavigationDrawer';
 import SkipToContent from 'Components/SkipToContent';
 import s from './Header.module.scss';
 
-const Header = ({main, service}) => {
-    const {t} = useTranslation();
+const Header = ({ main, service }) => {
+    const { t } = useTranslation();
 
     const [isSearchVisible, setIsSearchVisible] = useState(false);
 
@@ -19,15 +19,11 @@ const Header = ({main, service}) => {
 
     const mainMenu = {
         ...main,
-        items: [
-            ...mainItems,
-        ],
+        items: [...mainItems],
     };
     const serviceMenu = {
         ...service,
-        items: [
-            ...serviceItems,
-        ]
+        items: [...serviceItems],
     };
     const serviceMenuWithSearch = {
         ...service,
@@ -43,7 +39,7 @@ const Header = ({main, service}) => {
                 modifier: 'Search',
             },
             ...serviceItems,
-        ]
+        ],
     };
 
     return (
@@ -63,7 +59,9 @@ const Header = ({main, service}) => {
                             aria-controls="header-search"
                             aria-expanded={isSearchVisible}
                             onClick={() => setIsSearchVisible(!isSearchVisible)}
-                        >{t('header.search')}</button>
+                        >
+                            {t('header.search')}
+                        </button>
                         <AnimateInOut
                             className={s.SearchBar}
                             isVisible={isSearchVisible}

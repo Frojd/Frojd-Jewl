@@ -31,8 +31,8 @@ const Button = ({
         s.Root,
         [s[`Root--${modifier}`]],
         [s[`Root--${size}`]],
-        {[s[`Root--${icon}`]]: icon},
-        {[s['Root--Disabled']]: disabled},
+        { [s[`Root--${icon}`]]: icon },
+        { [s['Root--Disabled']]: disabled }
     );
 
     return (
@@ -48,15 +48,9 @@ const Button = ({
             onClick={onClick}
             {...restProps}
         >
-            {title &&
-                <span>{title}</span>
-            }
-            {children &&
-                <span>{children}</span>
-            }
-            {icon &&
-                <Icon icon={icon} />
-            }
+            {title && <span>{title}</span>}
+            {children && <span>{children}</span>}
+            {icon && <Icon icon={icon} />}
         </Tag>
     );
 };
@@ -75,14 +69,14 @@ Button.propTypes = {
     attrTitle: PropTypes.string,
     type: PropTypes.string,
     modifier: PropTypes.oneOf([
-        'Primary', 'Secondary', 'Tertiary', 'TextLink', 'TextLinkWhite',
+        'Primary',
+        'Secondary',
+        'Tertiary',
+        'TextLink',
+        'TextLinkWhite',
     ]),
-    size: PropTypes.oneOf([
-        null, '', 'Large',
-    ]),
-    icon: PropTypes.oneOf([
-        'External', 'Arrow', 'Download',
-    ]),
+    size: PropTypes.oneOf([null, '', 'Large']),
+    icon: PropTypes.oneOf(['External', 'Arrow', 'Download']),
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
 };
@@ -102,13 +96,13 @@ Button.defaultProps = {
     onClick: null,
 };
 
-const Icon = ({icon}) => {
-    if(icon === 'External') {
-        return (<External />);
-    } else if(icon === 'Arrow') {
-        return (<Arrow />);
-    } else if(icon === 'Download') {
-        return (<Download />);
+const Icon = ({ icon }) => {
+    if (icon === 'External') {
+        return <External />;
+    } else if (icon === 'Arrow') {
+        return <Arrow />;
+    } else if (icon === 'Download') {
+        return <Download />;
     } else {
         return null;
     }
@@ -123,4 +117,3 @@ Icon.defaultProps = {
 };
 
 export default Button;
-

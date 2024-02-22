@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { AnimateUpDown } from 'Components/Animate';
 import Richtext from 'Components/Richtext';
 import s from './Accordion.module.scss';
 
-const Accordion = ({title, text, open, id}) => {
-    const {t} = useTranslation();
+const Accordion = ({ title, text, open, id }) => {
+    const { t } = useTranslation();
 
     const [isExpanded, setIsExpanded] = useState(open);
 
@@ -15,12 +15,11 @@ const Accordion = ({title, text, open, id}) => {
 
     const headerId = `${id}-header`;
 
-    const buttonText = isExpanded ? t('accordion.minimize') : t('accordion.expand');
+    const buttonText = isExpanded
+        ? t('accordion.minimize')
+        : t('accordion.expand');
 
-    const classes = classNames(
-        s.Root,
-        { [s['Root--Expanded']] : isExpanded }
-    );
+    const classes = classNames(s.Root, { [s['Root--Expanded']]: isExpanded });
 
     return (
         <div className={classes}>
