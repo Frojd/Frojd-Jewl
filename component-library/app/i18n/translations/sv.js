@@ -26,7 +26,7 @@ const sv = {
     },
     pagination: {
         label: 'Paginering',
-        goTo: 'Gå till',
+        goTo: 'Sida',
         next: 'Nästa',
         previous: 'Föregående',
     },

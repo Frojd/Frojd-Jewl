@@ -14,6 +14,10 @@ const Pagination = ({
 }) => {
     const { t } = useTranslation();
 
+    if(total < 2) {
+        return null;
+    }
+
     const beforeAfterCurrent = (nrOfMiddle - 1) / 2;
     const range = [...Array(total).keys()].map((i) => {
         const p = i + 1;
@@ -47,12 +51,12 @@ const Pagination = ({
     };
 
     const prevPage = current - 1 <= 1 ? null : current - 1;
-    const prevUrl = prevPage !== null ? setUrl(prevPage) : null;
+    const prevUrl = prevPage !== null ? setUrl(prevPage) : '';
     const nextPage = current + 1 >= total ? null : current + 1;
-    const nextUrl = nextPage !== null ? setUrl(nextPage) : null;
+    const nextUrl = nextPage !== null ? setUrl(nextPage) : '';
 
     return (
-        <nav className={s.Root} aria-label={t('pagination.label')}>
+        <nav className={s.Root} role="navigation" aria-label={t('pagination.label')}>
             <ul className={s.List}>
                 <li className={s.Item}>
                     <a
@@ -122,10 +126,10 @@ const Link = ({
         <a
             className={classes}
             href={setUrl(p)}
-            aria-label={t('pagination.goTo', { p: p })}
+            aria-current={isCurrent ? 'page' : null}
             onClick={(e) => onClickHandler(e, p)}
         >
-            {p}
+            <span className="sr-only">{t('pagination.page')} </span>{p}
         </a>
     );
 };
