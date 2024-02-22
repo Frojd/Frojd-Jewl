@@ -10,4 +10,4 @@ A drawer that slides in from the right, used for hamburger menus.
 
 ### Packages
 
--   **velocity-react** - This example uses velocity react to transition the expandable area with an animation
+-   **framer-motion** - This example uses framer-motion to transition the expandable area with an animation

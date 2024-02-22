@@ -1,5 +1,7 @@
 Used for showing a bar which can be toogled to expand or expand, can be used for e.g. FAQ
 
+[Accordion source code on Github](https://github.com/Frojd/Frojd-Jewl/tree/develop/component-library/app/components/Accordion)
+
 ## Props
 
 -   **Title\*** - The heading of the accordian which will always be shown
@@ -15,4 +17,4 @@ Used for showing a bar which can be toogled to expand or expand, can be used for
 
 ### Packages
 
--   **velocity-react** - This example uses velocity react to transition the expandable area with an animation
+-   **framer-motion** - This example uses framer-motion to transition the expandable area with an animation

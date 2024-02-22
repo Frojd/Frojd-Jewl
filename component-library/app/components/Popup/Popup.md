@@ -1,10 +1,12 @@
-Used for showing a bar which can be toogled to expand or expand, can be used for e.g. FAQ
+Used for showing a bar which can be toogled to close and save as session in local storage
 
 ## Props
 
--   **Title**
--   **Richtext\*** - The content of the accordian which can be expanded. Can be a string or HTML-code, uses the Richtext component so it can render html code in the same way
--   **Button text\*** - Text for dismiss button
+-   **Title\***
+-   **Id\*** - Unique id for the specific popup
+-   **SessionName\*** - Unique name for the session to be stored
+-   **Richtext** - The content of the accordian which can be expanded. Can be a string or HTML-code, uses the Richtext component so it can render html code in the same way
+-   **ButtonText** - Text for dismiss button
 -
 
 ## Requirements
@@ -15,4 +17,5 @@ Used for showing a bar which can be toogled to expand or expand, can be used for
 
 ### Packages
 
--   **velocity-react** - This example uses velocity react to transition the expandable area with an animation
+-   **local-storage** - For saving session when closing
+-   **framer-motion** - This example uses framer-motion to transition the expandable area with an animation

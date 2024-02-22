@@ -9,3 +9,5 @@ For reference: Load https://www.a11yproject.com/ and press tab key.
 # Usage
 
 Primarily used above header to link to main content of the site. Options to pass in a custom title and an ID for main content.
+
+[SkipToContent source code on Github](https://github.com/Frojd/Frojd-Jewl/tree/develop/component-library/app/components/SkipToContent)
