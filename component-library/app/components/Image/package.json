@@ -4,7 +4,8 @@
   "dependencies": {
     "react": "*",
     "prop-types": "*",
-    "classnames": "*"
+    "classnames": "*",
+    "next": "*"
   },
   "jewlDependencies": [
   ]

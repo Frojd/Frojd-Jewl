@@ -1,5 +1,5 @@
 const data = {
-    src: 'dummy/test-original.jpg',
+    src: '/dummy/test-original.jpg',
     alt: 'Test',
     width: 1600,
     height: 900,

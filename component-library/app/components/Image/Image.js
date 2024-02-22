@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import NextImage from 'next/image';
 import classNames from 'classnames';
 import s from './Image.module.scss';
 
@@ -14,44 +15,20 @@ const Image = ({
     sizes,
     useCover,
     useLazyLoad,
+    useNextImage,
     className,
 }) => {
-    const [useObjectFit, setUseObjectFit] = useState(true);
-
-    useEffect(() => {
-        // Fallback for object fit, e.g. ie11
-        const styles = document.documentElement.style;
-        if ('objectFit' in styles === false) {
-            setUseObjectFit(false);
-        }
-    }, []);
-
     const hasFocal = !!focal?.x && !!focal?.y;
     const position = hasFocal ? `${focal.x} ${focal.y}` : 'center center';
 
     const classes = classNames(
         s.Root,
-        { [s['Root--Fallback']]: !useObjectFit },
-        { [s['Root--ObjectFit']]: useObjectFit },
         { [s['Root--Cover']]: useCover },
         { [s['Root--Contain']]: !useCover },
         className
     );
 
-    if (!useObjectFit) {
-        return (
-            <div
-                className={classes}
-                style={{
-                    backgroundImage: `url('${src}')`,
-                    backgroundPosition: position,
-                }}
-                title={caption}
-            />
-        );
-    }
-
-    return (
+    if (!useNextImage) {
         <img
             className={classes}
             src={src}
@@ -65,6 +42,23 @@ const Image = ({
                 objectPosition: position,
             }}
             loading={useLazyLoad ? 'lazy' : null}
+        />
+    }
+
+    return (
+        <NextImage
+            className={classes}
+            src={src}
+            width={useCover ? undefined : width}
+            height={useCover ? undefined : height}
+            alt={alt}
+            title={caption}
+            fill={useCover}
+            sizes={sizes.join(', ')}
+            loading={useLazyLoad ? 'lazy' : 'eager'}
+            style={{
+                objectPosition: position,
+            }}
         />
     );
 };
@@ -80,6 +74,7 @@ Image.propTypes = {
     sizes: PropTypes.array,
     useCover: PropTypes.bool,
     useLazyLoad: PropTypes.bool,
+    useNextImage: PropTypes.bool,
     className: PropTypes.string,
 };
 
@@ -94,6 +89,7 @@ Image.defaultProps = {
     sizes: [],
     useCover: true,
     useLazyLoad: true,
+    useNextImage: true,
     className: '',
 };
 
