@@ -17,6 +17,9 @@ const sv = {
         close: 'Stäng meny',
         open: 'Öppna meny',
     },
+    popup: {
+        close: 'Stäng',
+    },
     searchBar: {
         label: 'Sök på sidan',
         placeholder: 'Vad letar du efter?',

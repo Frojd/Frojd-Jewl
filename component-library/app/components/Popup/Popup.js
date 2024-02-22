@@ -1,40 +1,57 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import ls from 'local-storage';
 import { AnimateUpDown } from 'Components/Animate';
 import Richtext from 'Components/Richtext';
+import Button from 'Components/Button';
 import s from './Popup.module.scss';
 
-const Popup = ({ title = '', text = '', buttonText = '' }) => {
+const Popup = ({
+    title = '',
+    id = 'popup',
+    sessionName = 'popup-closed',
+    buttonText = '',
+    richtext = '',
+}) => {
+    const { t } = useTranslation();
+
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        if (ls.get('cookiePopupDismissed')) return;
+        if (ls.get(sessionName)) return;
         setIsVisible(true);
     }, []);
 
     const onDismiss = (e) => {
         e.preventDefault();
 
-        ls.set('cookiePopupDismissed', true);
+        ls.set(sessionName, true);
         setIsVisible(false);
     };
 
+    const button = buttonText || t('popup.close');
+
     return (
         <div className={s.Root}>
-            <AnimateUpDown isVisible={isVisible}>
+            <AnimateUpDown
+                isVisible={isVisible}
+                id={id}
+                aria-expanded={isVisible}
+            >
                 <div className={s.Content}>
                     <h2 className={s.Title}>{title}</h2>
                     <div className={s.RichText}>
-                        <Richtext text={text} />
+                        <Richtext text={richtext} />
                     </div>
-                    <a
+                    <Button
                         className={s.Button}
                         href="/cookie-accept"
-                        onClick={onDismiss}
+                        onClick={(e) => onDismiss(e)}
+                        aria-controls={id}
                     >
-                        {buttonText}
-                    </a>
+                        {button}
+                    </Button>
                 </div>
             </AnimateUpDown>
         </div>
@@ -42,9 +59,11 @@ const Popup = ({ title = '', text = '', buttonText = '' }) => {
 };
 
 Popup.propTypes = {
-    title: PropTypes.string,
-    text: PropTypes.string.isRequired,
-    buttonText: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    sessionName: PropTypes.string.isRequired,
+    buttonText: PropTypes.string,
+    richtext: PropTypes.string,
 };
 
 export default Popup;

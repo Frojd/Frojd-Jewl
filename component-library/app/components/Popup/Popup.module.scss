@@ -10,8 +10,9 @@
 }
 
 .Title {
+    @include textstyle(card-title);
+
     margin-bottom: 16px;
-    font-weight: bold;
 }
 
 .RichText {
