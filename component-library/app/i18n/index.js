@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import sv from './translations/sv';
 
-const isDebug = process.env?.NODE_ENV === 'development';
+const isDebug = process?.env?.NODE_ENV === 'development';
 
 i18n.use(initReactI18next).init({
     lng: 'sv',
