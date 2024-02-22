@@ -37,7 +37,7 @@ const Popup = ({
             <AnimateUpDown
                 isVisible={isVisible}
                 id={id}
-                aria-expanded={isVisible}
+                aria-hidden={!isVisible}
             >
                 <div className={s.Content}>
                     <h2 className={s.Title}>{title}</h2>
@@ -49,6 +49,7 @@ const Popup = ({
                         href="/cookie-accept"
                         onClick={(e) => onDismiss(e)}
                         aria-controls={id}
+                        aria-expanded={isVisible}
                     >
                         {button}
                     </Button>
