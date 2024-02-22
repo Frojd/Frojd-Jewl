@@ -10,7 +10,7 @@ const Popup = ({ title, text, buttonText }) => {
 
     useEffect(() => {
         if (ls.get('cookiePopupDismissed')) return;
-        setVisible(true);
+        setIsVisible(true);
     }, []);
 
     const onDismiss = (e) => {
