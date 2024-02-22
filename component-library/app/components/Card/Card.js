@@ -53,12 +53,12 @@ const Card = ({
                 )}
 
                 {dateString && dateFormatted && (
-                    <aside className={s.Meta}>
+                    <div className={s.Meta}>
                         <span className="sr-only">{t('card.date')}: </span>
                         <time className={s.Date} dateTime={dateString}>
                             {dateFormatted}
                         </time>
-                    </aside>
+                    </div>
                 )}
             </div>
         </article>
