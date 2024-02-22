@@ -6,7 +6,7 @@ import readme from './__Container.md';
 const Story = {
     component: __Container,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
 };
 export default Story;
@@ -14,4 +14,4 @@ export default Story;
 const Template = (args) => <__Container {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };

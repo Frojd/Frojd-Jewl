@@ -6,7 +6,7 @@ import readme from './__Component.md';
 const Story = {
     component: __Component,
     parameters: {
-        docs: {description: {component: readme}}
+        docs: { description: { component: readme } },
     },
 };
 export default Story;
@@ -14,4 +14,4 @@ export default Story;
 const Template = (args) => <__Component {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {...data};
+Default.args = { ...data };
