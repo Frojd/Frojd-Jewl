@@ -14,7 +14,7 @@ const Pagination = ({
 }) => {
     const { t } = useTranslation();
 
-    if(total < 2) {
+    if (total < 2) {
         return null;
     }
 
@@ -56,7 +56,11 @@ const Pagination = ({
     const nextUrl = nextPage !== null ? setUrl(nextPage) : '';
 
     return (
-        <nav className={s.Root} role="navigation" aria-label={t('pagination.label')}>
+        <nav
+            className={s.Root}
+            role="navigation"
+            aria-label={t('pagination.label')}
+        >
             <ul className={s.List}>
                 <li className={s.Item}>
                     <a
@@ -129,7 +133,8 @@ const Link = ({
             aria-current={isCurrent ? 'page' : null}
             onClick={(e) => onClickHandler(e, p)}
         >
-            <span className="sr-only">{t('pagination.page')} </span>{p}
+            <span className="sr-only">{t('pagination.page')} </span>
+            {p}
         </a>
     );
 };

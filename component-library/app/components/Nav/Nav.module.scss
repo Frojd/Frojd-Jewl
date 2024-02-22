@@ -40,6 +40,19 @@
             margin-left: 16px;
         }
     }
+
+    .Root--Footer.Root--Vertical & {
+        margin-left: -8px;
+    }
+
+    .Root--Footer.Root--Horizontal & {
+        margin-left: -16px;
+
+        @include media-max(M) {
+            flex-direction: column;
+            margin-left: -8px;
+        }
+    }
 }
 
 .Child {
@@ -67,6 +80,23 @@
 
     .Root--MobileService & {
         margin: 12px 0;
+    }
+
+    .Root--Footer.Root--Vertical & {
+        margin: 0;
+
+        @include media(M) {
+            margin: 4px 0;
+        }
+    }
+
+    .Root--Footer.Root--Horizontal & {
+        margin: 0 8px;
+
+        @include media-max(M) {
+            margin: 0;
+            align-self: flex-start;
+        }
     }
 }
 
@@ -324,6 +354,24 @@
 
         &:hover {
             color: $purple;
+        }
+    }
+
+    .Root--Footer & {
+        @include textstyle(body);
+
+        color: inherit;
+
+        @include href-external {
+            &::after {
+                background-image: url('#{$assetsPath}img/external--white.svg');
+            }
+        }
+
+        @include href-download {
+            &::after {
+                background-image: url('#{$assetsPath}img/download--white.svg') !important;
+            }
         }
     }
 }

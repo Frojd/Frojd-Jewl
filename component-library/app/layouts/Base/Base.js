@@ -2,12 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Header from 'Components/Header';
+import Footer from 'Components/Footer';
 import s from './Base.module.scss';
 
 const Base = (Container) => {
     const { displayName } = Container;
 
-    const Wrapper = ({ containerName = '', header = {}, ...restProps }) => {
+    const Wrapper = ({
+        containerName = '',
+        header = {},
+        footer = {},
+        ...restProps
+    }) => {
         const name = containerName ? containerName : displayName;
         const classes = classNames(s.Root, [s[`Root--${name}`]]);
         return (
@@ -19,6 +25,8 @@ const Base = (Container) => {
                         <Container {...restProps} />
                     </main>
                 </div>
+
+                <Footer {...footer} />
             </div>
         );
     };
@@ -26,7 +34,7 @@ const Base = (Container) => {
     Wrapper.propTypes = {
         containerName: PropTypes.string,
         header: PropTypes.object,
-        breadcrumbs: PropTypes.object,
+        footer: PropTypes.object,
     };
 
     return Wrapper;

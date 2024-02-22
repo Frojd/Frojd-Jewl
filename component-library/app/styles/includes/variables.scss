@@ -125,9 +125,15 @@ $textstyles: (
     ),
     footer-title: (
         d: (
-            font-size: 14,
-            line-height: 1.5,
-            font-weight: $medium,
+            font-size: 18,
+            line-height: 26.82,
+            font-weight: $bold,
+            font-family: $heading-font,
+        ),
+        M: (
+            font-size: 20,
+            line-height: 25.8,
+            font-weight: $bold,
             font-family: $heading-font,
         ),
     ),

@@ -5,7 +5,7 @@ const data = {
         { id: '1', title: 'Link text', url: '#' },
         { id: '2', title: 'Link text &#038; more', url: '#', isActive: true },
         { id: '3', title: 'External link', url: 'https://frojd.se' },
-        { id: '3', title: 'Download PDF', url: 'test.pdf' },
+        { id: '4', title: 'Download PDF', url: 'test.pdf' },
     ],
 };
 

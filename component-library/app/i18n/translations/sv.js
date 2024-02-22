@@ -10,6 +10,14 @@ const sv = {
     card: {
         date: 'Publicerad',
     },
+    footer: {
+        follow: 'Sociala medier',
+        primary: 'Om oss',
+        secondary: 'Snabblänkar',
+        service: 'Policy-länkar',
+        tertiary: 'Kontakt',
+        toStartPage: 'Till startsidan',
+    },
     header: {
         mainMenu: 'Huvudmeny',
         mobileMenu: 'Mobilmeny',
