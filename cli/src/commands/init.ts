@@ -1,5 +1,4 @@
-import {Command} from '@oclif/core'
-import cli from 'cli-ux'
+import {Command, ux} from '@oclif/core'
 import {CONFIG_FILE_NAME, REPO_PATH} from '../constants'
 import {Clone, Repository} from 'nodegit'
 import {getConfig, storeConfig, JewlConfig} from '../utils/config'
@@ -23,7 +22,7 @@ export default class Init extends Command {
       this.log('Initializing Jewl...')
     }
 
-    const componentPath = await cli.prompt('Relative component path?', {default: _config.componentPath})
+    const componentPath = await ux.prompt('Relative component path?', {default: _config.componentPath})
 
     const config: JewlConfig = storeConfig({..._config, componentPath})
 

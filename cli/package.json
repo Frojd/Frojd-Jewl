@@ -15,7 +15,6 @@
     "@oclif/core": "^3.19.5",
     "@oclif/plugin-help": "^6.0.14",
     "classnames": "^2.5.1",
-    "cli-ux": "^6.0.9",
     "fs-extra": "^11.2.0",
     "nodegit": "^0.27.0",
     "nypm": "^0.3.6",
