@@ -1,7 +1,7 @@
 import {Command} from '@oclif/core'
 import * as fse from 'fs-extra'
 import * as path from 'node:path'
-import * as lmify from 'lmify'
+import { addDependency, installDependencies } from 'nypm'
 
 import {
   LocalConfigMissing,
@@ -101,7 +101,8 @@ export default class Clone extends Command {
 
     this.log('Installing npm dependencies...')
 
-    lmify.setPackageManager('npm')
-    lmify.install(install)
+    // TODO: Changed from lmify install to nypm installDependencies, make sure it works
+    addDependency(install)
+    installDependencies()
   }
 }
