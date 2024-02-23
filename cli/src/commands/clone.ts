@@ -17,7 +17,7 @@ export default class Clone extends Command {
 
   static args = {
     componentName: Args.string({ required: true, description: '(required) The name of the component in the Jewl Component Library'}),
-    newName: Args.string({ required: false, 'The name of the newly created component. Defaults to COMPONENTNAME' }),
+    newName: Args.string({ required: false, description: 'The name of the newly created component. Defaults to COMPONENTNAME' }),
   }
 
   static examples = [

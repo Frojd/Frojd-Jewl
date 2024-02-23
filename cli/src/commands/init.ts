@@ -1,6 +1,6 @@
 import {Command, ux} from '@oclif/core'
 import {CONFIG_FILE_NAME, REPO_PATH} from '../constants'
-import {Clone, Repository} from 'nodegit'
+import * as Git from 'nodegit'
 import {getConfig, storeConfig, JewlConfig} from '../utils/config'
 
 export default class Init extends Command {
@@ -27,7 +27,7 @@ export default class Init extends Command {
     const config: JewlConfig = storeConfig({..._config, componentPath})
 
     try {
-      const repo: Repository = await Repository.open(REPO_PATH)
+      const repo: Git.Repository = await Git.Repository.open(REPO_PATH)
       this.log('Local repository exists, getting latest changes...')
       await repo.mergeBranches(config.repositoryBranch, 'origin/' + config.repositoryBranch)
 
@@ -36,7 +36,7 @@ export default class Init extends Command {
       try {
         this.log('No local repository found. Cloning from remote repository...')
 
-        await Clone.clone(config.repository, REPO_PATH, {
+        await Git.Clone(config.repository, REPO_PATH, {
           checkoutBranch: config.repositoryBranch,
         })
 
