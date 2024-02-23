@@ -1,4 +1,4 @@
-import {Command} from '@oclif/core'
+import { Command, Args } from '@oclif/core'
 import * as fse from 'fs-extra'
 import * as path from 'node:path'
 import { addDependency, installDependencies } from 'nypm'
@@ -15,18 +15,10 @@ import {
 export default class Clone extends Command {
   static description = 'Clone components from the Jewl Component Library to your local project'
 
-  static args = [
-    {
-      name: 'componentName',
-      required: true,
-      description: '(required) The name of the component in the Jewl Component Library',
-    },
-    {
-      name: 'newName',
-      description: 'The name of the newly created component. Defaults to COMPONENTNAME',
-      required: false,
-    },
-  ]
+  static args = {
+    componentName: Args.string({ required: true, description: '(required) The name of the component in the Jewl Component Library'}),
+    newName: Args.string({ required: false, 'The name of the newly created component. Defaults to COMPONENTNAME' }),
+  }
 
   static examples = [
     '$ jewl clone Header',
