@@ -6,6 +6,6 @@
         "prop-types": "*"
     },
     "jewlDependencies": [
-        "Base"
+        "layouts/Base"
     ]
 }
