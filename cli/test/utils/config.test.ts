@@ -10,7 +10,13 @@ describe('Config module', () => {
 
   describe('With config existant', () => {
     before(() => {
-      fs.writeFileSync(CONFIG_FILE_NAME, JSON.stringify({componentPath: 'component/path'}))
+      fs.writeFileSync(CONFIG_FILE_NAME, JSON.stringify({
+        componentPaths: {
+          components: 'components/path',
+          containers: 'containers/path',
+          layouts: 'layouts/path',
+        },
+      }))
     })
     after(() => {
       fs.unlinkSync(CONFIG_FILE_NAME)
@@ -18,7 +24,7 @@ describe('Config module', () => {
 
     test.it('Merge local and default config', () => {
       const config = getConfig()
-      expect(config.componentPath).to.equal('component/path')
+      expect(config.componentPaths.components).to.equal('components/path')
     })
   })
 })

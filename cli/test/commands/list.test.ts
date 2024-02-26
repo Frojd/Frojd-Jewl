@@ -5,7 +5,18 @@ import {CONFIG_FILE_NAME, REPO_PATH} from '../../src/constants'
 
 describe('List with config and repo', () => {
   before(() => {
-    fs.writeFileSync(CONFIG_FILE_NAME, JSON.stringify({componentPath: 'path', repositoryComponentPath: ''}))
+    fs.writeFileSync(CONFIG_FILE_NAME, JSON.stringify({
+      componentPaths: {
+        components: 'components/path',
+        containers: 'containers/path',
+        layouts: 'layouts/path',
+      },
+      repositoryPaths: {
+        components: '',
+        containers: '',
+        layouts: '',
+      },
+    }))
     fs.mkdirSync(path.join(REPO_PATH))
     fs.mkdirSync(path.join(REPO_PATH, 'Component1'))
     fs.mkdirSync(path.join(REPO_PATH, 'Component2'))
