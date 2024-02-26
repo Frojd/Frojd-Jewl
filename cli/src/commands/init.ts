@@ -13,7 +13,13 @@ export default class Init extends Command {
   ]
 
   async run() {
-    let _config = {componentPath: 'app/components'}
+    let _config = {
+      componentPaths: {
+        components: 'app/components',
+        containers: 'app/containers',
+        layouts: 'app/layouts',
+      },
+    }
 
     try {
       _config = getConfig()
@@ -22,9 +28,15 @@ export default class Init extends Command {
       this.log('Initializing Jewl...')
     }
 
-    const componentPath = await ux.prompt('Relative component path?', {default: _config.componentPath})
+    const componentsPath = await ux.prompt('Relative components path?', {default: _config.componentPaths.components})
+    const containersPath = await ux.prompt('Relative containers path?', {default: _config.componentPaths.containers})
+    const layoutsPath = await ux.prompt('Relative layouts path?', {default: _config.componentPaths.layouts})
 
-    const config: JewlConfig = storeConfig({..._config, componentPath})
+    const config: JewlConfig = storeConfig({..._config, componentPaths: {
+      components: componentsPath,
+      containers: containersPath,
+      layouts: layoutsPath,
+    }})
 
     try {
       const repo: Git.Repository = await Git.Repository.open(REPO_PATH)
