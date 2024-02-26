@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
-import Hero from 'Components/Hero';
 import Richtext from 'Components/Richtext';
 import Submenu from 'Components/Submenu';
 import s from './ArticlePage.module.scss';

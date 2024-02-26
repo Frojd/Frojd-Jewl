@@ -1,0 +1,12 @@
+{
+    "name": "HomePage",
+    "version": "1.0.0",
+    "dependencies": {
+        "react": "*",
+        "prop-types": "*"
+    },
+    "jewlDependencies": [
+        "Base",
+        "Hero"
+    ]
+}

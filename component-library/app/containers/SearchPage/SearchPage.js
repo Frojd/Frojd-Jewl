@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
 import FilterButtons from 'Components/FilterButtons';
-import SearchBar from '../../components/SearchBar/SearchBar';
-import Card from '../../components/Card/Card';
+import SearchBar from 'Components/SearchBar';
+import Card from 'Components/Card';
 import s from './SearchPage.module.scss';
 
 const SearchPage = ({
