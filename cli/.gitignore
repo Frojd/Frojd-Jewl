@@ -2,9 +2,10 @@
 *-error.log
 /.nyc_output
 /dist
-/dist
+/app
 /tmp
 .idea
 /yarn.lock
 node_modules
 output
+jewlconfig.json
