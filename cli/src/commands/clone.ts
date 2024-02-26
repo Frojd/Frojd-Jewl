@@ -79,7 +79,7 @@ export default class Clone extends Command {
     }
 
     this.log(`Installing ${componentName}...`)
-    addComponentMapping(componentName, newName)
+    addComponentMapping(componentName, directoryName, newName)
     fse.copySync(componentAbsPath, componentDestinationAbsPath)
   }
 
@@ -88,9 +88,9 @@ export default class Clone extends Command {
       const paths = dep.split('/')
       const depDir = paths.length > 1 ? paths[0] : 'components';
       const depName = paths.length > 1 ? paths[1] : paths[0];
-      const localNames = getComponentLocalNames(dep)
+      const localNames = getComponentLocalNames(depName, depDir)
       if (localNames.length > 0) {
-        this.warn(`Jewl dependencie "${dep}" is required for this component: ${currentLocalName}.` +
+        this.warn(`Jewl dependency "${dep}" is required for this component: ${currentLocalName}.` +
           ' It is already installed under the following name/names: ' + localNames.join(', ') +
           '. After the installation is complete, make sure to update this components imports and usages if needed')
       } else {

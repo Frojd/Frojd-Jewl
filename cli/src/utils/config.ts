@@ -8,7 +8,8 @@ interface JewlLocalConfig {
 }
 
 interface JewlComponentMapping {
-  remoteName: string;
+  jewlName: string;
+  jewlDirectory: string;
   localName: string;
 }
 
@@ -96,10 +97,10 @@ export function getLocalComponentPath(directory: string): string {
   return path.join(getBasePath(), getConfig().componentPaths[directory as keyof JewlComponentPaths])
 }
 
-export function getComponentLocalNames(remoteName: string): Array<string> {
+export function getComponentLocalNames(jewlName: string, jewlDirectory: string): Array<string> {
   const _return: Array<string> = []
   for (const mapping of getConfig().componentMapping) {
-    if (mapping.remoteName === remoteName) {
+    if (mapping.jewlName === jewlName && mapping.jewlDirectory === jewlDirectory) {
       _return.push(mapping.localName)
     }
   }
@@ -121,8 +122,11 @@ export function storeConfig(options: object): JewlConfig {
   return getConfig()
 }
 
-export function addComponentMapping(remoteName: string, localName: string) {
+export function addComponentMapping(jewlName: string, jewlDirectory: string, localName: string) {
   const config = getConfig()
-  config.componentMapping = [...config.componentMapping, {remoteName, localName}]
-  storeConfig(config)
+  const exists = [...config.componentMapping].find((mapping) => mapping.localName === localName);
+  if(!exists) {
+    config.componentMapping = [...config.componentMapping, {jewlName, jewlDirectory, localName}]
+    storeConfig(config)
+  }
 }
