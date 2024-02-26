@@ -8,4 +8,5 @@
 /yarn.lock
 node_modules
 output
+/.jewl-repo
 jewlconfig.json

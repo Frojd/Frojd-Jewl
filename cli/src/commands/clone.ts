@@ -68,10 +68,12 @@ export default class Clone extends Command {
       this.error(`Component "${componentName}" package.json file unreadable or non existing: ` + error)
     })
 
+    // TODO: Ask if dependency should be installed
     if (_package.dependencies) {
       await this.installDependencies(_package.dependencies)
     }
 
+    // TODO: Ask if dependency should be installed
     if (_package.jewlDependencies) {
       await this.installJewlDependencies(_package.jewlDependencies, newName)
     }
@@ -83,6 +85,9 @@ export default class Clone extends Command {
 
   private async installJewlDependencies(dependencies: Array<string>, currentLocalName: string) {
     dependencies.map(async (dep: string) => {
+      const paths = dep.split('/')
+      const depDir = paths.length > 1 ? paths[0] : 'components';
+      const depName = paths.length > 1 ? paths[1] : paths[0];
       const localNames = getComponentLocalNames(dep)
       if (localNames.length > 0) {
         this.warn(`Jewl dependencie "${dep}" is required for this component: ${currentLocalName}.` +
@@ -90,7 +95,7 @@ export default class Clone extends Command {
           '. After the installation is complete, make sure to update this components imports and usages if needed')
       } else {
         this.log(`Installing dependency "${dep}"...`)
-        await this.clone(dep, dep, dep)
+        await this.clone(depDir, depName, depName)
       }
     })
   }
