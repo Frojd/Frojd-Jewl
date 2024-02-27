@@ -1,3 +1,5 @@
+import card from 'Components/Card/Card.data';
+
 const Card = () => {
     return (
         <div style={{
@@ -11,18 +13,18 @@ const data = {
     Card: Card,
     columns: 4,
     items: [
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
+        card,
+        card,
+        card,
+        card,
+        card,
+        card,
+        card,
+        card,
+        card,
+        card,
+        card,
+        card,
     ],
 };
 

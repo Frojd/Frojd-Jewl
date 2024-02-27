@@ -46,6 +46,9 @@ const sv = {
         placeholder: 'Vad letar du efter?',
         submit: 'Sök',
     },
+    searchResult: {
+        title: 'Visar {{total}} resultat för "{{keyword}}"',
+    },
     skipToContent: {
         buttonText: 'Hoppa till innehåll',
     },

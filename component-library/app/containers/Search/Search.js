@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
-import FilterButtons from 'Components/FilterButtons';
 import SearchForm from 'Components/SearchForm';
-import Card from 'Components/Card';
+import SearchResult from 'Components/SearchResult';
 import s from './Search.module.scss';
 
 const Search = ({
     title = '',
-    resultlist = [],
-    filterButtons = {},
-    searchResultLabel = '',
-    searchterm = '',
+    keyword = '',
     searchForm = {},
+    searchResult = {},
 }) => {
+    const [currentKeyword, setCurrentKeyword] = useState(keyword);
+
     return (
         <div className={s.Root}>
             <div className={s.Header}>
@@ -25,29 +24,19 @@ const Search = ({
                     <div className={s.SearchForm}>
                         <SearchForm
                             {...searchForm}
+                            keyword={currentKeyword}
                             id="search-form"
                             modifier="Search"
+                            onSubmit={(s) => setCurrentKeyword(s)}
                         />
                     </div>
                 </div>
             </div>
             <div className={s.Wrap}>
-                <div className={s.Result}>
-                    <FilterButtons {...filterButtons} />
-
-                    <h2 className={s.Info}>
-                        {searchResultLabel}
-                        {searchterm}
-                    </h2>
-
-                    <ul className={s.List}>
-                        {resultlist.map((item, index) => (
-                            <li className={s.Item} key={index}>
-                                <Card {...item} />
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <SearchResult
+                    {...searchResult}
+                    keyword={currentKeyword}
+                />
             </div>
         </div>
     );
@@ -55,11 +44,9 @@ const Search = ({
 
 Search.propTypes = {
     title: PropTypes.string,
-    filterButtons: PropTypes.object,
-    searchterm: PropTypes.string,
-    searchResultLabel: PropTypes.string,
+    keyword: PropTypes.string,
     searchForm: PropTypes.object,
-    resultlist: PropTypes.array,
+    searchResult: PropTypes.object,
 };
 
 export default Base(Search);

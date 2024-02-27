@@ -1,0 +1,15 @@
+{
+  "name": "SearchResult",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "*",
+    "prop-types": "*",
+    "react-i18next": "*"
+  },
+  "jewlDependencies": [
+    "Card",
+    "FilterButtons",
+    "Grid",
+    "Pagination"
+  ]
+}

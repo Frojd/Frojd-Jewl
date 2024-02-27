@@ -10,7 +10,7 @@
     width: 100%;
     max-width: 200px;
 
-    .Root--SearchPage & {
+    .Root--Search & {
         height: 56px;
         max-width: 511px;
     }
@@ -38,7 +38,7 @@
         border-color: $purple;
     }
 
-    .Root--SearchPage & {
+    .Root--Search & {
         padding: 6px 64px 6px 24px;
     }
 }
@@ -68,7 +68,7 @@
         background-color: $purple-60;
     }
 
-    .Root--SearchPage & {
+    .Root--Search & {
         right: 6px;
         height: 44px;
         width: 44px;

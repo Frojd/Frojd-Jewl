@@ -1,16 +1,15 @@
 import base from 'Layouts/Base/Base.data';
 import searchForm from 'Components/SearchForm/SearchForm.data';
+import searchResult from 'Components/SearchResult/SearchResult.data';
 import filterButtons from 'Components/FilterButtons/FilterButtons.data';
 import card, { noImage } from 'Components/Card/Card.data';
 
 const data = {
     ...base,
     title: 'Sök på hemsidan',
-    searchterm: 'Sökterm',
-    searchResultLabel: 'Visa sökresultat för: ',
+    keyword: 'Testar sök',
     searchForm: searchForm,
-    filterButtons: filterButtons,
-    resultlist: [card, card, noImage, noImage, card, noImage, card],
+    searchResult: searchResult,
 };
 
 export default data;

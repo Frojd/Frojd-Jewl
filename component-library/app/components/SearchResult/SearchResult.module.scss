@@ -1,0 +1,28 @@
+@import 'Styles/includes';
+
+.Root {
+    margin-top: 32px;
+    margin-bottom: 48px;
+
+    @include media(M) {
+        margin-top: 48px;
+        margin-bottom: 88px;
+    }
+}
+
+.Title {
+    margin-top: 24px;
+    margin-bottom: 16px;
+
+    @include media(M) {
+        margin-top: 16px;
+    }
+}
+
+.Pagination {
+    margin-top: 40px;
+
+    @include media(M) {
+        margin-top: 56px;
+    }
+}

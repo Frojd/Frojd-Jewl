@@ -8,7 +8,7 @@ const SearchForm = ({
     id = '',
     action = '',
     modifier = '',
-    value = '',
+    keyword = '',
     triggerFocus = null,
     onSubmit = null,
 }) => {
@@ -16,7 +16,7 @@ const SearchForm = ({
 
     const inputRef = useRef(null);
 
-    const [currentValue, setCurrentValue] = useState(value);
+    const [currentValue, setCurrentValue] = useState(keyword);
 
     useEffect(() => {
         if (inputRef && inputRef.current && triggerFocus) {
@@ -27,8 +27,8 @@ const SearchForm = ({
     }, [triggerFocus]);
 
     useEffect(() => {
-        setCurrentValue(value);
-    }, [value]);
+        setCurrentValue(keyword);
+    }, [keyword]);
 
     const handleInput = (e) => {
         e.preventDefault();
@@ -38,7 +38,7 @@ const SearchForm = ({
     const handleSubmit = (e) => {
         if (onSubmit) {
             e.preventDefault();
-            onSubmit(e);
+            onSubmit(currentValue);
         }
     };
 

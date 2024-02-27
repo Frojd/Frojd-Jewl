@@ -19,17 +19,3 @@
 
     margin-bottom: 24px;
 }
-
-.Info {
-    margin-bottom: 16px;
-}
-
-.List {
-    width: 100%;
-    display: grid;
-    gap: 16px;
-
-    @include media(M) {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
