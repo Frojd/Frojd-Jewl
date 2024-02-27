@@ -1,16 +1,16 @@
 import React from 'react';
-import SearchPage from './SearchPage';
-import data from './SearchPage.data';
-import readme from './SearchPage.md';
+import Search from './Search';
+import data from './Search.data';
+import readme from './Search.md';
 
 export default {
-    component: SearchPage,
+    component: Search,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
 
-const Template = (args) => <SearchPage {...args} />;
+const Template = (args) => <Search {...args} />;
 
 export const Default = Template.bind({});
 Default.args = { ...data };

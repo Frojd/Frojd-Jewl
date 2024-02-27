@@ -4,9 +4,9 @@ import Base from 'Layouts/Base';
 import FilterButtons from 'Components/FilterButtons';
 import SearchBar from 'Components/SearchBar';
 import Card from 'Components/Card';
-import s from './SearchPage.module.scss';
+import s from './Search.module.scss';
 
-const SearchPage = ({
+const Search = ({
     title = '',
     resultlist = [],
     filterButtons = {},
@@ -26,7 +26,7 @@ const SearchPage = ({
                         <SearchBar
                             {...searchBar}
                             id="search-input"
-                            modifier="SearchPage"
+                            modifier="Search"
                         />
                     </div>
                 </div>
@@ -53,7 +53,7 @@ const SearchPage = ({
     );
 };
 
-SearchPage.propTypes = {
+Search.propTypes = {
     title: PropTypes.string,
     filterButtons: PropTypes.object,
     searchterm: PropTypes.string,
@@ -62,4 +62,4 @@ SearchPage.propTypes = {
     resultlist: PropTypes.array,
 };
 
-export default Base(SearchPage);
+export default Base(Search);
