@@ -1,11 +1,8 @@
-import ArticlePage from './ArticlePage';
-import HomePage from './HomePage';
-import NotFoundPage from './NotFoundPage';
+import dynamic from 'next/dynamic';
 
-const Containers = {
-    ArticlePage,
-    HomePage,
-    NotFoundPage,
+export default {
+    Landing: dynamic(() => import('./Landing')),
+    NotFound: dynamic(() => import('./NotFound')),
+    Page: dynamic(() => import('./Page')),
+    Search: dynamic(() => import('./Search')),
 };
-
-export default Containers;
