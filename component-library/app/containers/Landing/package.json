@@ -1,5 +1,5 @@
 {
-    "name": "HomePage",
+    "name": "Landing",
     "version": "1.0.0",
     "dependencies": {
         "react": "*",

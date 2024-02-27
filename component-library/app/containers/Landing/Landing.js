@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
 import Hero from 'Components/Hero';
-import s from './HomePage.module.scss';
+import s from './Landing.module.scss';
 
-const HomePage = ({ hero = {} }) => {
+const Landing = ({ hero = {} }) => {
     return (
         <div className={s.Root}>
             <Hero {...hero} />
@@ -12,8 +12,8 @@ const HomePage = ({ hero = {} }) => {
     );
 };
 
-HomePage.propTypes = {
+Landing.propTypes = {
     hero: PropTypes.object,
 };
 
-export default Base(HomePage);
+export default Base(Landing);
