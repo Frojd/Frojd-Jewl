@@ -1,5 +1,5 @@
 const sv = {
-    accordion: {
+    accordionItem: {
         expand: 'Expandera',
         minimize: 'Minimera',
     },

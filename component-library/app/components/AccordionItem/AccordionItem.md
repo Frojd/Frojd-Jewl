@@ -1,6 +1,6 @@
 Used for showing a bar which can be toogled to expand or expand, can be used for e.g. FAQ
 
-[Accordion source code on Github](https://github.com/Frojd/Frojd-Jewl/tree/develop/component-library/app/components/Accordion)
+[AccordionItem source code on Github](https://github.com/Frojd/Frojd-Jewl/tree/develop/component-library/app/components/AccordionItem)
 
 ## Props
 

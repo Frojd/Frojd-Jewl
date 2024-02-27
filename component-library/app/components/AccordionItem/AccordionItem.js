@@ -4,13 +4,13 @@ import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { AnimateUpDown } from 'Components/Animate';
 import Richtext from 'Components/Richtext';
-import s from './Accordion.module.scss';
+import s from './AccordionItem.module.scss';
 
-const Accordion = ({
+const AccordionItem = ({
     title = '',
     text = '',
     open = false,
-    id = 'accordion',
+    id = 'accordion-item',
 }) => {
     const { t } = useTranslation();
 
@@ -21,8 +21,8 @@ const Accordion = ({
     const headerId = `${id}-header`;
 
     const buttonText = isExpanded
-        ? t('accordion.minimize')
-        : t('accordion.expand');
+        ? t('accordionItem.minimize')
+        : t('accordionItem.expand');
 
     const classes = classNames(s.Root, { [s['Root--Expanded']]: isExpanded });
 
@@ -58,11 +58,11 @@ const Accordion = ({
     );
 };
 
-Accordion.propTypes = {
+AccordionItem.propTypes = {
     title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     open: PropTypes.bool,
     id: PropTypes.string,
 };
 
-export default Accordion;
+export default AccordionItem;
