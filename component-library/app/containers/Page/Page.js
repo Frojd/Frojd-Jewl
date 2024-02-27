@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
 import Richtext from 'Components/Richtext';
 import Submenu from 'Components/Submenu';
-import s from './ArticlePage.module.scss';
+import s from './Page.module.scss';
 
-const ArticlePage = ({ title = '', content = {}, submenu = {} }) => {
+const Page = ({ title = '', content = {}, submenu = {} }) => {
     return (
         <article className={s.Root}>
             <div className={s.Wrap}>
@@ -28,10 +28,10 @@ const ArticlePage = ({ title = '', content = {}, submenu = {} }) => {
     );
 };
 
-ArticlePage.propTypes = {
+Page.propTypes = {
     title: PropTypes.string,
     content: PropTypes.object,
     submenu: PropTypes.object,
 };
 
-export default Base(ArticlePage);
+export default Base(Page);

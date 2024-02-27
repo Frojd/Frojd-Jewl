@@ -1,5 +1,5 @@
 {
-    "name": "ArticlePage",
+    "name": "Page",
     "version": "1.0.0",
     "dependencies": {
         "react": "*",
