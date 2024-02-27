@@ -6,5 +6,6 @@
     "prop-types": "*"
   },
   "jewlDependencies": [
+    "Button"
   ]
 }

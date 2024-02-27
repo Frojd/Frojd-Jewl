@@ -5,8 +5,8 @@ import Logo from 'Assets/img/logo.svg';
 import { AnimateInOut } from 'Components/Animate';
 import Image from 'Components/Image';
 import Nav from 'Components/Nav';
-import SearchBar from 'Components/SearchBar';
 import NavigationDrawer from 'Components/NavigationDrawer';
+import SearchBar from 'Components/SearchBar';
 import SkipToContent from 'Components/SkipToContent';
 import s from './Header.module.scss';
 

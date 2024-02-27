@@ -4,10 +4,10 @@
   "dependencies": {
     "react": "*",
     "prop-types": "*",
-    "react-i18next": "*",
-    "framer-motion": "*"
+    "react-i18next": "*"
   },
   "jewlDependencies": [
+    "Animate",
     "Image",
     "Nav",
     "NavigationDrawer",

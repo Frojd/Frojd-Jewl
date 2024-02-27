@@ -6,7 +6,6 @@
     "prop-types": "*",
     "react-i18next": "*",
     "classnames": "*",
-    "framer-motion": "*",
     "lodash": "*"
   },
   "jewlDependencies": [

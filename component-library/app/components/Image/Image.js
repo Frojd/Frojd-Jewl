@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import NextImage from 'next/image';
 import classNames from 'classnames';
+import NextImage from 'next/image';
 import s from './Image.module.scss';
 
 const Image = ({

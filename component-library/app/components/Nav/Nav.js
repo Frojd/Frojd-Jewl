@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { AnimateUpDown } from 'Components/Animate';
 import _ from 'lodash';
+import { AnimateUpDown } from 'Components/Animate';
 import s from './Nav.module.scss';
 
 const Nav = ({

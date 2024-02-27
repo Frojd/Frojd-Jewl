@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
 import Button from 'Components/Button';
 import s from './SkipToContent.module.scss';
 

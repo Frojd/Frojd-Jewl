@@ -5,8 +5,7 @@
     "react": "*",
     "prop-types": "*",
     "react-i18next": "*",
-    "classnames": "*",
-    "framer-motion": "*"
+    "classnames": "*"
   },
   "jewlDependencies": [
     "Animate"

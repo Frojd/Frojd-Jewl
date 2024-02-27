@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import s from './Animate.module.scss';
 import { motion } from 'framer-motion';
+import s from './Animate.module.scss';
 
 const Animate = ({ type = '', ...restProps }) => {
     const types = {

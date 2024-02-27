@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { AnimateLeftRight } from 'Components/Animate';
 import { useTranslation } from 'react-i18next';
+import { AnimateLeftRight } from 'Components/Animate';
 import Hamburger from 'SVG/hamburger.svg';
 import Close from 'SVG/close.svg';
 import s from './NavigationDrawer.module.scss';

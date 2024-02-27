@@ -4,9 +4,7 @@
   "dependencies": {
     "react": "*",
     "prop-types": "*",
-    "classnames": "*",
     "react-i18next": "*",
-    "framer-motion": "*",
     "local-storage": "*"
   },
   "jewlDependencies": [
