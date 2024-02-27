@@ -1,17 +1,17 @@
 import React from 'react';
-import SearchBar from './SearchBar';
-import data from './SearchBar.data';
-import readme from './SearchBar.md';
+import SearchForm from './SearchForm';
+import data from './SearchForm.data';
+import readme from './SearchForm.md';
 
 const Story = {
-    component: SearchBar,
+    component: SearchForm,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
 export default Story;
 
-const Template = (args) => <SearchBar {...args} />;
+const Template = (args) => <SearchForm {...args} />;
 
 export const Default = Template.bind({});
 Default.args = { ...data };

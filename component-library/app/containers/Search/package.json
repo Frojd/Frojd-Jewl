@@ -8,7 +8,7 @@
     "jewlDependencies": [
         "layouts/Base",
         "FilterButtons",
-        "SearchBar",
+        "SearchForm",
         "Card"
     ]
 }

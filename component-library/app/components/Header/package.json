@@ -11,7 +11,7 @@
     "Image",
     "Nav",
     "NavigationDrawer",
-    "SearchBar",
+    "SearchForm",
     "SkipToContent"
   ]
 }

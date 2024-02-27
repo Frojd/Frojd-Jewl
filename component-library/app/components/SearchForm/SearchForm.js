@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import s from './SearchBar.module.scss';
+import s from './SearchForm.module.scss';
 
-const SearchBar = ({
+const SearchForm = ({
     id = '',
     action = '',
     modifier = '',
@@ -53,28 +53,28 @@ const SearchBar = ({
                 onSubmit={(e) => handleSubmit(e)}
             >
                 <label className="sr-only" htmlFor={id}>
-                    {t('searchBar.label')}
+                    {t('searchForm.label')}
                 </label>
                 <input
                     id={id}
                     className={s.Input}
                     type="text"
                     value={currentValue}
-                    placeholder={t('searchBar.placeholder')}
+                    placeholder={t('searchForm.placeholder')}
                     ref={inputRef}
                     onChange={(e) => handleInput(e)}
                 />
                 <button
                     type="submit"
                     className={s.Submit}
-                    aria-label={t('searchBar.submit')}
+                    aria-label={t('searchForm.submit')}
                 />
             </form>
         </div>
     );
 };
 
-SearchBar.propTypes = {
+SearchForm.propTypes = {
     id: PropTypes.string.isRequired,
     action: PropTypes.string,
     modifier: PropTypes.string,
@@ -83,4 +83,4 @@ SearchBar.propTypes = {
     onSubmit: PropTypes.func,
 };
 
-export default SearchBar;
+export default SearchForm;

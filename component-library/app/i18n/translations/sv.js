@@ -41,7 +41,7 @@ const sv = {
     popup: {
         close: 'Stäng',
     },
-    searchBar: {
+    searchForm: {
         label: 'Sök på sidan',
         placeholder: 'Vad letar du efter?',
         submit: 'Sök',

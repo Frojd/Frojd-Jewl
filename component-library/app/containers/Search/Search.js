@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
 import FilterButtons from 'Components/FilterButtons';
-import SearchBar from 'Components/SearchBar';
+import SearchForm from 'Components/SearchForm';
 import Card from 'Components/Card';
 import s from './Search.module.scss';
 
@@ -12,7 +12,7 @@ const Search = ({
     filterButtons = {},
     searchResultLabel = '',
     searchterm = '',
-    searchBar = {},
+    searchForm = {},
 }) => {
     return (
         <div className={s.Root}>
@@ -22,10 +22,10 @@ const Search = ({
                         className={s.Title}
                         dangerouslySetInnerHTML={{ __html: title }}
                     />
-                    <div className={s.Searchbar}>
-                        <SearchBar
-                            {...searchBar}
-                            id="search-input"
+                    <div className={s.SearchForm}>
+                        <SearchForm
+                            {...searchForm}
+                            id="search-form"
                             modifier="Search"
                         />
                     </div>
@@ -58,7 +58,7 @@ Search.propTypes = {
     filterButtons: PropTypes.object,
     searchterm: PropTypes.string,
     searchResultLabel: PropTypes.string,
-    searchBar: PropTypes.object,
+    searchForm: PropTypes.object,
     resultlist: PropTypes.array,
 };
 

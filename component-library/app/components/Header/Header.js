@@ -6,7 +6,7 @@ import { AnimateInOut } from 'Components/Animate';
 import Image from 'Components/Image';
 import Nav from 'Components/Nav';
 import NavigationDrawer from 'Components/NavigationDrawer';
-import SearchBar from 'Components/SearchBar';
+import SearchForm from 'Components/SearchForm';
 import SkipToContent from 'Components/SkipToContent';
 import s from './Header.module.scss';
 
@@ -45,12 +45,12 @@ const Header = ({ main = {}, service = {} }) => {
                             {t('header.search')}
                         </button>
                         <AnimateInOut
-                            className={s.SearchBar}
+                            className={s.SearchForm}
                             isVisible={isSearchVisible}
                             id="header-search"
                             aria-hidden={!isSearchVisible}
                         >
-                            <SearchBar
+                            <SearchForm
                                 id="header-search-input"
                                 modifier="Header"
                                 triggerFocus={isSearchVisible}
