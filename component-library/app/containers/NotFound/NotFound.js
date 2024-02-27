@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Base from 'Layouts/Base';
-import s from './NotFoundPage.module.scss';
+import s from './NotFound.module.scss';
 
-const NotFoundPage = ({ title = '' }) => {
+const NotFound = ({ title = '' }) => {
     return (
         <div className={s.Root}>
             <h1
@@ -14,8 +14,8 @@ const NotFoundPage = ({ title = '' }) => {
     );
 };
 
-NotFoundPage.propTypes = {
+NotFound.propTypes = {
     title: PropTypes.string,
 };
 
-export default Base(NotFoundPage);
+export default Base(NotFound);

@@ -8,8 +8,8 @@ import renderer from 'react-test-renderer';
 /* eslint-enable no-unused-vars */
 
 import TestComponent from './';
-import data from './NotFoundPage.data';
-const testName = 'NotFoundPage';
+import data from './NotFound.data';
+const testName = 'NotFound';
 
 describe(`<${testName} />`, () => {
     it(`Renders an empty ${testName}`, () => {
