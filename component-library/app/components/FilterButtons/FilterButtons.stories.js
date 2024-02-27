@@ -3,12 +3,13 @@ import FilterButtons from './FilterButtons';
 import data from './FilterButtons.data';
 import readme from './FilterButtons.md';
 
-export default {
+const Story = {
     component: FilterButtons,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <FilterButtons {...args} />;
 

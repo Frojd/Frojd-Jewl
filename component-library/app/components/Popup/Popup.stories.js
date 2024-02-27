@@ -3,12 +3,13 @@ import Popup from './Popup';
 import data from './Popup.data';
 import readme from './Popup.md';
 
-export default {
+const Story = {
     component: Popup,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <Popup {...args} />;
 

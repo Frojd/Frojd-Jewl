@@ -3,7 +3,7 @@ import Button from './Button';
 import data from './Button.data';
 import readme from './Button.md';
 
-export default {
+const Story = {
     component: Button,
     parameters: {
         docs: { description: { component: readme } },
@@ -40,6 +40,7 @@ export default {
         },
     },
 };
+export default Story;
 
 const Template = (args) => <Button {...args} />;
 

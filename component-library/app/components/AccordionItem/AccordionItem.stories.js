@@ -3,12 +3,13 @@ import AccordionItem from './AccordionItem';
 import data from './AccordionItem.data';
 import readme from './AccordionItem.md';
 
-export default {
+const Story = {
     component: AccordionItem,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <AccordionItem {...args} />;
 

@@ -3,12 +3,13 @@ import Header from './Header';
 import data from './Header.data';
 import readme from './Header.md';
 
-export default {
+const Story = {
     component: Header,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <Header {...args} />;
 

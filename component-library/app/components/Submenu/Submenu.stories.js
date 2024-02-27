@@ -3,12 +3,13 @@ import Submenu from './Submenu';
 import data from './Submenu.data';
 import readme from './Submenu.md';
 
-export default {
+const Story = {
     component: Submenu,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <Submenu {...args} />;
 

@@ -4,7 +4,8 @@ import Typography from './Typography';
 import Colors from './Colors';
 import Buttons from './Buttons';
 
-export default { title: 'Styleguide' };
+const Story = { title: 'Styleguide' };
+export default Story;
 
 export const StyleguideTypography = () => <Typography />;
 

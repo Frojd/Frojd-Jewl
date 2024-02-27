@@ -3,12 +3,13 @@ import Search from './Search';
 import data from './Search.data';
 import readme from './Search.md';
 
-export default {
+const Story = {
     component: Search,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <Search {...args} />;
 

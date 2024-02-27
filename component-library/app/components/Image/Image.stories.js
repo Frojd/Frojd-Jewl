@@ -3,12 +3,13 @@ import Image from './Image';
 import data, { portrait } from './Image.data';
 import readme from './Image.md';
 
-export default {
+const Story = {
     component: Image,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <Image {...args} />;
 

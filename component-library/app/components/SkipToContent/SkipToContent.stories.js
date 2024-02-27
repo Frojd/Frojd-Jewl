@@ -3,12 +3,13 @@ import SkipToContent from './SkipToContent';
 import data from './SkipToContent.data';
 import readme from './SkipToContent.md';
 
-export default {
+const Story = {
     component: SkipToContent,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <SkipToContent {...args} />;
 

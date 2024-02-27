@@ -3,7 +3,7 @@ import Pagination from './Pagination';
 import data from './Pagination.data';
 import readme from './Pagination.md';
 
-export default {
+const Story = {
     component: Pagination,
     parameters: {
         docs: { description: { component: readme } },
@@ -29,6 +29,7 @@ export default {
         },
     },
 };
+export default Story;
 
 const Template = (args) => <Pagination {...args} />;
 

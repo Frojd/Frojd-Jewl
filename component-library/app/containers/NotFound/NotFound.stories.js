@@ -2,8 +2,9 @@ import React from 'react';
 import NotFound from './NotFound';
 import data from './NotFound.data';
 
-export default {
+const Story = {
     component: NotFound,
 };
+export default Story;
 
 export const NotFoundDefault = () => <NotFound {...data} />;

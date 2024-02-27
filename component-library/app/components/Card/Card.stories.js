@@ -3,12 +3,13 @@ import Card from './Card';
 import data from './Card.data';
 import readme from './Card.md';
 
-export default {
+const Story = {
     component: Card,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <Card {...args} />;
 

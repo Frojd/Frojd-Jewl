@@ -3,12 +3,13 @@ import Richtext from './Richtext';
 import data from './Richtext.data';
 import readme from './Richtext.md';
 
-export default {
+const Story = {
     component: Richtext,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <Richtext {...args} />;
 

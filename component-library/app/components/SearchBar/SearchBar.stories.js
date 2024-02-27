@@ -3,12 +3,13 @@ import SearchBar from './SearchBar';
 import data from './SearchBar.data';
 import readme from './SearchBar.md';
 
-export default {
+const Story = {
     component: SearchBar,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <SearchBar {...args} />;
 

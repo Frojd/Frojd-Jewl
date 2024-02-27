@@ -3,12 +3,13 @@ import Page from './Page';
 import data from './Page.data';
 // import readme from './Page.md';
 
-export default {
+const Story = {
     component: Page,
     parameters: {
         // docs: {description: {component: readme}},
     },
 };
+export default Story;
 
 const Template = (args) => <Page {...args} />;
 

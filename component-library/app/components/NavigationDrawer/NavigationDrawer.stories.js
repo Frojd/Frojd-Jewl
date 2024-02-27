@@ -3,7 +3,7 @@ import NavigationDrawer from './NavigationDrawer';
 import data, { withNav } from './NavigationDrawer.data';
 import readme from './NavigationDrawer.md';
 
-export default {
+const Story = {
     component: NavigationDrawer,
     parameters: {
         docs: { description: { component: readme } },
@@ -12,6 +12,7 @@ export default {
         children: { control: { type: null } },
     },
 };
+export default Story;
 
 const Template = (args) => <NavigationDrawer {...args} />;
 

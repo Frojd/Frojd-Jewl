@@ -3,7 +3,7 @@ import Nav from './Nav';
 import data, { withChildren } from './Nav.data';
 import readme from './Nav.md';
 
-export default {
+const Story = {
     component: Nav,
     parameters: {
         docs: { description: { component: readme } },
@@ -21,6 +21,7 @@ export default {
         items: { control: { type: null } },
     },
 };
+export default Story;
 
 const Template = (args) => <Nav {...args} />;
 

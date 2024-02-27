@@ -3,12 +3,13 @@ import Breadcrumbs from './Breadcrumbs';
 import data from './Breadcrumbs.data';
 import readme from './Breadcrumbs.md';
 
-export default {
+const Story = {
     component: Breadcrumbs,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
+export default Story;
 
 const Template = (args) => <Breadcrumbs {...args} />;
 
