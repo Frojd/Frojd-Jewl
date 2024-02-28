@@ -1,0 +1,32 @@
+@import 'Styles/includes';
+
+.Root {
+}
+
+.Wrap {
+    @include wrap;
+}
+
+.Header {
+    padding-top: 40px;
+    margin-bottom: 32px;
+
+    @include media(M) {
+        padding-top: 72px;
+        margin-bottom: 48px;
+    }
+}
+
+.Title {
+    @include textstyle(page-title);
+
+    margin-bottom: 24px;
+    max-width: map-get($maxwidths, header);
+}
+
+.Text {
+    @include textstyle(preamble);
+
+    margin-bottom: 32px;
+    max-width: map-get($maxwidths, content);
+}
