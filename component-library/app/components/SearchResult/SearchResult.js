@@ -31,25 +31,20 @@ const SearchResult = ({
         <div className={s.Root}>
             <FilterButtons {...filterButtons} />
 
-            <h2 className={s.Title}>{t('searchResult.title', {
-                total: currentTotal,
-                keyword: keyword,
-            })}</h2>
+            <h2 className={s.Title}>
+                {t('searchResult.title', {
+                    total: currentTotal,
+                    keyword: keyword,
+                })}
+            </h2>
 
             <div className={s.Grid}>
-                <Grid
-                    items={currentItems}
-                    columns={3}
-                    Card={Card}
-                />
+                <Grid items={currentItems} columns={3} Card={Card} />
             </div>
 
             {totalPages > 1 && (
                 <div className={s.Pagination}>
-                    <Pagination
-                        current={currentPage}
-                        total={totalPages}
-                    />
+                    <Pagination current={currentPage} total={totalPages} />
                 </div>
             )}
         </div>

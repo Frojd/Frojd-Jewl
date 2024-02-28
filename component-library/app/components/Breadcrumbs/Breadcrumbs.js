@@ -6,7 +6,7 @@ import s from './Breadcrumbs.module.scss';
 const Breadcrumbs = ({ items = [] }) => {
     const { t } = useTranslation();
 
-    if(items.length < 2) {
+    if (items.length < 2) {
         return null;
     }
 

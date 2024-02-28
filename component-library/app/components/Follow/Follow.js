@@ -14,7 +14,9 @@ const Follow = ({ id = 'follow', title = '', items = [] }) => {
 
     return (
         <div className={s.Follow}>
-            <h2 className="sr-only" id={id}>{displayTitle}</h2>
+            <h2 className="sr-only" id={id}>
+                {displayTitle}
+            </h2>
             <nav className={s.Nav} aria-labelledby={id}>
                 {items.map((item, index) => (
                     <Item {...item} key={index} />

@@ -4,11 +4,7 @@ import Base from 'Layouts/Base';
 import ArchiveResult from 'Components/ArchiveResult';
 import s from './Archive.module.scss';
 
-const Archive = ({
-    title = '',
-    text = '',
-    archiveResult = {},
-}) => {
+const Archive = ({ title = '', text = '', archiveResult = {} }) => {
     return (
         <div className={s.Root}>
             <div className={s.Header}>
@@ -24,9 +20,7 @@ const Archive = ({
                 </div>
             </div>
             <div className={s.Wrap}>
-                <ArchiveResult
-                    {...archiveResult}
-                />
+                <ArchiveResult {...archiveResult} />
             </div>
         </div>
     );

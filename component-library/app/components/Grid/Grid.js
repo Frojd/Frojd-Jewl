@@ -3,21 +3,17 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import s from './Grid.module.scss';
 
-const Grid = ({
-    Card = null,
-    items = [],
-    columns = 3,
-}) => {
-    const columnSize = columns >= 4 ? 'Fourth' : (
-        columns === 3 ? 'Third' : (
-            columns === 2 ? 'Half' : 'Full'
-        )
-    );
+const Grid = ({ Card = null, items = [], columns = 3 }) => {
+    const columnSize =
+        columns >= 4
+            ? 'Fourth'
+            : columns === 3
+            ? 'Third'
+            : columns === 2
+            ? 'Half'
+            : 'Full';
 
-    const classes = classNames(
-        s.Root,
-        [s[`Root--${columnSize}`]],
-    );
+    const classes = classNames(s.Root, [s[`Root--${columnSize}`]]);
 
     return (
         <div className={classes}>
@@ -40,18 +36,11 @@ Grid.propTypes = {
     items: PropTypes.array,
 };
 
-const Item = ({
-    Card = null,
-    columnSize = 'Third',
-    item = {},
-}) => {
+const Item = ({ Card = null, columnSize = 'Third', item = {} }) => {
     const { size } = item;
     const itemModifier = size ? size : columnSize;
 
-    const classes = classNames(
-        s.Item,
-        [s[`Item--${itemModifier}`]],
-    );
+    const classes = classNames(s.Item, [s[`Item--${itemModifier}`]]);
 
     return (
         <li className={classes}>

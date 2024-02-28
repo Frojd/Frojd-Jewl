@@ -33,10 +33,7 @@ const Search = ({
                 </div>
             </div>
             <div className={s.Wrap}>
-                <SearchResult
-                    {...searchResult}
-                    keyword={currentKeyword}
-                />
+                <SearchResult {...searchResult} keyword={currentKeyword} />
             </div>
         </div>
     );

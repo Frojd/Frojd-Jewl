@@ -2,10 +2,14 @@ import card from 'Components/Card/Card.data';
 
 const Card = () => {
     return (
-        <div style={{
-            background: 'lightgrey',
-            flex: '1 0 auto',
-        }}>-- Card --</div>
+        <div
+            style={{
+                background: 'lightgrey',
+                flex: '1 0 auto',
+            }}
+        >
+            -- Card --
+        </div>
     );
 };
 
