@@ -1,10 +1,11 @@
 {
-  "name": "__Container",
-  "version": "1.0.0",
-  "dependencies": {
-    "react": "*",
-    "prop-types": "*"
-  },
-  "jewlDependencies": [
-  ]
+    "name": "__Container",
+    "version": "1.0.0",
+    "dependencies": {
+        "react": "*",
+        "prop-types": "*"
+    },
+    "jewlDependencies": [
+        "layouts/Base"
+    ]
 }
