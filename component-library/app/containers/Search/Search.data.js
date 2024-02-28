@@ -6,6 +6,7 @@ import card, { noImage } from 'Components/Card/Card.data';
 
 const data = {
     ...base,
+    breadcrumbs: null,
     title: 'Sök på hemsidan',
     keyword: 'Testar sök',
     searchForm: searchForm,

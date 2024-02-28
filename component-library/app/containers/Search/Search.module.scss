@@ -8,14 +8,21 @@
 }
 
 .Header {
+    padding-top: 48px;
+    padding-bottom: 40px;
+    margin-bottom: 32px;
     background-color: $purple-20;
-    padding-top: 80px;
-    padding-bottom: 50px;
-    margin-bottom: 48px;
+
+    @include media(M) {
+        padding-top: 88px;
+        padding-bottom: 56px;
+        margin-bottom: 48px;
+    }
 }
 
 .Title {
     @include textstyle(page-title);
 
     margin-bottom: 24px;
+    max-width: map-get($maxwidths, header);
 }

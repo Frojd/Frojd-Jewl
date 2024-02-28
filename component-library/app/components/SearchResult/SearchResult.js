@@ -22,7 +22,6 @@ const SearchResult = ({
     const [currentPage, setCurrentPage] = useState(page);
 
     const totalPages = Math.ceil(currentTotal / itemsPerPage);
-    console.log('search', totalPages, currentTotal, currentPage);
 
     useEffect(() => {
         // Fetch new items and change states
@@ -58,6 +57,12 @@ const SearchResult = ({
 };
 
 SearchResult.propTypes = {
+    keyword: PropTypes.string,
+    filterButtons: PropTypes.object,
+    items: PropTypes.array,
+    total: PropTypes.number,
+    page: PropTypes.number,
+    itemsPerPage: PropTypes.number,
 };
 
 export default SearchResult;
