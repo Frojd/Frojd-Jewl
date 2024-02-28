@@ -1,0 +1,54 @@
+@import 'Styles/includes';
+
+.Root {
+}
+
+.Nav {
+    display: flex;
+    gap: 16px;
+}
+
+.Link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: $purple-20;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: $purple-90;
+        box-shadow: 0 0 0 1px $purple-90;
+        opacity: 0;
+        transition: opacity $transition;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.Icon {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    fill: $purple;
+    transition: fill $transition;
+
+    .Link:hover & {
+        fill: white;
+    }
+}

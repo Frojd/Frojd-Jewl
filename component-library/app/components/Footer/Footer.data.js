@@ -1,14 +1,8 @@
+import follow from 'Components/Follow/Follow.data';
 import Mail from 'SVG/mail.svg';
 
 const data = {
-    follow: {
-        title: 'Follow us',
-        items: [
-            { type: 'Facebook', url: '#' },
-            { type: 'Instagram', url: '#' },
-            { type: 'LinkedIn', url: '#' },
-        ],
-    },
+    follow: follow,
     primary: {
         title: 'About us',
         items: [

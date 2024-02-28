@@ -10,8 +10,11 @@ const sv = {
     card: {
         date: 'Publicerad',
     },
+    follow: {
+        goTo: 'Gå till {{name}}',
+        title: 'Sociala medier',
+    },
     footer: {
-        follow: 'Sociala medier',
         primary: 'Om oss',
         secondary: 'Snabblänkar',
         service: 'Policy-länkar',
