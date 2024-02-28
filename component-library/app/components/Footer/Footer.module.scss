@@ -35,9 +35,14 @@
 .LogoLink {
     display: block;
     position: relative;
-    width: 168px;
-    height: 37px;
+    width: 112px;
+    height: 33px;
     overflow: hidden;
+
+    @include media(M) {
+        width: 129px;
+        height: 38px;
+    }
 }
 
 .Follow {
