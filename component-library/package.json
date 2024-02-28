@@ -22,7 +22,7 @@
     "eslint": "eslint app",
     "eslint:fix": "eslint app --fix",
     "fixcode": "npx prettier \"**/*(*.css|*.js|*.json|*.md|*.scss)\" --write",
-    "fixcode:test": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --list-different",
+    "fixcode:test": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --check",
     "start": "node ./bin/dev-server",
     "svg": "svgo -f app/inline-svg -q --config=app/inline-svg/svgo.config.js",
     "jest": "jest",
