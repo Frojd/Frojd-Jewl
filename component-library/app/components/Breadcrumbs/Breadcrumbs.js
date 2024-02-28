@@ -6,6 +6,10 @@ import s from './Breadcrumbs.module.scss';
 const Breadcrumbs = ({ items = [] }) => {
     const { t } = useTranslation();
 
+    if(items.length < 2) {
+        return null;
+    }
+
     return (
         <div className={s.Root}>
             <nav className={s.Nav} aria-label={t('breadcrumbs.label')}>

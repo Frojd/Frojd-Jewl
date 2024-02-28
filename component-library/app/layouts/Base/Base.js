@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Breadcrumbs from 'Components/Breadcrumbs';
 import Header from 'Components/Header';
 import Footer from 'Components/Footer';
 import s from './Base.module.scss';
@@ -10,6 +11,7 @@ const Base = (Container) => {
 
     const Wrapper = ({
         containerName = '',
+        breadcrumbs = {},
         header = {},
         footer = {},
         ...restProps
@@ -21,6 +23,8 @@ const Base = (Container) => {
                 <Header {...header} />
 
                 <div className={s.Document} role="document">
+                    <Breadcrumbs {...breadcrumbs} />
+
                     <main className={s.Main} id="mainContent">
                         <Container {...restProps} />
                     </main>
@@ -33,6 +37,7 @@ const Base = (Container) => {
 
     Wrapper.propTypes = {
         containerName: PropTypes.string,
+        breadcrumbs: PropTypes.object,
         header: PropTypes.object,
         footer: PropTypes.object,
     };
