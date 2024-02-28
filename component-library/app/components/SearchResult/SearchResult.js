@@ -22,6 +22,7 @@ const SearchResult = ({
     const [currentPage, setCurrentPage] = useState(page);
 
     const totalPages = Math.ceil(currentTotal / itemsPerPage);
+    console.log('search', totalPages, currentTotal, currentPage);
 
     useEffect(() => {
         // Fetch new items and change states

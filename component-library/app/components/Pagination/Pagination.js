@@ -14,6 +14,7 @@ const Pagination = ({
 }) => {
     const { t } = useTranslation();
 
+    console.log(current, total, nrOfMiddle, nrOfBeginEnd);
     if (total < 2) {
         return null;
     }
@@ -123,7 +124,7 @@ const Link = ({
     }
 
     const classes = classNames(s.Link, {
-        [s['Root__Link--Current']]: isCurrent,
+        [s['Link--Current']]: isCurrent,
     });
 
     return (
@@ -134,7 +135,7 @@ const Link = ({
             onClick={(e) => onClickHandler(e, p)}
         >
             <span className="sr-only">{t('pagination.page')} </span>
-            {p}
+            <span className={s.Page}>{p}</span>
         </a>
     );
 };
