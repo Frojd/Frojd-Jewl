@@ -14,7 +14,6 @@ const Pagination = ({
 }) => {
     const { t } = useTranslation();
 
-    console.log(current, total, nrOfMiddle, nrOfBeginEnd);
     if (total < 2) {
         return null;
     }

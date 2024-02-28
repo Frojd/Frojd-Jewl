@@ -34,7 +34,7 @@ const sv = {
     },
     pagination: {
         label: 'Paginering',
-        goTo: 'Sida',
+        page: 'Sida',
         next: 'Nästa',
         previous: 'Föregående',
     },
