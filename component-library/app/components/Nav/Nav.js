@@ -12,23 +12,55 @@ const Nav = ({
     items = [],
     orientation = 'Horizontal',
     modifier = '',
+    className = null,
+    listClassName = null,
+    childClassName = null,
+    itemClassName = null,
+    itemActiveClassName = null,
+    toggleClassName = null,
+    linkClassName = null,
+    linkTextClassName = null,
 }) => {
     // Check for children, the structure of nav should change when nesting
     const find = _.findKey(items, (i) => i.children && !_.isEmpty(i.children));
     const hasChildren = find !== undefined;
 
-    const classes = classNames(s.Root, s[`Root--${orientation}`], {
-        [s[`Root--${modifier}`]]: modifier,
-    });
+    const classes = classNames(
+        s.Root,
+        s[`Root--${orientation}`],
+        { [s[`Root--${modifier}`]]: modifier },
+        className
+    );
+
+    const listClasses = classNames(s.List, listClassName);
 
     return (
         <nav className={classes} aria-label={label} id={id}>
             {hasChildren ? (
-                <List items={items} navId={id} />
+                <List
+                    items={items}
+                    navId={id}
+                    className={listClassName}
+                    childClassName={childClassName}
+                    itemClassName={itemClassName}
+                    itemActiveClassName={itemActiveClassName}
+                    toggleClassName={toggleClassName}
+                    linkClassName={linkClassName}
+                    linkTextClassName={linkTextClassName}
+                />
             ) : (
-                <div className={s.List}>
+                <div className={listClasses}>
                     {items.map((item, index) => (
-                        <Item {...item} navId={id} key={index} />
+                        <Item
+                            {...item}
+                            navId={id}
+                            key={index}
+                            className={itemClassName}
+                            itemActiveClassName={itemActiveClassName}
+                            toggleClassName={toggleClassName}
+                            linkClassName={linkClassName}
+                            linkTextClassName={linkTextClassName}
+                        />
                     ))}
                 </div>
             )}
@@ -42,14 +74,48 @@ Nav.propTypes = {
     items: PropTypes.array.isRequired,
     orientation: PropTypes.string,
     modifier: PropTypes.string,
+    classsName: PropTypes.string,
+    listClassName: PropTypes.string,
+    childClassName: PropTypes.string,
+    itemClassName: PropTypes.string,
+    itemActiveClassName: PropTypes.string,
+    toggleClassName: PropTypes.string,
+    linkClassName: PropTypes.string,
+    linkTextClassName: PropTypes.string,
 };
 
-const List = ({ items = [], navId = 'nav', id = null, isHidden = null }) => {
+const List = ({
+    items = [],
+    navId = 'nav',
+    id = null,
+    isHidden = null,
+    className = null,
+    childClassName = null,
+    itemClassName = null,
+    itemActiveClassName = null,
+    toggleClassName = null,
+    linkClassName = null,
+    linkTextClassName = null,
+}) => {
     const listId = id === null ? `${navId}-list` : `${navId}-${id}-list`;
+
+    const classes = classNames(s.List, className);
+
     return (
-        <ul className={s.List} aria-hidden={isHidden} id={listId}>
+        <ul className={classes} aria-hidden={isHidden} id={listId}>
             {items.map((item, index) => (
-                <Child {...item} navId={listId} key={index} />
+                <Child
+                    {...item}
+                    navId={listId}
+                    key={index}
+                    className={childClassName}
+                    listClassName={className}
+                    itemClassName={itemClassName}
+                    itemActiveClassName={itemActiveClassName}
+                    toggleClassName={toggleClassName}
+                    linkClassName={linkClassName}
+                    linkTextClassName={linkTextClassName}
+                />
             ))}
         </ul>
     );
@@ -60,10 +126,29 @@ List.propTypes = {
     navId: PropTypes.string.isRequired,
     id: PropTypes.string,
     isHidden: PropTypes.bool,
+    classsName: PropTypes.string,
+    childClassName: PropTypes.string,
+    toggleClassName: PropTypes.string,
+    itemClassName: PropTypes.string,
+    itemActiveClassName: PropTypes.string,
+    linkClassName: PropTypes.string,
+    linkTextClassName: PropTypes.string,
 };
 
 const Child = (item) => {
-    const { navId = '', id = '', children = [], isParentActive = false } = item;
+    const {
+        navId = '',
+        id = '',
+        children = [],
+        isParentActive = false,
+        className = null,
+        listClassName = null,
+        itemClassName = null,
+        itemActiveClassName = null,
+        toggleClassName = null,
+        linkClassName = null,
+        linkTextClassName = null,
+    } = item;
 
     const [isExpanded, setIsExpanded] = useState(isParentActive);
 
@@ -75,7 +160,8 @@ const Child = (item) => {
         s.Child,
         { [s['Child--Expanded']]: isExpanded },
         { [s['Child--HasChildren']]: hasChildren },
-        { [s['Child--ParentActive']]: isParentActive }
+        { [s['Child--ParentActive']]: isParentActive },
+        className
     );
 
     return (
@@ -85,6 +171,11 @@ const Child = (item) => {
                 navId={childId}
                 isExpanded={isExpanded}
                 showToggle={hasChildren}
+                className={itemClassName}
+                itemActiveClassName={itemActiveClassName}
+                toggleClassName={toggleClassName}
+                linkClassName={linkClassName}
+                linkTextClassName={linkTextClassName}
                 toggleExpanded={() => setIsExpanded(!isExpanded)}
             />
 
@@ -94,6 +185,13 @@ const Child = (item) => {
                         items={children}
                         isHidden={!isExpanded}
                         navId={childId}
+                        className={listClassName}
+                        childClassName={className}
+                        itemClassName={itemClassName}
+                        itemActiveClassName={itemActiveClassName}
+                        toggleClassName={toggleClassName}
+                        linkClassName={linkClassName}
+                        linkTextClassName={linkTextClassName}
                     />
                 </AnimateUpDown>
             )}
@@ -106,6 +204,13 @@ Child.propTypes = {
     id: PropTypes.string.isRequired,
     children: PropTypes.array,
     isParentActive: PropTypes.bool,
+    classsName: PropTypes.string,
+    listClassName: PropTypes.string,
+    itemClassName: PropTypes.string,
+    itemActiveClassName: PropTypes.string,
+    toggleClassName: PropTypes.string,
+    linkClassName: PropTypes.string,
+    linkTextClassName: PropTypes.string,
 };
 
 const Item = (item) => {
@@ -118,6 +223,11 @@ const Item = (item) => {
         toggleExpanded = () => {},
         isActive = false,
         isParentActive = false,
+        className = null,
+        itemActiveClassName = null,
+        toggleClassName = null,
+        linkClassName = null,
+        linkTextClassName = null,
     } = item;
 
     const listId = `${navId}-list`;
@@ -127,16 +237,24 @@ const Item = (item) => {
     const classes = classNames(
         s.Item,
         { [s['Item--Active']]: isActive },
-        { [s[`Item--${modifier}`]]: modifier }
+        { [s[`Item--${modifier}`]]: modifier },
+        className,
+        { [`${itemActiveClassName}`]: isActive }
     );
+
+    const toggleClasses = classNames(s.Toggle, toggleClassName);
 
     return (
         <div className={classes}>
-            <Link {...item} />
+            <Link
+                {...item}
+                className={linkClassName}
+                linkTextClassName={linkTextClassName}
+            />
 
             {showToggle && (
                 <button
-                    className={s.Toggle}
+                    className={toggleClasses}
                     type="button"
                     onClick={() => toggleExpanded()}
                     aria-expanded={isExpanded}
@@ -157,6 +275,10 @@ Item.propTypes = {
     toggleExpanded: PropTypes.func,
     isActive: PropTypes.bool,
     isParentActive: PropTypes.bool,
+    classsName: PropTypes.string,
+    toggleClassName: PropTypes.string,
+    linkClassName: PropTypes.string,
+    linkTextClassName: PropTypes.string,
 };
 
 const Link = ({
@@ -165,10 +287,16 @@ const Link = ({
     target = null,
     rel = null,
     attrTitle = null,
+    className = null,
+    linkTextClassName = null,
 }) => {
+    const classes = classNames(s.Link, className);
+
+    const linkTextClasses = classNames(s.LinkText, linkTextClassName);
+
     return (
         <a
-            className={s.Link}
+            className={classes}
             href={url}
             target={target}
             rel={rel}
@@ -176,11 +304,11 @@ const Link = ({
         >
             {typeof title === 'string' ? (
                 <span
-                    className={s.LinkText}
+                    className={linkTextClasses}
                     dangerouslySetInnerHTML={{ __html: title }}
                 />
             ) : (
-                <span className={s.LinkText}>{title}</span>
+                <span className={linkTextClasses}>{title}</span>
             )}
         </a>
     );
@@ -192,6 +320,8 @@ Link.propTypes = {
     target: PropTypes.string,
     rel: PropTypes.string,
     attrTitle: PropTypes.string,
+    classsName: PropTypes.string,
+    linkTextClassName: PropTypes.string,
 };
 
 export default Nav;

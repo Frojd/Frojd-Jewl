@@ -62,8 +62,10 @@ const Header = ({ main = {}, service = {} }) => {
                             {...serviceMenu}
                             label={t('header.serviceMenu')}
                             orientation="Horizontal"
-                            modifier="Service"
                             id="service-menu-desktop"
+                            className={s.NavServiceMenu}
+                            listClassName={s.NavServiceMenuList}
+                            linkClassName={s.NavServiceMenuLink}
                         />
                     </div>
                 </div>
@@ -85,8 +87,11 @@ const Header = ({ main = {}, service = {} }) => {
                             {...mainMenu}
                             label={t('header.mainMenu')}
                             orientation="Horizontal"
-                            modifier="Main"
                             id="main-menu-desktop"
+                            className={s.NavMainMenu}
+                            listClassName={s.NavMainMenuList}
+                            itemActiveClassName={s['NavMainMenuItem--Active']}
+                            linkClassName={s.NavMainMenuLink}
                         />
                     </div>
 
@@ -96,15 +101,20 @@ const Header = ({ main = {}, service = {} }) => {
                                 {...mainMenu}
                                 label={t('header.mobileMenu')}
                                 orientation="Vertical"
-                                modifier="MobileMain"
                                 id="main-menu-mobile"
+                                className={s.NavMobileMain}
+                                listClassName={s.NavMobileMainList}
+                                linkClassName={s.NavMobileMainLink}
                             />
                             <Nav
                                 {...serviceMenu}
                                 label={t('header.serviceMenu')}
                                 orientation="Vertical"
-                                modifier="MobileService"
                                 id="service-menu-mobile"
+                                className={s.NavMobileService}
+                                listClassName={s.NavMobileServiceList}
+                                itemClassName={s.NavMobileServiceItem}
+                                linkClassName={s.NavMobileServiceLink}
                             />
                         </NavigationDrawer>
                     </div>

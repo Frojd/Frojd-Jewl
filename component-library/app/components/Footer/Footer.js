@@ -6,9 +6,6 @@ import Follow from 'Components/Follow';
 import Image from 'Components/Image';
 import Nav from 'Components/Nav';
 import Logo from 'Assets/img/logo--white.svg';
-import Pin from 'SVG/pin.svg';
-import Mail from 'SVG/mail.svg';
-import Phone from 'SVG/phone.svg';
 import s from './Footer.module.scss';
 
 const Footer = ({
@@ -65,10 +62,12 @@ const Footer = ({
                     <h2 className="sr-only">{serviceMenu?.title}</h2>
                     <Nav
                         {...serviceMenu}
-                        className={s.Service}
+                        className={s.NavService}
                         id="footer-service"
                         label={t('footer.service')}
-                        modifier="Footer"
+                        listClassName={s.NavServiceList}
+                        itemClassName={s.NavServiceItem}
+                        linkClassName={s.NavServiceLink}
                     />
                 </div>
             </div>
@@ -85,26 +84,6 @@ Footer.propTypes = {
 };
 
 const NavColumn = ({ title = '', items = [], id = '', label = '' }) => {
-    const icons = {
-        Address: Pin,
-        Phone: Phone,
-        Email: Mail,
-    };
-
-    const navItems = items.map(({ icon, title, ...item }) => {
-        const Icon = icons[icon];
-        return {
-            ...item,
-            modifier: Icon ? 'HasIcon' : null,
-            title: (
-                <>
-                    {Icon && <Icon className={s.NavIcon} />}
-                    <span dangerouslySetInnerHTML={{ __html: title }} />
-                </>
-            ),
-        };
-    });
-
     return (
         <div className={s.Column}>
             <h2 className={s.Title}>{title}</h2>
@@ -112,9 +91,11 @@ const NavColumn = ({ title = '', items = [], id = '', label = '' }) => {
                 className={s.Nav}
                 id={id}
                 label={label}
-                items={navItems}
+                items={items}
                 orientation="Vertical"
-                modifier="Footer"
+                listClassName={s.NavList}
+                itemClassName={s.NavItem}
+                linkClassName={s.NavLink}
             />
         </div>
     );

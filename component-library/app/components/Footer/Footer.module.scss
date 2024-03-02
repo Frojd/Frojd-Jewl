@@ -49,20 +49,61 @@
     margin-top: 40px;
 }
 
-.Nav {
+.Root .Nav {
     margin-bottom: 8px;
 }
 
-.NavIcon {
-    display: inline-block;
-    position: relative;
-    width: 24px;
-    height: 24px;
-    margin: -8px 12px -8px 0;
-    fill: white;
+.Root .NavList {
+    margin-left: -8px;
 }
 
-.Service {
+.Root .NavItem {
+    margin: 0;
+
+    @include media(M) {
+        margin: 4px 0;
+    }
+}
+
+.Root .NavServiceList {
+    margin-left: -16px;
+
+    @include media-max(M) {
+        flex-direction: column;
+        margin-left: -8px;
+    }
+}
+
+.Root .NavServiceItem {
+    margin: 0 8px;
+
+    @include media-max(M) {
+        margin: 0;
+        align-self: flex-start;
+    }
+}
+
+.Root .NavLink,
+.Root .NavServiceLink {
+    @include textstyle(body);
+
+    color: white;
+
+    &:hover {
+        color: white;
+    }
+
+    @include href-external {
+        &::after {
+            background-image: url('#{$assetsPath}img/external--white.svg');
+        }
+    }
+
+    @include href-download {
+        &::after {
+            background-image: url('#{$assetsPath}img/download--white.svg') !important;
+        }
+    }
 }
 
 .Title {

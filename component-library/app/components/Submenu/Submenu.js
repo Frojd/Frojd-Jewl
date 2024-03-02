@@ -36,7 +36,11 @@ const Submenu = ({ id = 'submenu', title = '', nav = {} }) => {
                     id={`${id}-nav`}
                     label={t('submenu.label')}
                     orientation="Vertical"
-                    modifier="Submenu"
+                    className={s.Nav}
+                    listClassName={s.NavList}
+                    itemActiveClassName={s['NavItem--Active']}
+                    toggleClassName={s.NavToggle}
+                    linkClassName={s.NavLink}
                 />
             </AnimateUpDown>
         </div>
