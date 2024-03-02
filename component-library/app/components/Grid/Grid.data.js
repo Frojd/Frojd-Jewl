@@ -1,6 +1,7 @@
 import card from 'Components/Card/Card.data';
 
-const Card = () => {
+const Card = ({ size }) => {
+    const title = `-- Card ${size} --`;
     return (
         <div
             style={{
@@ -8,14 +9,13 @@ const Card = () => {
                 flex: '1 0 auto',
             }}
         >
-            -- Card --
+            {title}
         </div>
     );
 };
 
 const data = {
     Card: Card,
-    columns: 4,
     items: [
         card,
         card,
@@ -33,3 +33,20 @@ const data = {
 };
 
 export default data;
+
+export const autoItemSizes = {
+    Card: Card,
+    items: [
+        { ...card, size: 'Full' },
+        { ...card, size: 'Full' },
+        { ...card, size: 'Half' },
+        { ...card, size: 'Half' },
+        { ...card, size: 'Third' },
+        { ...card, size: 'Third' },
+        { ...card, size: 'Third' },
+        { ...card, size: 'Fourth' },
+        { ...card, size: 'Fourth' },
+        { ...card, size: 'Fourth' },
+        { ...card, size: 'Fourth' },
+    ],
+};

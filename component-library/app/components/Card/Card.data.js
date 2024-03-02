@@ -8,6 +8,7 @@ const data = {
     image: image,
     dateString: '2022-02-03',
     dateFormatted: '3 februari 2022',
+    size: 'Third',
 };
 
 export default data;
@@ -15,4 +16,9 @@ export default data;
 export const noImage = {
     ...data,
     image: null,
+};
+
+export const fullSize = {
+    ...data,
+    size: 'Full',
 };

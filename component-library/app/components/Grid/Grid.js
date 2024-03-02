@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import s from './Grid.module.scss';
 
-const Grid = ({ Card = null, items = [], columns = 3 }) => {
+const Grid = ({ Card = null, items = [], columns = 'auto' }) => {
+    const columnsCount = columns === 'auto' ? items.length : columns;
     const columnSize =
-        columns >= 4
+        columnsCount >= 4
             ? 'Fourth'
-            : columns === 3
+            : columnsCount === 3
             ? 'Third'
-            : columns === 2
+            : columnsCount === 2
             ? 'Half'
             : 'Full';
 
@@ -34,17 +35,18 @@ const Grid = ({ Card = null, items = [], columns = 3 }) => {
 Grid.propTypes = {
     Card: PropTypes.node.isRequired,
     items: PropTypes.array,
+    columns: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 const Item = ({ Card = null, columnSize = 'Third', item = {} }) => {
     const { size } = item;
-    const itemModifier = size ? size : columnSize;
+    const itemSize = size ? size : columnSize;
 
-    const classes = classNames(s.Item, [s[`Item--${itemModifier}`]]);
+    const classes = classNames(s.Item, [s[`Item--${itemSize}`]]);
 
     return (
         <li className={classes}>
-            <Card {...item} itemModifier={itemModifier} />
+            <Card {...item} size={itemSize} />
         </li>
     );
 };

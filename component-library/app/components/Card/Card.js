@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
 import Image from 'Components/Image';
 import s from './Card.module.scss';
 
@@ -12,13 +13,16 @@ const Card = ({
     image = {},
     dateString = '',
     dateFormatted = '',
+    size = '',
 }) => {
     const { t } = useTranslation();
 
     const hasImage = !!image?.src;
 
+    const classes = classNames(s.Root, { [s[`Root--${size}`]]: size });
+
     return (
-        <article className={s.Root}>
+        <article className={classes}>
             <a className={s.Link} href={url}>
                 <span
                     className="sr-only"
@@ -73,6 +77,7 @@ Card.propTypes = {
     image: PropTypes.object,
     dateString: PropTypes.string,
     dateFormatted: PropTypes.string,
+    size: PropTypes.string,
 };
 
 export default Card;
