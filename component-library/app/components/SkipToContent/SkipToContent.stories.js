@@ -11,7 +11,11 @@ const Story = {
 };
 export default Story;
 
-const Template = (args) => <SkipToContent {...args} />;
+const Template = (args) => (
+    <div id="story-component-skip-to-content">
+        <SkipToContent {...args} />
+    </div>
+);
 
 export const Default = Template.bind({});
 Default.args = { ...data };
