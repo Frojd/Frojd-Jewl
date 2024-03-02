@@ -35,7 +35,7 @@ Jewl is intended to be used on a project basis and not as a global install. To s
 4) Add `.jewl-repo` to your `.gitignore`-file
 5) Add `jewlconfig.json` to your VCS and make your first commit with jewl
 
-From here on, you could explore the available components via `npm run jewl -- list` and clone them 
+From here on, you could explore the available components, containers and layouts via `npm run jewl -- list` and clone them 
 via `npm run jewl -- clone Hero MyHero`
 
 See [Commands](#commands) for further documentation
@@ -47,16 +47,15 @@ See [Commands](#commands) for further documentation
 The `jewlconfig.json` is created via the `init` command and should be located in your frontend project root folder,
 next to your `package.json`-file. It has the following properties:
 
-`componentPath` *string*: The relative path to the folder containing React components in your project. Defaults to *./app/components*
+`componentPaths` *Object{components: string, containers: string, layouts: string}*: Contains the relative paths to the folder containing React components, containers and layout in your project. Defaults to *./app/components*, *./app/containers* and *./app/layouts*
 
 `repository` *string*: The remote repository to use. Defaults to *https://github.com/Frojd/Frojd-Jewl.git*
 
 `repositoryBranch` *string*: Which branch to use of the remote Jewl repository. Defaults to *master*
 
-`repositoryComponentPath` *string*: The path in the repository where components should be fetched from. Defaults to *component-library/app/components*
+`repositoryPaths` *Object{components: string, containers: string, layouts: string}*: Contains the paths in the repository where components, containers and layouts should be fetched from. Defaults to *component-library/app/components*, *component-library/app/containers* and *component-library/app/layouts*
 
-`componentMapping` *Array[{remoteName: string, localName: string}]*: The component mapping is a list of all components installed via jewl
-and is used to give the user helpful information about dependencies when using the `clone` command. It is not intended
+`componentMapping` *Array[{jewlName: string, jewlDirectory: string, localName: string}]*: The component mapping is a list of all components installed via jewl and is used to give the user helpful information about dependencies when using the `clone` command. It is not intended
 to be configured manually, rather it is automatically updated when the cli is used. However, if you are installing Jewl on an
 existing frontend project, manual mappings could be added to resolve name-collisions with Jewl component dependencies
 
@@ -64,31 +63,39 @@ existing frontend project, manual mappings could be added to resolve name-collis
 
 # Commands
 <!-- commands -->
-* [`jewl-cli clone COMPONENTNAME [NEWNAME]`](#jewl-cli-clone-componentname-newname)
+* [`jewl-cli clone COMPONENTNAME [NEWNAME] [--container] [--layout]`](#jewl-cli-clone-componentname-newname--container--layout)
 * [`jewl-cli help [COMMAND]`](#jewl-cli-help-command)
 * [`jewl-cli init`](#jewl-cli-init)
 * [`jewl-cli list`](#jewl-cli-list)
 * [`jewl-cli update`](#jewl-cli-update)
 
-## `jewl-cli clone COMPONENTNAME [NEWNAME]`
+## `jewl-cli clone COMPONENTNAME [NEWNAME] [--container] [--layout]`
 
-Clone components from the Jewl Component Library to your local project
+Clone components, containers or layouts from the Jewl Component Library to your local project. Will include any depencenies automatically
 
 ```
 USAGE
-  $ jewl-cli clone [COMPONENTNAME] [NEWNAME]
+  $ jewl-cli clone [COMPONENTNAME] [NEWNAME] [--container] [--layout]
 
 ARGUMENTS
   COMPONENTNAME  (required) The name of the component in the Jewl Component Library
   NEWNAME        The name of the newly created component. Defaults to COMPONENTNAME
 
+FLAGS
+  --container    To clone a container instead of component
+  --layout       To clone a layout instead of component
+
 DESCRIPTION
-  Clone components from the Jewl Component Library to your local project
+  Clone components, containers or layouts from the Jewl Component Library to your local project. Will include any depencenies automatically
 
 EXAMPLES
   $ jewl clone Header
 
   $ jewl clone Header HeaderLarge
+
+  $ jewl clone Page --container
+
+  $ jewl clone Base --layout
 ```
 
 _See code: [dist/commands/clone.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.3/dist/commands/clone.ts)_
@@ -133,14 +140,14 @@ _See code: [dist/commands/init.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0
 
 ## `jewl-cli list`
 
-Lists available components in the Jewl Component Library
+Lists available components, containers and layouts in the Jewl Component Library
 
 ```
 USAGE
   $ jewl-cli list
 
 DESCRIPTION
-  Lists available components in the Jewl Component Library
+  Lists available components, containers and layouts in the Jewl Component Library
 
 EXAMPLES
   $ jewl list
