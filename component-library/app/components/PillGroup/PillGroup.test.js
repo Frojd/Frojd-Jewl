@@ -6,8 +6,8 @@ import renderer from 'react-test-renderer';
 /* eslint-enable no-unused-vars */
 
 import TestComponent from './';
-import data from './FilterButtons.data';
-const testName = 'FilterButtons';
+import data from './PillGroup.data';
+const testName = 'PillGroup';
 
 describe(`<${testName} />`, () => {
     it(`Renders an empty ${testName}`, () => {

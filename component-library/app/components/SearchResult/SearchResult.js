@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import FilterButtons from 'Components/FilterButtons';
+import PillGroup from 'Components/PillGroup';
 import Grid from 'Components/Grid';
 import Card from 'Components/Card';
 import Pagination from 'Components/Pagination';
@@ -9,7 +9,7 @@ import s from './SearchResult.module.scss';
 
 const SearchResult = ({
     keyword = '',
-    filterButtons = {},
+    pillGroup = {},
     items = [],
     total = 0,
     page = 1,
@@ -29,7 +29,7 @@ const SearchResult = ({
 
     return (
         <div className={s.Root}>
-            <FilterButtons {...filterButtons} />
+            <PillGroup {...pillGroup} />
 
             <h2 className={s.Title}>
                 {t('searchResult.title', {
@@ -53,7 +53,7 @@ const SearchResult = ({
 
 SearchResult.propTypes = {
     keyword: PropTypes.string,
-    filterButtons: PropTypes.object,
+    pillGroup: PropTypes.object,
     items: PropTypes.array,
     total: PropTypes.number,
     page: PropTypes.number,

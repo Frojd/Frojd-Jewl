@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'Components/Button';
-import s from './FilterButtons.module.scss';
+import s from './PillGroup.module.scss';
 
-// TODO: Rename to Pill
-const FilterButtons = ({ items = [], multiple = false }) => {
+const PillGroup = ({ items = [], multiple = false }) => {
     return (
         <ul className={s.Root}>
             {items.map((filter, i) => (
@@ -19,9 +18,9 @@ const FilterButtons = ({ items = [], multiple = false }) => {
     );
 };
 
-FilterButtons.propTypes = {
+PillGroup.propTypes = {
     items: PropTypes.array,
     multiple: PropTypes.bool,
 };
 
-export default FilterButtons;
+export default PillGroup;

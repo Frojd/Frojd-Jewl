@@ -1,17 +1,17 @@
 import React from 'react';
-import FilterButtons from './FilterButtons';
-import data from './FilterButtons.data';
-import readme from './FilterButtons.md';
+import PillGroup from './PillGroup';
+import data from './PillGroup.data';
+import readme from './PillGroup.md';
 
 const Story = {
-    component: FilterButtons,
+    component: PillGroup,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
 export default Story;
 
-const Template = (args) => <FilterButtons {...args} />;
+const Template = (args) => <PillGroup {...args} />;
 
 export const Default = Template.bind({});
 Default.args = { ...data };

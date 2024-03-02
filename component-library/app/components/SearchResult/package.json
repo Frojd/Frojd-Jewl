@@ -8,7 +8,7 @@
   },
   "jewlDependencies": [
     "Card",
-    "FilterButtons",
+    "PillGroup",
     "Grid",
     "Pagination"
   ]
