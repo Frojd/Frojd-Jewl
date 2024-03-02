@@ -4,7 +4,8 @@
   "dependencies": {
     "react": "*",
     "prop-types": "*",
-    "react-i18next": "*"
+    "react-i18next": "*",
+    "classnames": "*"
   },
   "jewlDependencies": [
     "Image"
