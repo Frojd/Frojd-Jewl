@@ -12,19 +12,21 @@ const Breadcrumbs = ({ items = [] }) => {
 
     return (
         <div className={s.Root}>
-            <nav className={s.Nav} aria-label={t('breadcrumbs.label')}>
-                <ol className={s.List}>
-                    {items.map((item, index) => (
-                        <li className={s.Item} key={index}>
-                            <Link
-                                {...item}
-                                isStart={index === 0}
-                                isCurrent={index + 1 === items.length}
-                            />
-                        </li>
-                    ))}
-                </ol>
-            </nav>
+            <div className={s.Wrap}>
+                <nav className={s.Nav} aria-label={t('breadcrumbs.label')}>
+                    <ol className={s.List}>
+                        {items.map((item, index) => (
+                            <li className={s.Item} key={index}>
+                                <Link
+                                    {...item}
+                                    isStart={index === 0}
+                                    isCurrent={index + 1 === items.length}
+                                />
+                            </li>
+                        ))}
+                    </ol>
+                </nav>
+            </div>
         </div>
     );
 };
