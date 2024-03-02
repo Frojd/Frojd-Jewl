@@ -17,6 +17,7 @@ const SearchResult = ({
 }) => {
     const { t } = useTranslation();
 
+    const [currentPills, setCurrentPills] = useState(null);
     const [currentItems, setCurrentItems] = useState(items);
     const [currentTotal, setCurrentTotal] = useState(total);
     const [currentPage, setCurrentPage] = useState(page);
@@ -25,11 +26,17 @@ const SearchResult = ({
 
     useEffect(() => {
         // Fetch new items and change states
-    }, [keyword]);
+        console.log('fetch new items');
+    }, [keyword, currentPills, currentPage]);
 
     return (
         <div className={s.Root}>
-            <PillGroup {...pillGroup} />
+            <PillGroup
+                {...pillGroup}
+                showAll={true}
+                selected={currentPills}
+                changeHandler={(val) => setCurrentPills(val)}
+            />
 
             <h2 className={s.Title}>
                 {t('searchResult.title', {

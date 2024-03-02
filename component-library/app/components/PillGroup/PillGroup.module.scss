@@ -1,16 +1,72 @@
 @import 'Styles/includes';
 
 .Root {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
 }
 
-.Filter {
-    // border: 1px solid $purple;
-    // border-radius: 100px;
-    // padding: 8px 16px;
+.Title {
+    @include textstyle(form-label);
 
-    // color: $purple;
+    margin-bottom: 8px;
+}
+
+.List {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.Item {
+    flex: 0 0 auto;
+    display: block;
+    position: relative;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    border-radius: 21px;
+    background: white;
+    overflow: hidden;
+    transition: color $transition;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $purple-20;
+        opacity: 0;
+        transition: opacity $transition;
+    }
+
+    &:not(.Item--Checked):hover {
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    &--Checked {
+        color: white;
+
+        &::before {
+            background: $primary-color;
+            opacity: 1;
+        }
+    }
+}
+
+.Input {
+    position: absolute;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.Label {
     @include textstyle(button);
+
+    display: block;
+    position: relative;
+    padding: 7px 15px;
+    cursor: pointer;
 }

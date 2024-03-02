@@ -8,6 +8,11 @@ const Story = {
     parameters: {
         docs: { description: { component: readme } },
     },
+    argTypes: {
+        multiple: {
+            control: 'boolean',
+        },
+    },
 };
 export default Story;
 

@@ -41,6 +41,9 @@ const sv = {
         next: 'Nästa',
         previous: 'Föregående',
     },
+    pillGroup: {
+        all: 'Alla',
+    },
     popup: {
         close: 'Stäng',
     },

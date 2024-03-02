@@ -1,16 +1,23 @@
 const data = {
+    label: 'Type',
+    name: 'type',
+    showAll: true,
     items: [
         {
-            label: 'Label 1',
-            value: '',
+            label: 'Page',
+            value: 'page',
         },
         {
-            label: 'Label 2',
-            value: '',
+            label: 'News',
+            value: 'News',
         },
         {
-            label: 'Label 3',
-            value: '',
+            label: 'Event',
+            value: 'event',
+        },
+        {
+            label: 'Course',
+            value: 'course',
         },
     ],
 };
