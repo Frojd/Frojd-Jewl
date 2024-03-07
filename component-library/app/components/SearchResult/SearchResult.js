@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import Fieldset from 'Components/Fieldset';
 import PillGroup from 'Components/PillGroup';
 import Grid from 'Components/Grid';
 import Card from 'Components/Card';
