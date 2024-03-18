@@ -59,7 +59,8 @@ const sv = {
         buttonText: 'Hoppa till innehåll',
     },
     submenu: {
-        label: 'Undermeny',
+        label: 'Meny',
+        nav: 'Undermeny',
         show: 'Visa undermeny',
     },
 };

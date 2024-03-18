@@ -40,6 +40,7 @@ $grey-80: #424242;
 $grey-90: #212121;
 $purple: #673ab7;
 $purple-20: #ede7f6;
+$purple-40: #DBCEF2;
 $purple-60: #b39ddb;
 $purple-90: #4527a0;
 $yellow: #ffee58;
@@ -300,13 +301,23 @@ $textstyles: (
             line-height: 23.52,
         ),
     ),
-    submenu: (
+    submenu-parent: (
         d: (
             font-size: 16,
-            line-height: 19.7,
-            font-weight: $bold,
+            line-height: 20.16,
         ),
-        // Add bold to active and first level instead of new text style
+    ),
+    submenu-child: (
+        d: (
+            font-size: 16,
+            line-height: 20.16,
+        ),
+    ),
+    submenu-sub-child: (
+        d: (
+            font-size: 14,
+            line-height: 17.64,
+        ),
     ),
     breadcrumb: (
         d: (

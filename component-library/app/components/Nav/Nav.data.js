@@ -40,7 +40,7 @@ export const withChildren = {
                                 { id: '2311', title: 'Link text', url: '#' },
                                 {
                                     id: '2312',
-                                    title: 'Link text &#038; more',
+                                    title: 'Active link text &#038; more',
                                     url: '#',
                                     isActive: true,
                                 },
