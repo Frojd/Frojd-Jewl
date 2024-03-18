@@ -8,6 +8,11 @@ import s from './Page.module.scss';
 
 const Page = ({ title = '', image = {}, content = {}, submenu = {} }) => {
     const hasFeatured = !!image;
+    const imageSizes = [
+        '(min-width: 1680px) 1440px',
+        '(min-width: 1440px) 1280px',
+        '100vw',
+    ];
 
     return (
         <article className={s.Root}>
@@ -23,7 +28,7 @@ const Page = ({ title = '', image = {}, content = {}, submenu = {} }) => {
 
                 {hasFeatured && (
                     <div className={s.Featured}>
-                        <Image {...image} useCover={false} />
+                        <Image {...image} sizes={imageSizes} useCover={false} />
                     </div>
                 )}
 

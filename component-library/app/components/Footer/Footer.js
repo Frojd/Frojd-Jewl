@@ -17,6 +17,8 @@ const Footer = ({
 }) => {
     const { t } = useTranslation();
 
+    const logoSizes = ['(min-width: 768px) 129px', '112px'];
+
     const serviceItems = service?.items || [];
     const serviceMenu = {
         ...service,
@@ -34,6 +36,7 @@ const Footer = ({
                                 useCover={false}
                                 useCaption={false}
                                 useLazyLoad={false}
+                                sizes={logoSizes}
                                 alt={t('footer.toStartPage')}
                             />
                         </a>

@@ -15,6 +15,8 @@ const Header = ({ main = {}, service = {} }) => {
 
     const [isSearchVisible, setIsSearchVisible] = useState(false);
 
+    const logoSizes = ['(min-width: 768px) 129px', '112px'];
+
     const mainItems = main?.items || [];
     const serviceItems = service?.items || [];
 
@@ -79,6 +81,7 @@ const Header = ({ main = {}, service = {} }) => {
                             useCover={false}
                             useCaption={false}
                             useLazyLoad={false}
+                            sizes={logoSizes}
                             alt={t('header.toStartPage')}
                         />
                     </a>
