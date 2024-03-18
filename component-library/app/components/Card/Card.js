@@ -32,7 +32,7 @@ const Card = ({
 
             {hasImage && (
                 <div className={s.ImageContainer}>
-                    <Image {...image} className={s.Image} />
+                    <Image {...image} useCover={true} useCaption={false} />
                 </div>
             )}
 

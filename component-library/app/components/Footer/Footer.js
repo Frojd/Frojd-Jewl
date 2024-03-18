@@ -32,6 +32,7 @@ const Footer = ({
                             <Image
                                 {...Logo}
                                 useCover={false}
+                                useCaption={false}
                                 useLazyLoad={false}
                                 alt={t('footer.toStartPage')}
                             />

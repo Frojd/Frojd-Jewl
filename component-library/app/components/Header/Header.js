@@ -77,6 +77,7 @@ const Header = ({ main = {}, service = {} }) => {
                         <Image
                             {...Logo}
                             useCover={false}
+                            useCaption={false}
                             useLazyLoad={false}
                             alt={t('header.toStartPage')}
                         />

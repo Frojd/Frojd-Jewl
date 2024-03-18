@@ -1,17 +1,17 @@
 const data = {
-    src: 'dummy/test-original.jpg',
+    src: '/dummy/test-original.jpg',
     alt: 'Test',
     width: 1600,
     height: 900,
-    caption: 'Caption',
+    caption: 'Photo: Fröjd Fröjdsson',
     focal: {
         x: '50%',
         y: '50%',
     },
     srcset: [
-        'dummy/test-512.jpg 512w',
-        'dummy/test-800.jpg 800w',
-        'dummy/test-1600.jpg 1600w',
+        '/dummy/test-512.jpg 512w',
+        '/dummy/test-800.jpg 800w',
+        '/dummy/test-1600.jpg 1600w',
     ],
 };
 
@@ -22,7 +22,7 @@ export const landscape = {
     alt: 'Test',
     width: 1600,
     height: 900,
-    caption: 'Caption',
+    caption: 'Photo: Fröjd Fröjdsson',
     focal: {
         x: '50%',
         y: '50%',
@@ -39,7 +39,7 @@ export const portrait = {
     alt: 'Test',
     width: 1600,
     height: 2400,
-    caption: 'Caption',
+    caption: 'Photo: Fröjd Fröjdsson',
     focal: {
         x: '50%',
         y: '50%',
