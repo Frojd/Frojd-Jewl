@@ -1,20 +1,9 @@
 $assetsPath: '../../assets/';
+
+// Gutters used as column spacing in grid
 $gutter: 16px;
 $gutterM: 24px; // Used for media query above M
 
-// Grid and site widths
-$maxwidths: (
-    // S: 320px,
-    SL: 500px - ($gutter * 2),
-    M: 720px,
-    ML: 808px,
-    L: 1140px,
-    XL: 1280px,
-    XXL: 1440px,
-    article: 1046px,
-    header: 725px,
-    content: 618px
-);
 $breakpoints: (
     S: 375px,
     SL: 500px,
@@ -25,6 +14,28 @@ $breakpoints: (
     L: 1280px,
     XL: 1440px,
     XXL: 1680px,
+);
+
+// Spacings used as margins in viewport, added to @mixin wrap
+$spacings: (
+    d: 16px,
+    M: 24px,
+    L: 40px,
+);
+
+// Possible to add or remove widths for a more fixed or fluid grid
+$fluid: true;
+$maxwidths: (
+    // S: 320px,
+    // SL: 500px - (map-get($spacings, d) * 2),
+    // M: 720px,
+    // ML: 808px,
+    // L: 1140px,
+    XL: 1280px,
+    XXL: 1440px,
+    article: 1046px,
+    header: 725px,
+    content: 618px
 );
 $transition: 0.3s ease-in-out;
 
