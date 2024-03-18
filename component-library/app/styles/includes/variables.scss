@@ -11,6 +11,7 @@ $maxwidths: (
     L: 1140px,
     XL: 1280px,
     XXL: 1440px,
+    article: 1046px,
     header: 725px,
     content: 618px
 );
@@ -40,7 +41,7 @@ $grey-80: #424242;
 $grey-90: #212121;
 $purple: #673ab7;
 $purple-20: #ede7f6;
-$purple-40: #DBCEF2;
+$purple-40: #dbcef2;
 $purple-60: #b39ddb;
 $purple-90: #4527a0;
 $yellow: #ffee58;
@@ -254,7 +255,12 @@ $textstyles: (
     caption: (
         d: (
             font-size: 12,
-            line-height: 16.3,
+            line-height: 19.8,
+            letter-spacing: 0.2px,
+        ),
+        M: (
+            font-size: 14,
+            line-height: 16.24,
             letter-spacing: 0.2px,
         ),
     ),
