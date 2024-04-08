@@ -1,19 +1,9 @@
 $assetsPath: '../../assets/';
+
+// Gutters used as column spacing in grid
 $gutter: 16px;
 $gutterM: 24px; // Used for media query above M
 
-// Grid and site widths
-$maxwidths: (
-    // S: 320px,
-    SL: 500px - ($gutter * 2),
-    M: 720px,
-    ML: 808px,
-    L: 1140px,
-    XL: 1280px,
-    XXL: 1440px,
-    header: 725px,
-    content: 618px
-);
 $breakpoints: (
     S: 375px,
     SL: 500px,
@@ -24,6 +14,28 @@ $breakpoints: (
     L: 1280px,
     XL: 1440px,
     XXL: 1680px,
+);
+
+// Spacings used as margins in viewport, added to @mixin wrap
+$spacings: (
+    d: 16px,
+    M: 24px,
+    L: 40px,
+);
+
+// Possible to add or remove widths for a more fixed or fluid grid
+$fluid: true;
+$maxwidths: (
+    // S: 320px,
+    // SL: 500px - (map-get($spacings, d) * 2),
+    // M: 720px,
+    // ML: 808px,
+    // L: 1140px,
+    XL: 1280px,
+    XXL: 1440px,
+    article: 1046px,
+    header: 725px,
+    content: 618px
 );
 $transition: 0.3s ease-in-out;
 
@@ -40,6 +52,7 @@ $grey-80: #424242;
 $grey-90: #212121;
 $purple: #673ab7;
 $purple-20: #ede7f6;
+$purple-40: #dbcef2;
 $purple-60: #b39ddb;
 $purple-90: #4527a0;
 $yellow: #ffee58;
@@ -253,7 +266,12 @@ $textstyles: (
     caption: (
         d: (
             font-size: 12,
-            line-height: 16.3,
+            line-height: 19.8,
+            letter-spacing: 0.2px,
+        ),
+        M: (
+            font-size: 14,
+            line-height: 16.24,
             letter-spacing: 0.2px,
         ),
     ),
@@ -300,13 +318,23 @@ $textstyles: (
             line-height: 23.52,
         ),
     ),
-    submenu: (
+    submenu-parent: (
         d: (
             font-size: 16,
-            line-height: 19.7,
-            font-weight: $bold,
+            line-height: 20.16,
         ),
-        // Add bold to active and first level instead of new text style
+    ),
+    submenu-child: (
+        d: (
+            font-size: 16,
+            line-height: 20.16,
+        ),
+    ),
+    submenu-sub-child: (
+        d: (
+            font-size: 14,
+            line-height: 17.64,
+        ),
     ),
     breadcrumb: (
         d: (

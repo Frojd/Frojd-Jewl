@@ -61,55 +61,58 @@
 // Usage: @include wrap;
 @mixin wrap($exclude: ()) {
     @if not contains($exclude, d) {
-        margin-left: $gutter;
-        margin-right: $gutter;
+        margin-left: map-get($spacings, d);
+        margin-right: map-get($spacings, d);
+    }
+
+    @if not contains($exclude, S) {
+        @include breakpoint-wrap(S);
     }
 
     @if not contains($exclude, SL) {
-        @include media(SL) {
-            max-width: (map-get($maxwidths, SL));
-            margin-left: auto;
-            margin-right: auto;
-        }
+        @include breakpoint-wrap(SL);
     }
 
     @if not contains($exclude, M) {
-        @include media(M) {
-            max-width: (map-get($maxwidths, M));
-            margin-left: auto;
-            margin-right: auto;
-        }
+        @include breakpoint-wrap(M);
     }
 
     @if not contains($exclude, ML) {
-        @include media(ML) {
-            max-width: (map-get($maxwidths, ML));
-            margin-left: auto;
-            margin-right: auto;
-        }
+        @include breakpoint-wrap(ML);
     }
 
     @if not contains($exclude, L) {
-        @include media(L) {
-            max-width: (map-get($maxwidths, L));
-            margin-left: auto;
-            margin-right: auto;
-        }
+        @include breakpoint-wrap(L);
     }
 
     @if not contains($exclude, XL) {
-        @include media(XL) {
-            max-width: (map-get($maxwidths, XL));
+        @include breakpoint-wrap(XL);
+    }
+
+    @if not contains($exclude, XXL) {
+        @include breakpoint-wrap(XXL);
+    }
+}
+
+@mixin breakpoint-wrap($breakpoint) {
+    @if map-has-key($maxwidths, $breakpoint) {
+        $maxWidth: (map-get($maxwidths, $breakpoint));
+
+        @if $fluid and map-has-key($spacings, $breakpoint) {
+            $maxWidth: $maxWidth - (map-get($spacings, $breakpoint) * 2);
+        }
+
+        @include media($breakpoint) {
+            max-width: $maxWidth;
             margin-left: auto;
             margin-right: auto;
         }
     }
 
-    @if not contains($exclude, XXL) {
-        @include media(XXL) {
-            max-width: (map-get($maxwidths, XXL));
-            margin-left: auto;
-            margin-right: auto;
+    @if $fluid and map-has-key($spacings, $breakpoint) {
+        @include media($breakpoint) {
+            margin-left: (map-get($spacings, $breakpoint));
+            margin-right: (map-get($spacings, $breakpoint));
         }
     }
 }

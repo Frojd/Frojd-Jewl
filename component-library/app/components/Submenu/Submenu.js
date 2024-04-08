@@ -15,6 +15,8 @@ const Submenu = ({ id = 'submenu', title = '', nav = {} }) => {
 
     return (
         <div className={classes}>
+            <h2 className={s.Title}>{t('submenu.label')}</h2>
+
             <button
                 className={s.Button}
                 type="button"
@@ -22,9 +24,13 @@ const Submenu = ({ id = 'submenu', title = '', nav = {} }) => {
                 aria-expanded={isExpanded}
                 aria-controls={id}
             >
-                {title}
+                <span className={s.Text}>
+                    <span className={s.Label}>{t('submenu.label')}</span>
+                    {title}
+                </span>
                 <span className={s.Arrow} />
             </button>
+
             <AnimateUpDown
                 isVisible={isExpanded}
                 className={s.List}
@@ -34,10 +40,12 @@ const Submenu = ({ id = 'submenu', title = '', nav = {} }) => {
                 <Nav
                     {...nav}
                     id={`${id}-nav`}
-                    label={t('submenu.label')}
+                    label={t('submenu.nav')}
                     orientation="Vertical"
                     className={s.Nav}
                     listClassName={s.NavList}
+                    childClassName={s.NavChild}
+                    itemClassName={s.NavItem}
                     itemActiveClassName={s['NavItem--Active']}
                     toggleClassName={s.NavToggle}
                     linkClassName={s.NavLink}

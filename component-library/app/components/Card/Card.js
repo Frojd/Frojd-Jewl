@@ -19,6 +19,38 @@ const Card = ({
 
     const hasImage = !!image?.src;
 
+    const imageSizes = [
+        ...[
+            size === 'Full' && [
+                '(min-width: 1680px) 724px',
+                '(min-width: 1440px) 644px',
+            ],
+        ],
+        ...[
+            size === 'Half' && [
+                '(min-width: 1680px) 702px',
+                '(min-width: 1440px) 628px',
+            ],
+        ],
+        ...[
+            size === 'Third' && [
+                '(min-width: 1680px) 464px',
+                '(min-width: 1440px) 411px',
+                '(min-width: 1024px) 33vw',
+            ],
+        ],
+        ...[
+            size === 'Fourth' && [
+                '(min-width: 1680px) 342px',
+                '(min-width: 1440px) 302px',
+                '(min-width: 1280px) 25vw',
+                '(min-width: 1024px) 33vw',
+            ],
+        ],
+        '(min-width: 768px) 50vw',
+        '100vw',
+    ];
+
     const classes = classNames(s.Root, { [s[`Root--${size}`]]: size });
 
     return (
@@ -32,7 +64,12 @@ const Card = ({
 
             {hasImage && (
                 <div className={s.ImageContainer}>
-                    <Image {...image} className={s.Image} />
+                    <Image
+                        {...image}
+                        sizes={imageSizes}
+                        useCover={true}
+                        useCaption={false}
+                    />
                 </div>
             )}
 

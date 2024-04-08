@@ -1,16 +1,39 @@
 @import 'Styles/includes';
 
 .Root {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &--Cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.Img {
     position: relative;
     display: block;
     width: 100%;
     height: 100%;
 
-    &--Contain {
+    .Root--Contain & {
         object-fit: contain;
     }
 
-    &--Cover {
+    .Root--Cover & {
         object-fit: cover;
     }
+}
+
+.Caption {
+    @include textstyle(caption);
+
+    color: $grey-70;
+    margin-top: 8px;
 }
