@@ -10,7 +10,7 @@ The CLI tool for [Jewl](https://github.com/Frojd/Frojd-Jewl). For overview on th
 
 <!-- toc -->
 * [Overview](#overview)
-* [Project setup](#project-setup)
+* [Project setup / Usage](#project-setup--usage)
 * [Settings: jewlconfig.json](#settings-jewlconfigjson)
 * [Commands](#commands)
 <!-- tocstop -->
@@ -63,53 +63,54 @@ existing frontend project, manual mappings could be added to resolve name-collis
 
 # Commands
 <!-- commands -->
-* [`jewl-cli clone COMPONENTNAME [NEWNAME] [--container] [--layout]`](#jewl-cli-clone-componentname-newname--container--layout)
-* [`jewl-cli help [COMMAND]`](#jewl-cli-help-command)
+* [`jewl-cli clone COMPONENTNAME [NEWNAME]`](#jewl-cli-clone-componentname-newname)
+* [`jewl-cli help [COMMANDS]`](#jewl-cli-help-commands)
 * [`jewl-cli init`](#jewl-cli-init)
 * [`jewl-cli list`](#jewl-cli-list)
 * [`jewl-cli update`](#jewl-cli-update)
 
-## `jewl-cli clone COMPONENTNAME [NEWNAME] [--container] [--layout]`
+## `jewl-cli clone COMPONENTNAME [NEWNAME]`
 
-Clone components, containers or layouts from the Jewl Component Library to your local project. Will include any depencenies automatically
+Clone components from the Jewl Component Library to your local project
 
 ```
 USAGE
-  $ jewl-cli clone [COMPONENTNAME] [NEWNAME] [--container] [--layout]
+  $ jewl-cli clone COMPONENTNAME [NEWNAME] [--container] [--help] [--layout]
 
 ARGUMENTS
   COMPONENTNAME  (required) The name of the component in the Jewl Component Library
   NEWNAME        The name of the newly created component. Defaults to COMPONENTNAME
 
 FLAGS
-  --container    To clone a container instead of component
-  --layout       To clone a layout instead of component
+  --container
+  --help       Show CLI help.
+  --layout
 
 DESCRIPTION
-  Clone components, containers or layouts from the Jewl Component Library to your local project. Will include any depencenies automatically
+  Clone components from the Jewl Component Library to your local project
 
 EXAMPLES
   $ jewl clone Header
 
   $ jewl clone Header HeaderLarge
 
-  $ jewl clone Page --container
+  $ jewl clone NotFound NotFoundPage --container
 
-  $ jewl clone Base --layout
+  $ jewl clone Base BasePage --layout
 ```
 
-_See code: [dist/commands/clone.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.3/dist/commands/clone.ts)_
+_See code: [src/commands/clone.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.5/src/commands/clone.ts)_
 
-## `jewl-cli help [COMMAND]`
+## `jewl-cli help [COMMANDS]`
 
 Display help for jewl-cli.
 
 ```
 USAGE
-  $ jewl-cli help [COMMAND] [-n]
+  $ jewl-cli help [COMMANDS] [-n]
 
 ARGUMENTS
-  COMMAND  Command to show help for.
+  COMMANDS  Command to show help for.
 
 FLAGS
   -n, --nested-commands  Include all nested commands in the output.
@@ -118,7 +119,7 @@ DESCRIPTION
   Display help for jewl-cli.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.9/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.14/src/commands/help.ts)_
 
 ## `jewl-cli init`
 
@@ -136,24 +137,24 @@ EXAMPLES
   $ jewl-cli init
 ```
 
-_See code: [dist/commands/init.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.3/dist/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.5/src/commands/init.ts)_
 
 ## `jewl-cli list`
 
-Lists available components, containers and layouts in the Jewl Component Library
+Lists available components in the Jewl Component Library
 
 ```
 USAGE
   $ jewl-cli list
 
 DESCRIPTION
-  Lists available components, containers and layouts in the Jewl Component Library
+  Lists available components in the Jewl Component Library
 
 EXAMPLES
   $ jewl list
 ```
 
-_See code: [dist/commands/list.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.3/dist/commands/list.ts)_
+_See code: [src/commands/list.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.5/src/commands/list.ts)_
 
 ## `jewl-cli update`
 
@@ -170,5 +171,5 @@ EXAMPLES
   $ jewl-cli update
 ```
 
-_See code: [dist/commands/update.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.3/dist/commands/update.ts)_
+_See code: [src/commands/update.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.5/src/commands/update.ts)_
 <!-- commandsstop -->

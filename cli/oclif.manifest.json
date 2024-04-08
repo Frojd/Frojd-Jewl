@@ -1,0 +1,128 @@
+{
+  "commands": {
+    "clone": {
+      "aliases": [],
+      "args": {
+        "componentName": {
+          "description": "(required) The name of the component in the Jewl Component Library",
+          "name": "componentName",
+          "required": true
+        },
+        "newName": {
+          "description": "The name of the newly created component. Defaults to COMPONENTNAME",
+          "name": "newName",
+          "required": false
+        }
+      },
+      "description": "Clone components from the Jewl Component Library to your local project",
+      "examples": [
+        "$ jewl clone Header",
+        "$ jewl clone Header HeaderLarge",
+        "$ jewl clone NotFound NotFoundPage --container",
+        "$ jewl clone Base BasePage --layout"
+      ],
+      "flags": {
+        "container": {
+          "name": "container",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "help": {
+          "description": "Show CLI help.",
+          "name": "help",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "layout": {
+          "name": "layout",
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "clone",
+      "pluginAlias": "@frojdagency/jewl-cli",
+      "pluginName": "@frojdagency/jewl-cli",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "clone.js"
+      ]
+    },
+    "init": {
+      "aliases": [],
+      "args": {},
+      "description": "Initialize or update settings for your Jewl project. Creates a config file in your current working directory. If file already exists, this command overwrites the properties changed in the interactive cli interface",
+      "examples": [
+        "$ jewl-cli init"
+      ],
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "init",
+      "pluginAlias": "@frojdagency/jewl-cli",
+      "pluginName": "@frojdagency/jewl-cli",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "init.js"
+      ]
+    },
+    "list": {
+      "aliases": [],
+      "args": {},
+      "description": "Lists available components in the Jewl Component Library",
+      "examples": [
+        "$ jewl list"
+      ],
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "list",
+      "pluginAlias": "@frojdagency/jewl-cli",
+      "pluginName": "@frojdagency/jewl-cli",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "list.js"
+      ]
+    },
+    "update": {
+      "aliases": [],
+      "args": {},
+      "description": "Sync the latest changes from the Jewl Component Library",
+      "examples": [
+        "$ jewl-cli update"
+      ],
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "update",
+      "pluginAlias": "@frojdagency/jewl-cli",
+      "pluginName": "@frojdagency/jewl-cli",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "update.js"
+      ]
+    }
+  },
+  "version": "0.0.5"
+}
