@@ -60,13 +60,14 @@ export default class Clone extends Command {
       this.error(`No component named ${componentName} found in local repository. Try "jewl list" to see available components`)
     }
 
-    if (fse.existsSync(componentDestinationAbsPath)) {
-      this.error(`The path ${componentDestinationAbsPath} does already exist. Aborting...`)
-    }
-
     const _package = await fse.readJson(path.join(componentAbsPath, 'package.json')).catch(error => {
       this.error(`Component "${componentName}" package.json file unreadable or non existing: ` + error)
     })
+
+    if (fse.existsSync(componentDestinationAbsPath)) {
+      this.warn(`The path ${componentDestinationAbsPath} does already exist. Skipping...`)
+      return
+    }
 
     // TODO: Ask if dependency should be installed
     if (_package.dependencies) {
