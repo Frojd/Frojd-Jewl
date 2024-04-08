@@ -8,8 +8,8 @@ interface JewlLocalConfig {
 }
 
 interface JewlComponentMapping {
-  jewlName: string;
   jewlDirectory: string;
+  jewlName: string;
   localName: string;
 }
 
@@ -20,11 +20,11 @@ interface JewlComponentPaths {
 }
 
 export interface JewlConfig {
+  componentMapping: Array<JewlComponentMapping>;
   componentPaths: JewlComponentPaths;
   repository: string;
   repositoryBranch: string;
   repositoryPaths: JewlComponentPaths;
-  componentMapping: Array<JewlComponentMapping>;
 }
 
 export class ComponentsDirectoryMissing extends Error {}
@@ -52,12 +52,14 @@ function _getLocalConfig(): JewlLocalConfig {
   return JSON.parse(fs.readFileSync(_path).toString('utf8'))
 }
 
-function _getDirectoryPath() {
-
-}
-
 export function getConfig(): JewlConfig {
   const defaultConfig = {
+    componentMapping: [],
+    componentPaths: {
+      components: 'app/components',
+      containers: 'app/containers',
+      layouts: 'app/layouts',
+    },
     repository: 'https://github.com/Frojd/Frojd-Jewl.git',
     repositoryBranch: 'develop',
     repositoryPaths: {
@@ -65,12 +67,6 @@ export function getConfig(): JewlConfig {
       containers: 'component-library/app/containers',
       layouts: 'component-library/app/layouts',
     },
-    componentPaths: {
-      components: 'app/components',
-      containers: 'app/containers',
-      layouts: 'app/layouts',
-    },
-    componentMapping: [],
   }
 
   const localConfig = _getLocalConfig()
@@ -87,10 +83,9 @@ export function getRepositoryComponentPath(directory: string): string {
   try {
     const componentPath = path.join(getBasePath(), REPO_PATH, dirPath)
     return componentPath
-  } catch(error) {
+  } catch{
     throw new ComponentsDirectoryMissing(`Components directory ${directory} is missing`)
   }
-  return ''
 }
 
 export function getLocalComponentPath(directory: string): string {
@@ -126,7 +121,7 @@ export function addComponentMapping(jewlName: string, jewlDirectory: string, loc
   const config = getConfig()
   const exists = [...config.componentMapping].find((mapping) => mapping.localName === localName);
   if(!exists) {
-    config.componentMapping = [...config.componentMapping, {jewlName, jewlDirectory, localName}]
+    config.componentMapping = [...config.componentMapping, {jewlDirectory, jewlName, localName}]
     storeConfig(config)
   }
 }

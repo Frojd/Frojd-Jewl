@@ -1,30 +1,24 @@
-import { Command, Args, Flags} from '@oclif/core'
+import { Args, Command, Flags} from '@oclif/core'
 import * as fse from 'fs-extra'
 import * as path from 'node:path'
 import { addDependency, installDependencies } from 'nypm'
 
 import {
   LocalConfigMissing,
-  getRepositoryComponentPath,
-  getLocalComponentPath,
   addComponentMapping,
-  getComponentLocalNames,
   getAvailableComponents,
+  getComponentLocalNames,
+  getLocalComponentPath,
+  getRepositoryComponentPath,
 } from '../utils/config'
 
 export default class Clone extends Command {
-  static description = 'Clone components from the Jewl Component Library to your local project'
-
   static args = {
-    componentName: Args.string({ required: true, description: '(required) The name of the component in the Jewl Component Library'}),
-    newName: Args.string({ required: false, description: 'The name of the newly created component. Defaults to COMPONENTNAME' }),
+    componentName: Args.string({ description: '(required) The name of the component in the Jewl Component Library', required: true}),
+    newName: Args.string({ description: 'The name of the newly created component. Defaults to COMPONENTNAME', required: false }),
   }
 
-  static flags = {
-    help: Flags.help(),
-    container: Flags.boolean(),
-    layout: Flags.boolean(),
-  }
+  static description = 'Clone components from the Jewl Component Library to your local project'
 
   static examples = [
     '$ jewl clone Header',
@@ -32,6 +26,12 @@ export default class Clone extends Command {
     '$ jewl clone NotFound NotFoundPage --container',
     '$ jewl clone Base BasePage --layout',
   ]
+
+  static flags = {
+    container: Flags.boolean(),
+    help: Flags.help(),
+    layout: Flags.boolean(),
+  }
 
   async run() {
     const {args, flags} = await this.parse(Clone)
@@ -83,6 +83,21 @@ export default class Clone extends Command {
     fse.copySync(componentAbsPath, componentDestinationAbsPath)
   }
 
+  private async installDependencies(dependencies: Array<string>) {
+    const install = []
+    for (const dep in dependencies) {
+      if (Object.prototype.hasOwnProperty.call(dependencies, dep)) {
+        install.push(dep + '@' + dependencies[dep])
+      }
+    }
+
+    this.log('Installing npm dependencies...')
+
+    // TODO: Changed from lmify install to nypm installDependencies, make sure it works
+    addDependency(install)
+    installDependencies()
+  }
+
   private async installJewlDependencies(dependencies: Array<string>, currentLocalName: string) {
     dependencies.map(async (dep: string) => {
       const paths = dep.split('/')
@@ -98,20 +113,5 @@ export default class Clone extends Command {
         await this.clone(depDir, depName, depName)
       }
     })
-  }
-
-  private async installDependencies(dependencies: Array<string>) {
-    const install = []
-    for (const dep in dependencies) {
-      if (Object.prototype.hasOwnProperty.call(dependencies, dep)) {
-        install.push(dep + '@' + dependencies[dep])
-      }
-    }
-
-    this.log('Installing npm dependencies...')
-
-    // TODO: Changed from lmify install to nypm installDependencies, make sure it works
-    addDependency(install)
-    installDependencies()
   }
 }

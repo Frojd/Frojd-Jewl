@@ -12,37 +12,36 @@
     "jewl-cli": "bin/run"
   },
   "dependencies": {
-    "@oclif/core": "^3.19.5",
+    "@oclif/core": "^3",
     "@oclif/plugin-help": "^6.0.14",
+    "@oclif/plugin-plugins": "^4",
     "classnames": "^2.5.1",
     "fs-extra": "^11.2.0",
     "nodegit": "^0.28.0-alpha.24",
     "nypm": "^0.3.6",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0"
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
-    "@oclif/test": "^3.2.0",
-    "@types/chai": "^4.3.12",
+    "@oclif/prettier-config": "^0.2.1",
+    "@oclif/test": "^3",
+    "@types/chai": "^4",
     "@types/fs-extra": "^11.0.4",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "^20.11.20",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18",
     "@types/nodegit": "^0.28.7",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "chai": "^5.1.0",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "eslint-config-oclif": "^5",
-    "eslint-config-oclif-typescript": "^3.0.48",
+    "eslint-config-oclif-typescript": "^3",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-unicorn": "^51.0.1",
-    "globby": "^14.0.1",
-    "mocha": "^10.3.0",
-    "nyc": "^15.1.0",
-    "oclif": "^4.4.17",
+    "mocha": "^10",
+    "oclif": "^4",
     "shx": "^0.3.4",
     "ts-node": "^10.9.2",
-    "tslib": "^2.6.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -50,7 +49,6 @@
   "files": [
     "/bin",
     "/dist",
-    "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
   "main": "dist/index.js",
@@ -58,7 +56,8 @@
     "commands": "./dist/commands",
     "bin": "jewl-cli",
     "plugins": [
-      "@oclif/plugin-help"
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
     ],
     "topicSeparator": " ",
     "topics": {
@@ -72,12 +71,13 @@
     "url": "git+https://github.com/Frojd/Frojd-Jewl.git"
   },
   "scripts": {
-    "fixcode": "eslint . --ext .ts --config .eslintrc --fix",
     "build": "shx rm -rf dist && tsc -b",
-    "lint": "eslint . --ext .ts --config .eslintrc",
+    "lint": "eslint . --ext .ts",
+    "fixcode": "eslint . --ext .ts --fix",
     "postpack": "shx rm -f oclif.manifest.json",
-    "posttest": "npm lint",
-    "prepack": "yarn build && oclif manifest && oclif readme",
+    "posttest": "npm run lint",
+    "prepack": "npm run build && oclif manifest && oclif readme",
+    "prepare": "npm run build",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },

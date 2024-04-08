@@ -1,7 +1,8 @@
 import {Command} from '@oclif/core'
-import {REPO_PATH} from '../constants'
 import {Repository} from 'nodegit'
-import {getConfig, JewlConfig} from '../utils/config'
+
+import {REPO_PATH} from '../constants'
+import {JewlConfig, getConfig} from '../utils/config'
 
 export default class Update extends Command {
   static description = 'Sync the latest changes from the Jewl Component Library'
