@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import Facebook from 'SVG/facebook.svg';
-import Instagram from 'SVG/instagram.svg';
-import LinkedIn from 'SVG/linkedin.svg';
+import Icon from 'Components/Icon';
 import s from './Follow.module.scss';
 
 const Follow = ({ id = 'follow', title = '', items = [] }) => {
@@ -35,18 +33,11 @@ Follow.propTypes = {
 const Item = ({ href = '', type = '' }) => {
     const { t } = useTranslation();
 
-    const icons = {
-        Facebook: Facebook,
-        Instagram: Instagram,
-        LinkedIn: LinkedIn,
-    };
-    const Icon = icons[type];
-
     const classes = classNames(s.Item, [s[`Item--${type}`]]);
     return (
         <a className={s.Link} href={href} target="_blank">
             <span className="sr-only">{t('follow.goTo', { name: type })}</span>
-            {Icon && <Icon className={s.Icon} />}
+            {Icon && <Icon name={type} className={s.Icon} />}
         </a>
     );
 };

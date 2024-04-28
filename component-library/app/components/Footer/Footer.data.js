@@ -1,5 +1,4 @@
 import follow from 'Components/Follow/Follow.data';
-import Mail from 'SVG/mail.svg';
 
 const data = {
     follow: follow,

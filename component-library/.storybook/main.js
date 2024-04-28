@@ -8,7 +8,6 @@ const aliases = {
     Utils: path.resolve(__dirname, '../app/utils/'),
     Styles: path.resolve(__dirname, '../app/styles/'),
     Assets: path.resolve(__dirname, '../app/assets/'),
-    SVG: path.resolve(__dirname, '../app/inline-svg/'),
     i18n: path.resolve(__dirname, '../app/i18n/'),
 };
 module.exports = {
@@ -61,13 +60,19 @@ module.exports = {
             if (/svg/.test(String(data.test))) {
                 data.test =
                     /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/;
-                data.exclude = path.resolve(__dirname, '../app/inline-svg/');
+                data.exclude = path.resolve(
+                    __dirname,
+                    '../app/components/Icon/inline-svg/'
+                );
             }
             return data;
         });
         config.module.rules.push({
             test: /\.svg$/,
-            include: path.resolve(__dirname, '../app/inline-svg/'),
+            include: path.resolve(
+                __dirname,
+                '../app/components/Icon/inline-svg/'
+            ),
             issuer: /\.[jt]sx?$/,
             use: ['@svgr/webpack'],
         });

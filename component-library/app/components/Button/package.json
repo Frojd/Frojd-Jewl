@@ -7,5 +7,6 @@
     "classnames": "*"
   },
   "jewlDependencies": [
+    "Icon"
   ]
 }

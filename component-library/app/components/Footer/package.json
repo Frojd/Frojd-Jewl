@@ -9,6 +9,7 @@
   },
   "jewlDependencies": [
     "Follow",
+    "Icon",
     "Image",
     "Nav"
   ]
