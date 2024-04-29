@@ -65,7 +65,7 @@ const Icon = ({
     if (asImg) {
         return <Image {...Comp} {...rest} className={classes} />;
     } else if (asBg) {
-        return <i style={style} className={classes} />;
+        return <i {...rest} style={style} className={classes} />;
     } else {
         return <Comp {...rest} className={classes} />;
     }
