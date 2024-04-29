@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { AnimateInOut } from 'Components/Animate';
-import Icon from 'Components/Icon';
-import Nav from 'Components/Nav';
-import NavigationDrawer from 'Components/NavigationDrawer';
-import SearchForm from 'Components/SearchForm';
-import SkipToContent from 'Components/SkipToContent';
+import { AnimateInOut } from '../Animate';
+import Icon from '../Icon';
+import Nav from '../Nav';
+import NavigationDrawer from '../NavigationDrawer';
+import SearchForm from '../SearchForm';
+import SkipToContent from '../SkipToContent';
 import s from './Header.module.scss';
 
 const Header = ({ main = {}, service = {} }) => {

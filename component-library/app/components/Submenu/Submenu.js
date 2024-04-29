@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { AnimateUpDown } from 'Components/Animate';
-import Icon from 'Components/Icon';
-import Nav from 'Components/Nav';
+import { AnimateUpDown } from '../Animate';
+import Icon from '../Icon';
+import Nav from '../Nav';
 import s from './Submenu.module.scss';
 
 const Submenu = ({ id = 'submenu', title = '', nav = {} }) => {

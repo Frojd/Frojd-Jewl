@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Grid from 'Components/Grid';
-import Card from 'Components/Card';
-import Pagination from 'Components/Pagination';
+import Grid from '../Grid';
+import Card from '../Card';
+import Pagination from '../Pagination';
 import s from './ArchiveResult.module.scss';
 
 const ArchiveResult = ({

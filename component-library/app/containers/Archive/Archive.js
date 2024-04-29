@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Base from 'Layouts/Base';
-import ArchiveResult from 'Components/ArchiveResult';
+import Base from '../../layouts/Base';
+import ArchiveResult from '../../components/ArchiveResult';
 import s from './Archive.module.scss';
 
 const Archive = ({ title = '', text = '', archiveResult = {} }) => {

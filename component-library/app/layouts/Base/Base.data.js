@@ -1,6 +1,6 @@
-import header from 'Components/Header/Header.data';
-import breadcrumbs from 'Components/Breadcrumbs/Breadcrumbs.data';
-import footer from 'Components/Footer/Footer.data';
+import header from '../../components/Header/Header.data';
+import breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs.data';
+import footer from '../../components/Footer/Footer.data';
 
 const data = {
     header: header,

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import Fieldset from 'Components/Fieldset';
-import PillGroup from 'Components/PillGroup';
-import Grid from 'Components/Grid';
-import Card from 'Components/Card';
-import Pagination from 'Components/Pagination';
+import Fieldset from '../Fieldset';
+import PillGroup from '../PillGroup';
+import Grid from '../Grid';
+import Card from '../Card';
+import Pagination from '../Pagination';
 import s from './SearchResult.module.scss';
 
 const SearchResult = ({

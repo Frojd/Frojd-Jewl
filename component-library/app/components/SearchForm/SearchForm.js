@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import Icon from 'Components/Icon';
+import Icon from '../Icon';
 import s from './SearchForm.module.scss';
 
 const SearchForm = ({

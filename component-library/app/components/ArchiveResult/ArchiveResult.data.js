@@ -1,4 +1,4 @@
-import grid from 'Components/Grid/Grid.data';
+import grid from '../Grid/Grid.data';
 
 const data = {
     items: grid.items,

@@ -1,4 +1,4 @@
-import card from 'Components/Card/Card.data';
+import card from '../Card/Card.data';
 
 const Card = ({ size }) => {
     const title = `-- Card ${size} --`;

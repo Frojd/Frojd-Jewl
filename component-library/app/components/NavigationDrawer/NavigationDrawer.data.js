@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Nav from 'Components/Nav';
-import menu from 'Components/Nav/Nav.data';
+import Nav from '../Nav';
+import menu from '../Nav/Nav.data';
 
 const children = (
     <>

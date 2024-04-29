@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import Icon from 'Components/Icon';
+import Icon from '../Icon';
 import s from './Breadcrumbs.module.scss';
 
 const Breadcrumbs = ({ items = [] }) => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Breadcrumbs from 'Components/Breadcrumbs';
-import Header from 'Components/Header';
-import Footer from 'Components/Footer';
+import Breadcrumbs from '../../components/Breadcrumbs';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import s from './Base.module.scss';
 
 const Base = (Container) => {

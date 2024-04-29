@@ -1,7 +1,7 @@
-import base from 'Layouts/Base/Base.data';
-import image from 'Components/Image/Image.data';
-import richtext from 'Components/Richtext/Richtext.data';
-import submenu from 'Components/Submenu/Submenu.data';
+import base from '../../layouts/Base/Base.data';
+import image from '../../components/Image/Image.data';
+import richtext from '../../components/Richtext/Richtext.data';
+import submenu from '../../components/Submenu/Submenu.data';
 
 const data = {
     ...base,

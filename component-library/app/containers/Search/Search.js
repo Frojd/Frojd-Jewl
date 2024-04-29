@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Base from 'Layouts/Base';
-import SearchForm from 'Components/SearchForm';
-import SearchResult from 'Components/SearchResult';
+import Base from '../../layouts/Base';
+import SearchForm from '../../components/SearchForm';
+import SearchResult from '../../components/SearchResult';
 import s from './Search.module.scss';
 
 const Search = ({

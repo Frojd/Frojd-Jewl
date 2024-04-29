@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { AnimateLeftRight } from 'Components/Animate';
-import Icon from 'Components/Icon';
+import { AnimateLeftRight } from '../Animate';
+import Icon from '../Icon';
 import s from './NavigationDrawer.module.scss';
 
 const NavigationDrawer = ({

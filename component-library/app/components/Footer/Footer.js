@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import Follow from 'Components/Follow';
-import Icon from 'Components/Icon';
-import Nav from 'Components/Nav';
+import Follow from '../Follow';
+import Icon from '../Icon';
+import Nav from '../Nav';
 import s from './Footer.module.scss';
 
 const Footer = ({

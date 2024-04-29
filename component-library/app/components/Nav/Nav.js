@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import _ from 'lodash';
-import { AnimateUpDown } from 'Components/Animate';
-import Icon from 'Components/Icon';
+import { AnimateUpDown } from '../Animate';
+import Icon from '../Icon';
 import s from './Nav.module.scss';
 
 const Nav = ({

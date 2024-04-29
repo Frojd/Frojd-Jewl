@@ -1,4 +1,4 @@
-import follow from 'Components/Follow/Follow.data';
+import follow from '../Follow/Follow.data';
 
 const data = {
     follow: follow,

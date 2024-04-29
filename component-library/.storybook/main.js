@@ -1,15 +1,5 @@
 const path = require('path');
 
-const aliases = {
-    App: path.resolve(__dirname, '../app/'),
-    Components: path.resolve(__dirname, '../app/components/'),
-    Containers: path.resolve(__dirname, '../app/containers/'),
-    Layouts: path.resolve(__dirname, '../app/layouts/'),
-    Utils: path.resolve(__dirname, '../app/utils/'),
-    Styles: path.resolve(__dirname, '../app/styles/'),
-    Assets: path.resolve(__dirname, '../app/assets/'),
-    i18n: path.resolve(__dirname, '../app/i18n/'),
-};
 module.exports = {
     staticDirs: ['./assets'],
 
@@ -55,7 +45,6 @@ module.exports = {
     },
 
     webpackFinal: async (config, { configType }) => {
-        config.resolve.alias = { ...config.resolve.alias, ...aliases };
         config.module.rules = config.module.rules.map((data) => {
             if (/svg/.test(String(data.test))) {
                 data.test =

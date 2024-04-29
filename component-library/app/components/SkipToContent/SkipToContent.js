@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import Button from 'Components/Button';
+import Button from '../Button';
 import s from './SkipToContent.module.scss';
 
 const SkipToContent = ({ skipTo = '#main-content' }) => {
