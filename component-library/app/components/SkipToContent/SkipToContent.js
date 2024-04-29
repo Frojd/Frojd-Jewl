@@ -12,7 +12,7 @@ const SkipToContent = ({ skipTo = '#main-content' }) => {
             className={s.Root}
             modifier="Secondary"
             tabIndex="0"
-            href={skipTo}
+            url={skipTo}
         >
             {t('skipToContent.buttonText')}
         </Button>
