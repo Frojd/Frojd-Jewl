@@ -9,6 +9,7 @@
     "lodash": "*"
   },
   "jewlDependencies": [
-    "Animate"
+    "Animate",
+    "Icon"
   ]
 }

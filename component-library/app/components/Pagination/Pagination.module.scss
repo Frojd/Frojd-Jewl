@@ -100,11 +100,10 @@
 
 .Previous,
 .Next {
+    position: relative;
     width: 28px;
     height: 28px;
-    background: url('#{$assetsPath}img/chevron--grey-70.svg') no-repeat center
-        center;
-    background-size: 24px;
+    color: black;
     transition: transform $transition;
 
     @include media(SL) {
@@ -115,6 +114,17 @@
     @include media(M) {
         width: 48px;
         height: 56px;
+    }
+
+    > i {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 24px;
+        height: 24px;
+        margin: auto;
     }
 }
 

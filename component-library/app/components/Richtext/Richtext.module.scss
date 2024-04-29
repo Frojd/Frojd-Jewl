@@ -106,10 +106,9 @@
             width: 24px;
             height: 24px;
             margin-left: 6px;
+            background-color: currentcolor;
             line-height: 1;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
+            mask-size: contain;
             transition: background-image $transition;
         }
 
@@ -119,27 +118,23 @@
             &::before {
                 background: $link-color;
             }
+
+            &::after {
+                color: $link-color;
+            }
         }
 
         @include href-external {
             &::after {
                 display: inline-block;
-                background-image: url('#{$assetsPath}img/external--grey-90.svg');
-            }
-
-            &:hover::after {
-                background-image: url('#{$assetsPath}img/external--purple.svg');
+                mask-image: url('../Icon/img/external.svg');
             }
         }
 
         @include href-download {
             &::after {
                 display: inline-block;
-                background-image: url('#{$assetsPath}img/download--grey-90.svg') !important;
-            }
-
-            &:hover::after {
-                background-image: url('#{$assetsPath}img/download--purple.svg') !important;
+                mask-image: url('../Icon/img/download.svg') !important;
             }
         }
 
@@ -187,9 +182,8 @@
                 position: absolute;
                 top: 0;
                 left: -24px;
-                background: url('#{$assetsPath}img/bullet--purple.svg')
-                    no-repeat center center;
-                background-size: contain;
+                background-color: $purple;
+                mask-image: url('../Icon/img/bullet.svg');
             }
         }
     }

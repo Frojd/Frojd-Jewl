@@ -68,6 +68,20 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
+
+    > i {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-left: auto;
+        color: $purple;
+        transform: rotate(0deg);
+        transition: transform $transition;
+
+        .Root--Expanded & {
+            transform: rotate(-180deg);
+        }
+    }
 }
 
 .Text {
@@ -86,22 +100,6 @@
     letter-spacing: 1.5px;
     line-height: 1.26;
     text-transform: uppercase;
-}
-
-.Arrow {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    margin-left: auto;
-    background: url('#{$assetsPath}img/chevron--purple.svg') no-repeat center
-        center;
-    background-size: contain;
-    transform: rotate(0deg);
-    transition: transform $transition;
-
-    .Root--Expanded & {
-        transform: rotate(-180deg);
-    }
 }
 
 .List {

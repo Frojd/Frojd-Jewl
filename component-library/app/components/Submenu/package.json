@@ -9,6 +9,7 @@
   },
   "jewlDependencies": [
     "Animate",
+    "Icon",
     "Nav"
   ]
 }

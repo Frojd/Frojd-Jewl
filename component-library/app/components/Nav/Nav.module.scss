@@ -96,36 +96,28 @@
     color: inherit;
     text-decoration: underline;
 
-    // ::before is used for line, ::after is for icon
-    &::after {
-        content: '';
-        display: none;
-        position: relative;
-        top: 4px;
-        width: 16px;
-        height: 16px;
-        margin-left: 8px;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: contain;
-    }
-
     &:hover {
         color: $link-hover-color;
         text-decoration: none;
     }
 
     @include href-external {
-        &::after {
+        > i.LinkIcon--External {
             display: inline-block;
-            background-image: url('#{$assetsPath}img/external--purple.svg');
+        }
+
+        > i.LinkIcon--Download {
+            display: none;
         }
     }
 
     @include href-download {
-        &::after {
-            display: inline-block;
-            background-image: url('#{$assetsPath}img/download--purple.svg') !important;
+        > i.LinkIcon--Download {
+            display: inline-block !important;
+        }
+
+        > i.LinkIcon--External {
+            display: none !important;
         }
     }
 
@@ -138,4 +130,13 @@
             display: none !important;
         }
     }
+}
+
+.LinkIcon {
+    display: none;
+    position: relative;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
 }

@@ -52,32 +52,21 @@
     flex: 0 0 auto;
     position: relative;
 
-    &::after {
-        content: '';
-        display: none;
+    > i {
+        display: inline-block;
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 0;
+        left: 0;
         margin: auto;
         width: 12px;
         height: 12px;
-        background: url('#{$assetsPath}img/chevron--grey-90.svg') no-repeat
-            center center;
-        background-size: contain;
+        color: $grey-90;
         transform: rotate(-90deg);
-
-        @include media(M) {
-            right: 0;
-        }
     }
 
-    &:not(:last-child) {
-        padding-right: 12px;
-
-        &::after {
-            display: block;
-        }
+    &:not(:first-child) {
+        padding-left: 12px;
     }
 }
 

@@ -92,18 +92,6 @@
     &:hover {
         color: white;
     }
-
-    @include href-external {
-        &::after {
-            background-image: url('#{$assetsPath}img/external--white.svg');
-        }
-    }
-
-    @include href-download {
-        &::after {
-            background-image: url('#{$assetsPath}img/download--white.svg') !important;
-        }
-    }
 }
 
 .Title {

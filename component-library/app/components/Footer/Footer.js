@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import Follow from 'Components/Follow';
-import Image from 'Components/Image';
+import Icon from 'Components/Icon';
 import Nav from 'Components/Nav';
-import Logo from 'Assets/img/logo--white.svg';
 import s from './Footer.module.scss';
 
 const Footer = ({
@@ -31,8 +30,9 @@ const Footer = ({
                 <div className={s.Columns}>
                     <div className={s.Column}>
                         <a className={s.LogoLink} href="/">
-                            <Image
-                                {...Logo}
+                            <Icon
+                                name="LogoWhite"
+                                asImg={true}
                                 useCover={false}
                                 useCaption={false}
                                 useLazyLoad={false}
