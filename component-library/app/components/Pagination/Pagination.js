@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+import Icon from '../Icon';
 import s from './Pagination.module.scss';
 
 const Pagination = ({
@@ -70,7 +71,9 @@ const Pagination = ({
                         disabled={prevPage === null}
                         aria-label={t('pagination.previous')}
                         onClick={(e) => onClickHandler(e, prevPage)}
-                    />
+                    >
+                        <Icon name="Chevron" asBg={true} />
+                    </a>
                 </li>
 
                 {items.map((p, index) => (
@@ -92,7 +95,9 @@ const Pagination = ({
                         disabled={nextPage === null}
                         aria-label={t('pagination.next')}
                         onClick={(e) => onClickHandler(e, nextPage)}
-                    />
+                    >
+                        <Icon name="Chevron" asBg={true} />
+                    </a>
                 </li>
             </ul>
         </nav>

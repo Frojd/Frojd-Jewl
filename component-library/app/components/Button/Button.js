@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Arrow from 'SVG/arrow.svg';
-import External from 'SVG/external.svg';
-import Download from 'SVG/download.svg';
+import Icon from '../Icon';
 import s from './Button.module.scss';
 
 const Button = ({
@@ -50,7 +48,7 @@ const Button = ({
         >
             {title && <span>{title}</span>}
             {children && <span>{children}</span>}
-            {icon && <Icon icon={icon} />}
+            {icon && <Icon name={icon} />}
         </Tag>
     );
 };
@@ -79,22 +77,6 @@ Button.propTypes = {
     icon: PropTypes.oneOf([null, '', 'External', 'Arrow', 'Download']),
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
-};
-
-const Icon = ({ icon = '' }) => {
-    if (icon === 'External') {
-        return <External />;
-    } else if (icon === 'Arrow') {
-        return <Arrow />;
-    } else if (icon === 'Download') {
-        return <Download />;
-    } else {
-        return null;
-    }
-};
-
-Icon.propTypes = {
-    icon: PropTypes.string.isRequired,
 };
 
 export default Button;

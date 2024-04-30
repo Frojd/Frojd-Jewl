@@ -1,5 +1,5 @@
-import grid from 'Components/Grid/Grid.data';
-import pillGroup from 'Components/PillGroup/PillGroup.data';
+import grid from '../Grid/Grid.data';
+import pillGroup from '../PillGroup/PillGroup.data';
 
 const data = {
     keyword: 'Testar sök',

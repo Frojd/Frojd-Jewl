@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import Fieldset from 'Components/Fieldset';
+import Fieldset from '../Fieldset';
 import s from './PillGroup.module.scss';
 
 const PillGroup = ({

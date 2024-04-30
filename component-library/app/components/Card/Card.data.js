@@ -1,4 +1,4 @@
-import image from 'Components/Image/Image.data';
+import image from '../Image/Image.data';
 
 const data = {
     title: 'Card longer&shy;title',

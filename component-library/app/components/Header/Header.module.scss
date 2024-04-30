@@ -1,4 +1,4 @@
-@import 'Styles/includes';
+@import '../../styles/includes';
 
 .Root {
     border-bottom: 1px solid $purple-20;
@@ -64,6 +64,10 @@
     }
 }
 
+.Root .NavServiceMenuLinkIcon {
+    background-color: $purple;
+}
+
 .Search {
     display: flex;
     justify-content: flex-end;
@@ -104,16 +108,14 @@
         transition: opacity $transition;
     }
 
-    &::after {
-        content: '';
+    > i {
         display: inline-block;
         position: relative;
         top: 2px;
         width: 16px;
         height: 16px;
         margin-left: 8px;
-        background: url('#{$assetsPath}img/search.svg') no-repeat center center;
-        background-size: contain;
+        color: $purple;
     }
 
     &:hover {
@@ -195,17 +197,18 @@
         transition: background $transition, opacity $transition;
     }
 
-    &::after {
-        top: 6px;
-        width: 20px;
-        height: 20px;
-    }
-
     &:hover {
         &::before {
             opacity: 1;
         }
     }
+}
+
+.Root .NavMainMenuLinkIcon {
+    top: 6px;
+    width: 20px;
+    height: 20px;
+    background-color: $purple;
 }
 
 .Root .NavMainMenuItem {
@@ -260,12 +263,6 @@
             background-color $transition;
     }
 
-    &::after {
-        top: 4px;
-        width: 18px;
-        height: 18px;
-    }
-
     &:hover {
         color: $primary-color;
 
@@ -275,6 +272,13 @@
             background: $primary-color;
         }
     }
+}
+
+.Root .NavMobileMainLinkIcon {
+    top: 4px;
+    width: 18px;
+    height: 18px;
+    background-color: $purple;
 }
 
 // Wrap Nav classes in Root so it has higher priority
@@ -314,4 +318,8 @@
             opacity: 1;
         }
     }
+}
+
+.Root .NavMobileServiceLinkIcon {
+    background-color: $purple;
 }

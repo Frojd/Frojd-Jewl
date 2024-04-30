@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from 'Layouts/Base';
-import Image from 'Components/Image';
-import Richtext from 'Components/Richtext';
-import Submenu from 'Components/Submenu';
+import Base from '../../layouts/Base';
+import Image from '../../components/Image';
+import Richtext from '../../components/Richtext';
+import Submenu from '../../components/Submenu';
 import s from './Page.module.scss';
 
 const Page = ({ title = '', image = {}, content = {}, submenu = {} }) => {

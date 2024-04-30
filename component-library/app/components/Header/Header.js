@@ -1,13 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import Logo from 'Assets/img/logo.svg';
-import { AnimateInOut } from 'Components/Animate';
-import Image from 'Components/Image';
-import Nav from 'Components/Nav';
-import NavigationDrawer from 'Components/NavigationDrawer';
-import SearchForm from 'Components/SearchForm';
-import SkipToContent from 'Components/SkipToContent';
+import { AnimateInOut } from '../Animate';
+import Icon from '../Icon';
+import Nav from '../Nav';
+import NavigationDrawer from '../NavigationDrawer';
+import SearchForm from '../SearchForm';
+import SkipToContent from '../SkipToContent';
 import s from './Header.module.scss';
 
 const Header = ({ main = {}, service = {} }) => {
@@ -45,6 +44,7 @@ const Header = ({ main = {}, service = {} }) => {
                             onClick={() => setIsSearchVisible(!isSearchVisible)}
                         >
                             {t('header.search')}
+                            <Icon name="Search" asBg={true} />
                         </button>
                         <AnimateInOut
                             className={s.SearchForm}
@@ -68,6 +68,7 @@ const Header = ({ main = {}, service = {} }) => {
                             className={s.NavServiceMenu}
                             listClassName={s.NavServiceMenuList}
                             linkClassName={s.NavServiceMenuLink}
+                            linkIconClassName={s.NavServiceMenuLinkIcon}
                         />
                     </div>
                 </div>
@@ -76,8 +77,9 @@ const Header = ({ main = {}, service = {} }) => {
             <div className={s.Main}>
                 <div className={s.Wrap}>
                     <a className={s.LogoLink} href="/">
-                        <Image
-                            {...Logo}
+                        <Icon
+                            name="Logo"
+                            asImg={true}
                             useCover={false}
                             useCaption={false}
                             useLazyLoad={false}
@@ -96,6 +98,7 @@ const Header = ({ main = {}, service = {} }) => {
                             listClassName={s.NavMainMenuList}
                             itemActiveClassName={s['NavMainMenuItem--Active']}
                             linkClassName={s.NavMainMenuLink}
+                            linkIconClassName={s.NavMainMenuLinkIcon}
                         />
                     </div>
 
@@ -109,6 +112,7 @@ const Header = ({ main = {}, service = {} }) => {
                                 className={s.NavMobileMain}
                                 listClassName={s.NavMobileMainList}
                                 linkClassName={s.NavMobileMainLink}
+                                linkIconClassName={s.NavMobileMainLinkIcon}
                             />
                             <Nav
                                 {...serviceMenu}
@@ -119,6 +123,7 @@ const Header = ({ main = {}, service = {} }) => {
                                 listClassName={s.NavMobileServiceList}
                                 itemClassName={s.NavMobileServiceItem}
                                 linkClassName={s.NavMobileServiceLink}
+                                linkIconClassName={s.NavMobileServiceLinkIcon}
                             />
                         </NavigationDrawer>
                     </div>

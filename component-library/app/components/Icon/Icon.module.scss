@@ -1,0 +1,15 @@
+@import '../../styles/includes';
+
+.Root {
+    display: inline-block;
+    color: inherit;
+
+    &--Bg {
+        mask-size: contain;
+        background-color: currentcolor;
+    }
+
+    &--Svg {
+        fill: currentcolor;
+    }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
-import i18n from 'i18n';
+import i18n from '../app/i18n';
 import './storybook.scss';
 
 const withProvider = (Story, context) => {

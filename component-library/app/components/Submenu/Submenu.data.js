@@ -1,4 +1,4 @@
-import { withChildren } from 'Components/Nav/Nav.data';
+import { withChildren } from '../Nav/Nav.data';
 
 const data = {
     id: 'submenu',

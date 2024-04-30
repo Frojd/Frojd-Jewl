@@ -8,6 +8,7 @@
   },
   "jewlDependencies": [
     "Animate",
+    "Icon",
     "Image",
     "Nav",
     "NavigationDrawer",

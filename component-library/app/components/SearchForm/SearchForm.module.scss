@@ -1,4 +1,4 @@
-@import 'Styles/includes';
+@import '../../styles/includes';
 
 .Root {
     position: relative;
@@ -54,9 +54,7 @@
     padding: 6px;
     border: none;
     border-radius: 50%;
-    background: $purple-20 url('#{$assetsPath}img/search.svg') no-repeat center
-        center;
-    background-size: 16px 16px;
+    background: $purple-20;
     box-shadow: none;
     -webkit-appearance: none;
     transition: background-color $transition;
@@ -68,10 +66,26 @@
         background-color: $purple-60;
     }
 
+    > i {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: $purple;
+        width: 16px;
+        height: 16px;
+        margin: auto;
+    }
+
     .Root--Search & {
         right: 6px;
         height: 44px;
         width: 44px;
-        background-size: 24px 24px;
+
+        > i {
+            width: 24px;
+            height: 24px;
+        }
     }
 }

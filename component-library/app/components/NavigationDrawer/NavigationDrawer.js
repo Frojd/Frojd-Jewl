@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { AnimateLeftRight } from 'Components/Animate';
-import Hamburger from 'SVG/hamburger.svg';
-import Close from 'SVG/close.svg';
+import { AnimateLeftRight } from '../Animate';
+import Icon from '../Icon';
 import s from './NavigationDrawer.module.scss';
 
 const NavigationDrawer = ({
@@ -40,8 +39,8 @@ const NavigationDrawer = ({
                 id={buttonId}
                 aria-label={buttonLabel}
             >
-                <Hamburger className={s.Hamburger} />
-                <Close className={s.Close} />
+                <Icon name="Hamburger" className={s.Hamburger} />
+                <Icon name="Close" className={s.Close} />
             </button>
             <AnimateLeftRight className={s.Navigation} isVisible={isExpanded}>
                 <div

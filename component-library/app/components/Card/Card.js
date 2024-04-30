@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import Image from 'Components/Image';
+import Image from '../Image';
 import s from './Card.module.scss';
 
 const Card = ({

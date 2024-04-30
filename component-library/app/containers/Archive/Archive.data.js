@@ -1,5 +1,5 @@
-import base from 'Layouts/Base/Base.data';
-import archiveResult from 'Components/ArchiveResult/ArchiveResult.data';
+import base from '../../layouts/Base/Base.data';
+import archiveResult from '../../components/ArchiveResult/ArchiveResult.data';
 
 const data = {
     ...base,

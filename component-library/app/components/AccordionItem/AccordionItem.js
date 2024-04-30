@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { AnimateUpDown } from 'Components/Animate';
-import Richtext from 'Components/Richtext';
+import { AnimateUpDown } from '../Animate';
+import Richtext from '../Richtext';
 import s from './AccordionItem.module.scss';
 
 const AccordionItem = ({

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import ls from 'local-storage';
-import { AnimateUpDown } from 'Components/Animate';
-import Button from 'Components/Button';
-import Richtext from 'Components/Richtext';
+import { AnimateUpDown } from '../Animate';
+import Button from '../Button';
+import Richtext from '../Richtext';
 import s from './Popup.module.scss';
 
 const Popup = ({

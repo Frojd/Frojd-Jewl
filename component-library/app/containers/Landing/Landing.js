@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from 'Layouts/Base';
-import Hero from 'Components/Hero';
+import Base from '../../layouts/Base';
+import Hero from '../../components/Hero';
 import s from './Landing.module.scss';
 
 const Landing = ({ hero = {} }) => {

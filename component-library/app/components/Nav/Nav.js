@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import _ from 'lodash';
-import { AnimateUpDown } from 'Components/Animate';
+import { AnimateUpDown } from '../Animate';
+import Icon from '../Icon';
 import s from './Nav.module.scss';
 
 const Nav = ({
@@ -20,6 +21,7 @@ const Nav = ({
     toggleClassName = null,
     linkClassName = null,
     linkTextClassName = null,
+    linkIconClassName = null,
 }) => {
     // Check for children, the structure of nav should change when nesting
     const find = _.findKey(items, (i) => i.children && !_.isEmpty(i.children));
@@ -47,6 +49,7 @@ const Nav = ({
                     toggleClassName={toggleClassName}
                     linkClassName={linkClassName}
                     linkTextClassName={linkTextClassName}
+                    linkIconClassName={linkIconClassName}
                 />
             ) : (
                 <div className={listClasses}>
@@ -60,6 +63,7 @@ const Nav = ({
                             toggleClassName={toggleClassName}
                             linkClassName={linkClassName}
                             linkTextClassName={linkTextClassName}
+                            linkIconClassName={linkIconClassName}
                         />
                     ))}
                 </div>
@@ -82,6 +86,7 @@ Nav.propTypes = {
     toggleClassName: PropTypes.string,
     linkClassName: PropTypes.string,
     linkTextClassName: PropTypes.string,
+    linkIconClassName: PropTypes.string,
 };
 
 const List = ({
@@ -96,6 +101,7 @@ const List = ({
     toggleClassName = null,
     linkClassName = null,
     linkTextClassName = null,
+    linkIconClassName = null,
 }) => {
     const listId = id === null ? `${navId}-list` : `${navId}-${id}-list`;
 
@@ -115,6 +121,7 @@ const List = ({
                     toggleClassName={toggleClassName}
                     linkClassName={linkClassName}
                     linkTextClassName={linkTextClassName}
+                    linkIconClassName={linkIconClassName}
                 />
             ))}
         </ul>
@@ -133,6 +140,7 @@ List.propTypes = {
     itemActiveClassName: PropTypes.string,
     linkClassName: PropTypes.string,
     linkTextClassName: PropTypes.string,
+    linkIconClassName: PropTypes.string,
 };
 
 const Child = (item) => {
@@ -148,6 +156,7 @@ const Child = (item) => {
         toggleClassName = null,
         linkClassName = null,
         linkTextClassName = null,
+        linkIconClassName = null,
     } = item;
 
     const [isExpanded, setIsExpanded] = useState(isParentActive);
@@ -176,6 +185,7 @@ const Child = (item) => {
                 toggleClassName={toggleClassName}
                 linkClassName={linkClassName}
                 linkTextClassName={linkTextClassName}
+                linkIconClassName={linkIconClassName}
                 toggleExpanded={() => setIsExpanded(!isExpanded)}
             />
 
@@ -192,6 +202,7 @@ const Child = (item) => {
                         toggleClassName={toggleClassName}
                         linkClassName={linkClassName}
                         linkTextClassName={linkTextClassName}
+                        linkIconClassName={linkIconClassName}
                     />
                 </AnimateUpDown>
             )}
@@ -211,6 +222,7 @@ Child.propTypes = {
     toggleClassName: PropTypes.string,
     linkClassName: PropTypes.string,
     linkTextClassName: PropTypes.string,
+    linkIconClassName: PropTypes.string,
 };
 
 const Item = (item) => {
@@ -228,6 +240,7 @@ const Item = (item) => {
         toggleClassName = null,
         linkClassName = null,
         linkTextClassName = null,
+        linkIconClassName = null,
     } = item;
 
     const listId = `${navId}-list`;
@@ -250,6 +263,7 @@ const Item = (item) => {
                 {...item}
                 className={linkClassName}
                 linkTextClassName={linkTextClassName}
+                linkIconClassName={linkIconClassName}
             />
 
             {showToggle && (
@@ -279,6 +293,7 @@ Item.propTypes = {
     toggleClassName: PropTypes.string,
     linkClassName: PropTypes.string,
     linkTextClassName: PropTypes.string,
+    linkIconClassName: PropTypes.string,
 };
 
 const Link = ({
@@ -289,10 +304,21 @@ const Link = ({
     attrTitle = null,
     className = null,
     linkTextClassName = null,
+    linkIconClassName = null,
 }) => {
     const classes = classNames(s.Link, className);
 
     const linkTextClasses = classNames(s.LinkText, linkTextClassName);
+    const iconDownloadClasses = classNames(
+        s.LinkIcon,
+        linkIconClassName,
+        s['LinkIcon--Download']
+    );
+    const iconExternalClasses = classNames(
+        s.LinkIcon,
+        linkIconClassName,
+        s['LinkIcon--External']
+    );
 
     return (
         <a
@@ -310,6 +336,8 @@ const Link = ({
             ) : (
                 <span className={linkTextClasses}>{title}</span>
             )}
+            <Icon name="Download" asBg={true} className={iconDownloadClasses} />
+            <Icon name="External" asBg={true} className={iconExternalClasses} />
         </a>
     );
 };
@@ -322,6 +350,7 @@ Link.propTypes = {
     attrTitle: PropTypes.string,
     classsName: PropTypes.string,
     linkTextClassName: PropTypes.string,
+    linkIconClassName: PropTypes.string,
 };
 
 export default Nav;
