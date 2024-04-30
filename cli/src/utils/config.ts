@@ -20,11 +20,10 @@ interface JewlComponentPaths {
 }
 
 export interface JewlConfig {
-  componentMapping: Array<JewlComponentMapping>;
-  componentPaths: JewlComponentPaths;
+  basePath: string
   repository: string;
-  repositoryBranch: string;
   repositoryPaths: JewlComponentPaths;
+  componentMapping: Array<JewlComponentMapping>
 }
 
 export class ComponentsDirectoryMissing extends Error {}
@@ -55,13 +54,8 @@ function _getLocalConfig(): JewlLocalConfig {
 export function getConfig(): JewlConfig {
   const defaultConfig = {
     componentMapping: [],
-    componentPaths: {
-      components: 'app/components',
-      containers: 'app/containers',
-      layouts: 'app/layouts',
-    },
+    basePath: "app",
     repository: 'https://github.com/Frojd/Frojd-Jewl.git',
-    repositoryBranch: 'develop',
     repositoryPaths: {
       components: 'component-library/app/components',
       containers: 'component-library/app/containers',
@@ -89,7 +83,7 @@ export function getRepositoryComponentPath(directory: string): string {
 }
 
 export function getLocalComponentPath(directory: string): string {
-  return path.join(getBasePath(), getConfig().componentPaths[directory as keyof JewlComponentPaths])
+  return path.join(path.join(getBasePath(), getConfig().basePath), directory)
 }
 
 export function getComponentLocalNames(jewlName: string, jewlDirectory: string): Array<string> {

@@ -1,7 +1,7 @@
 import { Args, Command, Flags} from '@oclif/core'
 import * as fse from 'fs-extra'
 import * as path from 'node:path'
-import { addDependency, installDependencies } from 'nypm'
+import { addDependency, installDependencies, ensureDependencyInstalled } from 'nypm'
 
 import {
   LocalConfigMissing,
@@ -11,6 +11,7 @@ import {
   getLocalComponentPath,
   getRepositoryComponentPath,
 } from '../utils/config'
+import * as fs from "fs";
 
 export default class Clone extends Command {
   static args = {
@@ -65,38 +66,59 @@ export default class Clone extends Command {
     })
 
     if (fse.existsSync(componentDestinationAbsPath)) {
-      this.warn(`The path ${componentDestinationAbsPath} does already exist. Skipping...`)
+      this.log(`The path ${componentDestinationAbsPath} does already exist. Skipping...`)
       return
     }
 
     // TODO: Ask if dependency should be installed
     if (_package.dependencies) {
+      this.log(`Installing dependenciew...`)
       await this.installDependencies(_package.dependencies)
     }
 
     // TODO: Ask if dependency should be installed
     if (_package.jewlDependencies) {
+      this.log(`Installing jewl dependencies...`)
       await this.installJewlDependencies(_package.jewlDependencies, newName)
     }
 
     this.log(`Installing ${componentName}...`)
-    addComponentMapping(componentName, directoryName, newName)
     fse.copySync(componentAbsPath, componentDestinationAbsPath)
+    addComponentMapping(componentName, directoryName, newName)
   }
 
   private async installDependencies(dependencies: Array<string>) {
     const install = []
     for (const dep in dependencies) {
+      this.log("Installing " + dep)
       if (Object.prototype.hasOwnProperty.call(dependencies, dep)) {
-        install.push(dep + '@' + dependencies[dep])
+        if (!await ensureDependencyInstalled(dep)) {
+          this.log(dep + " is not installed. Installing...")
+          install.push(dep + '@' + dependencies[dep])
+
+          const modulePath = path.join("node_modules", dep)
+          this.debug("Looking if " + modulePath + " exists")
+
+          if (fs.existsSync(modulePath)) {
+            this.debug(dep + ' is locally installed but not in package.json. Removing and installing it with npm i --save...')
+            fs.rmSync(modulePath, {force: true, recursive: true})
+          }
+        }
       }
+    }
+
+    if (install.length < 1) {
+      return;
     }
 
     this.log('Installing npm dependencies...')
 
-    // TODO: Changed from lmify install to nypm installDependencies, make sure it works
-    addDependency(install)
-    installDependencies()
+    try {
+      await addDependency(install)
+      await installDependencies()
+    } catch (e) {
+      this.warn("Failed to install deps. Please install the following manually: " + install.join(", "))
+    }
   }
 
   private async installJewlDependencies(dependencies: Array<string>, currentLocalName: string) {
@@ -105,12 +127,13 @@ export default class Clone extends Command {
       const depDir = paths.length > 1 ? paths[0] : 'components';
       const depName = paths.length > 1 ? paths[1] : paths[0];
       const localNames = getComponentLocalNames(depName, depDir)
+
       if (localNames.length > 0) {
         this.warn(`Jewl dependency "${dep}" is required for this component: ${currentLocalName}.` +
           ' It is already installed under the following name/names: ' + localNames.join(', ') +
           '. After the installation is complete, make sure to update this components imports and usages if needed')
       } else {
-        this.log(`Installing dependency "${dep}"...`)
+        this.log(`Installing Jewl dependency "${dep}"...`)
         await this.clone(depDir, depName, depName)
       }
     })
