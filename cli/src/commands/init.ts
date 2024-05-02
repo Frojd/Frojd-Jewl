@@ -3,10 +3,13 @@ import {Command, ux} from '@oclif/core'
 import * as git from 'isomorphic-git'
 import http from 'isomorphic-git/http/node'
 import * as fs from "fs";
+import * as fse from 'fs-extra'
+import * as path from 'node:path'
 
 import {CONFIG_FILE_NAME, REPO_PATH} from '../constants'
 import {JewlConfig, getConfig, storeConfig} from '../utils/config'
 import {installNpmDependencies} from "../utils/npm";
+import {glob} from "glob";
 
 export default class Init extends Command {
   static description = 'Initialize or update settings for your Jewl project. ' +
@@ -38,6 +41,17 @@ export default class Init extends Command {
     await this.maybeCloneRepo(config)
     await this.maybeUpdateGitignore()
     await this.maybeInstallNPMDeps()
+
+    await this.maybeReplaceFolders([
+      "_styleguide",
+      "assets",
+      "i18n",
+      "styles"
+    ], config.basePath, config.repositoryPaths.basePath)
+
+    await this.maybeReplaceFolders([
+      ".storybook",
+    ], ".", config.repositoryPaths.root, true)
 
 
     // Print success message
@@ -91,5 +105,47 @@ export default class Init extends Command {
     }
 
     await installNpmDependencies(devDeps, true, this)
+  }
+
+  private async maybeReplaceFolders(folders: Array<string>, localPath: string, repoPath: string, replaceBasePath= false) {
+    const config = getConfig()
+
+    for (const x of folders) {
+      const fullLocalPath = path.join(localPath, x)
+      let shouldReplace = "y"
+      let exists = fs.existsSync(fullLocalPath)
+
+      if (exists) {
+        shouldReplace = await ux.prompt(`${fullLocalPath} already exists in your repo. Should Jewl replace it? (y/n)?`, {default: shouldReplace})
+
+        if (shouldReplace == "y") {
+          this.log(`Purging existing ${fullLocalPath}...`)
+          fs.rmSync(fullLocalPath, {recursive: true, force: true})
+        }
+      }
+
+      if (shouldReplace != "y") {
+        continue
+      }
+
+      this.log(`Installing ${fullLocalPath}...`)
+      fse.copySync(path.join(REPO_PATH, path.join(repoPath, x)), fullLocalPath)
+
+      if (replaceBasePath) {
+        const jsfiles = await glob(fullLocalPath + '/**/*.{js,ts,scss}', { ignore: 'node_modules/**' })
+        for (const file of jsfiles) {
+
+          this.log(`Replacing base-paths in ${file}...`)
+          const data = fs.readFileSync(file);
+          fs.rmSync(file)
+
+          data.toString().split("\r\n").forEach(function(line) {
+            line = line.replaceAll("/app/", `/${config.basePath}/`);
+
+            fs.appendFileSync(file, line)
+          });
+        }
+      }
+    }
   }
 }
