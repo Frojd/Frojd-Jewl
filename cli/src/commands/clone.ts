@@ -1,7 +1,7 @@
 import { Args, Command, Flags} from '@oclif/core'
 import * as fse from 'fs-extra'
 import * as path from 'node:path'
-import { addDependency, installDependencies, ensureDependencyInstalled } from 'nypm'
+import { installNpmDependencies } from '../utils/npm'
 
 import {
   LocalConfigMissing,
@@ -73,7 +73,7 @@ export default class Clone extends Command {
     // TODO: Ask if dependency should be installed
     if (_package.dependencies) {
       this.log(`Installing dependenciew...`)
-      await this.installDependencies(_package.dependencies)
+      await installNpmDependencies(_package.dependencies, false, this)
     }
 
     // TODO: Ask if dependency should be installed
@@ -85,40 +85,6 @@ export default class Clone extends Command {
     this.log(`Installing ${componentName}...`)
     fse.copySync(componentAbsPath, componentDestinationAbsPath)
     addComponentMapping(componentName, directoryName, newName)
-  }
-
-  private async installDependencies(dependencies: Array<string>) {
-    const install = []
-    for (const dep in dependencies) {
-      this.log("Installing " + dep)
-      if (Object.prototype.hasOwnProperty.call(dependencies, dep)) {
-        if (!await ensureDependencyInstalled(dep)) {
-          this.log(dep + " is not installed. Installing...")
-          install.push(dep + '@' + dependencies[dep])
-
-          const modulePath = path.join("node_modules", dep)
-          this.debug("Looking if " + modulePath + " exists")
-
-          if (fs.existsSync(modulePath)) {
-            this.debug(dep + ' is locally installed but not in package.json. Removing and installing it with npm i --save...')
-            fs.rmSync(modulePath, {force: true, recursive: true})
-          }
-        }
-      }
-    }
-
-    if (install.length < 1) {
-      return;
-    }
-
-    this.log('Installing npm dependencies...')
-
-    try {
-      await addDependency(install)
-      await installDependencies()
-    } catch (e) {
-      this.warn("Failed to install deps. Please install the following manually: " + install.join(", "))
-    }
   }
 
   private async installJewlDependencies(dependencies: Array<string>, currentLocalName: string) {
