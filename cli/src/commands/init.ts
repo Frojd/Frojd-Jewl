@@ -31,7 +31,7 @@ export default class Init extends Command {
       this.log('Initializing Jewl...')
     }
 
-    const basePath = await ux.prompt('Base path for jewl (where your components-folder is located)?', {default: _config.basePath})
+    const basePath = await ux.prompt('Base path for jewl-components (Where your components-folder is located. Set "." for root-folder)?', {default: _config.basePath})
 
     const config: JewlConfig = storeConfig({..._config, basePath: basePath})
 
