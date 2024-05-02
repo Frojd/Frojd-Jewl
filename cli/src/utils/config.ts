@@ -17,6 +17,8 @@ interface JewlComponentPaths {
   components: string;
   containers: string;
   layouts: string;
+  root: string;
+  basePath: string;
 }
 
 export interface JewlConfig {
@@ -57,6 +59,8 @@ export function getConfig(): JewlConfig {
     basePath: "app",
     repository: 'https://github.com/Frojd/Frojd-Jewl.git',
     repositoryPaths: {
+      root: 'component-library',
+      basePath: 'component-library/app',
       components: 'component-library/app/components',
       containers: 'component-library/app/containers',
       layouts: 'component-library/app/layouts',
