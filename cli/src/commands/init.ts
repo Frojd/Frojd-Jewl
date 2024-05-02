@@ -17,6 +17,8 @@ export default class Init extends Command {
   ]
 
   async run() {
+    // Write config
+
     let _config = {
       basePath: "app",
     }
@@ -32,20 +34,38 @@ export default class Init extends Command {
 
     const config: JewlConfig = storeConfig({..._config, basePath: basePath})
 
+    // Clone repo
+
     if (fs.existsSync(REPO_PATH)) {
       this.log('Local repository exists, refreshing...')
       fs.rmSync(REPO_PATH, {recursive: true, force: true})
+    } else {
+      this.log('Cloning from remote repository...')
     }
 
     try {
-      this.log('Cloning from remote repository...')
-
       await git.clone({fs, http, dir: REPO_PATH, url: config.repository})
-
-      this.log(`Jewl initialized: "${CONFIG_FILE_NAME}" has been created/updated in current working directory and local repository updated.`)
-      this.log(`${CONFIG_FILE_NAME} should be checked in to you repository and ${REPO_PATH} should be in your .gitignore`)
     } catch (e:unknown) {
       this.error('Failed to clone repository: ' + e)
     }
+
+    // Update .gitignore
+
+    if (fs.existsSync(".gitignore")) {
+      const gitignore = fs.readFileSync(".gitignore")
+      if (gitignore.indexOf(".jewl-repo") == -1) {
+        this.log('Appending .gitignore')
+        fs.appendFileSync(".gitignore", "#Added by jewl-cli\n.jewl-repo")
+      } else {
+        this.log('.gitignore contains .jewl-repo. Skipping...')
+      }
+    } else {
+      this.log('Creating .gitignore')
+      fs.writeFileSync(".gitignore", "#Added by jewl-cli\n.jewl-repo")
+    }
+
+    // Print success message
+    this.log(`Jewl initialized: "${CONFIG_FILE_NAME}" has been created/updated in current working directory and local repository updated.`)
+    this.log(`${CONFIG_FILE_NAME} should be checked in to you repository and ${REPO_PATH} should be in your .gitignore: This cli just added it for you`)
   }
 }
