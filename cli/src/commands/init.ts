@@ -6,6 +6,7 @@ import * as fs from "fs";
 
 import {CONFIG_FILE_NAME, REPO_PATH} from '../constants'
 import {JewlConfig, getConfig, storeConfig} from '../utils/config'
+import {installNpmDependencies} from "../utils/npm";
 
 export default class Init extends Command {
   static description = 'Initialize or update settings for your Jewl project. ' +
@@ -34,8 +35,17 @@ export default class Init extends Command {
 
     const config: JewlConfig = storeConfig({..._config, basePath: basePath})
 
-    // Clone repo
+    await this.maybeCloneRepo(config)
+    await this.maybeUpdateGitignore()
+    await this.maybeInstallNPMDeps()
 
+
+    // Print success message
+    this.log(`Jewl initialized: "${CONFIG_FILE_NAME}" has been created/updated in current working directory and local repository updated.`)
+    this.log(`${CONFIG_FILE_NAME} should be checked in to you repository and ${REPO_PATH} should be in your .gitignore: This cli just added it for you`)
+  }
+
+  private async maybeCloneRepo(config: JewlConfig) {
     if (fs.existsSync(REPO_PATH)) {
       this.log('Local repository exists, refreshing...')
       fs.rmSync(REPO_PATH, {recursive: true, force: true})
@@ -48,9 +58,9 @@ export default class Init extends Command {
     } catch (e:unknown) {
       this.error('Failed to clone repository: ' + e)
     }
+  }
 
-    // Update .gitignore
-
+  private async maybeUpdateGitignore() {
     if (fs.existsSync(".gitignore")) {
       const gitignore = fs.readFileSync(".gitignore")
       if (gitignore.indexOf(".jewl-repo") == -1) {
@@ -63,9 +73,23 @@ export default class Init extends Command {
       this.log('Creating .gitignore')
       fs.writeFileSync(".gitignore", "#Added by jewl-cli\n.jewl-repo")
     }
+  }
 
-    // Print success message
-    this.log(`Jewl initialized: "${CONFIG_FILE_NAME}" has been created/updated in current working directory and local repository updated.`)
-    this.log(`${CONFIG_FILE_NAME} should be checked in to you repository and ${REPO_PATH} should be in your .gitignore: This cli just added it for you`)
+  private async maybeInstallNPMDeps() {
+    const devDeps = {
+      "@storybook/addon-a11y": "*",
+      "@storybook/addon-actions": "*",
+      "@storybook/addon-essentials": "*",
+      "@storybook/addon-links": "*",
+      "@storybook/nextjs": "*",
+      "@storybook/react": "*",
+      "@svgr/webpack": "*",
+      "@whitespace/storybook-addon-html": "*",
+      "@emotion/is-prop-valid": "*",
+      "storybook": "*",
+      "sass": "*",
+    }
+
+    await installNpmDependencies(devDeps, true, this)
   }
 }
