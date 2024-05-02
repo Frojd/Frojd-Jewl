@@ -91,16 +91,16 @@ export default class Init extends Command {
 
   private async maybeInstallNPMDeps() {
     const devDeps = {
-      "@storybook/addon-a11y": "*",
-      "@storybook/addon-actions": "*",
-      "@storybook/addon-essentials": "*",
-      "@storybook/addon-links": "*",
-      "@storybook/nextjs": "*",
-      "@storybook/react": "*",
+      "@storybook/addon-a11y": "^7.6.17",
+      "@storybook/addon-actions": "^7.6.17",
+      "@storybook/addon-essentials": "^7.6.17",
+      "@storybook/addon-links": "^7.6.17",
+      "@storybook/nextjs": "^7.6.17",
+      "@storybook/react": "^7.6.17",
       "@svgr/webpack": "*",
       "@whitespace/storybook-addon-html": "*",
       "@emotion/is-prop-valid": "*",
-      "storybook": "*",
+      "storybook": "^7.6.17",
       "sass": "*",
     }
 
