@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 
-const Buttons = () => {
+const Buttons = ({}) => {
     return (
         <div className="styleguide">
             <div className="styleguide__wrap">
@@ -315,6 +315,5 @@ const Buttons = () => {
 
 Buttons.propTypes = {};
 
-Buttons.defaultProps = {};
 
 export default Buttons;

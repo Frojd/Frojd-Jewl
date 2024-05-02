@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Colors = () => {
+const Colors = ({}) => {
     return (
         <div className="styleguide">
             <div className="styleguide__wrap">
@@ -105,7 +105,5 @@ const Colors = () => {
 };
 
 Colors.propTypes = {};
-
-Colors.defaultProps = {};
 
 export default Colors;
