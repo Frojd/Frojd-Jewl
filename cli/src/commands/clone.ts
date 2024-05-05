@@ -73,9 +73,13 @@ export default class Clone extends Command {
       return
     }
 
+    this.log(`Installing ${componentName}...`)
+    fse.copySync(componentAbsPath, componentDestinationAbsPath)
+    addComponentMapping(componentName, directoryName, newName)
+
     // TODO: Ask if dependency should be installed
     if (_package.jewlDependencies) {
-      this.log(`Installing jewl dependencies...`)
+      this.log(`Installing subcomponents (jewl dependencies)...`)
       await this.installJewlDependencies(_package.jewlDependencies, newName)
     }
 
@@ -85,18 +89,15 @@ export default class Clone extends Command {
       }
 
       if (isRootLevel) {
-        this.log(`Installing dependencies...`)
+        this.log(`Installing npm dependencies: ` + Object.keys(this.depsForInstallation).join(","))
         await installNpmDependencies(this.depsForInstallation, false, this)
       }
     }
 
-    this.log(`Installing ${componentName}...`)
-    fse.copySync(componentAbsPath, componentDestinationAbsPath)
-    addComponentMapping(componentName, directoryName, newName)
   }
 
   private async installJewlDependencies(dependencies: Array<string>, currentLocalName: string) {
-    dependencies.map(async (dep: string) => {
+    for (const dep of dependencies) {
       const paths = dep.split('/')
       const depDir = paths.length > 1 ? paths[0] : 'components';
       const depName = paths.length > 1 ? paths[1] : paths[0];
@@ -110,6 +111,6 @@ export default class Clone extends Command {
         this.log(`Installing Jewl dependency "${dep}"...`)
         await this.clone(depName, depName, false)
       }
-    })
+    }
   }
 }
