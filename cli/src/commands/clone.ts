@@ -29,6 +29,8 @@ export default class Clone extends Command {
     help: Flags.help(),
   }
 
+  private depsForInstallation: {[p: string]: string} = {}
+
   async run() {
     const {args} = await this.parse(Clone)
     const {componentName, newName} = args
@@ -44,7 +46,7 @@ export default class Clone extends Command {
     }
   }
 
-  private async clone(componentName: string, newName: string) {
+  private async clone(componentName: string, newName: string, isRootLevel: boolean = true) {
     let directoryName = "";
 
     for (const x of ["components", "containers", "layouts"]) {
@@ -72,15 +74,20 @@ export default class Clone extends Command {
     }
 
     // TODO: Ask if dependency should be installed
-    if (_package.dependencies) {
-      this.log(`Installing dependenciew...`)
-      await installNpmDependencies(_package.dependencies, false, this)
-    }
-
-    // TODO: Ask if dependency should be installed
     if (_package.jewlDependencies) {
       this.log(`Installing jewl dependencies...`)
       await this.installJewlDependencies(_package.jewlDependencies, newName)
+    }
+
+    if (_package.dependencies) {
+      for (const dep of Object.keys(_package.dependencies)) {
+        this.depsForInstallation[dep] = _package.dependencies[dep]
+      }
+
+      if (isRootLevel) {
+        this.log(`Installing dependencies...`)
+        await installNpmDependencies(this.depsForInstallation, false, this)
+      }
     }
 
     this.log(`Installing ${componentName}...`)
@@ -101,7 +108,7 @@ export default class Clone extends Command {
           '. After the installation is complete, make sure to update this components imports and usages if needed')
       } else {
         this.log(`Installing Jewl dependency "${dep}"...`)
-        await this.clone(depName, depName)
+        await this.clone(depName, depName, false)
       }
     })
   }
