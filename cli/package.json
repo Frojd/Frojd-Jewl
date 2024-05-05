@@ -1,7 +1,7 @@
 {
   "name": "@frojdagency/jewl-cli",
   "description": "CLI tool for Jewl. Import your components with ease",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Mikael Engström <mikael.engstrom@frojd.se>",
   "homepage": "https://github.com/Frojd/Frojd-Jewl/",
   "bugs": {

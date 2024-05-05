@@ -29,6 +29,8 @@ export default class Clone extends Command {
     help: Flags.help(),
   }
 
+  private depsForInstallation: {[p: string]: string} = {}
+
   async run() {
     const {args} = await this.parse(Clone)
     const {componentName, newName} = args
@@ -44,7 +46,7 @@ export default class Clone extends Command {
     }
   }
 
-  private async clone(componentName: string, newName: string) {
+  private async clone(componentName: string, newName: string, isRootLevel: boolean = true) {
     let directoryName = "";
 
     for (const x of ["components", "containers", "layouts"]) {
@@ -71,25 +73,30 @@ export default class Clone extends Command {
       return
     }
 
-    // TODO: Ask if dependency should be installed
-    if (_package.dependencies) {
-      this.log(`Installing dependenciew...`)
-      await installNpmDependencies(_package.dependencies, false, this)
-    }
-
-    // TODO: Ask if dependency should be installed
-    if (_package.jewlDependencies) {
-      this.log(`Installing jewl dependencies...`)
-      await this.installJewlDependencies(_package.jewlDependencies, newName)
-    }
-
     this.log(`Installing ${componentName}...`)
     fse.copySync(componentAbsPath, componentDestinationAbsPath)
     addComponentMapping(componentName, directoryName, newName)
+
+    // TODO: Ask if dependency should be installed
+    if (_package.jewlDependencies) {
+      this.log(`Installing subcomponents (jewl dependencies)...`)
+      await this.installJewlDependencies(_package.jewlDependencies, newName)
+    }
+
+    if (_package.dependencies) {
+      for (const dep of Object.keys(_package.dependencies)) {
+        this.depsForInstallation[dep] = _package.dependencies[dep]
+      }
+
+      if (isRootLevel) {
+        this.log(`Installing npm dependencies: ` + Object.keys(this.depsForInstallation).join(","))
+        await installNpmDependencies(this.depsForInstallation, false, this)
+      }
+    }
   }
 
   private async installJewlDependencies(dependencies: Array<string>, currentLocalName: string) {
-    dependencies.map(async (dep: string) => {
+    for (const dep of dependencies) {
       const paths = dep.split('/')
       const depDir = paths.length > 1 ? paths[0] : 'components';
       const depName = paths.length > 1 ? paths[1] : paths[0];
@@ -101,8 +108,8 @@ export default class Clone extends Command {
           '. After the installation is complete, make sure to update this components imports and usages if needed')
       } else {
         this.log(`Installing Jewl dependency "${dep}"...`)
-        await this.clone(depName, depName)
+        await this.clone(depName, depName, false)
       }
-    })
+    }
   }
 }

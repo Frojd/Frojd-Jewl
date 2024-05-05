@@ -1,4 +1,4 @@
-import base from 'Layouts/Base/Base.data';
+import base from '../../layouts/Base/Base.data';
 
 const data = {
     ...base,

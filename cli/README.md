@@ -31,12 +31,11 @@ is used as source for the `clone` command. To update the local library with remo
 Jewl is intended to be used on a project basis and not as a global install. To set it up in your project:
 1) Run `npm i --save-dev @frojdagency/jewl-cli`
 2) Add `"jewl": "npx jewl-cli"` to your `scripts` property in your package.json
-3) Run `npm run jewl -- init` in your project and follow the interactive CLI interface
-4) Add `.jewl-repo` to your `.gitignore`-file
-5) Add `jewlconfig.json` to your VCS and make your first commit with jewl
+3) Run `npm run jewl init` in your project and follow the interactive CLI interface
+4) Add `jewlconfig.json` to your VCS and make your first commit with jewl
 
 From here on, you could explore the available components, containers and layouts via `npm run jewl -- list` and clone them 
-via `npm run jewl -- clone Hero MyHero`
+via `npm run jewl clone Hero MyHero`
 
 See [Commands](#commands) for further documentation
 
@@ -64,7 +63,7 @@ existing frontend project, manual mappings could be added to resolve name-collis
 # Commands
 <!-- commands -->
 * [`jewl-cli clone COMPONENTNAME [NEWNAME]`](#jewl-cli-clone-componentname-newname)
-* [`jewl-cli help [COMMANDS]`](#jewl-cli-help-commands)
+* [`jewl-cli help [COMMAND]`](#jewl-cli-help-command)
 * [`jewl-cli init`](#jewl-cli-init)
 * [`jewl-cli list`](#jewl-cli-list)
 * [`jewl-cli update`](#jewl-cli-update)
@@ -75,16 +74,14 @@ Clone components from the Jewl Component Library to your local project
 
 ```
 USAGE
-  $ jewl-cli clone COMPONENTNAME [NEWNAME] [--container] [--help] [--layout]
+  $ jewl-cli clone COMPONENTNAME [NEWNAME] [--help]
 
 ARGUMENTS
   COMPONENTNAME  (required) The name of the component in the Jewl Component Library
   NEWNAME        The name of the newly created component. Defaults to COMPONENTNAME
 
 FLAGS
-  --container
-  --help       Show CLI help.
-  --layout
+  --help  Show CLI help.
 
 DESCRIPTION
   Clone components from the Jewl Component Library to your local project
@@ -93,24 +90,20 @@ EXAMPLES
   $ jewl clone Header
 
   $ jewl clone Header HeaderLarge
-
-  $ jewl clone NotFound NotFoundPage --container
-
-  $ jewl clone Base BasePage --layout
 ```
 
-_See code: [src/commands/clone.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.5/src/commands/clone.ts)_
+_See code: [src/commands/clone.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.9/src/commands/clone.ts)_
 
-## `jewl-cli help [COMMANDS]`
+## `jewl-cli help [COMMAND]`
 
 Display help for jewl-cli.
 
 ```
 USAGE
-  $ jewl-cli help [COMMANDS] [-n]
+  $ jewl-cli help [COMMAND...] [-n]
 
 ARGUMENTS
-  COMMANDS  Command to show help for.
+  COMMAND...  Command to show help for.
 
 FLAGS
   -n, --nested-commands  Include all nested commands in the output.
@@ -119,7 +112,7 @@ DESCRIPTION
   Display help for jewl-cli.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.14/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.21/src/commands/help.ts)_
 
 ## `jewl-cli init`
 
@@ -137,7 +130,7 @@ EXAMPLES
   $ jewl-cli init
 ```
 
-_See code: [src/commands/init.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.5/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.9/src/commands/init.ts)_
 
 ## `jewl-cli list`
 
@@ -154,7 +147,7 @@ EXAMPLES
   $ jewl list
 ```
 
-_See code: [src/commands/list.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.5/src/commands/list.ts)_
+_See code: [src/commands/list.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.9/src/commands/list.ts)_
 
 ## `jewl-cli update`
 
@@ -171,5 +164,5 @@ EXAMPLES
   $ jewl-cli update
 ```
 
-_See code: [src/commands/update.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.5/src/commands/update.ts)_
+_See code: [src/commands/update.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.9/src/commands/update.ts)_
 <!-- commandsstop -->
