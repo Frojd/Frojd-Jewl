@@ -32,10 +32,12 @@ Jewl is intended to be used on a project basis and not as a global install. To s
 1) Run `npm i --save-dev @frojdagency/jewl-cli`
 2) Add `"jewl": "npx jewl-cli"` to your `scripts` property in your package.json
 3) Run `npm run jewl init` in your project and follow the interactive CLI interface
-4) Add `jewlconfig.json` to your VCS and make your first commit with jewl
+4) jewl added `jewlconfig.json` to your VCS. Make your first commit `git commit -m "Set up Jewl"`
 
-From here on, you could explore the available components, containers and layouts via `npm run jewl -- list` and clone them 
+From here on, you could explore the available components, containers and layouts via `npm run jewl list` and clone them 
 via `npm run jewl clone Hero MyHero`
+
+View all available commands with `npm run jewl`
 
 See [Commands](#commands) for further documentation
 
