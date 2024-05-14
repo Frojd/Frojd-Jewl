@@ -30,7 +30,7 @@ is used as source for the `clone` command. To update the local library with remo
 <!-- projectsetup -->
 Jewl is intended to be used on a project basis and not as a global install. To set it up in your project:
 1) Run `npm i --save-dev @frojdagency/jewl-cli`
-2) Add `"jewl": "npx jewl-cli"` to your `scripts` property in your package.json
+2) Add `"jewl": "jewl-cli"` to your `scripts` property in your package.json
 3) Run `npm run jewl init` in your project and follow the interactive CLI interface
 4) jewl added `jewlconfig.json` to your VCS. Make your first commit `git commit -m "Set up Jewl"`
 
