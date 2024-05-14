@@ -1,6 +1,4 @@
-import {addDependency, addDevDependency, ensureDependencyInstalled, installDependencies} from "nypm";
-import * as path from 'node:path'
-import * as fs from "fs";
+import {addDependency} from "nypm";
 
 export async function installNpmDependencies(dependencies: any, asDev = true, logger: any) {
   for (const dep in dependencies) {

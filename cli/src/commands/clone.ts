@@ -93,7 +93,6 @@ export default class Clone extends Command {
         await installNpmDependencies(this.depsForInstallation, false, this)
       }
     }
-
   }
 
   private async installJewlDependencies(dependencies: Array<string>, currentLocalName: string) {
