@@ -5,9 +5,8 @@ import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 /* eslint-enable no-unused-vars */
 
-import TestComponent from './';
+import TestComponent, { componentName as testName } from './';
 import data from './__Component.data';
-const testName = '__Component';
 
 describe(`<${testName} />`, () => {
     it(`Renders an empty ${testName}`, () => {

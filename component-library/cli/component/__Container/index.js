@@ -1,2 +1,4 @@
-import __Container from './__Container';
-export default __Container;
+import Component from './__Container';
+export default Component;
+
+export const componentName = '__Container';

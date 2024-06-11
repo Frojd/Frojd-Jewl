@@ -1,2 +1,4 @@
-import __Component from './__Component';
-export default __Component;
+import Component from './__Component';
+export default Component;
+
+export const componentName = '__Component';
