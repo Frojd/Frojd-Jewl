@@ -107,7 +107,7 @@ export default class Clone extends Command {
 
       // Update contents
       const contents = fs.readFileSync(originalFilePath, "utf8", )
-      const status = fs.rmSync(originalFilePath)
+      fs.rmSync(originalFilePath)
       fs.writeFileSync(originalFilePath, contents.replaceAll(componentName, newName))
 
       // Rename file
