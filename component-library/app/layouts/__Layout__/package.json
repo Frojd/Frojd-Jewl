@@ -1,0 +1,11 @@
+{
+    "name": "__Layout__",
+    "version": "1.0.0",
+    "dependencies": {
+        "react": "*",
+        "prop-types": "*",
+        "classnames": "*"
+    },
+    "jewlDependencies": [
+    ]
+}

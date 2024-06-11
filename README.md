@@ -68,7 +68,7 @@ ln -nfs %cd%/.githooks/pre-commit.sh .git/hooks/pre-commit
 Note: This requires npm
 
 ### Where to go from here
-- [Gettings Started](./docs/getting-started.md])
+- [CLI docs (Getting started)](./cli/README.md)
 
 ### Roadmap
 At the moment we only support React, but we are looking in to the posibility to make it possible

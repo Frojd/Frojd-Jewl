@@ -1,7 +1,7 @@
 import React from 'react';
-import Component from './__Component';
-import data from './__Component.data';
-import readme from './__Component.md';
+import Component from './__Component__';
+import data from './__Component__.data';
+import readme from './__Component__.md';
 
 const Story = {
     component: Component,

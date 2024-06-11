@@ -1,17 +1,17 @@
 import React from 'react';
-import Component from './__Component';
-import data from './__Component.data';
-import readme from './__Component.md';
+import Container from './__Container__';
+import data from './__Container__.data';
+import readme from './__Container__.md';
 
 const Story = {
-    component: Component,
+    component: Container,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
 export default Story;
 
-const Template = (args) => <Component {...args} />;
+const Template = (args) => <Container {...args} />;
 
 export const Default = Template.bind({});
 Default.args = { ...data };

@@ -1,17 +1,19 @@
 import React from 'react';
-import Container from './__Container';
-import data from './__Container.data';
-import readme from './__Container.md';
+import Layout from './Base';
+import data from './Base.data';
+import readme from './Base.md';
 
 const Story = {
-    component: Container,
+    component: Layout,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
 export default Story;
 
+const Container = () => <div>--Layout Container--</div>;
+
 const Template = (args) => <Container {...args} />;
 
-export const Default = Template.bind({});
+export const Default = Layout(Template).bind({});
 Default.args = { ...data };

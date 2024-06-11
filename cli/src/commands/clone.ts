@@ -11,6 +11,7 @@ import {
   getLocalComponentPath,
   getRepositoryComponentPath,
 } from '../utils/config'
+import * as fs from "fs";
 
 export default class Clone extends Command {
   static args = {
@@ -77,6 +78,10 @@ export default class Clone extends Command {
     fse.copySync(componentAbsPath, componentDestinationAbsPath)
     addComponentMapping(componentName, directoryName, newName)
 
+    if (componentName != newName) {
+      this.searchReplaceFiles(componentDestinationAbsPath, componentName, newName)
+    }
+
     // TODO: Ask if dependency should be installed
     if (_package.jewlDependencies) {
       this.log(`Installing subcomponents (jewl dependencies)...`)
@@ -93,6 +98,24 @@ export default class Clone extends Command {
         await installNpmDependencies(this.depsForInstallation, false, this)
       }
     }
+  }
+
+  private searchReplaceFiles(componentPath: string, componentName: string, newName: string) {
+
+    fs.readdirSync(componentPath).forEach(originalFileName => {
+      const originalFilePath = path.join(componentPath, originalFileName)
+
+      // Update contents
+      const contents = fs.readFileSync(originalFilePath, "utf8", )
+      const status = fs.rmSync(originalFilePath)
+      fs.writeFileSync(originalFilePath, contents.replaceAll(componentName, newName))
+
+      // Rename file
+      const newFileName = originalFileName.replace(componentName, newName)
+      if (newFileName != originalFileName) {
+        fse.moveSync(originalFilePath, path.join(componentPath, newFileName))
+      }
+    })
   }
 
   private async installJewlDependencies(dependencies: Array<string>, currentLocalName: string) {

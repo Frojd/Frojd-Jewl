@@ -16,6 +16,10 @@ module.exports = {
             directory: '../app/containers',
             titlePrefix: 'Containers',
         },
+        {
+            directory: '../app/layouts',
+            titlePrefix: 'Layouts',
+        },
     ],
 
     addons: [

@@ -119,5 +119,4 @@ const Typography = ({}) => {
 
 Typography.propTypes = {};
 
-
 export default Typography;
