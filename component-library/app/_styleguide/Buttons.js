@@ -315,5 +315,4 @@ const Buttons = ({}) => {
 
 Buttons.propTypes = {};
 
-
 export default Buttons;
