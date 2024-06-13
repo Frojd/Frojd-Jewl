@@ -4,7 +4,7 @@ export async function installNpmDependencies(dependencies: any, asDev = true, lo
   for (const dep in dependencies) {
     if (Object.prototype.hasOwnProperty.call(dependencies, dep)) {
       logger.log("Ensuring " + dep + " is installed...")
-      await addDependency(dep + '@' + dependencies[dep], {dev: asDev})
+      await addDependency(dep + '@' + dependencies[dep], {dev: asDev, silent: true})
     }
   }
 }
