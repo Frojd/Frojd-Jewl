@@ -1,4 +1,4 @@
-import { Args, Command, Flags} from '@oclif/core'
+import { Args, Command, Flags, ux} from '@oclif/core'
 import * as fse from 'fs-extra'
 import * as path from 'node:path'
 import { installNpmDependencies } from '../utils/npm'
@@ -69,9 +69,14 @@ export default class Clone extends Command {
       this.error(`Component "${componentName}" package.json file unreadable or non existing: ` + error)
     })
 
+    let shouldReplace = "n";
     if (fse.existsSync(componentDestinationAbsPath)) {
-      this.log(`The path ${componentDestinationAbsPath} does already exist. Skipping...`)
-      return
+      shouldReplace = await ux.prompt(`The path ${componentDestinationAbsPath} already exists in your repo. Should Jewl replace it? (y/n)?`, {default: shouldReplace})
+
+      if (shouldReplace != "y") {
+        this.log(`Skip replacing ${componentDestinationAbsPath}...`)
+        return
+      }
     }
 
     this.log(`Installing ${componentName}...`)
@@ -107,7 +112,7 @@ export default class Clone extends Command {
 
       // Update contents
       const contents = fs.readFileSync(originalFilePath, "utf8", )
-      const status = fs.rmSync(originalFilePath)
+      fs.rmSync(originalFilePath)
       fs.writeFileSync(originalFilePath, contents.replaceAll(componentName, newName))
 
       // Rename file
