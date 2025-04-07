@@ -67,6 +67,15 @@ ln -nfs %cd%/.githooks/pre-commit.sh .git/hooks/pre-commit
 ```
 Note: This requires npm
 
+### Hook: bump-version 
+
+Macintosh
+```bash
+chmod +x $PWD/git-hooks/bump-version.sh
+ln -nfs $PWD/git-hooks/bump-version.sh .git/hooks/post-flow-release-start
+ln -nfs $PWD/git-hooks/bump-version.sh .git/hooks/post-flow-hotfix-start
+```
+
 ### Where to go from here
 - [CLI docs (Getting started)](./cli/README.md)
 

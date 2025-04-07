@@ -1,6 +1,7 @@
 #!/bin/sh
 
 FRONTEND_PATH="component-library"
+CLI_PATH="cli"
 APP_PATH="$FRONTEND_PATH/app"
 git diff --cached --name-only | if grep -e $APP_PATH
 then
@@ -15,4 +16,8 @@ then
         echo "Prettier failed, please check your code and try again."
         exit 1
     fi
+
+    cd ..
+    cd $CLI_PATH
+    npm run update_docs
 fi

@@ -1,6 +1,6 @@
 {
   "name": "frojd-jewl",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "Storybook dev server for Jewl Component Library",
   "engines": {
     "node": ">=18"
