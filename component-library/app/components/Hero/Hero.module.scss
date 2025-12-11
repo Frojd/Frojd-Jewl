@@ -1,8 +1,119 @@
 @import '../../styles/includes';
 
 .Root {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    @include media(M) {
+        min-height: 500px;
+    }
+
+    @include media(L) {
+        min-height: 696px;
+    }
+}
+
+.BackgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.Overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $grey-90;
+    opacity: 0.55;
+    z-index: 2;
+}
+
+.Gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(103, 58, 183, 0.4) 0%,
+        rgba(33, 150, 243, 0.4) 100%
+    );
+    opacity: 0.4;
+    z-index: 3;
+}
+
+.Container {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    @include wrap;
+}
+
+.Content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: map-get($maxwidths, header);
+
+    @include media(M) {
+        gap: 40px;
+    }
+}
+
+.TextContent {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include media(M) {
+        gap: 24px;
+    }
 }
 
 .Title {
+    color: white;
+    margin: 0;
     @include textstyle(page-title);
+
+    @include media(M) {
+        font-size: 5.6rem;
+        line-height: 1.25;
+    }
+}
+
+.Description {
+    color: white;
+    margin: 0;
+    max-width: map-get($maxwidths, content);
+    @include textstyle(preamble);
+}
+
+.PhotoCredit {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    color: $grey-30;
+    @include textstyle(caption);
+    z-index: 4;
+
+    @include media(M) {
+        bottom: 20px;
+        right: 24px;
+    }
+
+    @include media(L) {
+        bottom: 28px;
+        right: 40px;
+    }
 }
