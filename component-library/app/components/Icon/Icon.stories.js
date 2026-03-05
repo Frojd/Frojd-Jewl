@@ -3,6 +3,7 @@ import Icon from './Icon';
 import data from './Icon.data';
 import readme from './Icon.md';
 
+// TODO: add args
 const Story = {
     component: Icon,
     parameters: {
