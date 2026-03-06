@@ -1,4 +1,5 @@
 import { Args, Command, Flags, ux} from '@oclif/core'
+import { input } from '@inquirer/prompts'
 import * as fse from 'fs-extra'
 import * as path from 'node:path'
 import { installNpmDependencies } from '../utils/npm'
@@ -71,7 +72,7 @@ export default class Clone extends Command {
 
     let shouldReplace = "n";
     if (fse.existsSync(componentDestinationAbsPath)) {
-      shouldReplace = await ux.prompt(`The path ${componentDestinationAbsPath} already exists in your repo. Should Jewl replace it? (y/n)?`, {default: shouldReplace})
+      shouldReplace = await input({message: `The path ${componentDestinationAbsPath} already exists in your repo. Should Jewl replace it? (y/n)?`, default: shouldReplace})
 
       if (shouldReplace != "y") {
         this.log(`Skip replacing ${componentDestinationAbsPath}...`)
