@@ -25,7 +25,7 @@
     "fixcode": "npx prettier \"**/*(*.css|*.js|*.json|*.md|*.scss)\" --write",
     "fixcode:test": "prettier \"app/**/*(*.css|*.js|*.json|*.md|*.scss)\" --check",
     "start": "node ./bin/dev-server",
-    "svg": "svgo -f app/inline-svg -q --config=app/inline-svg/svgo.config.js",
+    "svg": "svgo -f app/components/Icon/inline-svg -q --config=app/components/Icon/inline-svg/svgo.config.cjs",
     "jest": "jest",
     "jest:watch": "jest --watch",
     "jest:ci": "npx jest --ci --runInBand --reporters=default --reporters=jest-junit",
@@ -51,6 +51,7 @@
     "ie>=11"
   ],
   "devDependencies": {
+    "@next/eslint-plugin-next": "^16.1.6",
     "@storybook/addon-a11y": "^10.2.15",
     "@storybook/addon-links": "^10.2.15",
     "@storybook/nextjs": "^10.2.15",
@@ -70,6 +71,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-storybook": "^10.2.15",
     "gh-pages": "^6.1.1",
+    "globals": "^17.4.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
