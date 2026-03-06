@@ -5,9 +5,9 @@
         "selector-class-pattern": "^[a-zA-Z0-9_-]+$",
         "selector-id-pattern": "^[a-zA-Z0-9_-]+$",
         "at-rule-empty-line-before": ["always", {
-            "except": ["first-nested"],
+            "except": ["first-nested", "blockless-after-blockless"],
             "ignore": ["after-comment"],
-            "ignoreAtRules": ["extend"]
+            "ignoreAtRules": ["extend", "use", "forward"]
         }],
         "rule-empty-line-before": ["always", {
             "except": ["first-nested"],
