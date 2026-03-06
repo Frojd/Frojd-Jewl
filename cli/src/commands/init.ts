@@ -69,7 +69,18 @@ export default class Init extends Command {
     }
 
     try {
-      await git.clone({fs, http, dir: REPO_PATH, url: config.repository})
+      const branch = config.repositoryBranch || 'master'
+      this.log(`Using branch: ${branch}`)
+
+      await git.clone({
+        fs,
+        http,
+        dir: REPO_PATH,
+        url: config.repository,
+        ref: branch,
+        singleBranch: true,
+        depth: 1
+      })
     } catch (e:unknown) {
       this.error('Failed to clone repository: ' + e)
     }

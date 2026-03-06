@@ -32,9 +32,18 @@ export default class Update extends Command {
       }
 
       try {
-        this.log('Cloning from remote repository...')
+        const branch = config.repositoryBranch || 'master'
+        this.log(`Cloning from remote repository (branch: ${branch})...`)
 
-        await git.clone({fs, http, dir: REPO_PATH, url: config.repository})
+        await git.clone({
+          fs,
+          http,
+          dir: REPO_PATH,
+          url: config.repository,
+          ref: branch,
+          singleBranch: true,
+          depth: 1
+        })
         this.log('Local repository updated!')
 
       } catch {
