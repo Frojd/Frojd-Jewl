@@ -1,5 +1,5 @@
 @use "sass:math";
-@import '../../styles/includes';
+@use '../../styles/includes' as *;
 
 .Root {
     flex: 1 0 auto;

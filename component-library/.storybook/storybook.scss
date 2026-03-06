@@ -1,5 +1,15 @@
-@import '../app/styles/index';
-@import '../app/_styleguide/styleguide';
+// Load storybook styles which includes all necessary imports
+@use '../app/styles/includes' as *;
+// @use 'styles/external/fonts' as * with (
+//     $fontsPath: '../../public/fonts/'
+// );
+@use '../app/styles/storybook' as *;
+@use '../app/_styleguide/styleguide' as *;
+
+// Define CSS variable for Futura font (Next.js does this automatically, but Storybook needs it manually)
+// :root {
+//     --font-futura-lt: 'Futura LT', Arial, sans-serif;
+// }
 
 #root {
     @include clearfix;

@@ -1,4 +1,5 @@
 /* Styleguide is only available in storybook */
+@use '../styles/includes' as *;
 
 .styleguide {
     @include textstyle(body);

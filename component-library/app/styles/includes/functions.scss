@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:list";
 
-// Returns a key value if it exsists
+// Returns a key value if it exists
 @function get-default($map, $key: 'd', $default: '') {
     $value: $key;
 

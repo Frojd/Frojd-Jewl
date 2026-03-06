@@ -1,4 +1,4 @@
-@import '../../styles/includes';
+@use '../../styles/includes' as *;
 
 .Root {
     border-bottom: 1px solid $purple-20;

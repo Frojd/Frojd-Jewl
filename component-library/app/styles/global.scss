@@ -1,5 +1,3 @@
-@import 'global/fonts';
-
-@import 'global/reset';
-
-@import 'global/base';
+@use 'global/fonts';
+@use 'global/reset';
+@use 'global/base';

@@ -1,3 +1,2 @@
-@import 'includes';
-
-@import 'global';
+@use 'includes' as *;
+@use 'global';
