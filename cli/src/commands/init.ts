@@ -1,4 +1,4 @@
-import {Command, ux} from '@oclif/core'
+import {Command} from '@oclif/core'
 import { input } from '@inquirer/prompts'
 
 import * as git from 'isomorphic-git'

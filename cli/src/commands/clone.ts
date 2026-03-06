@@ -1,4 +1,4 @@
-import { Args, Command, Flags, ux} from '@oclif/core'
+import { Args, Command, Flags } from '@oclif/core'
 import { input } from '@inquirer/prompts'
 import * as fse from 'fs-extra'
 import * as path from 'node:path'

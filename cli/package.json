@@ -80,6 +80,7 @@
     "prepack": "npm run build && oclif manifest && oclif readme",
     "prepare": "npm run build",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "test:only": "mocha --forbid-only \"test/**/*.test.ts\"",
     "update_docs": "oclif readme && git add README.md"
   },
   "types": "dist/index.d.ts",
