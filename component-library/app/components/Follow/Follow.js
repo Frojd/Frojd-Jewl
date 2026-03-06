@@ -33,9 +33,9 @@ Follow.propTypes = {
 const Item = ({ href = '', type = '' }) => {
     const { t } = useTranslation();
 
-    const classes = classNames(s.Item, [s[`Item--${type}`]]);
+    const classes = classNames(s.Link, [s[`Link--${type}`]]);
     return (
-        <a className={s.Link} href={href} target="_blank">
+        <a className={classes} href={href} target="_blank">
             <span className="sr-only">{t('follow.goTo', { name: type })}</span>
             {Icon && <Icon name={type} className={s.Icon} />}
         </a>

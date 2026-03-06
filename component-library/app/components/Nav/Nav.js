@@ -234,7 +234,6 @@ const Item = (item) => {
         isExpanded = false,
         toggleExpanded = () => {},
         isActive = false,
-        isParentActive = false,
         className = null,
         itemActiveClassName = null,
         toggleClassName = null,
@@ -243,7 +242,7 @@ const Item = (item) => {
         linkIconClassName = null,
     } = item;
 
-    const listId = `${navId}-list`;
+    const listId = id ? `${navId}-${id}-list` : `${navId}-list`;
 
     const { t } = useTranslation();
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import classNames from 'classnames';
 import Follow from '../Follow';
 import Icon from '../Icon';
 import Nav from '../Nav';

@@ -30,7 +30,7 @@ const PillGroup = ({
 
     useEffect(() => {
         changeHandler(currentSelected);
-    }, [currentSelected]);
+    }, [currentSelected, changeHandler]);
 
     const onChange = (value, checked) => {
         if (value === 'all') {
@@ -54,7 +54,7 @@ const PillGroup = ({
     const classes = classNames(s.Root, { [s['Root--Multiple']]: multiple });
 
     return (
-        <Fieldset title={label}>
+        <Fieldset title={label} className={classes}>
             <div className={s.List}>
                 {showAll && (
                     <Item
