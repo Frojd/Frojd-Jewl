@@ -7,6 +7,5 @@
     "classnames": "*",
     "framer-motion": "*"
   },
-  "jewlDependencies": [
-  ]
+  "jewlDependencies": []
 }

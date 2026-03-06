@@ -286,18 +286,18 @@
         iframe,
         figure,
         blockquote {
-            page-break-before: auto;
-            page-break-after: auto;
-            page-break-inside: avoid;
+            break-before: auto;
+            break-after: auto;
+            break-inside: avoid;
             display: block;
             position: relative;
         }
 
         :global .preamble,
         :global .embed {
-            page-break-before: auto;
-            page-break-after: auto;
-            page-break-inside: avoid;
+            break-before: auto;
+            break-after: auto;
+            break-inside: avoid;
             display: block;
             position: relative;
         }

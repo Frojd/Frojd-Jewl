@@ -7,6 +7,5 @@
     "classnames": "*",
     "next": "*"
   },
-  "jewlDependencies": [
-  ]
+  "jewlDependencies": []
 }

@@ -1,11 +1,11 @@
-/* eslint-disable no-unused-vars */
+ 
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import '../../i18n';
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 /* eslint-enable no-unused-vars */
-/* eslint-enable no-unused-vars */
+ 
 
 import TestComponent from './';
 import data from './NotFound.data';

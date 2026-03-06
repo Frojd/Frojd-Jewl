@@ -1,13 +1,13 @@
 {
-    "name": "Search",
-    "version": "1.0.0",
-    "dependencies": {
-        "react": "*",
-        "prop-types": "*"
-    },
-    "jewlDependencies": [
-        "layouts/Base",
-        "SearchForm",
-        "SearchResult"
-    ]
+  "name": "Search",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "*",
+    "prop-types": "*"
+  },
+  "jewlDependencies": [
+    "layouts/Base",
+    "SearchForm",
+    "SearchResult"
+  ]
 }

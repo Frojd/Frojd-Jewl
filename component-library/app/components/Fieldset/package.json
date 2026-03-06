@@ -1,10 +1,9 @@
 {
-    "name": "Fieldset",
-    "version": "1.0.0",
-    "dependencies": {
-        "react": "*",
-        "prop-types": "*"
-    },
-    "jewlDependencies": [
-    ]
+  "name": "Fieldset",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "*",
+    "prop-types": "*"
+  },
+  "jewlDependencies": []
 }

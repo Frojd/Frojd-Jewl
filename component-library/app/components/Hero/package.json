@@ -5,6 +5,5 @@
     "react": "*",
     "prop-types": "*"
   },
-  "jewlDependencies": [
-  ]
+  "jewlDependencies": []
 }
