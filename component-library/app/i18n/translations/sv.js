@@ -54,6 +54,12 @@ const sv = {
     },
     searchResult: {
         title: 'Visar {{total}} resultat för "{{keyword}}"',
+        loading: 'Laddar...',
+        error: 'Något gick fel',
+    },
+    archiveResult: {
+        loading: 'Laddar...',
+        error: 'Något gick fel',
     },
     skipToContent: {
         buttonText: 'Hoppa till innehåll',

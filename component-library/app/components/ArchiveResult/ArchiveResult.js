@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import Grid from '../Grid';
 import Card from '../Card';
 import Pagination from '../Pagination';
@@ -10,22 +11,75 @@ const ArchiveResult = ({
     total = 0,
     page = 1,
     itemsPerPage = 12,
+    fetchUrl = null,
 }) => {
+    const { t } = useTranslation();
     const [currentItems, setCurrentItems] = useState(items);
     const [currentTotal, setCurrentTotal] = useState(total);
     const [currentPage, setCurrentPage] = useState(page);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const totalPages = Math.ceil(currentTotal / itemsPerPage);
 
+    // Example: Fetch data when page changes
+    useEffect(() => {
+        if (!fetchUrl) return;
+
+        const fetchData = async () => {
+            setIsLoading(true);
+            setError(null);
+
+            try {
+                const response = await fetch(`${fetchUrl}?page=${currentPage}&limit=${itemsPerPage}`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Update states after successful fetch
+                setCurrentItems(data.items || []);
+                setCurrentTotal(data.total || 0);
+            } catch (err) {
+                setError(err.message);
+                console.error('Failed to fetch archive data:', err);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [currentPage, fetchUrl, itemsPerPage]);
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
     return (
         <div className={s.Root}>
+            {error && (
+                <div className={s.Error}>
+                    <p>{t('archiveResult.error')}</p>
+                </div>
+            )}
+
             <div className={s.Grid}>
-                <Grid items={currentItems} columns={3} Card={Card} />
+                {isLoading ? (
+                    <div className={s.Loading}>{t('archiveResult.loading')}</div>
+                ) : (
+                    <Grid items={currentItems} columns={3} Card={Card} />
+                )}
             </div>
 
             {totalPages > 1 && (
                 <div className={s.Pagination}>
-                    <Pagination current={currentPage} total={totalPages} />
+                    <Pagination
+                        current={currentPage}
+                        total={totalPages}
+                        onChange={handlePageChange}
+                    />
                 </div>
             )}
         </div>
@@ -37,6 +91,7 @@ ArchiveResult.propTypes = {
     total: PropTypes.number,
     page: PropTypes.number,
     itemsPerPage: PropTypes.number,
+    fetchUrl: PropTypes.string,
 };
 
 export default ArchiveResult;
