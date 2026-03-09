@@ -9,6 +9,7 @@ export default [
       'dist/**',
       'node_modules/**',
       'app/**',
+      '.jewl-repo/**',
       '*.js',
       '!eslint.config.js',
     ]

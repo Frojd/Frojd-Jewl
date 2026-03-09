@@ -8,7 +8,9 @@ import {
   getConfig,
   getLocalComponentPath,
   getRepositoryComponentPath,
+  getBasePath,
 } from '../utils/config'
+import {REPO_PATH} from '../constants'
 
 export default class Reset extends Command {
   static description = 'Reset all cloned components by overwriting them with the versions from the Jewl Component Library. WARNING: This will permanently delete any local changes you have made to these components.'
@@ -36,32 +38,76 @@ export default class Reset extends Command {
       this.error('No local configuration file found. Try "jewl-cli init"')
     }
 
-    if (!config.componentMapping || config.componentMapping.length === 0) {
-      this.log('No components have been cloned yet. Nothing to reset.')
-      return
+    // Shared directories that should be reset
+    const sharedDirs = ['_styleguide', 'styles', 'i18n', 'assets']
+
+    this.warn('⚠️  WARNING: This command will permanently delete any local changes to:')
+    this.log('')
+    this.log('Shared directories:')
+    for (const dir of sharedDirs) {
+      this.log(`  - ${dir}/`)
     }
 
-    this.warn('⚠️  WARNING: This command will permanently delete any local changes to the following components:')
-    this.log('')
-    for (const mapping of config.componentMapping) {
-      this.log(`  - ${mapping.localName} (from ${mapping.jewlDirectory}/${mapping.jewlName})`)
+    if (config.componentMapping && config.componentMapping.length > 0) {
+      this.log('')
+      this.log('Components:')
+      for (const mapping of config.componentMapping) {
+        this.log(`  - ${mapping.localName} (from ${mapping.jewlDirectory}/${mapping.jewlName})`)
+      }
     }
     this.log('')
 
     if (!flags.force) {
       const shouldContinue = await confirm({
-        message: 'Are you sure you want to RESET these components with the versions from .jewl-repo? All local changes will be LOST.',
+        message: 'Are you sure you want to RESET these directories and components with the versions from .jewl-repo? All local changes will be LOST.',
         default: false,
       })
 
       if (!shouldContinue) {
-        this.log('Operation cancelled. No components were modified.')
+        this.log('Operation cancelled. Nothing was modified.')
         return
       }
     }
 
     let syncedCount = 0
     let failedCount = 0
+
+    // First, reset shared directories
+    const basePath = getBasePath()
+    const localBasePath = path.join(basePath, config.basePath)
+    const repoBasePath = path.join(basePath, REPO_PATH, config.repositoryPaths.basePath)
+
+    this.log('Resetting shared directories...')
+    for (const dir of sharedDirs) {
+      try {
+        const sourceDir = path.join(repoBasePath, dir)
+        const targetDir = path.join(localBasePath, dir)
+
+        if (!fse.existsSync(sourceDir)) {
+          this.warn(`Source directory not found: ${dir}. Skipping...`)
+          continue
+        }
+
+        this.log(`Resetting ${dir}/...`)
+
+        // Remove old directory
+        if (fse.existsSync(targetDir)) {
+          fse.removeSync(targetDir)
+        }
+
+        // Copy new version
+        fse.copySync(sourceDir, targetDir)
+        this.log(`✓ ${dir}/ reset successfully`)
+        syncedCount++
+
+      } catch (error) {
+        this.warn(`Failed to reset ${dir}/: ${error}`)
+        failedCount++
+      }
+    }
+
+    this.log('')
+    this.log('Resetting components...')
 
     for (const mapping of config.componentMapping) {
       try {
