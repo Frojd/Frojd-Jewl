@@ -1,7 +1,7 @@
 {
   "name": "@frojdagency/jewl-cli",
   "description": "CLI tool for Jewl. Import your components with ease",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Mikael Engström <mikael.engstrom@frojd.se>",
   "homepage": "https://github.com/Frojd/Frojd-Jewl/",
   "bugs": {
@@ -45,7 +45,7 @@
     "typescript": "^5"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=24.0.0"
   },
   "files": [
     "/bin",
