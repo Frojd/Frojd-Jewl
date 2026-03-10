@@ -1,7 +1,7 @@
-@use "sass:map";
-@use "sass:math";
-@use "variables" as *;
-@use "functions" as *;
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as *;
+@use 'functions' as *;
 
 /* stylelint-disable at-rule-empty-line-before */
 @mixin media($key) {
@@ -138,7 +138,10 @@
                     $line-height: map.get($style, line-height);
 
                     font-size: #{math.div($font-size, 10)}rem;
-                    line-height: #{math.div(round(math.div($line-height, $font-size) * 100), 100)};
+                    line-height: #{math.div(
+                            round(math.div($line-height, $font-size) * 100),
+                            100
+                        )};
                 }
 
                 @each $param, $value in $style {

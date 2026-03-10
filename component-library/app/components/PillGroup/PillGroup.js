@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
@@ -114,8 +114,8 @@ const Item = ({
         value === 'all'
             ? isNoneSelected
             : multiple && selected
-            ? selected.includes(value)
-            : selected === value;
+              ? selected.includes(value)
+              : selected === value;
 
     const classes = classNames(s.Item, { [s['Item--Checked']]: isChecked });
 

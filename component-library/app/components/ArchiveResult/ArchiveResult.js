@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
@@ -33,7 +33,9 @@ const ArchiveResult = ({
             setError(null);
 
             try {
-                const response = await fetch(`${fetchUrl}?page=${currentPage}&limit=${itemsPerPage}`);
+                const response = await fetch(
+                    `${fetchUrl}?page=${currentPage}&limit=${itemsPerPage}`
+                );
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -69,7 +71,9 @@ const ArchiveResult = ({
 
             <div className={s.Grid}>
                 {isLoading ? (
-                    <div className={s.Loading}>{t('archiveResult.loading')}</div>
+                    <div className={s.Loading}>
+                        {t('archiveResult.loading')}
+                    </div>
                 ) : (
                     <Grid items={currentItems} columns={3} Card={Card} />
                 )}

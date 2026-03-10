@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
@@ -54,7 +54,9 @@ const SearchResult = ({
                     params.append('filters', currentPills.join(','));
                 }
 
-                const response = await fetch(`${fetchUrl}?${params.toString()}`);
+                const response = await fetch(
+                    `${fetchUrl}?${params.toString()}`
+                );
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);

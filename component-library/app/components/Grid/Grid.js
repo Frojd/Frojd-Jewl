@@ -9,10 +9,10 @@ const Grid = ({ Card = null, items = [], columns = 'auto' }) => {
         columnsCount >= 4
             ? 'Fourth'
             : columnsCount === 3
-            ? 'Third'
-            : columnsCount === 2
-            ? 'Half'
-            : 'Full';
+              ? 'Third'
+              : columnsCount === 2
+                ? 'Half'
+                : 'Full';
 
     const classes = classNames(s.Root, [s[`Root--${columnSize}`]]);
 
