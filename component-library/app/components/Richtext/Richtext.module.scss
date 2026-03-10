@@ -247,13 +247,13 @@
         height: auto;
     }
 
-    :global .preamble {
+    :global(.preamble) {
         @include textstyle(preamble);
 
         margin: 24px 0;
     }
 
-    :global .embed {
+    :global(.embed) {
         position: relative;
         margin-top: 40px;
         margin-bottom: 40px;
@@ -294,8 +294,8 @@
             position: relative;
         }
 
-        :global .preamble,
-        :global .embed {
+        :global(.preamble),
+        :global(.embed) {
             break-before: auto;
             break-after: auto;
             break-inside: avoid;
