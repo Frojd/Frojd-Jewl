@@ -34,7 +34,9 @@ export default {
 
     framework: {
         name: '@storybook/nextjs',
-        options: {},
+        options: {
+            nextConfigPath: path.resolve(__dirname, '../next.config.mjs'),
+        },
     },
 
     docs: {
