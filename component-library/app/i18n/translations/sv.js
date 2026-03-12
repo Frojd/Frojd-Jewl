@@ -1,14 +1,14 @@
 const sv = {
-    accordionItem: {
-        expand: 'Expandera',
-        minimize: 'Minimera',
-    },
     breadcrumbs: {
         start: 'Hem',
         label: 'Breadcrumbs',
     },
     card: {
         date: 'Publicerad',
+    },
+    cardAccordion: {
+        expand: 'Expandera',
+        minimize: 'Minimera',
     },
     follow: {
         goTo: 'Gå till {{name}}',
