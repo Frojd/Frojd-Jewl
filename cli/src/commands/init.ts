@@ -105,7 +105,6 @@ export default class Init extends Command {
     const devDeps = {
       "@storybook/addon-a11y": "*",
       "@storybook/addon-actions": "*",
-      "@storybook/addon-essentials": "*",
       "@storybook/addon-links": "*",
       "@storybook/nextjs": "*",
       "@storybook/react": "*",
