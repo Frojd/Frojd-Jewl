@@ -107,14 +107,28 @@ export default class Clone extends Command {
   }
 
   private searchReplaceFiles(componentPath: string, componentName: string, newName: string) {
+    // Helper function to convert PascalCase to camelCase
+    const toCamelCase = (str: string): string => {
+      return str.charAt(0).toLowerCase() + str.slice(1);
+    }
+
+    const componentNameCamel = toCamelCase(componentName);
+    const newNameCamel = toCamelCase(newName);
 
     fs.readdirSync(componentPath).forEach(originalFileName => {
       const originalFilePath = path.join(componentPath, originalFileName)
 
-      // Update contents
-      const contents = fs.readFileSync(originalFilePath, "utf8", )
+      // Update contents - replace both PascalCase and camelCase versions
+      let contents = fs.readFileSync(originalFilePath, "utf8")
+
+      // Replace PascalCase (component names)
+      contents = contents.replaceAll(componentName, newName)
+
+      // Replace camelCase (translation keys, variable names, etc.)
+      contents = contents.replaceAll(componentNameCamel, newNameCamel)
+
       fs.rmSync(originalFilePath)
-      fs.writeFileSync(originalFilePath, contents.replaceAll(componentName, newName))
+      fs.writeFileSync(originalFilePath, contents)
 
       // Rename file
       const newFileName = originalFileName.replace(componentName, newName)
