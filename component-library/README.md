@@ -52,6 +52,35 @@ Delete a container component:
 npm run delete ComponentName -- -c
 ```
 
+### Cloning components ###
+
+To clone an existing component to a new component name within the component-library:
+
+1. First time setup (required once per developer):
+```
+npm run setup:jewl
+```
+
+2. Clone a component:
+```
+npm run jewl clone SourceComponent NewComponent
+```
+
+Example - Clone the Modules component to SectionListModule:
+```
+npm run jewl clone Modules SectionListModule
+```
+
+This will:
+- Copy all files from the source component
+- Rename all files and update all references to use the new component name
+- Create the new component in the same directory (components/containers/layouts)
+
+List available components to clone:
+```
+npm run jewl list
+```
+
 Run tests:
 ```
 npm test

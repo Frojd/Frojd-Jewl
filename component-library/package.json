@@ -9,6 +9,7 @@
   "homepage": "https://frojd.github.io/Frojd-Jewl",
   "scripts": {
     "jewl": "node ../cli/bin/run",
+    "setup:jewl": "bash scripts/setup-jewl-local.sh",
     "lint": "eslint app",
     "lint:fix": "eslint app --fix",
     "lint:style": "stylelint **/*.scss",

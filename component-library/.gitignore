@@ -28,3 +28,7 @@ out
 
 # Sentry
 .sentryclirc
+
+# Jewl local configuration
+.jewl-repo
+jewlconfig.json
