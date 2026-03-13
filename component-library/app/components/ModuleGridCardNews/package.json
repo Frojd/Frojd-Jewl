@@ -1,11 +1,9 @@
 {
-  "name": "SectionListModule",
+  "name": "ModuleGridCardNews",
   "version": "1.0.0",
   "dependencies": {
     "react": "*",
     "prop-types": "*"
   },
-  "jewlDependencies": [
-    "ModuleGridCardNews"
-  ]
+  "jewlDependencies": []
 }

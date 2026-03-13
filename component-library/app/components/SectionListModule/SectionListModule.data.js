@@ -1,11 +1,11 @@
-import richtext from '../Richtext/Richtext.data';
+import moduleGridCardNews from '../ModuleGridCardNews/ModuleGridCardNews.data';
 
 const data = {
     items: [
         {
             id: '123abc',
-            blockType: 'Richtext',
-            blockData: richtext,
+            blockType: 'ModuleGridCardNews',
+            blockData: moduleGridCardNews,
         },
     ],
 };

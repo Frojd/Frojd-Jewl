@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import s from './SectionListModule.module.scss';
 
 export const Components = {
-    Richtext: dynamic(() => import('../Richtext')),
+    ModuleGridCardNews: dynamic(() => import('../ModuleGridCardNews')),
 };
 
 const SectionListModule = ({ items = [] }) => {
