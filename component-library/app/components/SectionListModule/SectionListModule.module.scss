@@ -1,4 +1,11 @@
 @use '../../styles/includes' as *;
 
-.Root {
+.List {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include media(L) {
+        gap: 72px;
+    }
 }

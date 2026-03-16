@@ -6,12 +6,15 @@ import s from './SectionListModule.module.scss';
 
 export const Components = {
     ModuleGridCardNews: dynamic(() => import('../ModuleGridCardNews')),
+    ModuleListCardAccordion: dynamic(
+        () => import('../ModuleListCardAccordion')
+    ),
 };
 
 const SectionListModule = ({ items = [] }) => {
     return (
-        <div className={s['SectionListModule']}>
-            <div className={s['SectionListModule__List']}>
+        <div className={s.Root}>
+            <div className={s.List}>
                 {items.map((item, index) => {
                     return <Item key={index} index={index} {...item} />;
                 })}
