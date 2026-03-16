@@ -28,7 +28,7 @@ const Search = ({
                             {...searchForm}
                             keyword={currentKeyword}
                             id="search-form"
-                            modifier="Search"
+                            variant="Search"
                             onSubmit={(s) => setCurrentKeyword(s)}
                         />
                     </div>

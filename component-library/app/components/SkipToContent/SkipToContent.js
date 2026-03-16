@@ -11,7 +11,7 @@ const SkipToContent = ({ skipTo = '#main-content' }) => {
     return (
         <Button
             className={s.Root}
-            modifier="Secondary"
+            variant="Secondary"
             tabIndex="0"
             url={skipTo}
         >

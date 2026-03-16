@@ -56,7 +56,7 @@ const Header = ({ main = {}, service = {} }) => {
                         >
                             <SearchForm
                                 id="header-search-input"
-                                modifier="Header"
+                                variant="Header"
                                 triggerFocus={isSearchVisible}
                             />
                         </AnimateInOut>
