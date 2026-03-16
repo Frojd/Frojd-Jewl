@@ -1,0 +1,10 @@
+@use '../../styles/includes' as *;
+
+.Root {
+}
+
+.Title {
+    @include textstyle(richtext-h2);
+
+    margin-bottom: 24px;
+}
