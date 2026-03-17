@@ -1,17 +1,17 @@
 import React from 'react';
-import CardCTA from './CardCTA';
-import data from './CardCTA.data';
-import readme from './CardCTA.md';
+import ContentCTA from './ContentCTA';
+import data from './ContentCTA.data';
+import readme from './ContentCTA.md';
 
 const Story = {
-    component: CardCTA,
+    component: ContentCTA,
     parameters: {
         docs: { description: { component: readme } },
     },
 };
 export default Story;
 
-const Template = (args) => <CardCTA {...args} />;
+const Template = (args) => <ContentCTA {...args} />;
 
 export const Default = Template.bind({});
 Default.args = { ...data };

@@ -7,9 +7,13 @@
     background: $purple-20;
     position: relative;
     height: 100%;
+    padding: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 
     @include media(M) {
         flex-direction: row;
+        padding: 24px;
     }
 }
 

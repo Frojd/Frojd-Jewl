@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Image from '../Image';
 import Icon from '../Icon';
-import s from './CardCTA.module.scss';
+import s from './ContentCTA.module.scss';
 
-const CardCTA = ({ title = '', url = '', text = '', image = {} }) => {
+const ContentCTA = ({ title = '', url = '', text = '', image = {} }) => {
     const hasImage = !!image?.src;
 
     const classes = classNames(s.Root);
@@ -50,11 +50,11 @@ const CardCTA = ({ title = '', url = '', text = '', image = {} }) => {
     );
 };
 
-CardCTA.propTypes = {
+ContentCTA.propTypes = {
     title: PropTypes.string.isRequired,
     url: PropTypes.string,
     text: PropTypes.string,
     image: PropTypes.object,
 };
 
-export default CardCTA;
+export default ContentCTA;

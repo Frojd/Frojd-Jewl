@@ -6,8 +6,8 @@ import renderer from 'react-test-renderer';
 /* eslint-enable no-unused-vars */
 
 import TestComponent from './';
-import data from './CardCTA.data';
-const testName = 'CardCTA';
+import data from './ContentCTA.data';
+const testName = 'ContentCTA';
 
 describe(`<${testName} />`, () => {
     it(`Renders an empty ${testName}`, () => {
