@@ -5,6 +5,9 @@ import Image from '../../components/Image';
 import Richtext from '../../components/Richtext';
 import Submenu from '../../components/Submenu';
 import SectionListModule from '../../components/SectionListModule';
+import ContentButtons from '../../components/ContentButtons';
+import ContentEmphasis from '../../components/ContentEmphasis';
+import ContentCTA from '../../components/ContentCTA';
 import s from './Page.module.scss';
 
 const Page = ({
@@ -13,6 +16,9 @@ const Page = ({
     content = {},
     submenu = {},
     modules = {},
+    contentButtons = null,
+    contentEmphasis = null,
+    contentCta = [],
 }) => {
     const hasFeatured = !!image;
     const imageSizes = [
@@ -42,6 +48,15 @@ const Page = ({
                 <div className={s.Layout}>
                     <div className={s.Content}>
                         <Richtext {...content} />
+                        {contentEmphasis && (
+                            <ContentEmphasis {...contentEmphasis} />
+                        )}
+                        {contentButtons && (
+                            <ContentButtons {...contentButtons} />
+                        )}
+                        {contentCta?.map((cta, index) => (
+                            <ContentCTA key={index} {...cta} />
+                        ))}
                     </div>
 
                     <aside className={s.Sidebar}>
@@ -58,6 +73,10 @@ Page.propTypes = {
     title: PropTypes.string,
     content: PropTypes.object,
     submenu: PropTypes.object,
+    modules: PropTypes.object,
+    contentButtons: PropTypes.object,
+    contentEmphasis: PropTypes.object,
+    contentCta: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Base(Page);
