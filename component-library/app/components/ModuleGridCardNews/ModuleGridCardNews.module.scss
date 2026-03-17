@@ -1,9 +1,11 @@
 @use '../../styles/includes' as *;
 
 .Root {
+    margin-top: 48px;
     margin-bottom: 48px;
 
     @include media(ML) {
+        margin-top: 72px;
         margin-bottom: 72px;
     }
 }
@@ -21,5 +23,5 @@
 .Button {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 32px;
 }
