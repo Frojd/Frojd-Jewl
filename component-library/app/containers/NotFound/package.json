@@ -6,6 +6,9 @@
     "prop-types": "*"
   },
   "jewlDependencies": [
-    "layouts/Base"
+    "layouts/Base",
+    "Richtext",
+    "Button",
+    "Image"
   ]
 }
