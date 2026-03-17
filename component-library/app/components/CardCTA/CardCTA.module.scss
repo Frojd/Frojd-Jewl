@@ -1,0 +1,103 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: $purple-20;
+    position: relative;
+    height: 100%;
+
+    @include media(M) {
+        flex-direction: row;
+    }
+}
+
+.Link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+
+    &:hover ~ .Content .Title {
+        color: $purple;
+        text-decoration: underline 2px solid $purple;
+    }
+
+    &:hover ~ .Content .IconButton {
+        background: $purple;
+
+        svg * {
+            fill: white;
+        }
+    }
+}
+
+.ImageContainer {
+    flex: 0 0 auto;
+    width: 130px;
+    height: 130px;
+    position: relative;
+    overflow: hidden;
+}
+
+.Content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 24px 16px 32px;
+
+    @include media(M) {
+        padding: 24px 24px 32px;
+    }
+
+    @include media(L) {
+        padding: 32px;
+    }
+}
+
+.ContentBody {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.Title {
+    @include textstyle(card-title);
+
+    flex: 0 0 auto;
+    transition: 0.3s color;
+    width: fit-content;
+}
+
+.Text {
+    @include textstyle(body);
+
+    flex: 0 0 auto;
+    margin-top: 12px;
+}
+
+.IconButton {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: $purple-20;
+    border: 2px solid $purple;
+    transition: background $transition;
+
+    svg * {
+        fill: $purple;
+        transition: fill $transition;
+    }
+}
