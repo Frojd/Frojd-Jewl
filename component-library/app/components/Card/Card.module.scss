@@ -76,14 +76,6 @@
     }
 }
 
-.Label {
-    @include textstyle(label-card);
-
-    flex: 0 0 auto;
-    margin-bottom: 8px;
-    color: $purple;
-}
-
 .Title {
     @include textstyle(card-title);
 
@@ -110,8 +102,4 @@
             margin-top: 0;
         }
     }
-}
-
-.Date {
-    @include textstyle(date);
 }
