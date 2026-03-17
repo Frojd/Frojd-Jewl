@@ -5,11 +5,16 @@
     flex-direction: column;
     align-self: flex-start;
     gap: 4px;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
 
     @include media(S) {
         flex-direction: row;
         gap: 6px;
+    }
+
+    @include media(ML) {
+        margin-top: 32px;
+        margin-bottom: 32px;
     }
 }

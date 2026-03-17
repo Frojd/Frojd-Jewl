@@ -1,19 +1,26 @@
 @use '../../styles/includes' as *;
 
 .Root {
-    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     background: $purple-20;
     position: relative;
-    height: 100%;
     padding: 16px;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 24px;
+    gap: 16px;
 
     @include media(M) {
         flex-direction: row;
         padding: 24px;
+        gap: 24px;
+    }
+
+    @include media(ML) {
+        margin-top: 32px;
+    }
+
+    & + & {
+        margin-top: 16px;
     }
 }
 
@@ -56,15 +63,6 @@
     align-items: center;
     gap: 16px;
     width: 100%;
-    padding: 24px 16px 32px;
-
-    @include media(M) {
-        padding: 24px 24px 32px;
-    }
-
-    @include media(L) {
-        padding: 32px;
-    }
 }
 
 .ContentBody {
