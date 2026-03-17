@@ -4,9 +4,16 @@ import Base from '../../layouts/Base';
 import Image from '../../components/Image';
 import Richtext from '../../components/Richtext';
 import Submenu from '../../components/Submenu';
+import SectionListModule from '../../components/SectionListModule';
 import s from './Page.module.scss';
 
-const Page = ({ title = '', image = {}, content = {}, submenu = {} }) => {
+const Page = ({
+    title = '',
+    image = {},
+    content = {},
+    submenu = {},
+    modules = {},
+}) => {
     const hasFeatured = !!image;
     const imageSizes = [
         '(min-width: 1680px) 1440px',
@@ -42,6 +49,7 @@ const Page = ({ title = '', image = {}, content = {}, submenu = {} }) => {
                     </aside>
                 </div>
             </div>
+            <SectionListModule {...modules} />
         </article>
     );
 };
