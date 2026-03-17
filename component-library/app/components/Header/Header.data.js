@@ -14,6 +14,7 @@ const data = {
             { id: '3', title: 'In english', url: '#' },
         ],
     },
+    searchAction: '/search',
 };
 
 export default data;

@@ -11,7 +11,7 @@ import SearchForm from '../SearchForm';
 import SkipToContent from '../SkipToContent';
 import s from './Header.module.scss';
 
-const Header = ({ main = {}, service = {} }) => {
+const Header = ({ main = {}, service = {}, searchAction = '' }) => {
     const { t } = useTranslation();
 
     const [isSearchVisible, setIsSearchVisible] = useState(false);
@@ -37,30 +37,34 @@ const Header = ({ main = {}, service = {} }) => {
             </div>
             <div className={s.Service}>
                 <div className={s.Wrap}>
-                    <div className={s.Search}>
-                        <button
-                            className={s.SearchButton}
-                            type="button"
-                            aria-controls="header-search"
-                            aria-expanded={isSearchVisible}
-                            onClick={() => setIsSearchVisible(!isSearchVisible)}
-                        >
-                            {t('header.search')}
-                            <Icon name="Search" asBg={true} />
-                        </button>
-                        <AnimateInOut
-                            className={s.SearchForm}
-                            isVisible={isSearchVisible}
-                            id="header-search"
-                            aria-hidden={!isSearchVisible}
-                        >
-                            <SearchForm
-                                id="header-search-input"
-                                variant="Header"
-                                triggerFocus={isSearchVisible}
-                            />
-                        </AnimateInOut>
-                    </div>
+                    {searchAction && (
+                        <div className={s.Search}>
+                            <button
+                                className={s.SearchButton}
+                                type="button"
+                                aria-controls="header-search"
+                                aria-expanded={isSearchVisible}
+                                onClick={() =>
+                                    setIsSearchVisible(!isSearchVisible)
+                                }
+                            >
+                                {t('header.search')}
+                                <Icon name="Search" asBg={true} />
+                            </button>
+                            <AnimateInOut
+                                className={s.SearchForm}
+                                isVisible={isSearchVisible}
+                                id="header-search"
+                                aria-hidden={!isSearchVisible}
+                            >
+                                <SearchForm
+                                    id="header-search-input"
+                                    variant="Header"
+                                    triggerFocus={isSearchVisible}
+                                />
+                            </AnimateInOut>
+                        </div>
+                    )}
                     <div className={s.ServiceMenu}>
                         <Nav
                             {...serviceMenu}
@@ -138,6 +142,7 @@ const Header = ({ main = {}, service = {} }) => {
 Header.propTypes = {
     main: PropTypes.object,
     service: PropTypes.object,
+    searchAction: PropTypes.string,
 };
 
 export default Header;
