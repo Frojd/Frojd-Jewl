@@ -1,6 +1,15 @@
 @use '../../styles/includes' as *;
 
 .Root {
+    margin-bottom: 48px;
+
+    @include media(ML) {
+        margin-bottom: 72px;
+    }
+}
+
+.Wrap {
+    @include wrap;
 }
 
 .Title {

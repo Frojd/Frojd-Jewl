@@ -24,7 +24,8 @@
 .Featured {
     position: relative;
     width: 100%;
-    margin-top: 32px;
+    max-width: map.get($maxwidths, article);
+    margin: 32px auto 0;
 
     @include media(ML) {
         margin-top: 48px;

@@ -8,18 +8,20 @@ import s from './ModuleGridCardNews.module.scss';
 const ModuleGridCardNews = ({ title = '', items = [], button = null }) => {
     return (
         <div className={s.Root}>
-            {title && (
-                <h2
-                    className={s.Title}
-                    dangerouslySetInnerHTML={{ __html: title }}
-                />
-            )}
-            <Grid items={items} columns={3} Card={CardNews} />
-            {button?.title && (
-                <div className={s.Button}>
-                    <Button title={button.title} url={button.url} />
-                </div>
-            )}
+            <div className={s.Wrap}>
+                {title && (
+                    <h2
+                        className={s.Title}
+                        dangerouslySetInnerHTML={{ __html: title }}
+                    />
+                )}
+                <Grid items={items} columns={3} Card={CardNews} />
+                {button?.title && (
+                    <div className={s.Button}>
+                        <Button title={button.title} url={button.url} />
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

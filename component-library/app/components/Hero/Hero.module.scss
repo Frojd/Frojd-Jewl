@@ -8,12 +8,17 @@
     justify-content: flex-end;
     height: 754px;
     padding: 0 16px 32px;
+    margin-bottom: 48px;
 
     @include media(M) {
         align-items: flex-start;
         justify-content: center;
         height: 697px;
         padding: 0;
+    }
+
+    @include media(ML) {
+        margin-bottom: 72px;
     }
 }
 
