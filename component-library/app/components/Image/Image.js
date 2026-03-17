@@ -77,7 +77,7 @@ const Img = ({
         <NextImage
             className={s.Img}
             src={src}
-            originalSrc={src}
+            overrideSrc={src}
             width={useCover ? undefined : width}
             height={useCover ? undefined : height}
             alt={alt}
