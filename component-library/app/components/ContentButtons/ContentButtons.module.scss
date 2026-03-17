@@ -1,0 +1,15 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 4px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    @include media(S) {
+        flex-direction: row;
+        gap: 6px;
+    }
+}
