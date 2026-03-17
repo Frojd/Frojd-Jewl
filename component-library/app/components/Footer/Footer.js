@@ -6,15 +6,10 @@ import { useTranslation } from 'react-i18next';
 import Follow from '../Follow';
 import Icon from '../Icon';
 import Nav from '../Nav';
+import Richtext from '../Richtext';
 import s from './Footer.module.scss';
 
-const Footer = ({
-    follow = {},
-    primary = {},
-    secondary = {},
-    tertiary = {},
-    service = {},
-}) => {
+const Footer = ({ follow = {}, columns = [], service = {} }) => {
     const { t } = useTranslation();
 
     const logoSizes = ['(min-width: 768px) 129px', '112px'];
@@ -24,6 +19,8 @@ const Footer = ({
         ...service,
         items: [...serviceItems],
     };
+
+    console.log(columns);
 
     return (
         <div className={s.Root}>
@@ -47,21 +44,9 @@ const Footer = ({
                         </div>
                     </div>
 
-                    <NavColumn
-                        {...primary}
-                        id="footer-primary"
-                        label={t('footer.primary')}
-                    />
-                    <NavColumn
-                        {...secondary}
-                        id="footer-secondary"
-                        label={t('footer.secondary')}
-                    />
-                    <NavColumn
-                        {...tertiary}
-                        id="footer-tertiary"
-                        label={t('footer.tertiary')}
-                    />
+                    {columns.map((column, index) => (
+                        <NavColumn {...column} key={index} index={index} />
+                    ))}
                 </div>
                 <div className={s.Footer}>
                     <h2 className="sr-only">{serviceMenu?.title}</h2>
@@ -82,33 +67,38 @@ const Footer = ({
 
 Footer.propTypes = {
     follow: PropTypes.object,
-    primary: PropTypes.object,
-    secondary: PropTypes.object,
-    tertiary: PropTypes.object,
+    columns: PropTypes.array,
     service: PropTypes.object,
 };
 
-const NavColumn = ({ title = '', items = [], id = '', label = '' }) => {
+const NavColumn = ({ index = 0, title = '', items = [], richtext = '' }) => {
+    const id = `footer-nav-${index}`;
+    console.log('col', index, title, items, richtext);
     return (
         <div className={s.Column}>
             <h2 className={s.Title}>{title}</h2>
-            <Nav
-                className={s.Nav}
-                id={id}
-                label={label}
-                items={items}
-                orientation="Vertical"
-                listClassName={s.NavList}
-                itemClassName={s.NavItem}
-                linkClassName={s.NavLink}
-            />
+            {richtext && <Richtext {...richtext} className={s.Richtext} />}
+            {items && (
+                <Nav
+                    className={s.Nav}
+                    id={id}
+                    label={title}
+                    items={items}
+                    orientation="Vertical"
+                    listClassName={s.NavList}
+                    itemClassName={s.NavItem}
+                    linkClassName={s.NavLink}
+                />
+            )}
         </div>
     );
 };
 
 NavColumn.propTypes = {
+    index: PropTypes.number,
     title: PropTypes.string,
     items: PropTypes.array,
+    richtext: PropTypes.string,
 };
 
 export default Footer;

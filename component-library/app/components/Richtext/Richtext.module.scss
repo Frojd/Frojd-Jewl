@@ -95,8 +95,10 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: $base-color;
-            transition: background-color $transition;
+            background: currentcolor;
+            transition:
+                background-color $transition,
+                opacity $transition;
         }
 
         &::after {
@@ -110,19 +112,13 @@
             background-color: currentcolor;
             line-height: 1;
             mask-size: contain;
-            transition: background-image $transition;
+            transition:
+                background-image $transition,
+                opacity $transition;
         }
 
         &:hover {
             color: $link-color;
-
-            &::before {
-                background: $link-color;
-            }
-
-            &::after {
-                color: $link-color;
-            }
         }
 
         @include href-external {
