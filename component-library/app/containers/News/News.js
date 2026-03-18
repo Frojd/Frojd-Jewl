@@ -4,10 +4,6 @@ import { useTranslation } from 'react-i18next';
 import Base from '../../layouts/Base';
 import Image from '../../components/Image';
 import Richtext from '../../components/Richtext';
-import SectionListModule from '../../components/SectionListModule';
-import ContentButtons from '../../components/ContentButtons';
-import ContentEmphasis from '../../components/ContentEmphasis';
-import ContentCTA from '../../components/ContentCTA';
 import s from './News.module.scss';
 
 const News = ({
@@ -17,10 +13,6 @@ const News = ({
     dateFormatted = '',
     image = {},
     content = {},
-    modules = {},
-    contentButtons = null,
-    contentEmphasis = null,
-    contentCta = null,
 }) => {
     const { t } = useTranslation();
     const hasFeatured = !!image;
@@ -67,17 +59,9 @@ const News = ({
                 <div className={s.Layout}>
                     <div className={s.Content}>
                         <Richtext {...content} />
-                        {contentEmphasis && (
-                            <ContentEmphasis {...contentEmphasis} />
-                        )}
-                        {contentButtons && (
-                            <ContentButtons {...contentButtons} />
-                        )}
-                        {contentCta && <ContentCTA {...contentCta} />}
                     </div>
                 </div>
             </div>
-            <SectionListModule {...modules} />
         </article>
     );
 };
@@ -88,10 +72,6 @@ News.propTypes = {
     dateString: PropTypes.string,
     dateFormatted: PropTypes.string,
     content: PropTypes.object,
-    modules: PropTypes.object,
-    contentButtons: PropTypes.object,
-    contentEmphasis: PropTypes.object,
-    contentCta: PropTypes.object,
 };
 
 export default Base(News);

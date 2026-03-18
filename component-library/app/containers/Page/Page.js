@@ -4,22 +4,10 @@ import Base from '../../layouts/Base';
 import Image from '../../components/Image';
 import Richtext from '../../components/Richtext';
 import Submenu from '../../components/Submenu';
-import SectionListModule from '../../components/SectionListModule';
-import ContentButtons from '../../components/ContentButtons';
-import ContentEmphasis from '../../components/ContentEmphasis';
-import ContentCTA from '../../components/ContentCTA';
+
 import s from './Page.module.scss';
 
-const Page = ({
-    title = '',
-    image = {},
-    content = {},
-    submenu = {},
-    modules = {},
-    contentButtons = null,
-    contentEmphasis = null,
-    contentCta = [],
-}) => {
+const Page = ({ title = '', image = {}, content = {}, submenu = {} }) => {
     const hasFeatured = !!image;
     const imageSizes = [
         '(min-width: 1680px) 1440px',
@@ -48,15 +36,6 @@ const Page = ({
                 <div className={s.Layout}>
                     <div className={s.Content}>
                         <Richtext {...content} />
-                        {contentEmphasis && (
-                            <ContentEmphasis {...contentEmphasis} />
-                        )}
-                        {contentButtons && (
-                            <ContentButtons {...contentButtons} />
-                        )}
-                        {contentCta?.map((cta, index) => (
-                            <ContentCTA key={index} {...cta} />
-                        ))}
                     </div>
 
                     <aside className={s.Sidebar}>
@@ -64,7 +43,6 @@ const Page = ({
                     </aside>
                 </div>
             </div>
-            <SectionListModule {...modules} />
         </article>
     );
 };
@@ -73,10 +51,6 @@ Page.propTypes = {
     title: PropTypes.string,
     content: PropTypes.object,
     submenu: PropTypes.object,
-    modules: PropTypes.object,
-    contentButtons: PropTypes.object,
-    contentEmphasis: PropTypes.object,
-    contentCta: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Base(Page);

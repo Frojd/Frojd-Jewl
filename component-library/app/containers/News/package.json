@@ -8,6 +8,6 @@
   "jewlDependencies": [
     "layouts/Base",
     "Richtext",
-    "SectionListModule"
+    "Image"
   ]
 }
