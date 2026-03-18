@@ -31,9 +31,13 @@
     max-width: 725px;
     background: $bg-color;
     border: 1px solid $grey-20;
-    padding: 24px;
     display: flex;
     flex-direction: column;
+    padding: 24px;
+
+    @include media(M) {
+        padding: 32px;
+    }
 }
 
 .Title {
