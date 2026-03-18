@@ -9,6 +9,9 @@ import contentCta from '../../components/ContentCTA/ContentCTA.data';
 const data = {
     ...base,
     title: 'A headline for an exciting news article',
+    label: 'Label',
+    dateString: '2022-02-03',
+    dateFormatted: '3 februari 2022',
     image: image,
     content: richtext,
     contentButtons: contentButtons,

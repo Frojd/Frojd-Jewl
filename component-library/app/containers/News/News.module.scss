@@ -18,6 +18,42 @@
     max-width: map.get($maxwidths, content);
 }
 
+.Label {
+    @include textstyle(label);
+
+    color: $purple;
+    margin-bottom: 8px;
+
+    @include media(ML) {
+        margin-bottom: 12px;
+    }
+}
+
+.Title {
+    @include textstyle(page-title);
+
+    margin-bottom: 16px;
+
+    @include media(ML) {
+        margin-bottom: 24px;
+    }
+}
+
+.Meta {
+    margin-top: 8px;
+}
+
+.Date {
+    @include textstyle(date);
+
+    color: $grey-70;
+    margin-bottom: 16px;
+
+    @include media(ML) {
+        margin-bottom: 24px;
+    }
+}
+
 .Featured {
     position: relative;
     width: 100%;

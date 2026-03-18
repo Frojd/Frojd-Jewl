@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import Base from '../../layouts/Base';
 import Image from '../../components/Image';
 import Richtext from '../../components/Richtext';
@@ -11,6 +12,9 @@ import s from './News.module.scss';
 
 const News = ({
     title = '',
+    label = '',
+    dateString = '',
+    dateFormatted = '',
     image = {},
     content = {},
     modules = {},
@@ -18,6 +22,7 @@ const News = ({
     contentEmphasis = null,
     contentCta = null,
 }) => {
+    const { t } = useTranslation();
     const hasFeatured = !!image;
     const imageSizes = [
         '(min-width: 1680px) 1440px',
@@ -30,10 +35,26 @@ const News = ({
             <div className={s.Wrap}>
                 <div className={s.HeaderWrap}>
                     <div className={s.Header}>
+                        {label && (
+                            <div
+                                className={s.Label}
+                                dangerouslySetInnerHTML={{ __html: label }}
+                            />
+                        )}
                         <h1
                             className={s.Title}
                             dangerouslySetInnerHTML={{ __html: title }}
                         />
+                        {dateString && dateFormatted && (
+                            <div className={s.Meta}>
+                                <span className="sr-only">
+                                    {t('news.date')}:{' '}
+                                </span>
+                                <time className={s.Date} dateTime={dateString}>
+                                    {dateFormatted}
+                                </time>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -63,6 +84,9 @@ const News = ({
 
 News.propTypes = {
     title: PropTypes.string,
+    label: PropTypes.string,
+    dateString: PropTypes.string,
+    dateFormatted: PropTypes.string,
     content: PropTypes.object,
     modules: PropTypes.object,
     contentButtons: PropTypes.object,
