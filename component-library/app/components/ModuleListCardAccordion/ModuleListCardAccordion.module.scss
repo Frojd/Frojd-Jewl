@@ -15,7 +15,7 @@
 }
 
 .Title {
-    @include textstyle(richtext-h2);
+    @include textstyle(module-title);
 
     margin-bottom: 24px;
 }
