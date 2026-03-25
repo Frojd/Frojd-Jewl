@@ -6,6 +6,5 @@
     "prop-types": "*",
     "classnames": "*"
   },
-  "jewlDependencies": [
-  ]
+  "jewlDependencies": []
 }

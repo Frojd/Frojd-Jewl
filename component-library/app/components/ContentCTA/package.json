@@ -1,5 +1,5 @@
 {
-  "name": "AccordionItem",
+  "name": "ContentCTA",
   "version": "1.0.0",
   "dependencies": {
     "react": "*",
@@ -8,7 +8,6 @@
     "classnames": "*"
   },
   "jewlDependencies": [
-    "Animate",
-    "Richtext"
+    "Image"
   ]
 }

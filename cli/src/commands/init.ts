@@ -1,4 +1,5 @@
-import {Command, ux} from '@oclif/core'
+import {Command} from '@oclif/core'
+import { input } from '@inquirer/prompts'
 
 import * as git from 'isomorphic-git'
 import http from 'isomorphic-git/http/node'
@@ -34,7 +35,7 @@ export default class Init extends Command {
       this.log('Initializing Jewl...')
     }
 
-    const basePath = await ux.prompt('Base path for jewl-components (Where your components-folder is located. Set "." for root-folder)?', {default: _config.basePath})
+    const basePath = await input({message: 'Base path for jewl-components (Where your components-folder is located. Set "." for root-folder)?', default: _config.basePath})
 
     const config: JewlConfig = storeConfig({..._config, basePath: basePath})
 
@@ -68,7 +69,18 @@ export default class Init extends Command {
     }
 
     try {
-      await git.clone({fs, http, dir: REPO_PATH, url: config.repository})
+      const branch = config.repositoryBranch || 'master'
+      this.log(`Using branch: ${branch}`)
+
+      await git.clone({
+        fs,
+        http,
+        dir: REPO_PATH,
+        url: config.repository,
+        ref: branch,
+        singleBranch: true,
+        depth: 1
+      })
     } catch (e:unknown) {
       this.error('Failed to clone repository: ' + e)
     }
@@ -93,7 +105,6 @@ export default class Init extends Command {
     const devDeps = {
       "@storybook/addon-a11y": "*",
       "@storybook/addon-actions": "*",
-      "@storybook/addon-essentials": "*",
       "@storybook/addon-links": "*",
       "@storybook/nextjs": "*",
       "@storybook/react": "*",
@@ -116,7 +127,7 @@ export default class Init extends Command {
       let exists = fs.existsSync(fullLocalPath)
 
       if (exists) {
-        shouldReplace = await ux.prompt(`${fullLocalPath} already exists in your repo. Should Jewl replace it? (y/n)?`, {default: shouldReplace})
+        shouldReplace = await input({message: `${fullLocalPath} already exists in your repo. Should Jewl replace it? (y/n)?`, default: shouldReplace})
 
         if (shouldReplace == "y") {
           this.log(`Purging existing ${fullLocalPath}...`)

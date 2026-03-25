@@ -1,4 +1,5 @@
 /* Styleguide is only available in storybook */
+@use '../styles/includes' as *;
 
 .styleguide {
     @include textstyle(body);
@@ -13,7 +14,7 @@
 
     h1 {
         margin: 40px 0;
-        color: rgba(black, 0.7);
+        color: rgb(black, 0.7);
         font-size: 4rem;
         font-weight: bold;
     }
@@ -21,12 +22,12 @@
     h2 {
         padding-bottom: 8px;
         margin: 60px 0 40px;
-        color: rgba(black, 0.5);
+        color: rgb(black, 0.5);
         font-size: 1.2rem;
         font-weight: bold;
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid rgba(black, 0.5);
+        border-bottom: 1px solid rgb(black, 0.5);
     }
 
     pre {
@@ -39,7 +40,7 @@
         padding: 16px;
 
         pre {
-            color: rgba(white, 0.8);
+            color: rgb(white, 0.8);
         }
 
         &--dark {

@@ -1,4 +1,7 @@
-// Returns a key value if it exsists
+@use 'sass:map';
+@use 'sass:list';
+
+// Returns a key value if it exists
 @function get-default($map, $key: 'd', $default: '') {
     $value: $key;
 
@@ -6,8 +9,8 @@
         $value: $default;
     }
 
-    @if map-has-key($map, $key) {
-        $value: map-get($map, $key);
+    @if map.has-key($map, $key) {
+        $value: map.get($map, $key);
     }
 
     @return $value;
@@ -15,7 +18,7 @@
 
 // Check if list contains a value
 @function contains($list, $var) {
-    $index: index($list, $var);
+    $index: list.index($list, $var);
 
     @if $index != null and $index > 0 {
         @return true;

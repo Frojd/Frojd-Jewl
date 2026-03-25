@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Base from '../../layouts/Base';
@@ -26,7 +28,7 @@ const Search = ({
                             {...searchForm}
                             keyword={currentKeyword}
                             id="search-form"
-                            modifier="Search"
+                            variant="Search"
                             onSubmit={(s) => setCurrentKeyword(s)}
                         />
                     </div>

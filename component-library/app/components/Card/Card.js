@@ -1,22 +1,12 @@
+'use client';
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import Image from '../Image';
 import s from './Card.module.scss';
 
-const Card = ({
-    title = '',
-    url = '',
-    label = '',
-    text = '',
-    image = {},
-    dateString = '',
-    dateFormatted = '',
-    size = '',
-}) => {
-    const { t } = useTranslation();
-
+const Card = ({ title = '', url = '', text = '', image = {}, size = '' }) => {
     const hasImage = !!image?.src;
 
     const imageSizes = [
@@ -74,13 +64,6 @@ const Card = ({
             )}
 
             <div className={s.Content}>
-                {label && (
-                    <div
-                        className={s.Label}
-                        dangerouslySetInnerHTML={{ __html: label }}
-                    />
-                )}
-
                 <h3
                     className={s.Title}
                     dangerouslySetInnerHTML={{ __html: title }}
@@ -92,15 +75,6 @@ const Card = ({
                         dangerouslySetInnerHTML={{ __html: text }}
                     />
                 )}
-
-                {dateString && dateFormatted && (
-                    <div className={s.Meta}>
-                        <span className="sr-only">{t('card.date')}: </span>
-                        <time className={s.Date} dateTime={dateString}>
-                            {dateFormatted}
-                        </time>
-                    </div>
-                )}
             </div>
         </article>
     );
@@ -109,11 +83,8 @@ const Card = ({
 Card.propTypes = {
     title: PropTypes.string.isRequired,
     url: PropTypes.string,
-    label: PropTypes.string,
     text: PropTypes.string,
     image: PropTypes.object,
-    dateString: PropTypes.string,
-    dateFormatted: PropTypes.string,
     size: PropTypes.string,
 };
 

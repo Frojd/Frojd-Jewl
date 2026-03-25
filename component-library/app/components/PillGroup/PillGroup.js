@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
@@ -30,7 +32,7 @@ const PillGroup = ({
 
     useEffect(() => {
         changeHandler(currentSelected);
-    }, [currentSelected]);
+    }, [currentSelected, changeHandler]);
 
     const onChange = (value, checked) => {
         if (value === 'all') {
@@ -54,7 +56,7 @@ const PillGroup = ({
     const classes = classNames(s.Root, { [s['Root--Multiple']]: multiple });
 
     return (
-        <Fieldset title={label}>
+        <Fieldset title={label} className={classes}>
             <div className={s.List}>
                 {showAll && (
                     <Item
@@ -112,8 +114,8 @@ const Item = ({
         value === 'all'
             ? isNoneSelected
             : multiple && selected
-            ? selected.includes(value)
-            : selected === value;
+              ? selected.includes(value)
+              : selected === value;
 
     const classes = classNames(s.Item, { [s['Item--Checked']]: isChecked });
 

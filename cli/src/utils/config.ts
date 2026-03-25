@@ -24,6 +24,7 @@ interface JewlComponentPaths {
 export interface JewlConfig {
   basePath: string
   repository: string;
+  repositoryBranch?: string;
   repositoryPaths: JewlComponentPaths;
   componentMapping: Array<JewlComponentMapping>
 }

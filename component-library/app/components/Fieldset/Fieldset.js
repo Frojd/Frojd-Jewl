@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import s from './Fieldset.module.scss';
 
-const Fieldset = ({ title = '', text = '', children = '' }) => {
+const Fieldset = ({ className = '', title = '', text = '', children = '' }) => {
+    const classes = classNames(s.Root, className);
     return (
-        <fieldset className={s.Root}>
+        <fieldset className={classes}>
             {title && <legend className={s.Title}>{title}</legend>}
             {text && (
                 <div
@@ -18,6 +20,7 @@ const Fieldset = ({ title = '', text = '', children = '' }) => {
 };
 
 Fieldset.propTypes = {
+    className: PropTypes.string,
     title: PropTypes.string,
     text: PropTypes.string,
     children: PropTypes.node,

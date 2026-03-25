@@ -1,4 +1,4 @@
-@import '../../styles/includes';
+@use '../../styles/includes' as *;
 
 .Root {
     border-bottom: 1px solid $purple-20;
@@ -10,6 +10,7 @@
     flex: 1 1 auto;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .Service {
@@ -194,7 +195,9 @@
         right: 16px;
         background: $purple-60;
         opacity: 0;
-        transition: background $transition, opacity $transition;
+        transition:
+            background $transition,
+            opacity $transition;
     }
 
     &:hover {
@@ -259,7 +262,9 @@
         height: 3px;
         background: $base-color;
         opacity: 0;
-        transition: opacity $transition, left 0.3s 0.1s,
+        transition:
+            opacity $transition,
+            left 0.3s 0.1s,
             background-color $transition;
     }
 

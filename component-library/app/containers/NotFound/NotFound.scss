@@ -1,4 +1,17 @@
-@import '../../styles/includes';
+@use '../../styles/includes' as *;
 
-.NotFound {
+.Wrap {
+    @include wrap;
+}
+
+.Title {
+    @include textstyle(page-title);
+
+    margin-bottom: 24px;
+}
+
+.Preamble {
+    @include textstyle(preamble);
+
+    margin-bottom: 40px;
 }

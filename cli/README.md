@@ -68,6 +68,7 @@ existing frontend project, manual mappings could be added to resolve name-collis
 * [`jewl-cli help [COMMAND]`](#jewl-cli-help-command)
 * [`jewl-cli init`](#jewl-cli-init)
 * [`jewl-cli list`](#jewl-cli-list)
+* [`jewl-cli reset`](#jewl-cli-reset)
 * [`jewl-cli update`](#jewl-cli-update)
 
 ## `jewl-cli clone COMPONENTNAME [NEWNAME]`
@@ -80,7 +81,7 @@ USAGE
 
 ARGUMENTS
   COMPONENTNAME  (required) The name of the component in the Jewl Component Library
-  NEWNAME        The name of the newly created component. Defaults to COMPONENTNAME
+  [NEWNAME]      The name of the newly created component. Defaults to COMPONENTNAME
 
 FLAGS
   --help  Show CLI help.
@@ -94,7 +95,7 @@ EXAMPLES
   $ jewl clone Header HeaderLarge
 ```
 
-_See code: [src/commands/clone.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.9/src/commands/clone.ts)_
+_See code: [src/commands/clone.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.1.5/src/commands/clone.ts)_
 
 ## `jewl-cli help [COMMAND]`
 
@@ -105,7 +106,7 @@ USAGE
   $ jewl-cli help [COMMAND...] [-n]
 
 ARGUMENTS
-  COMMAND...  Command to show help for.
+  [COMMAND...]  Command to show help for.
 
 FLAGS
   -n, --nested-commands  Include all nested commands in the output.
@@ -114,7 +115,7 @@ DESCRIPTION
   Display help for jewl-cli.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.21/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.37/src/commands/help.ts)_
 
 ## `jewl-cli init`
 
@@ -132,7 +133,7 @@ EXAMPLES
   $ jewl-cli init
 ```
 
-_See code: [src/commands/init.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.9/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.1.5/src/commands/init.ts)_
 
 ## `jewl-cli list`
 
@@ -149,7 +150,30 @@ EXAMPLES
   $ jewl list
 ```
 
-_See code: [src/commands/list.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.9/src/commands/list.ts)_
+_See code: [src/commands/list.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.1.5/src/commands/list.ts)_
+
+## `jewl-cli reset`
+
+Reset all cloned components by overwriting them with the versions from the Jewl Component Library. WARNING: This will permanently delete any local changes you have made to these components.
+
+```
+USAGE
+  $ jewl-cli reset [-f]
+
+FLAGS
+  -f, --force  Skip confirmation prompts and sync all components
+
+DESCRIPTION
+  Reset all cloned components by overwriting them with the versions from the Jewl Component Library. WARNING: This will
+  permanently delete any local changes you have made to these components.
+
+EXAMPLES
+  $ jewl-cli reset
+
+  $ jewl-cli reset --force
+```
+
+_See code: [src/commands/reset.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.1.5/src/commands/reset.ts)_
 
 ## `jewl-cli update`
 
@@ -166,5 +190,5 @@ EXAMPLES
   $ jewl-cli update
 ```
 
-_See code: [src/commands/update.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.0.9/src/commands/update.ts)_
+_See code: [src/commands/update.ts](https://github.com/Frojd/Frojd-Jewl/blob/v0.1.5/src/commands/update.ts)_
 <!-- commandsstop -->

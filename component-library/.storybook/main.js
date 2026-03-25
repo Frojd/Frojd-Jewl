@@ -1,6 +1,10 @@
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
     staticDirs: ['./assets'],
 
     stories: [
@@ -23,32 +27,23 @@ module.exports = {
     ],
 
     addons: [
-        '@storybook/addon-essentials',
         '@storybook/addon-a11y',
         '@whitespace/storybook-addon-html',
+        '@storybook/addon-links',
     ],
-
-    features: {
-        babelModeV7: true,
-    },
 
     framework: {
         name: '@storybook/nextjs',
-        options: {},
+        options: {
+            nextConfigPath: path.resolve(__dirname, '../next.config.mjs'),
+        },
     },
 
     docs: {
         autodocs: true,
     },
 
-    babel: async (options) => {
-        options.presets = ['next/babel'];
-        return {
-            ...options,
-        };
-    },
-
-    webpackFinal: async (config, { configType }) => {
+    webpackFinal: async (config) => {
         config.module.rules = config.module.rules.map((data) => {
             if (/svg/.test(String(data.test))) {
                 data.test =

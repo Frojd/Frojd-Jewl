@@ -23,4 +23,7 @@ export default Story;
 const Template = (args) => <Grid {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { ...autoItemSizes };
+Default.args = { ...data };
+
+export const AutoSizes = Template.bind({});
+AutoSizes.args = { ...autoItemSizes };

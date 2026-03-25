@@ -5,7 +5,7 @@ import submenu from '../../components/Submenu/Submenu.data';
 
 const data = {
     ...base,
-    title: 'A headline for an exciting news article',
+    title: 'A headline for an exciting page',
     image: image,
     content: richtext,
     submenu: submenu,

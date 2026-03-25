@@ -1,14 +1,14 @@
 {
-    "name": "Base",
-    "version": "1.0.0",
-    "dependencies": {
-        "react": "*",
-        "prop-types": "*",
-        "classnames": "*"
-    },
-    "jewlDependencies": [
-        "Breadcrumbs",
-        "Header",
-        "Footer"
-    ]
+  "name": "Base",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "*",
+    "prop-types": "*",
+    "classnames": "*"
+  },
+  "jewlDependencies": [
+    "Breadcrumbs",
+    "Header",
+    "Footer"
+  ]
 }

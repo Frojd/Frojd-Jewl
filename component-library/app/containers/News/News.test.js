@@ -6,8 +6,8 @@ import renderer from 'react-test-renderer';
 /* eslint-enable no-unused-vars */
 
 import TestComponent from './';
-import data from './AccordionItem.data';
-const testName = 'AccordionItem';
+import data from './News.data';
+const testName = 'News';
 
 describe(`<${testName} />`, () => {
     it(`Renders an empty ${testName}`, () => {

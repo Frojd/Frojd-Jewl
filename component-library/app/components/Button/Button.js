@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -8,7 +10,7 @@ const Button = ({
     children = '',
     title = '',
     className = null,
-    modifier = 'Primary',
+    variant = 'Primary',
     size = 'Large',
     icon = null,
     url = null,
@@ -27,7 +29,7 @@ const Button = ({
     const classes = classNames(
         className,
         s.Root,
-        [s[`Root--${modifier}`]],
+        [s[`Root--${variant}`]],
         [s[`Root--${size}`]],
         { [s[`Root--${icon}`]]: icon },
         { [s['Root--Disabled']]: disabled }
@@ -66,7 +68,7 @@ Button.propTypes = {
     rel: PropTypes.string,
     attrTitle: PropTypes.string,
     type: PropTypes.string,
-    modifier: PropTypes.oneOf([
+    variant: PropTypes.oneOf([
         'Primary',
         'Secondary',
         'Tertiary',

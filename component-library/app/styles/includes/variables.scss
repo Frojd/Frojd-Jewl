@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $assetsPath: '../../assets/';
 
 // Gutters used as column spacing in grid
@@ -70,14 +72,20 @@ $base-color: $grey-90;
 $primary-color: $purple;
 $accent-color: $yellow;
 $link-color: $primary-color;
-$link-hover-color: darken($purple, 20%);
+$link-hover-color: color.adjust($purple, $lightness: -20%);
 $error-color: $system-error;
 $error-bg: $system-error-10;
 $success-color: $system-success;
 
 /** Text styles variables **/
-$base-font: #{Roboto, Arial, sans-serif};
-$heading-font: #{Roboto, Arial, sans-serif};
+$base-font:
+    #{Roboto,
+    Arial,
+    sans-serif};
+$heading-font:
+    #{Roboto,
+    Arial,
+    sans-serif};
 $base-size: 1.6rem;
 
 // Match names of weights here with the weights of the fonts in fonts.scss
@@ -257,8 +265,7 @@ $textstyles: (
             line-height: 23.5,
         ),
         // Quote name
-        M:
-            (
+        M: (
                 font-size: 18,
                 line-height: 26.5,
             ),
@@ -292,8 +299,7 @@ $textstyles: (
             line-height: 23.5,
         ),
         // Footer link
-        M:
-            (
+        M: (
                 font-size: 18,
                 line-height: 27.7,
             ),

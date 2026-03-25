@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 
-const Buttons = ({}) => {
+const Buttons = () => {
     return (
         <div className="styleguide">
             <div className="styleguide__wrap">
@@ -10,57 +10,55 @@ const Buttons = ({}) => {
                 <h2>Primary</h2>
 
                 <pre>
-                    {
-                        '<Button modifier="Primary" type="submit">Primary</Button>'
-                    }
+                    {'<Button variant="Primary" type="submit">Primary</Button>'}
                 </pre>
-                <Button modifier="Primary" type="submit">
+                <Button variant="Primary" type="submit">
                     Primary
                 </Button>
 
                 <pre>
                     {
-                        '<Button modifier="Primary link" title="Primary" url="/url" />'
+                        '<Button variant="Primary link" title="Primary" url="/url" />'
                     }
                 </pre>
-                <Button modifier="Primary" title="Primary" url="/url" />
+                <Button variant="Primary" title="Primary" url="/url" />
 
                 <pre>
                     {
-                        '<Button modifier="Primary" title="Primary Disabled" disabled={true} aria-disabled={true} />'
+                        '<Button variant="Primary" title="Primary Disabled" disabled={true} aria-disabled={true} />'
                     }
                 </pre>
                 <Button
-                    modifier="Primary"
+                    variant="Primary"
                     title="Primary Disabled"
                     disabled={true}
                 />
 
                 <pre>
                     {
-                        '<Button modifier="Primary" title="Primary External" icon="External" />'
+                        '<Button variant="Primary" title="Primary External" icon="External" />'
                     }
                 </pre>
                 <Button
-                    modifier="Primary"
+                    variant="Primary"
                     title="Primary External"
                     icon="External"
                 />
 
                 <pre>
                     {
-                        '<Button modifier="Primary" title="Primary Arrow" icon="Arrow" />'
+                        '<Button variant="Primary" title="Primary Arrow" icon="Arrow" />'
                     }
                 </pre>
-                <Button modifier="Primary" title="Primary Arrow" icon="Arrow" />
+                <Button variant="Primary" title="Primary Arrow" icon="Arrow" />
 
                 <pre>
                     {
-                        '<Button modifier="Primary" title="Primary External" icon="Download" />'
+                        '<Button variant="Primary" title="Primary External" icon="Download" />'
                     }
                 </pre>
                 <Button
-                    modifier="Primary"
+                    variant="Primary"
                     title="Primary Download"
                     icon="Download"
                 />
@@ -69,60 +67,60 @@ const Buttons = ({}) => {
 
                 <pre>
                     {
-                        '<Button modifier="Secondary" type="submit">Secondary</Button>'
+                        '<Button variant="Secondary" type="submit">Secondary</Button>'
                     }
                 </pre>
-                <Button modifier="Secondary" type="submit">
+                <Button variant="Secondary" type="submit">
                     Secondary
                 </Button>
 
                 <pre>
                     {
-                        '<Button modifier="Secondary link" title="Secondary" url="/url" />'
+                        '<Button variant="Secondary link" title="Secondary" url="/url" />'
                     }
                 </pre>
-                <Button modifier="Secondary" title="Secondary" url="/url" />
+                <Button variant="Secondary" title="Secondary" url="/url" />
 
                 <pre>
                     {
-                        '<Button modifier="Secondary" title="Secondary Disabled" disabled={true} aria-disabled={true} />'
+                        '<Button variant="Secondary" title="Secondary Disabled" disabled={true} aria-disabled={true} />'
                     }
                 </pre>
                 <Button
-                    modifier="Secondary"
+                    variant="Secondary"
                     title="Secondary Disabled"
                     disabled={true}
                 />
 
                 <pre>
                     {
-                        '<Button modifier="Secondary" title="Secondary External" icon="External" />'
+                        '<Button variant="Secondary" title="Secondary External" icon="External" />'
                     }
                 </pre>
                 <Button
-                    modifier="Secondary"
+                    variant="Secondary"
                     title="Secondary External"
                     icon="External"
                 />
 
                 <pre>
                     {
-                        '<Button modifier="Secondary" title="Secondary Arrow" icon="Arrow" />'
+                        '<Button variant="Secondary" title="Secondary Arrow" icon="Arrow" />'
                     }
                 </pre>
                 <Button
-                    modifier="Secondary"
+                    variant="Secondary"
                     title="Secondary Arrow"
                     icon="Arrow"
                 />
 
                 <pre>
                     {
-                        '<Button modifier="Secondary" title="Secondary External" icon="Download" />'
+                        '<Button variant="Secondary" title="Secondary External" icon="Download" />'
                     }
                 </pre>
                 <Button
-                    modifier="Secondary"
+                    variant="Secondary"
                     title="Secondary Download"
                     icon="Download"
                 />
@@ -131,60 +129,60 @@ const Buttons = ({}) => {
 
                 <pre>
                     {
-                        '<Button modifier="Tertiary" type="submit">Tertiary</Button>'
+                        '<Button variant="Tertiary" type="submit">Tertiary</Button>'
                     }
                 </pre>
-                <Button modifier="Tertiary" type="submit">
+                <Button variant="Tertiary" type="submit">
                     Tertiary
                 </Button>
 
                 <pre>
                     {
-                        '<Button modifier="Tertiary link" title="Tertiary" url="/url" />'
+                        '<Button variant="Tertiary link" title="Tertiary" url="/url" />'
                     }
                 </pre>
-                <Button modifier="Tertiary" title="Tertiary" url="/url" />
+                <Button variant="Tertiary" title="Tertiary" url="/url" />
 
                 <pre>
                     {
-                        '<Button modifier="Tertiary" title="Tertiary Disabled" disabled={true} aria-disabled={true} />'
+                        '<Button variant="Tertiary" title="Tertiary Disabled" disabled={true} aria-disabled={true} />'
                     }
                 </pre>
                 <Button
-                    modifier="Tertiary"
+                    variant="Tertiary"
                     title="Tertiary Disabled"
                     disabled={true}
                 />
 
                 <pre>
                     {
-                        '<Button modifier="Tertiary" title="Tertiary External" icon="External" />'
+                        '<Button variant="Tertiary" title="Tertiary External" icon="External" />'
                     }
                 </pre>
                 <Button
-                    modifier="Tertiary"
+                    variant="Tertiary"
                     title="Tertiary External"
                     icon="External"
                 />
 
                 <pre>
                     {
-                        '<Button modifier="Tertiary" title="Tertiary Arrow" icon="Arrow" />'
+                        '<Button variant="Tertiary" title="Tertiary Arrow" icon="Arrow" />'
                     }
                 </pre>
                 <Button
-                    modifier="Tertiary"
+                    variant="Tertiary"
                     title="Tertiary Arrow"
                     icon="Arrow"
                 />
 
                 <pre>
                     {
-                        '<Button modifier="Tertiary" title="Tertiary External" icon="Download" />'
+                        '<Button variant="Tertiary" title="Tertiary External" icon="Download" />'
                     }
                 </pre>
                 <Button
-                    modifier="Tertiary"
+                    variant="Tertiary"
                     title="Tertiary Download"
                     icon="Download"
                 />
@@ -193,18 +191,18 @@ const Buttons = ({}) => {
 
                 <pre>
                     {
-                        '<Button modifier="TextLink" title="TextLink" url="/url" />'
+                        '<Button variant="TextLink" title="TextLink" url="/url" />'
                     }
                 </pre>
-                <Button modifier="TextLink" title="TextLink" url="/url" />
+                <Button variant="TextLink" title="TextLink" url="/url" />
 
                 <pre>
                     {
-                        '<Button modifier="TextLink" title="TextLink Disabled" url="/url" disabled={true} aria-disabled={true} />'
+                        '<Button variant="TextLink" title="TextLink Disabled" url="/url" disabled={true} aria-disabled={true} />'
                     }
                 </pre>
                 <Button
-                    modifier="TextLink"
+                    variant="TextLink"
                     title="TextLink Disabled"
                     url="/url"
                     disabled={true}
@@ -212,11 +210,11 @@ const Buttons = ({}) => {
 
                 <pre>
                     {
-                        '<Button modifier="TextLink" title="TextLink External" url="/url" icon="External" />'
+                        '<Button variant="TextLink" title="TextLink External" url="/url" icon="External" />'
                     }
                 </pre>
                 <Button
-                    modifier="TextLink"
+                    variant="TextLink"
                     title="TextLink External"
                     url="/url"
                     icon="External"
@@ -224,11 +222,11 @@ const Buttons = ({}) => {
 
                 <pre>
                     {
-                        '<Button modifier="TextLink" title="TextLink Arrow" url="/url" icon="Arrow" />'
+                        '<Button variant="TextLink" title="TextLink Arrow" url="/url" icon="Arrow" />'
                     }
                 </pre>
                 <Button
-                    modifier="TextLink"
+                    variant="TextLink"
                     title="TextLink Arrow"
                     url="/url"
                     icon="Arrow"
@@ -236,11 +234,11 @@ const Buttons = ({}) => {
 
                 <pre>
                     {
-                        '<Button modifier="TextLink" title="TextLink Download" url="/url" icon="Download" />'
+                        '<Button variant="TextLink" title="TextLink Download" url="/url" icon="Download" />'
                     }
                 </pre>
                 <Button
-                    modifier="TextLink"
+                    variant="TextLink"
                     title="TextLink Download"
                     url="/url"
                     icon="Download"
@@ -251,22 +249,22 @@ const Buttons = ({}) => {
                 <div className="styleguide__bg styleguide__bg--purple">
                     <pre>
                         {
-                            '<Button modifier="TextLinkWhite" title="TextLinkWhite" url="/url" />'
+                            '<Button variant="TextLinkWhite" title="TextLinkWhite" url="/url" />'
                         }
                     </pre>
                     <Button
-                        modifier="TextLinkWhite"
+                        variant="TextLinkWhite"
                         title="TextLinkWhite"
                         url="/url"
                     />
 
                     <pre>
                         {
-                            '<Button modifier="TextLinkWhite" title="TextLinkWhite Disabled" url="/url" disabled={true} aria-disabled={true} />'
+                            '<Button variant="TextLinkWhite" title="TextLinkWhite Disabled" url="/url" disabled={true} aria-disabled={true} />'
                         }
                     </pre>
                     <Button
-                        modifier="TextLinkWhite"
+                        variant="TextLinkWhite"
                         title="TextLinkWhite Disabled"
                         url="/url"
                         disabled={true}
@@ -274,11 +272,11 @@ const Buttons = ({}) => {
 
                     <pre>
                         {
-                            '<Button modifier="TextLinkWhite" title="TextLinkWhite External" url="/url" icon="External" />'
+                            '<Button variant="TextLinkWhite" title="TextLinkWhite External" url="/url" icon="External" />'
                         }
                     </pre>
                     <Button
-                        modifier="TextLinkWhite"
+                        variant="TextLinkWhite"
                         title="TextLinkWhite External"
                         url="/url"
                         icon="External"
@@ -286,11 +284,11 @@ const Buttons = ({}) => {
 
                     <pre>
                         {
-                            '<Button modifier="TextLinkWhite" title="TextLinkWhite Arrow" url="/url" icon="Arrow" />'
+                            '<Button variant="TextLinkWhite" title="TextLinkWhite Arrow" url="/url" icon="Arrow" />'
                         }
                     </pre>
                     <Button
-                        modifier="TextLinkWhite"
+                        variant="TextLinkWhite"
                         title="TextLinkWhite Arrow"
                         url="/url"
                         icon="Arrow"
@@ -298,11 +296,11 @@ const Buttons = ({}) => {
 
                     <pre>
                         {
-                            '<Button modifier="TextLinkWhite" title="TextLinkWhite Download" url="/url" icon="Download" />'
+                            '<Button variant="TextLinkWhite" title="TextLinkWhite Download" url="/url" icon="Download" />'
                         }
                     </pre>
                     <Button
-                        modifier="TextLinkWhite"
+                        variant="TextLinkWhite"
                         title="TextLinkWhite Download"
                         url="/url"
                         icon="Download"

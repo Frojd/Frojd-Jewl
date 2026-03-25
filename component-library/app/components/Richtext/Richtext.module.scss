@@ -1,4 +1,5 @@
-@import '../../styles/includes';
+@use 'sass:math';
+@use '../../styles/includes' as *;
 
 .Root {
     ol,
@@ -94,8 +95,10 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: $base-color;
-            transition: background-color $transition;
+            background: currentcolor;
+            transition:
+                background-color $transition,
+                opacity $transition;
         }
 
         &::after {
@@ -109,19 +112,13 @@
             background-color: currentcolor;
             line-height: 1;
             mask-size: contain;
-            transition: background-image $transition;
+            transition:
+                background-image $transition,
+                opacity $transition;
         }
 
         &:hover {
             color: $link-color;
-
-            &::before {
-                background: $link-color;
-            }
-
-            &::after {
-                color: $link-color;
-            }
         }
 
         @include href-external {
@@ -246,13 +243,13 @@
         height: auto;
     }
 
-    :global .preamble {
+    :global(.preamble) {
         @include textstyle(preamble);
 
         margin: 24px 0;
     }
 
-    :global .embed {
+    :global(.embed) {
         position: relative;
         margin-top: 40px;
         margin-bottom: 40px;
@@ -262,7 +259,7 @@
             display: block;
             width: 100%;
             height: 0;
-            padding-bottom: percentage(9 / 16);
+            padding-bottom: math.percentage(math.div(9, 16));
         }
 
         iframe {
@@ -286,18 +283,18 @@
         iframe,
         figure,
         blockquote {
-            page-break-before: auto;
-            page-break-after: auto;
-            page-break-inside: avoid;
+            break-before: auto;
+            break-after: auto;
+            break-inside: avoid;
             display: block;
             position: relative;
         }
 
-        :global .preamble,
-        :global .embed {
-            page-break-before: auto;
-            page-break-after: auto;
-            page-break-inside: avoid;
+        :global(.preamble),
+        :global(.embed) {
+            break-before: auto;
+            break-after: auto;
+            break-inside: avoid;
             display: block;
             position: relative;
         }

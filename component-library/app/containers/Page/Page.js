@@ -4,6 +4,7 @@ import Base from '../../layouts/Base';
 import Image from '../../components/Image';
 import Richtext from '../../components/Richtext';
 import Submenu from '../../components/Submenu';
+
 import s from './Page.module.scss';
 
 const Page = ({ title = '', image = {}, content = {}, submenu = {} }) => {

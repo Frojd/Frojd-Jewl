@@ -1,4 +1,5 @@
-@import '../../styles/includes';
+@use 'sass:math';
+@use '../../styles/includes' as *;
 
 .Root {
     flex: 1 0 auto;
@@ -42,7 +43,7 @@
         display: block;
         width: 100%;
         height: 0;
-        padding-bottom: percentage(9 / 16);
+        padding-bottom: math.percentage(math.div(9, 16));
     }
 
     .Root--Full & {
@@ -75,14 +76,6 @@
     }
 }
 
-.Label {
-    @include textstyle(label-card);
-
-    flex: 0 0 auto;
-    margin-bottom: 8px;
-    color: $purple;
-}
-
 .Title {
     @include textstyle(card-title);
 
@@ -109,8 +102,4 @@
             margin-top: 0;
         }
     }
-}
-
-.Date {
-    @include textstyle(date);
 }

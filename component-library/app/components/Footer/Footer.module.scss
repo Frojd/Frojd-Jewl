@@ -1,4 +1,4 @@
-@import '../../styles/includes';
+@use '../../styles/includes' as *;
 
 .Root {
     color: white;
@@ -104,9 +104,24 @@
     }
 }
 
+.Richtext {
+    a {
+        color: inherit;
+
+        &:hover {
+            color: inherit;
+
+            &::after,
+            &::before {
+                opacity: 0;
+            }
+        }
+    }
+}
+
 .Footer {
     padding: 24px 0 40px;
-    border-top: 1px solid rgba(white, 0.15);
+    border-top: 1px solid rgb(white, 0.15);
 
     @include media(M) {
         padding: 24px 0;

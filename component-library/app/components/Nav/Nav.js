@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
@@ -234,7 +236,6 @@ const Item = (item) => {
         isExpanded = false,
         toggleExpanded = () => {},
         isActive = false,
-        isParentActive = false,
         className = null,
         itemActiveClassName = null,
         toggleClassName = null,
@@ -243,7 +244,7 @@ const Item = (item) => {
         linkIconClassName = null,
     } = item;
 
-    const listId = `${navId}-list`;
+    const listId = id ? `${navId}-${id}-list` : `${navId}-list`;
 
     const { t } = useTranslation();
 

@@ -1,6 +1,10 @@
 import {addDependency} from "nypm";
 
-export async function installNpmDependencies(dependencies: any, asDev = true, logger: any) {
+interface Logger {
+  log: (message: string) => void;
+}
+
+export async function installNpmDependencies(dependencies: Record<string, string>, asDev = true, logger: Logger) {
   for (const dep in dependencies) {
     if (Object.prototype.hasOwnProperty.call(dependencies, dep)) {
       logger.log("Ensuring " + dep + " is installed...")

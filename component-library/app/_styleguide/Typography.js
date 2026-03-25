@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Typography = ({}) => {
+const Typography = () => {
     return (
         <div className="styleguide">
             <div className="styleguide__wrap">

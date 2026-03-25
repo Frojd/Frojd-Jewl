@@ -1,8 +1,68 @@
-@import '../../styles/includes';
+@use 'sass:map';
+@use '../../styles/includes' as *;
 
 .Root {
+    margin-top: 48px;
+    margin-bottom: 48px;
+
+    @include media(ML) {
+        margin-top: 72px;
+        margin-bottom: 72px;
+    }
+}
+
+.Wrap {
+    @include wrap;
 }
 
 .Title {
     @include textstyle(page-title);
+}
+
+.Preamble {
+    @include textstyle(preamble);
+
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    @include media(ML) {
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+}
+
+.Layout {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include media(ML) {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 80px;
+    }
+}
+
+.Content {
+    flex: 1 1 50%;
+
+    @include media(ML) {
+        max-width: map.get($maxwidths, content);
+    }
+}
+
+.Button {
+    margin-top: calc(28px - 16px);
+    margin-bottom: 28px;
+
+    @include media(ML) {
+        margin-top: calc(40px - 24px);
+        margin-bottom: 40px;
+    }
+}
+
+.Featured {
+    position: relative;
+    flex: 1 1 50%;
+    width: 100%;
 }

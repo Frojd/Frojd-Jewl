@@ -1,4 +1,4 @@
-@import '../../styles/includes';
+@use '../../styles/includes' as *;
 
 .Root {
     color: $link-color;
@@ -72,7 +72,9 @@
         margin: auto;
         background: $primary-color;
         opacity: 1;
-        transition: opacity $transition, background $transition;
+        transition:
+            opacity $transition,
+            background $transition;
     }
 
     &::after {

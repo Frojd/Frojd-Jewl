@@ -1,4 +1,5 @@
-@import '../../styles/includes';
+@use 'sass:map';
+@use '../../styles/includes' as *;
 
 .Root {
 }
@@ -8,7 +9,7 @@
 }
 
 .HeaderWrap {
-    max-width: map-get($maxwidths, article);
+    max-width: map.get($maxwidths, article);
     margin: 40px auto 0;
 
     @include media(ML) {
@@ -17,13 +18,14 @@
 }
 
 .Header {
-    max-width: map-get($maxwidths, content);
+    max-width: map.get($maxwidths, content);
 }
 
 .Featured {
     position: relative;
     width: 100%;
-    margin-top: 32px;
+    max-width: map.get($maxwidths, article);
+    margin: 32px auto 0;
 
     @include media(ML) {
         margin-top: 48px;
@@ -33,12 +35,13 @@
 .Layout {
     display: flex;
     flex-direction: column;
-    max-width: map-get($maxwidths, article);
-    margin: 32px auto 0;
+    max-width: map.get($maxwidths, article);
+    margin: 32px auto 48px;
 
     @include media(ML) {
         flex-direction: row;
         margin-top: 48px;
+        margin-bottom: 72px;
     }
 }
 
@@ -47,15 +50,13 @@
     order: 1;
     width: 100%;
     margin-top: 24px;
-    margin-bottom: 48px;
 
     @include media(ML) {
         order: 0;
         width: calc(100% - 370px);
-        max-width: map-get($maxwidths, content);
+        max-width: map.get($maxwidths, content);
         margin-top: 0;
         margin-right: 40px;
-        margin-bottom: 72px;
     }
 }
 

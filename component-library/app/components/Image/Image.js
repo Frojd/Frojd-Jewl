@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import NextImage from 'next/image';
@@ -77,6 +77,7 @@ const Img = ({
         <NextImage
             className={s.Img}
             src={src}
+            overrideSrc={src}
             width={useCover ? undefined : width}
             height={useCover ? undefined : height}
             alt={alt}

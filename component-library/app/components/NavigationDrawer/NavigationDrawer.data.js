@@ -9,13 +9,13 @@ const children = (
             {...menu}
             label="Mobile menu"
             orientation="Vertical"
-            modifier="MobileMain"
+            variant="MobileMain"
         />
         <Nav
             {...menu}
             label="Mobile service menu"
             orientation="Vertical"
-            modifier="MobileService"
+            variant="MobileService"
         />
     </>
 );
