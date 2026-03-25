@@ -1,0 +1,21 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    display: block;
+    position: absolute;
+    transform: translateY(-62px);
+    width: 100%;
+    opacity: 0;
+
+    &:focus,
+    :global(#story-component-skip-to-content) & {
+        position: relative;
+        margin: 8px auto;
+        width: fit-content;
+        left: 0;
+        right: 0;
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 9999;
+    }
+}

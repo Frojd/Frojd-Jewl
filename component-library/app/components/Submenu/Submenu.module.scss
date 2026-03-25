@@ -1,0 +1,253 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-size: 1.4rem;
+    background: $purple-20;
+
+    @include media(ML) {
+        margin-bottom: 40px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        font-size: 1.6rem;
+    }
+}
+
+.Title {
+    display: none;
+    padding: 0 24px;
+    font-size: 1.4rem;
+    font-weight: $bold;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    @include media(ML) {
+        display: block;
+    }
+}
+
+.Button {
+    @include textstyle(submenu);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 56px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 0;
+    background: $purple-20;
+    box-shadow: none;
+    cursor: pointer;
+
+    @include media(ML) {
+        display: none;
+    }
+
+    svg:first-child {
+        margin-right: 12px;
+        fill: black;
+    }
+
+    svg:last-child {
+        margin-left: auto;
+        transform: rotate(90deg);
+        transition: transform 0.3s ease-in-out;
+
+        .Root--Expanded & {
+            transform: rotate(-90deg);
+        }
+    }
+
+    .Root--Expanded & {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    > i {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-left: auto;
+        color: $purple;
+        transform: rotate(0deg);
+        transition: transform $transition;
+
+        .Root--Expanded & {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+.Text {
+    @include textstyle(submenu-parent);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.Label {
+    color: $purple;
+    font-size: 0.8rem;
+    font-weight: $medium;
+    letter-spacing: 1.5px;
+    line-height: 1.26;
+    text-transform: uppercase;
+}
+
+.List {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $purple-20;
+
+    @include media(ML) {
+        display: block !important;
+        position: relative !important;
+        height: auto !important;
+        margin-top: 16px;
+    }
+}
+
+.Root .NavList {
+    position: relative;
+    margin-left: 0;
+    padding-left: 16px;
+
+    &::before {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: $purple-40;
+        z-index: 1;
+    }
+
+    .NavList {
+        margin-left: 8px;
+        padding-left: 0;
+
+        &::before {
+            display: inline-block;
+        }
+
+        .NavList {
+            margin-left: 0;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
+
+.Root .NavItem {
+    &::before {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: $purple;
+        z-index: 1;
+    }
+
+    &--Active {
+        &::before {
+            display: inline-block;
+        }
+    }
+}
+
+.Root .NavChild {
+    &--Active {
+        > .NavItem {
+            &::before {
+                display: inline-block;
+            }
+        }
+    }
+
+    .NavChild {
+        .NavItem {
+            padding-left: 12px;
+        }
+
+        .NavChild {
+            .NavItem {
+                padding-left: 12px + 18px;
+            }
+
+            .NavChild {
+                .NavItem {
+                    padding-left: 12px + (18px * 2);
+                }
+
+                .NavChild {
+                    .NavItem {
+                        padding-left: 12px + (18px * 3);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.Root .NavToggle {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    transition: background-color $transition;
+
+    &::before,
+    &::after {
+        width: 16px;
+    }
+
+    &:hover {
+        background: $purple-20;
+    }
+}
+
+.Root .NavLink {
+    @include textstyle(submenu-parent);
+
+    display: block;
+    padding: 14px 8px;
+    margin-right: 56px;
+    color: $base-color;
+    text-decoration: none;
+    transition: color $transition;
+
+    &:hover {
+        color: $purple;
+    }
+}
+
+.Root .NavChild .NavChild .NavLink {
+    @include textstyle(submenu-child);
+}
+
+.Root .NavChild .NavChild .NavChild .NavLink {
+    @include textstyle(submenu-sub-child);
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

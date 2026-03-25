@@ -1,0 +1,25 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    display: flex;
+    padding: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    background-color: $purple-20;
+
+    @include media(M) {
+        padding: 24px;
+    }
+
+    @include media(ML) {
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+}
+
+.Title {
+    @include textstyle(richtext-h4);
+}

@@ -1,0 +1,16 @@
+@use '../../styles/includes' as *;
+
+.Root {
+}
+
+.Title {
+    @include textstyle(form-label);
+
+    margin-bottom: 8px;
+}
+
+.Text {
+    @include textstyle(body-small);
+
+    margin-bottom: 8px;
+}

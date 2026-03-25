@@ -1,0 +1,38 @@
+@use '../../styles/includes' as *;
+
+.Root {
+}
+
+.Content {
+    background: $grey-10;
+    padding: 32px 64px 32px 24px;
+    animation: fadeIn ease-in-out 500ms both;
+}
+
+.Title {
+    @include textstyle(card-title);
+
+    margin-bottom: 16px;
+}
+
+.RichText {
+}
+
+.Button {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-top: 16px;
+    color: white;
+    text-decoration: none;
+    background: $primary-color;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

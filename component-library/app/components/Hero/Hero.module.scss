@@ -1,0 +1,57 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 754px;
+    padding: 0 16px 32px;
+
+    @include media(M) {
+        align-items: flex-start;
+        justify-content: center;
+        height: 697px;
+        padding: 0;
+    }
+}
+
+.Wrap {
+    @include wrap;
+
+    position: relative;
+
+    @include media(M) {
+        width: 100%;
+    }
+}
+
+.Content {
+    max-width: 725px;
+    background: $bg-color;
+    border: 1px solid $grey-20;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+
+    @include media(M) {
+        padding: 32px;
+    }
+}
+
+.Title {
+    @include textstyle(page-title);
+
+    margin-bottom: 24px;
+}
+
+.Preamble {
+    @include textstyle(preamble);
+
+    margin-bottom: 40px;
+}
+
+.Button {
+    align-self: flex-start;
+}

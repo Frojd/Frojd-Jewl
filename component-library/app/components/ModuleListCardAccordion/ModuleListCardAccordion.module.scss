@@ -1,0 +1,21 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    margin-top: 48px;
+    margin-bottom: 48px;
+
+    @include media(ML) {
+        margin-top: 72px;
+        margin-bottom: 72px;
+    }
+}
+
+.Wrap {
+    @include wrap;
+}
+
+.Title {
+    @include textstyle(module-title);
+
+    margin-bottom: 24px;
+}

@@ -1,0 +1,7 @@
+// Fonts should be loaded separately in .storybook/storybook.scss
+
+@use 'includes' as *;
+
+@use 'global/reset' as *;
+@use 'global/base' as *;
+@use 'global/fonts' as *;

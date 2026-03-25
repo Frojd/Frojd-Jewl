@@ -1,0 +1,17 @@
+@use '../../styles/includes' as *;
+
+.Wrap {
+    @include wrap;
+}
+
+.Title {
+    @include textstyle(page-title);
+
+    margin-bottom: 24px;
+}
+
+.Preamble {
+    @include textstyle(preamble);
+
+    margin-bottom: 40px;
+}

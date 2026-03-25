@@ -1,0 +1,129 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    color: white;
+    background: $primary-color;
+}
+
+.Wrap {
+    @include wrap;
+}
+
+.Columns {
+    display: grid;
+    gap: 40px;
+    padding: 48px 0 32px;
+
+    @include media(SL) {
+        gap: 24px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media(M) {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 64px 0 40px;
+    }
+
+    @include media(L) {
+        padding: 88px 0 56px;
+    }
+}
+
+.Column {
+}
+
+.LogoLink {
+    display: block;
+    position: relative;
+    width: 112px;
+    height: 33px;
+    overflow: hidden;
+
+    @include media(M) {
+        width: 129px;
+        height: 38px;
+    }
+}
+
+.Follow {
+    margin-top: 40px;
+}
+
+.Root .Nav {
+    margin-bottom: 8px;
+}
+
+.Root .NavList {
+    margin-left: -8px;
+}
+
+.Root .NavItem {
+    margin: 0;
+
+    @include media(M) {
+        margin: 4px 0;
+    }
+}
+
+.Root .NavServiceList {
+    margin-left: -16px;
+
+    @include media-max(M) {
+        flex-direction: column;
+        margin-left: -8px;
+    }
+}
+
+.Root .NavServiceItem {
+    margin: 0 8px;
+
+    @include media-max(M) {
+        margin: 0;
+        align-self: flex-start;
+    }
+}
+
+.Root .NavLink,
+.Root .NavServiceLink {
+    @include textstyle(body);
+
+    color: white;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.Title {
+    @include textstyle(footer-title);
+
+    margin-bottom: 16px;
+
+    @include media(M) {
+        margin-bottom: 20px;
+    }
+}
+
+.Richtext {
+    a {
+        color: inherit;
+
+        &:hover {
+            color: inherit;
+
+            &::after,
+            &::before {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.Footer {
+    padding: 24px 0 40px;
+    border-top: 1px solid rgb(white, 0.15);
+
+    @include media(M) {
+        padding: 24px 0;
+    }
+}

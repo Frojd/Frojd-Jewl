@@ -1,0 +1,302 @@
+@use 'sass:math';
+@use '../../styles/includes' as *;
+
+.Root {
+    ol,
+    ul,
+    figure,
+    blockquote {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 24px;
+        margin-bottom: 8px;
+
+        + p,
+        + ol,
+        + ul,
+        + h2,
+        + h3,
+        + h4,
+        + h5,
+        + h6 {
+            margin-top: 8px;
+        }
+    }
+
+    p {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    > :first-child {
+        margin-top: 0 !important;
+    }
+
+    > :last-child {
+        margin-bottom: 0 !important;
+    }
+
+    h1,
+    h2 {
+        @include textstyle(richtext-h2);
+    }
+
+    h3 {
+        @include textstyle(richtext-h3);
+    }
+
+    h4 {
+        @include textstyle(richtext-h4);
+    }
+
+    h5 {
+        @include textstyle(richtext-h5);
+    }
+
+    h6 {
+        @include textstyle(richtext-h6);
+    }
+
+    p,
+    ul,
+    ol {
+        @include textstyle(paragraph);
+    }
+
+    i,
+    em {
+        font-style: italic;
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
+
+    a {
+        position: relative;
+        color: $base-color;
+        display: inline-block;
+        text-decoration: none;
+        transition: color $transition;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: currentcolor;
+            transition:
+                background-color $transition,
+                opacity $transition;
+        }
+
+        &::after {
+            content: '';
+            display: none;
+            position: relative;
+            top: 6px;
+            width: 24px;
+            height: 24px;
+            margin-left: 6px;
+            background-color: currentcolor;
+            line-height: 1;
+            mask-size: contain;
+            transition:
+                background-image $transition,
+                opacity $transition;
+        }
+
+        &:hover {
+            color: $link-color;
+        }
+
+        @include href-external {
+            &::after {
+                display: inline-block;
+                mask-image: url('../Icon/img/external.svg');
+            }
+        }
+
+        @include href-download {
+            &::after {
+                display: inline-block;
+                mask-image: url('../Icon/img/download.svg') !important;
+            }
+        }
+
+        @media print {
+            &::after {
+                content: ' [' attr(href) '] ' !important;
+                position: relative !important;
+                display: inline !important;
+                top: auto !important;
+                bottom: auto !important;
+                left: auto !important;
+                right: auto !important;
+                color: $base-color !important;
+                background: none !important;
+                opacity: 1 !important;
+            }
+        }
+    }
+
+    ul,
+    ol {
+        padding-left: 32px;
+
+        li {
+            position: relative;
+            margin-bottom: 12px;
+            padding-left: 11px;
+
+            &::marker {
+                color: $primary-color;
+                font-weight: $bold;
+            }
+        }
+    }
+
+    ul {
+        list-style-type: none;
+
+        li {
+            &::before {
+                content: '';
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: -24px;
+                background-color: $purple;
+                mask-image: url('../Icon/img/bullet.svg');
+            }
+        }
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    blockquote {
+        @include textstyle(quote);
+
+        position: relative;
+        padding-top: 56px;
+        text-align: center;
+
+        &::before {
+            content: '“';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            margin: auto;
+            color: $primary-color;
+            font-size: 120px;
+            line-height: 110px;
+        }
+
+        cite {
+            @include textstyle(cite);
+
+            margin-top: 24px;
+            display: block;
+            font-weight: $regular;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    figure {
+        width: 100%;
+
+        img {
+            display: block;
+        }
+    }
+
+    figcaption {
+        @include textstyle(caption);
+
+        margin-top: 8px;
+    }
+
+    iframe {
+        max-width: 100%;
+        height: auto;
+    }
+
+    :global(.preamble) {
+        @include textstyle(preamble);
+
+        margin: 24px 0;
+    }
+
+    :global(.embed) {
+        position: relative;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 0;
+            padding-bottom: math.percentage(math.div(9, 16));
+        }
+
+        iframe {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @media print {
+        p,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        img,
+        iframe,
+        figure,
+        blockquote {
+            break-before: auto;
+            break-after: auto;
+            break-inside: avoid;
+            display: block;
+            position: relative;
+        }
+
+        :global(.preamble),
+        :global(.embed) {
+            break-before: auto;
+            break-after: auto;
+            break-inside: avoid;
+            display: block;
+            position: relative;
+        }
+    }
+}

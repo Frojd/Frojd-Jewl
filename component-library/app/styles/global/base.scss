@@ -1,0 +1,53 @@
+@use '../includes/variables' as *;
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgb(black, 0);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    color: $base-color;
+    font-size: $base-size;
+    font-family: $base-font;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    background: $bg-color;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a,
+button,
+input,
+textarea,
+select {
+    font-family: $base-font;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+// Stolen with pride from bootstrap
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    border: 0;
+}

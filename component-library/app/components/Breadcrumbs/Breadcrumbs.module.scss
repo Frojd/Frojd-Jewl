@@ -1,0 +1,108 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    border-bottom: 1px solid $purple-20;
+    background: $grey-5;
+}
+
+.Wrap {
+    @include wrap;
+}
+
+.Nav {
+    position: relative;
+    width: 100%;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 24px;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            rgba($grey-5, 0) 0%,
+            rgba($grey-5, 1) 96%
+        );
+    }
+}
+
+.List {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    width: 100%;
+    margin-left: -4px;
+    margin-right: -4px;
+    padding-top: 4px;
+    padding-bottom: 3px;
+    padding-right: 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.Item {
+    flex: 0 0 auto;
+    position: relative;
+
+    > i {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 12px;
+        height: 12px;
+        color: $grey-90;
+        transform: rotate(-90deg);
+    }
+
+    &:not(:first-child) {
+        padding-left: 12px;
+    }
+}
+
+.Link {
+    @include textstyle(breadcrumb);
+
+    display: inline-block;
+    position: relative;
+    padding: 4px;
+    color: $grey-90;
+    text-decoration: none;
+    transition: color $transition;
+
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        bottom: 4px;
+        left: 4px;
+        right: 4px;
+        height: 1px;
+        background: $grey-70;
+        opacity: 1;
+        transition: opacity $transition;
+    }
+
+    &[aria-current] {
+        color: $grey-70;
+    }
+
+    &:hover::after,
+    &[aria-current]::after {
+        opacity: 0;
+    }
+
+    @include media(M) {
+        font-size: 1.4rem;
+    }
+}

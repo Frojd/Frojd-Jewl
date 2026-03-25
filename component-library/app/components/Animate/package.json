@@ -1,0 +1,11 @@
+{
+  "name": "Animate",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "*",
+    "prop-types": "*",
+    "classnames": "*",
+    "framer-motion": "*"
+  },
+  "jewlDependencies": []
+}

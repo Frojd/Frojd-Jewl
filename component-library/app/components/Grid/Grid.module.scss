@@ -1,0 +1,61 @@
+@use 'sass:math';
+@use '../../styles/includes' as *;
+
+.Root {
+}
+
+.List {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -#{$gutter};
+    margin-bottom: -#{$gutter};
+
+    @include media(M) {
+        margin-left: -#{$gutterM};
+        margin-bottom: -#{$gutterM};
+    }
+}
+
+.Item {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - #{$gutter});
+    margin-left: #{$gutter};
+    margin-bottom: #{$gutter};
+
+    @include media(M) {
+        margin-left: #{$gutterM};
+        margin-bottom: #{$gutterM};
+    }
+
+    &--Half {
+        @include media(M) {
+            width: calc(50% - #{$gutterM});
+        }
+    }
+
+    &--Third {
+        @include media(M) {
+            width: calc(50% - #{$gutterM});
+        }
+
+        @include media(ML) {
+            width: calc(#{math.percentage(math.div(1, 3))} - #{$gutterM});
+        }
+    }
+
+    &--Fourth {
+        @include media(M) {
+            width: calc(50% - #{$gutterM});
+        }
+
+        @include media(ML) {
+            width: calc(#{math.percentage(math.div(1, 3))} - #{$gutterM});
+        }
+
+        @include media(L) {
+            width: calc(25% - #{$gutterM});
+        }
+    }
+}

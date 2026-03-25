@@ -1,0 +1,11 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    $root: &;
+
+    &--UpDown {
+        overflow: hidden;
+        transform: none !important;
+        transform-origin: 50% 50% 0 !important;
+    }
+}

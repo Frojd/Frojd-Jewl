@@ -1,0 +1,74 @@
+@use '../../styles/includes' as *;
+
+.Root {
+    position: relative;
+}
+
+.Navigation {
+    position: fixed;
+    top: (40px + 72px);
+    right: 0;
+    width: 100vw;
+    height: calc(100vh - (40px + 72px));
+    overflow: auto;
+    z-index: 1;
+}
+
+.Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+    background: $purple-20;
+    box-shadow: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.Hamburger,
+.Close {
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: $primary-color;
+    transition: opacity $transition;
+}
+
+.Hamburger {
+    .Root--Closed & {
+        opacity: 1;
+    }
+
+    .Root--Open & {
+        opacity: 0;
+    }
+}
+
+.Close {
+    .Root--Closed & {
+        opacity: 0;
+    }
+
+    .Root--Open & {
+        opacity: 1;
+    }
+}
+
+.Content {
+    height: 100%;
+    padding: 32px 0;
+    margin-bottom: 32px;
+    color: $base-color;
+    background: white;
+}
+
+.Wrap {
+    @include wrap;
+}

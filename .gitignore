@@ -1,0 +1,14 @@
+cli/bin/jewlconfig.json
+cli/bin/.jewl-repo
+
+# VS Code
+.vscode
+.idea
+
+# Temp
+tmp/
+
+# misc
+.DS_Store
+
+*.log
