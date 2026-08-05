@@ -96,7 +96,7 @@
     "framer-motion": "^12.35.0",
     "i18next": "^25.8.14",
     "local-storage": "^2.0.0",
-    "next": "^16.1.6",
+    "next": "^16.3.0",
     "next-i18next": "^15.4.3",
     "prop-types": "^15.8.1",
     "react": "^19.2.4",
