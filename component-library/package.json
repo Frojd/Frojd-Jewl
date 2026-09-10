@@ -96,13 +96,13 @@
     "framer-motion": "^12.35.0",
     "i18next": "^25.8.14",
     "local-storage": "^2.0.0",
-    "next": "^16.1.6",
+    "next": "^16.3.4",
     "next-i18next": "^15.4.3",
     "prop-types": "^15.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-i18next": "^16.5.8",
     "sass": "^1.97.3",
-    "sharp": "^0.34.5"
+    "sharp": "^0.35.4"
   }
 }
